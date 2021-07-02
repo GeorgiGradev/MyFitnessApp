@@ -6,5 +6,6 @@ namespace MyFitnessApp.Data.Models
 {
     public class Food
     {
+        public string Test1 { get; set; }
     }
 }
