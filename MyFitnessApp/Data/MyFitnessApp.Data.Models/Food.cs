@@ -9,5 +9,7 @@ namespace MyFitnessApp.Data.Models
         public string Test1 { get; set; }
 
         public int Test2 { get; set; }
+
+        public bool Test3 { get; set; }
     }
 }
