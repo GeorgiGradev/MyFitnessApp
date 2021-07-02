@@ -6,11 +6,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    using MyFitnessApp.Data.Common.Models;
-    using MyFitnessApp.Data.Models;
-
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using MyFitnessApp.Data.Common.Models;
+    using MyFitnessApp.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -23,8 +22,6 @@
             : base(options)
         {
         }
-
-        public DbSet<Setting> Settings { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

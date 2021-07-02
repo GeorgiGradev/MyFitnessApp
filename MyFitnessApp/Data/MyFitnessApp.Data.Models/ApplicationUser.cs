@@ -4,9 +4,8 @@ namespace MyFitnessApp.Data.Models
     using System;
     using System.Collections.Generic;
 
-    using MyFitnessApp.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using MyFitnessApp.Data.Common.Models;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {

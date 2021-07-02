@@ -2,17 +2,6 @@
 {
     using System.Reflection;
 
-    using MyFitnessApp.Data;
-    using MyFitnessApp.Data.Common;
-    using MyFitnessApp.Data.Common.Repositories;
-    using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Data.Repositories;
-    using MyFitnessApp.Data.Seeding;
-    using MyFitnessApp.Services.Data;
-    using MyFitnessApp.Services.Mapping;
-    using MyFitnessApp.Services.Messaging;
-    using MyFitnessApp.Web.ViewModels;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -21,6 +10,15 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using MyFitnessApp.Data;
+    using MyFitnessApp.Data.Common;
+    using MyFitnessApp.Data.Common.Repositories;
+    using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Data.Repositories;
+    using MyFitnessApp.Data.Seeding;
+    using MyFitnessApp.Services.Mapping;
+    using MyFitnessApp.Services.Messaging;
+    using MyFitnessApp.Web.ViewModels;
 
     public class Startup
     {
@@ -64,7 +62,6 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,9 +3,8 @@ namespace MyFitnessApp.Data.Models
 {
     using System;
 
-    using MyFitnessApp.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using MyFitnessApp.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {
