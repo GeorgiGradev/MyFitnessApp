@@ -335,10 +335,7 @@ namespace MyFitnessApp.Data.Migrations
                     b.Property<TimeSpan>("DurationInMinutes")
                         .HasColumnType("time");
 
-                    b.Property<string>("EquipmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("EquipmentId1")
+                    b.Property<int>("EquipmentId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ExerciseCategoryId")
@@ -373,7 +370,7 @@ namespace MyFitnessApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EquipmentId1");
+                    b.HasIndex("EquipmentId");
 
                     b.HasIndex("ExerciseCategoryId");
 
@@ -788,7 +785,9 @@ namespace MyFitnessApp.Data.Migrations
                 {
                     b.HasOne("MyFitnessApp.Data.Models.Equipment", "Equipment")
                         .WithMany("Exercises")
-                        .HasForeignKey("EquipmentId1");
+                        .HasForeignKey("EquipmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MyFitnessApp.Data.Models.ExerciseCategory", null)
                         .WithMany("Exercises")

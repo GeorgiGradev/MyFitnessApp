@@ -10,8 +10,8 @@ using MyFitnessApp.Data;
 namespace MyFitnessApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210704175416_InitialDataBaseCreated")]
-    partial class InitialDataBaseCreated
+    [Migration("20210704185315_InitialDataBaseCreation")]
+    partial class InitialDataBaseCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -337,10 +337,7 @@ namespace MyFitnessApp.Data.Migrations
                     b.Property<TimeSpan>("DurationInMinutes")
                         .HasColumnType("time");
 
-                    b.Property<string>("EquipmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("EquipmentId1")
+                    b.Property<int>("EquipmentId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ExerciseCategoryId")
@@ -375,7 +372,7 @@ namespace MyFitnessApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EquipmentId1");
+                    b.HasIndex("EquipmentId");
 
                     b.HasIndex("ExerciseCategoryId");
 
@@ -790,7 +787,9 @@ namespace MyFitnessApp.Data.Migrations
                 {
                     b.HasOne("MyFitnessApp.Data.Models.Equipment", "Equipment")
                         .WithMany("Exercises")
-                        .HasForeignKey("EquipmentId1");
+                        .HasForeignKey("EquipmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MyFitnessApp.Data.Models.ExerciseCategory", null)
                         .WithMany("Exercises")

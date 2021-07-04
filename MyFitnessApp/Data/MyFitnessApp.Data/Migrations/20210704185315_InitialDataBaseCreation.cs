@@ -1,10 +1,9 @@
-﻿namespace MyFitnessApp.Data.Migrations
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace MyFitnessApp.Data.Migrations
 {
-    using System;
-
-    using Microsoft.EntityFrameworkCore.Migrations;
-
-    public partial class InitialDataBaseCreated : Migration
+    public partial class InitialDataBaseCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -299,8 +298,7 @@
                     Difficulty = table.Column<int>(type: "int", nullable: false),
                     DurationInMinutes = table.Column<TimeSpan>(type: "time", nullable: false),
                     CaloriesBurned = table.Column<double>(type: "float", nullable: false),
-                    EquipmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EquipmentId1 = table.Column<int>(type: "int", nullable: true),
+                    EquipmentId = table.Column<int>(type: "int", nullable: false),
                     TrainingDayId = table.Column<int>(type: "int", nullable: false),
                     ExerciseCategoryId = table.Column<int>(type: "int", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -312,8 +310,8 @@
                 {
                     table.PrimaryKey("PK_Exercises", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Exercises_Equipment_EquipmentId1",
-                        column: x => x.EquipmentId1,
+                        name: "FK_Exercises_Equipment_EquipmentId",
+                        column: x => x.EquipmentId,
                         principalTable: "Equipment",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -414,9 +412,9 @@
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Exercises_EquipmentId1",
+                name: "IX_Exercises_EquipmentId",
                 table: "Exercises",
-                column: "EquipmentId1");
+                column: "EquipmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exercises_ExerciseCategoryId",

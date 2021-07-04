@@ -35,7 +35,7 @@
 
         public double CaloriesBurned { get; set; }
 
-        public string EquipmentId { get; set; }
+        public int EquipmentId { get; set; }
 
         public virtual Equipment Equipment { get; set; }
 
