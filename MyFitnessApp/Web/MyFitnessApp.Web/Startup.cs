@@ -16,6 +16,7 @@
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Data.Repositories;
     using MyFitnessApp.Data.Seeding;
+    using MyFitnessApp.Services.Data;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Services.Messaging;
     using MyFitnessApp.Web.ViewModels;
@@ -62,6 +63,7 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<ISettingsService, SettingsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

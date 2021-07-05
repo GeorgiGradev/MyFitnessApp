@@ -10,8 +10,8 @@ using MyFitnessApp.Data;
 namespace MyFitnessApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210704185315_InitialDataBaseCreation")]
-    partial class InitialDataBaseCreation
+    [Migration("20210705105251_UserAllRequiredFieldsRemoved")]
+    partial class UserAllRequiredFieldsRemoved
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -174,11 +174,11 @@ namespace MyFitnessApp.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("ActivityLevel")
+                    b.Property<int?>("ActivityLevel")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("Age")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -187,16 +187,16 @@ namespace MyFitnessApp.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("CurrentWeight")
+                    b.Property<double?>("CurrentWeight")
                         .HasColumnType("float");
 
-                    b.Property<double>("DailyCarbohydratesIntakeGoal")
+                    b.Property<double?>("DailyCarbohydratesIntakeGoal")
                         .HasColumnType("float");
 
-                    b.Property<double>("DailyFatIntakeGoal")
+                    b.Property<double?>("DailyFatIntakeGoal")
                         .HasColumnType("float");
 
-                    b.Property<double>("DailyProteinIntakeGoal")
+                    b.Property<double?>("DailyProteinIntakeGoal")
                         .HasColumnType("float");
 
                     b.Property<DateTime?>("DeletedOn")
@@ -210,24 +210,22 @@ namespace MyFitnessApp.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("Gender")
+                    b.Property<int?>("Gender")
                         .HasColumnType("int");
 
-                    b.Property<double>("GoalWeight")
+                    b.Property<double?>("GoalWeight")
                         .HasColumnType("float");
 
-                    b.Property<double>("HeightInCentimeters")
+                    b.Property<double?>("HeightInCentimeters")
                         .HasColumnType("float");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
@@ -659,6 +657,38 @@ namespace MyFitnessApp.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Meals");
+                });
+
+            modelBuilder.Entity("MyFitnessApp.Data.Models.Setting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Settings");
                 });
 
             modelBuilder.Entity("MyFitnessApp.Data.Models.TrainingDay", b =>

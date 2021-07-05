@@ -3,20 +3,22 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyFitnessApp.Data;
 
 namespace MyFitnessApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210705100900_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.7")
+                .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -172,11 +174,11 @@ namespace MyFitnessApp.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ActivityLevel")
+                    b.Property<int>("ActivityLevel")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Age")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -185,16 +187,16 @@ namespace MyFitnessApp.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<double?>("CurrentWeight")
+                    b.Property<double>("CurrentWeight")
                         .HasColumnType("float");
 
-                    b.Property<double?>("DailyCarbohydratesIntakeGoal")
+                    b.Property<double>("DailyCarbohydratesIntakeGoal")
                         .HasColumnType("float");
 
-                    b.Property<double?>("DailyFatIntakeGoal")
+                    b.Property<double>("DailyFatIntakeGoal")
                         .HasColumnType("float");
 
-                    b.Property<double?>("DailyProteinIntakeGoal")
+                    b.Property<double>("DailyProteinIntakeGoal")
                         .HasColumnType("float");
 
                     b.Property<DateTime?>("DeletedOn")
@@ -208,22 +210,24 @@ namespace MyFitnessApp.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int?>("Gender")
+                    b.Property<int>("Gender")
                         .HasColumnType("int");
 
-                    b.Property<double?>("GoalWeight")
+                    b.Property<double>("GoalWeight")
                         .HasColumnType("float");
 
-                    b.Property<double?>("HeightInCentimeters")
+                    b.Property<double>("HeightInCentimeters")
                         .HasColumnType("float");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 

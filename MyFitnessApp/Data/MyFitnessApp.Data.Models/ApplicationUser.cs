@@ -23,33 +23,31 @@
             this.UserImages = new HashSet<UserImage>();
         }
 
-        [Required]
         [MaxLength(20)]
         public string FirstName { get; set; }
 
-        [Required]
         [MaxLength(20)]
         public string LastName { get; set; }
 
-        public DateTime? BirthDate { get; set; }
+        public int? Age { get; set; }
 
-        public Gender Gender { get; set; }
+        public Gender? Gender { get; set; }
 
-        public double HeightInCentimeters { get; set; }
+        public double? HeightInCentimeters { get; set; }
 
-        public double CurrentWeight { get; set; }
+        public double? CurrentWeight { get; set; }
 
-        public double GoalWeight { get; set; }
+        public double? GoalWeight { get; set; }
 
-        public ActivityLevel ActivityLevel { get; set; }
+        public ActivityLevel? ActivityLevel { get; set; }
 
-        public double DailyProteinIntakeGoal { get; set; }
+        public double? DailyProteinIntakeGoal { get; set; }
 
-        public double DailyCarbohydratesIntakeGoal { get; set; }
+        public double? DailyCarbohydratesIntakeGoal { get; set; }
 
-        public double DailyFatIntakeGoal { get; set; }
+        public double? DailyFatIntakeGoal { get; set; }
 
-        public double CalculatedDailyCaloriesIntakeGoal => (this.DailyProteinIntakeGoal * 4) + (this.DailyCarbohydratesIntakeGoal * 4) + (this.DailyFatIntakeGoal * 9);
+        public double? CalculatedDailyCaloriesIntakeGoal => (this.DailyProteinIntakeGoal * 4) + (this.DailyCarbohydratesIntakeGoal * 4) + (this.DailyFatIntakeGoal * 9);
 
         // Audit info
         public DateTime CreatedOn { get; set; }
