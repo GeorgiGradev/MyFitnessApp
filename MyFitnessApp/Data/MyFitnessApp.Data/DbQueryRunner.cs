@@ -3,9 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
-    using MyFitnessApp.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using MyFitnessApp.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {

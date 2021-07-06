@@ -1,8 +1,8 @@
 ﻿namespace MyFitnessApp.Data.Configurations
 {
-    using MyFitnessApp.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using MyFitnessApp.Data.Models;
 
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

@@ -5,6 +5,11 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using CommandLine;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
     using MyFitnessApp.Data;
     using MyFitnessApp.Data.Common;
     using MyFitnessApp.Data.Common.Repositories;
@@ -12,13 +17,6 @@
     using MyFitnessApp.Data.Repositories;
     using MyFitnessApp.Data.Seeding;
     using MyFitnessApp.Services.Messaging;
-
-    using CommandLine;
-
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
 
     public static class Program
     {
