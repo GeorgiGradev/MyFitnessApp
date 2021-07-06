@@ -5,19 +5,20 @@
     using System.IO;
     using System.Threading.Tasks;
 
-    using CommandLine;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
     using MyFitnessApp.Data;
     using MyFitnessApp.Data.Common;
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Data.Repositories;
     using MyFitnessApp.Data.Seeding;
-    using MyFitnessApp.Services.Data;
     using MyFitnessApp.Services.Messaging;
+
+    using CommandLine;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
 
     public static class Program
     {
@@ -50,9 +51,6 @@
         {
             var sw = Stopwatch.StartNew();
 
-            var settingsService = serviceProvider.GetService<ISettingsService>();
-            Console.WriteLine($"Count of settings: {settingsService.GetCount()}");
-
             Console.WriteLine(sw.Elapsed);
             return await Task.FromResult(0);
         }
@@ -79,7 +77,6 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
         }
     }
 }

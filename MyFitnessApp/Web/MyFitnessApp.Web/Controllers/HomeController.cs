@@ -2,8 +2,9 @@
 {
     using System.Diagnostics;
 
-    using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Web.ViewModels;
+
+    using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {

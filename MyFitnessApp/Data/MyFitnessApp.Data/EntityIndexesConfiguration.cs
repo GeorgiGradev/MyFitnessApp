@@ -2,8 +2,9 @@
 {
     using System.Linq;
 
-    using Microsoft.EntityFrameworkCore;
     using MyFitnessApp.Data.Common.Models;
+
+    using Microsoft.EntityFrameworkCore;
 
     internal static class EntityIndexesConfiguration
     {

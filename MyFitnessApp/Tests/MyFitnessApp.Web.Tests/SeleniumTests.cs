@@ -5,6 +5,7 @@
 
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
+
     using Xunit;
 
     public class SeleniumTests : IClassFixture<SeleniumServerFactory<Startup>>, IDisposable
