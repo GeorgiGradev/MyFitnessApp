@@ -19,33 +19,116 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="MyGoals">MyGoals</a>
-                        </li>
-                        <li class="nav-item">
+                    <div class="navbar-nav flex-grow-1">
+
+                        <div class="dropdown">
+                            <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
+                                My Home
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Home</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Goals</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Check-In</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My profile</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Following</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Followers</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
+                                Exercise
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Add new exercise</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">All exercises</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My exercises</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Exercise Diary</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
+                                Food
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Add new food</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">All foods</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My foods</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Food diary</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="btn btn" type="button" id=""  aria-haspopup="true" aria-expanded="false">
+                                Reports
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Charts</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Export Data</a>
+                            </div>
+                        </div>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn" type="button" id=""  aria-haspopup="true" aria-expanded="false">
+                                Community
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Find member</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Invite friends</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
+                                Blog
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">All articles</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Recipes</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Nutrition</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Weight loss</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Fitness</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Inspiration</a>
+                            </div>
+                        </div>
+
+
+                        <div class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                        </div>
+
+                        <div class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Terms</a>
+                        </div>
+
+                        <div class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    
+
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @this.RenderBody()
         </main>
     </div>
-    
+
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Terms </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
         </div>
+
+
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
