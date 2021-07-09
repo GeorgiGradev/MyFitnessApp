@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
-    public class FoodsController : Controller
+    public class BlogController : Controller
     {
     }
 }
