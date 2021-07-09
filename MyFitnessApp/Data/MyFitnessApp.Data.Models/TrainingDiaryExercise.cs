@@ -7,6 +7,7 @@
 
     using static MyFitnessApp.Common.DataConstants;
 
+    // Mapping table between Exercise & TraiingDiary
     public class TrainingDiaryExercise : BaseDeletableModel<int>
     {
         public int ExerciseId { get; set; }
