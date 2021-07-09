@@ -1,4 +1,4 @@
-namespace MyFitnessApp.Web.Views.Users
+﻿namespace MyFitnessApp.Web.Views.Users
 {
     using System;
     using System.Collections.Generic;

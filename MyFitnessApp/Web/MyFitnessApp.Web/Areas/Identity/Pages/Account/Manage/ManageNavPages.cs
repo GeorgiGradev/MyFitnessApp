@@ -1,11 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace MyFitnessApp.Web.Areas.Identity.Pages.Account.Manage
+﻿namespace MyFitnessApp.Web.Areas.Identity.Pages.Account.Manage
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Mvc.Rendering;
+
     public static class ManageNavPages
     {
         public static string Index => "Index";

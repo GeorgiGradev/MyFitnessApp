@@ -1,6 +1,6 @@
 ﻿namespace MyFitnessApp.Data.Models
 {
-    public enum CategoryName
+    public enum ExerciseCategory
     {
         Traps = 1,
         Shoulders = 2,

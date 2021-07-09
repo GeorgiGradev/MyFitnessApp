@@ -5,20 +5,21 @@
 
     using MyFitnessApp.Data.Common.Models;
 
-    public class TrainingDay : BaseDeletableModel<int>
+    public class FoodDiary : BaseDeletableModel<int>
     {
-        public TrainingDay()
+        public FoodDiary()
         {
-            this.Exercises = new HashSet<Exercise>();
+            this.Meals = new HashSet<Meal>();
         }
 
-        public DayOfWeek Name { get; set; }
+        // Dropdown Menu
+        public DayOfWeek DayOfWeekName { get; set; }
 
         [Required]
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 
-        public virtual ICollection<Exercise> Exercises { get; set; }
+        public virtual ICollection<Meal> Meals { get; set; }
     }
 }

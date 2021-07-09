@@ -14,9 +14,9 @@
         // Dropdown Menu
         public MealName Name { get; set; }
 
-        public int FoodDiaryDayId { get; set; }
+        public int FoodDiaryId { get; set; }
 
-        public virtual FoodDiaryDay FoodDiaryDay { get; set; }
+        public virtual FoodDiary FoodDiary { get; set; }
 
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
     }

@@ -5,52 +5,68 @@
 
     using MyFitnessApp.Data.Common.Models;
 
+    using static MyFitnessApp.Common.DataConstants;
+
     public class Food : BaseDeletableModel<int>
     {
         public Food()
         {
-            this.FoodImages = new HashSet<FoodImage>();
             this.FoodMeals = new HashSet<FoodMeal>();
         }
 
         [Required]
-        [MaxLength(30)]
+        [MaxLength(FoodNameMaxLength)]
         public string Name { get; set; }
 
-        public double Protein { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double ProteinInGrams { get; set; }
 
-        public double Carbohydrates { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double CarbohydratesInGrams { get; set; }
 
-        public double Fat { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double FatInGrams { get; set; }
 
-        public double CalculatedTotalCalories => (this.Protein * 4) + (this.Carbohydrates * 4) + (this.Fat * 9);
+        public double CalculatedTotalCalories => (this.ProteinInGrams * 4) + (this.CarbohydratesInGrams * 4) + (this.FatInGrams * 9);
 
-        public double Sugars { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double SugarsInGrams { get; set; }
 
-        public double DietaryFiber { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double FiberInGrams { get; set; }
 
-        public double Salt { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double CholesterolInMg { get; set; }
 
-        public double Cholesterol { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double SoduimInMg { get; set; }
 
-        public double Soduim { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double PotasiumInMg { get; set; }
 
-        public double Potasium { get; set; }
+        [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+        public double VitaminAInPercents { get; set; }
 
-        public double VitaminA { get; set; }
+        [Range(FoodNutritionInPercentsMinValue, FoodNutritionInPercentsMaxValue)]
+        public double VitaminCInPercents { get; set; }
 
-        public double VitaminC { get; set; }
+        [Range(FoodNutritionInPercentsMinValue, FoodNutritionInPercentsMaxValue)]
+        public double CalciumInPercents { get; set; }
 
-        public double Calcium { get; set; }
+        [Range(FoodNutritionInPercentsMinValue, FoodNutritionInPercentsMaxValue)]
+        public double IronInPercents { get; set; }
 
-        public double Iron { get; set; }
+        [Range(FoodQuantityInGramsMinValue, FoodQuantityInGramsMaxValue)]
+        public double ServingSizeInGrams { get; set; }
+
+        [Required]
+        [Url]
+        public string ImageUrl { get; set; }
 
         [Required]
         public string AddedByUserId { get; set; }
 
         public virtual ApplicationUser AddedByUser { get; set; }
-
-        public virtual ICollection<FoodImage> FoodImages { get; set; }
 
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
     }

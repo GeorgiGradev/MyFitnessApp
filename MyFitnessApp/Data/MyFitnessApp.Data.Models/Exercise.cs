@@ -6,43 +6,45 @@
 
     using MyFitnessApp.Data.Common.Models;
 
+    using static MyFitnessApp.Common.DataConstants;
+
     public class Exercise : BaseDeletableModel<int>
     {
         public Exercise()
         {
-            this.Images = new HashSet<ExerciseImage>();
+            this.TrainingDiaryExercises = new HashSet<TrainingDiaryExercise>();
         }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(ExerciseNameMaxLength)]
         public string Name { get; set; }
 
-        [MaxLength(200)]
+        [Required]
+        [MaxLength(ExerciseDescriptionMaxLength)]
         public string Description { get; set; }
 
-        [MaxLength(500)]
-        public string Instructions { get; set; }
-
-        public int Repetitions { get; set; }
-
-        public int Sets { get; set; }
-
-        public double Weight { get; set; }
-
+        // Dropdown Menu
         public ExerciseDifficulty Difficulty { get; set; }
 
-        public TimeSpan DurationInMinutes { get; set; }
+        // Dropdown Menu
+        public ExerciseCategory Category { get; set; }
 
-        public double CaloriesBurned { get; set; }
+        // Dropdown Menu
+        public ExerciseEquipment Equipment { get; set; }
 
-        public int EquipmentId { get; set; }
+        [Required]
+        [Url]
+        public string ImageUrl { get; set; }
 
-        public virtual Equipment Equipment { get; set; }
+        [Required]
+        [Url]
+        public string VideoUrl { get; set; }
 
-        public int TrainingDayId { get; set; }
+        [Required]
+        public string AddedByUserId { get; set; }
 
-        public virtual TrainingDay TrainingDay { get; set; }
+        public virtual ApplicationUser AddedByUser { get; set; }
 
-        public virtual ICollection<ExerciseImage> Images { get; set; }
+        public virtual ICollection<TrainingDiaryExercise> TrainingDiaryExercises { get; set; }
     }
 }

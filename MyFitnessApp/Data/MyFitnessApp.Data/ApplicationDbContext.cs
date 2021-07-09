@@ -9,6 +9,7 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using MyFitnessApp.Data.Common.Models;
+    using MyFitnessApp.Data.Configurations;
     using MyFitnessApp.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
@@ -23,27 +24,29 @@
         {
         }
 
-        public DbSet<Equipment> Equipment { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         public DbSet<Exercise> Exercises { get; set; }
 
-        public DbSet<ExerciseCategory> ExerciseCategories { get; set; }
-
-        public DbSet<ExerciseImage> ExerciseImages { get; set; }
+        public DbSet<FollowerFollowee> FollowerFollowees { get; set; }
 
         public DbSet<Food> Foods { get; set; }
 
-        public DbSet<FoodDiaryDay> FoodDiaryDays { get; set; }
-
-        public DbSet<FoodImage> FoodImages { get; set; }
+        public DbSet<FoodDiary> FoodDiaries { get; set; }
 
         public DbSet<FoodMeal> FoodMeals { get; set; }
 
+        public DbSet<Like> Likes { get; set; }
+
         public DbSet<Meal> Meals { get; set; }
 
-        public DbSet<TrainingDay> TrainingDays { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
-        public DbSet<UserImage> UserImages { get; set; }
+        public DbSet<Profile> Profile { get; set; }
+
+        public DbSet<TrainingDiary> TrainingDiaries { get; set; }
+
+        public DbSet<TrainingDiaryExercise> TrainingDiaryExercises { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -66,6 +69,10 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfiguration(new FollowerFolloweeConfiguration());
+            builder.ApplyConfiguration(new ProfileConfiguration());
+            builder.ApplyConfiguration(new ApplicationUserConfiguration());
+
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

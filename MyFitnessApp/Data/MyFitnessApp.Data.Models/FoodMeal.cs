@@ -1,9 +1,9 @@
 ﻿namespace MyFitnessApp.Data.Models
 {
-    public class FoodMeal
-    {
-        public int Id { get; set; }
+    using MyFitnessApp.Data.Common.Models;
 
+    public class FoodMeal : BaseDeletableModel<int>
+    {
         public int MealId { get; set; }
 
         public virtual Meal Meal { get; set; }
