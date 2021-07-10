@@ -6,8 +6,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="offset-lg-2 col-lg-8 col-sm-12 offset-lg-3 col-xl-6" >
-            <h2 class="heading-margin">Add new exercise</h2>
+        <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6" >
+            <h2 class="heading-margin text-center">Add new exercise</h2>
             <form method="post">
                 <div class="form-group">
                     <label asp-for="Name"></label>
@@ -20,16 +20,14 @@
 
 
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <label asp-for="CategoryId"></label>
+                    <select asp-for="CategoryId" class="form-control" >
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
                     </select>
                 </div>
-
 
                 <div class="form-group">
                     <label asp-for="ImageUrl"></label>
@@ -39,6 +37,8 @@
                     <label asp-for="VideoUrl"></label>
                     <input asp-for="VideoUrl" class="form-control" placeholder="video url....">
                 </div>
+
+                <input class="btn btn-primary float-right" type="submit" value="Save" />
             </form>
         </div>
     </div>

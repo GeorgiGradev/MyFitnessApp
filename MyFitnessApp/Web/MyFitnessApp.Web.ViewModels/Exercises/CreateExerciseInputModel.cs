@@ -1,5 +1,6 @@
 ﻿namespace MyFitnessApp.Web.ViewModels.Exercises
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using MyFitnessApp.Data.Models;
@@ -33,7 +34,10 @@
         [Required]
         public string AddedByUserId { get; set; }
 
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
+
+        public IEnumerable<CategoryViewModel> Categories { get; set; }
 
         public int EquipmentId { get; set; }
     }

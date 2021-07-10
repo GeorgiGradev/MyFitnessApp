@@ -20,7 +20,6 @@
     using MyFitnessApp.Data.Seeding;
 
     using MyFitnessApp.Services.Data.Article;
-    using MyFitnessApp.Services.Data.Category;
     using MyFitnessApp.Services.Data.Comment;
     using MyFitnessApp.Services.Data.Exercise;
     using MyFitnessApp.Services.Data.Food;
@@ -87,7 +86,6 @@
 
             // Application services
             services.AddTransient<IArticlesService, ArticlesService>();
-            services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<ICommentsService, CommentsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
             services.AddTransient<IFoodsService, FoodsService>();

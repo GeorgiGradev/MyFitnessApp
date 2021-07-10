@@ -9,7 +9,7 @@
     {
         public TrainingDiary()
         {
-            this.TrainingDiaryExercises = new HashSet<TrainingDiaryExercise >();
+            this.TrainingDiaryExercises = new HashSet<TrainingDiaryExercise>();
         }
 
         // Dropdown Menu
