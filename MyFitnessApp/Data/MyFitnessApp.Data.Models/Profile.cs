@@ -3,6 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using MyFitnessApp.Data.Common.Models;
 
     using static MyFitnessApp.Common.DataConstants;
