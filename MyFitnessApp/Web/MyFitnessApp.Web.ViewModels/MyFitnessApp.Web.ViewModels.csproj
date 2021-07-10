@@ -8,6 +8,12 @@
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Administration\**" />
+    <EmbeddedResource Remove="Administration\**" />
+    <None Remove="Administration\**" />
+  </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />
   </ItemGroup>
@@ -24,7 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Administration\" />
+    <Folder Include="Articles\" />
+    <Folder Include="Foods\" />
+    <Folder Include="Exercises\" />
+    <Folder Include="Reports\" />
+    <Folder Include="Users\" />
   </ItemGroup>
 
 </Project>

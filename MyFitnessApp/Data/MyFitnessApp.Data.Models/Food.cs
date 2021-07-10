@@ -19,6 +19,11 @@
         public string Name { get; set; }
 
         [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
+
+        [Required]
+        [MaxLength(FoodBrandNameMaxLength)]
+        public string Brand { get; set; }
+
         public double ProteinInGrams { get; set; }
 
         [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]

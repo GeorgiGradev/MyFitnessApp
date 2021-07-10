@@ -61,7 +61,10 @@
 
         // Food Model
         public const int FoodNameMinLength = 2;
-        public const int FoodNameMaxLength = 50;
+        public const int FoodNameMaxLength = 20;
+
+        public const int FoodBrandNameMinLength = 2;
+        public const int FoodBrandNameMaxLength = 20;
 
         public const int FoodNutritionMinValue = 0;
         public const int FoodNutritionMaxValue = 20000;

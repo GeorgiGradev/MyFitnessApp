@@ -43,4 +43,14 @@
     <ProjectReference Include="..\MyFitnessApp.Web.Infrastructure\MyFitnessApp.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\MyFitnessApp.Web.ViewModels\MyFitnessApp.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Exercises\Create.cshtml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Users\" />
+  </ItemGroup>
 </Project>
