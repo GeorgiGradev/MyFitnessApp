@@ -24,12 +24,4 @@
     <ProjectReference Include="..\MyFitnessApp.Services.Mapping\MyFitnessApp.Services.Mapping.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Articles\" />
-    <Folder Include="Foods\" />
-    <Folder Include="Exercises\" />
-    <Folder Include="Reports\" />
-    <Folder Include="Users\" />
-  </ItemGroup>
-
 </Project>

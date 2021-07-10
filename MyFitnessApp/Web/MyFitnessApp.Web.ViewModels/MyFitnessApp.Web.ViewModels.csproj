@@ -32,7 +32,6 @@
   <ItemGroup>
     <Folder Include="Articles\" />
     <Folder Include="Foods\" />
-    <Folder Include="Exercises\" />
     <Folder Include="Reports\" />
     <Folder Include="Users\" />
   </ItemGroup>

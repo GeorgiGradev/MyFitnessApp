@@ -1,7 +1,5 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
-    using System.Threading.Tasks;
-
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +7,16 @@
     {
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return this.View();
         }
+
+        // [HttpPost]
+        // [Authorize]
+        // public IActionResult Create()
+        // {
+        //     return this.View();
+        // }
     }
 }

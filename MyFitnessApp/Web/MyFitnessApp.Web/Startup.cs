@@ -11,14 +11,29 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+
     using MyFitnessApp.Data;
     using MyFitnessApp.Data.Common;
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Data.Repositories;
     using MyFitnessApp.Data.Seeding;
+
+    using MyFitnessApp.Services.Data.Article;
+    using MyFitnessApp.Services.Data.Category;
+    using MyFitnessApp.Services.Data.Comment;
+    using MyFitnessApp.Services.Data.Exercise;
+    using MyFitnessApp.Services.Data.Food;
+    using MyFitnessApp.Services.Data.FoodDiary;
+    using MyFitnessApp.Services.Data.Like;
+    using MyFitnessApp.Services.Data.Meal;
+    using MyFitnessApp.Services.Data.Profile;
+    using MyFitnessApp.Services.Data.Report;
+    using MyFitnessApp.Services.Data.Training;
+
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Services.Messaging;
+
     using MyFitnessApp.Web.ViewModels;
 
     public class Startup
@@ -67,8 +82,21 @@
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
-            // Application services
+            // EmailSender service
             services.AddTransient<IEmailSender, NullMessageSender>();
+
+            // Application services
+            services.AddTransient<IArticlesService, ArticlesService>();
+            services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<ICommentsService, CommentsService>();
+            services.AddTransient<IExercisesService, ExercisesService>();
+            services.AddTransient<IFoodsService, FoodsService>();
+            services.AddTransient<IFoodDiariesService, FoodDiariesService>();
+            services.AddTransient<ILikesService, LikesService>();
+            services.AddTransient<IMealsService, MealsService>();
+            services.AddTransient<IProfilesService, ProfilesService>();
+            services.AddTransient<IReportsService, ReportsService>();
+            services.AddTransient<ITrainingsService, TrainingsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
