@@ -6,6 +6,11 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-top: 0;
 }
 
+.heading-margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 a.navbar-brand {
     white-space: normal;
     text-align: center;

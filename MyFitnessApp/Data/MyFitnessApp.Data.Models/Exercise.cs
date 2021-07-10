@@ -26,8 +26,12 @@
         // Dropdown Menu
         public ExerciseDifficulty Difficulty { get; set; }
 
+        public int CategoryId { get; set; }
+
         // Dropdown Menu
         public ExerciseCategory Category { get; set; }
+
+        public int EquipmentId { get; set; }
 
         // Dropdown Menu
         public ExerciseEquipment Equipment { get; set; }
