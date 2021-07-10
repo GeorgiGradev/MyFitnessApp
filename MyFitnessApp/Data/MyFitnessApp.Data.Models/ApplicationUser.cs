@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using Microsoft.AspNetCore.Identity;
     using MyFitnessApp.Data.Common.Models;
 
@@ -20,6 +21,7 @@
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Articles = new HashSet<Article>();
         }
 
         [Required]
@@ -51,15 +53,17 @@
 
         public virtual ICollection<Post> Posts { get; set; }
 
+        public virtual ICollection<Article> Articles { get; set; }
+
         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<FoodDiary> FoodDiaries { get; set; }
+
+        public virtual ICollection<TrainingDiary> TrainingDiaries { get; set; }
 
         public virtual ICollection<FollowerFollowee> Followers { get; set; }
 
         public virtual ICollection<FollowerFollowee> Followees { get; set; }
-
-        public virtual ICollection<TrainingDiary> TrainingDiaries { get; set; }
-
-        public virtual ICollection<FoodDiary> FoodDiaries { get; set; }
 
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 

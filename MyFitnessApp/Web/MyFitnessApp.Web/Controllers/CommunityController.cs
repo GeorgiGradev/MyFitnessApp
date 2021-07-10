@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
-    public class ComunityController : Controller
+    public class CommunityController : Controller
     {
     }
 }

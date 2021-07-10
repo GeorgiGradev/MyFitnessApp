@@ -12,6 +12,17 @@
         public const int ApplicationUserLastNameMinLength = 2;
         public const int ApplicationUserLastNameMaxLength = 20;
 
+        // Article Model
+        public const int ArticleTitleMMinLength = 2;
+        public const int ArticleTitleMaxLength = 100;
+
+        public const int ArticleContentMinLength = 2;
+        public const int ArticleContentMaxLength = 10000;
+
+        // ArticleCategory Model
+        public const int ArticleCategoryTitleMinLength = 2;
+        public const int ArticleCategoryTitleMaxLength = 20;
+
         // Comment Model
         public const int CommentContentMaxLength = 5000;
 
@@ -39,6 +50,14 @@
 
         public const double ExerciseCaloriesBurnedMinValue = 0;
         public const double ExerciseCaloriesBurnedMaxValue = 5000;
+
+        // ExerciseCategory Model
+        public const int ExerciseCategoryNameMinLength = 2;
+        public const int ExerciseCategoryNameMaxLength = 20;
+
+        // ExerciseEquipment Model
+        public const int ExerciseEquipmentNameMinLength = 2;
+        public const int ExerciseEquipmentNameMaxLength = 20;
 
         // Food Model
         public const int FoodNameMinLength = 2;
