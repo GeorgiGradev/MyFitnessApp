@@ -1,4 +1,6 @@
-﻿namespace MyFitnessApp.Data.Seeding
+﻿//// Seeder на роли ////
+
+namespace MyFitnessApp.Data.Seeding
 {
     using System;
     using System.Linq;

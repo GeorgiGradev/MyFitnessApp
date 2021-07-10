@@ -7,7 +7,8 @@
 
     using static MyFitnessApp.Common.DataConstants;
 
-    public class CreateExerciseInputModel
+    //// Приема даннните, въведени от потребителя при Create New Exercise \\\\
+    public class CreateExerciseInputModel 
     {
         [Required]
         [MaxLength(ExerciseNameMaxLength)]
@@ -37,7 +38,11 @@
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
+        // Взима всички ExerciseCategories, за да ги подаде на падащото меню
         public IEnumerable<CategoryViewModel> Categories { get; set; }
+
+        // Взима всички ЕxerciseEquipments, за да ги подаде на падащото меню
+        // ........................
 
         public int EquipmentId { get; set; }
     }

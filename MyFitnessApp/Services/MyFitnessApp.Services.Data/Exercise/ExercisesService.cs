@@ -16,6 +16,7 @@
             this.exerciseCategoryRepository = exerciseCategoryRepository;
         }
 
+        // Взима всички ExerciseCategories, за могат да се подадат в празната форма за Create New Exercise
         public IEnumerable<CategoryViewModel> GetExerciseCategories()
         {
             var viewModel = this.exerciseCategoryRepository

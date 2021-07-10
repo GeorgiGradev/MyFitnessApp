@@ -23,7 +23,6 @@
     using MyFitnessApp.Services.Data.Comment;
     using MyFitnessApp.Services.Data.Exercise;
     using MyFitnessApp.Services.Data.Food;
-    using MyFitnessApp.Services.Data.FoodDiary;
     using MyFitnessApp.Services.Data.Like;
     using MyFitnessApp.Services.Data.Meal;
     using MyFitnessApp.Services.Data.Profile;
@@ -89,7 +88,6 @@
             services.AddTransient<ICommentsService, CommentsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
             services.AddTransient<IFoodsService, FoodsService>();
-            services.AddTransient<IFoodDiariesService, FoodDiariesService>();
             services.AddTransient<ILikesService, LikesService>();
             services.AddTransient<IMealsService, MealsService>();
             services.AddTransient<IProfilesService, ProfilesService>();

@@ -6,6 +6,7 @@
 
     public interface IExercisesService
     {
+        // Взима всички ExerciseCategories
         IEnumerable<CategoryViewModel> GetExerciseCategories();
     }
 }

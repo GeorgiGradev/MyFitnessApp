@@ -1,3 +1,6 @@
+@*View, което визуализира Identity MyProfile формата *@
+
+
 @inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();

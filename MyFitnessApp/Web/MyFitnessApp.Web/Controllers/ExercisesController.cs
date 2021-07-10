@@ -20,7 +20,14 @@
         {
             var view = new CreateExerciseInputModel
             {
-                Categories = this.exercisesService.GetExerciseCategories(), // така подаваме на View-то всичко Exercise категории в базата
+                // така подаваме на View-то всички ExerciseCategories в базата, за да се визуализират при празна форма
+                Categories = this.exercisesService.GetExerciseCategories(),
+
+                // така подаваме на View-то всички EquipmentsCategories в базата, за да се визуализират при празна форма
+                // ..................
+
+                // така подаваме на View-то всички ExerciseDifficulty (ENUM) в базата, за да се визуализират при празна форма
+                // ..................
             };
             return this.View(view);
         }

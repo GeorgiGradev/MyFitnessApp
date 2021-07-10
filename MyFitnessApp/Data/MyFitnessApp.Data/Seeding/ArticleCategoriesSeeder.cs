@@ -1,4 +1,6 @@
-﻿namespace MyFitnessApp.Data.Seeding
+﻿//// Seeder на ArticleCategories ////
+
+namespace MyFitnessApp.Data.Seeding
 {
     using System;
     using System.Collections.Generic;
