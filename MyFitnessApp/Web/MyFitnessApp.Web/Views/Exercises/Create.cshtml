@@ -1,5 +1,7 @@
 ﻿@*View, което визуализира форма за създаване на New Exercise*@
 
+
+@using MyFitnessApp.Data.Models
 @model CreateExerciseInputModel
 
 @{
@@ -8,36 +10,62 @@
 
 <div class="container">
     <div class="row">
-        <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6" > @*Прави формата responsive при различни размери на екрана*@
+        <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
+            @*Прави формата responsive при различни размери на екрана*@
             <h2 class="heading-margin text-center">Add new exercise</h2>
             <form method="post">
+
                 <div class="form-group">
                     <label asp-for="Name"></label>
-                    <input asp-for="Name" class="form-control" placeholder="exercise name...">
-                </div>
-                <div class="form-group">
-                    <label asp-for="Description"></label>
-                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="description name..."></textarea>
+                    <input asp-for="Name" class="form-control" placeholder="exercise name here...">
+                    <span asp-validation-for="Name" class="small text-danger"></span>
                 </div>
 
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="description here..."></textarea>
+                    <span asp-validation-for="Description" class="small text-danger"></span>
+                </div>
 
                 <div class="form-group">
                     <label asp-for="CategoryId"></label>
-                    <select asp-for="CategoryId" class="form-control" >
+                    <select asp-for="CategoryId" class="form-control">
                         @foreach (var category in Model.Categories)
                         {
                             <option value="@category.Id">@category.Name</option>
                         }
                     </select>
                 </div>
+                <div class="form-group">
+                    <label asp-for="EquipmentId"></label>
+                    <select asp-for="EquipmentId" class="form-control">
+                        @foreach (var equipment in Model.Equipments)
+                        {
+                            <option value="@equipment.Id">@equipment.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Difficulty"></label>
+                    <select asp-for="Difficulty" class="form-control">
+                        @foreach (int difficulty in Enum.GetValues(typeof(ExerciseDifficulty)))
+                        {
+                            <option value="@difficulty">@Enum.GetName(typeof(ExerciseDifficulty), difficulty)</option>
+                        }
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <label asp-for="ImageUrl"></label>
-                    <input asp-for="ImageUrl" class="form-control" placeholder="image url....">
+                    <input asp-for="ImageUrl" class="form-control" placeholder="image url here....">
+                    <span asp-validation-for="ImageUrl" class="small text-danger"></span>
                 </div>
+
                 <div class="form-group">
                     <label asp-for="VideoUrl"></label>
-                    <input asp-for="VideoUrl" class="form-control" placeholder="video url....">
+                    <input asp-for="VideoUrl" class="form-control" placeholder="video url here....">
+                    <span asp-validation-for="VideoUrl" class="small text-danger"></span>
                 </div>
 
                 <input class="btn btn-primary float-right" type="submit" value="Save" />

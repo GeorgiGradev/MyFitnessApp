@@ -15,28 +15,33 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Create()
         {
-            var view = new CreateExerciseInputModel
-            {
-                // така подаваме на View-то всички ExerciseCategories в базата, за да се визуализират при празна форма
-                Categories = this.exercisesService.GetExerciseCategories(),
+            // така подаваме на View-то всички EquipmentsCategories в базата, за да се визуализират при празна форма
+            var view = new CreateExerciseInputModel();
+            view.Categories = this.exercisesService.GetExerciseCategories();
+            view.Equipments = this.exercisesService.GetExerciseEquipments();
 
-                // така подаваме на View-то всички EquipmentsCategories в базата, за да се визуализират при празна форма
-                // ..................
-
-                // така подаваме на View-то всички ExerciseDifficulty (ENUM) в базата, за да се визуализират при празна форма
-                // ..................
-            };
             return this.View(view);
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult Create(CreateExerciseInputModel model)
         {
-            return this.View();
+            // Създаваме проверка на валидациите. Ако има грешка върни същото View, за да продължи потребителя с попълването
+            if (!this.ModelState.IsValid)
+            {
+                // Ако има невалидни данни, вземи отново ExerciseCategories преди да визуализираш View-то
+                model.Categories = this.exercisesService.GetExerciseCategories();
+
+                // Ако има невалидни данни, вземи отново ExerciseEquipments преди да визуализираш View-то
+                model.Equipments = this.exercisesService.GetExerciseEquipments();
+
+                // View-то се връща със заредени всички ExerciseCategories и ExerciseEquipments
+                return this.View(model);
+            }
+
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }

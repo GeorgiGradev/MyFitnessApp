@@ -28,7 +28,7 @@ namespace MyFitnessApp.Data.Seeding
                 "Machine",
                 "Cable",
                 "Medicine Ball",
-                "Dumbbell",
+                "Dumbell",
                 "EZ Curl Bar",
                 "Exercise Ball",
                 "Other",

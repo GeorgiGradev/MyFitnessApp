@@ -6,7 +6,14 @@
 
     public interface IExercisesService
     {
-        // Взима всички ExerciseCategories
+        // Взима всички ExerciseCategories, за да се подадат на празното View при отвяряне на Create New Exercise
         IEnumerable<CategoryViewModel> GetExerciseCategories();
+
+        // Взима всички ExerciseEqiupments, за да се подадат на празното View при отвяряне на Create New Exercise
+        IEnumerable<EquipmentViewModel> GetExerciseEquipments();
+
+
+        // Създаване на Exercise
+
     }
 }
