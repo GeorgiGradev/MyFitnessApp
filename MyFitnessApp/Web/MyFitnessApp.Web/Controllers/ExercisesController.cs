@@ -4,6 +4,8 @@
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Exercise;
     using MyFitnessApp.Web.ViewModels.Exercises;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
 
     public class ExercisesController : Controller
     {
@@ -15,6 +17,7 @@
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             // така подаваме на View-то всички EquipmentsCategories в базата, за да се визуализират при празна форма
@@ -26,7 +29,8 @@
         }
 
         [HttpPost]
-        public IActionResult Create(CreateExerciseInputModel model)
+        [Authorize]
+        public async Task<IActionResult> Create(CreateExerciseInputModel model)
         {
             // Създаваме проверка на валидациите. Ако има грешка върни същото View, за да продължи потребителя с попълването
             if (!this.ModelState.IsValid)
@@ -40,6 +44,10 @@
                 // View-то се връща със заредени всички ExerciseCategories и ExerciseEquipments
                 return this.View(model);
             }
+
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            await this.exercisesService.CreateExcerciseAsync(model, userId);
 
             return this.RedirectToAction("Index", "Home");
         }

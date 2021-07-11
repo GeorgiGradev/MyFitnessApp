@@ -35,9 +35,6 @@
         [Display(Name = "Video url")]
         public string VideoUrl { get; set; }
 
-        //[Required]
-        public string AddedByUserId { get; set; }
-
         [Display(Name = "Choose category")]
         public int CategoryId { get; set; }
 
