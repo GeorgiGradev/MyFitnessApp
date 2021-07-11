@@ -54,7 +54,7 @@
             return viewModel;
         }
 
-        // Create new exercise
+        // Create new exercise ASYNC method
         public async Task CreateExcerciseAsync (CreateExerciseInputModel model, string userId)
         {
             var exercise = new Exercise()

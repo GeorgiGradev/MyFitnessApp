@@ -1,11 +1,12 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Exercise;
     using MyFitnessApp.Web.ViewModels.Exercises;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
 
     public class ExercisesController : Controller
     {
@@ -46,10 +47,9 @@
             }
 
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
             await this.exercisesService.CreateExcerciseAsync(model, userId);
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Home"); // Да се направи да връща All Exercises
         }
     }
 }

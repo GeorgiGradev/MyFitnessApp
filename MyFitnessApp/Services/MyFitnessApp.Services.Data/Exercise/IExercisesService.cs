@@ -13,7 +13,7 @@
         // Взима всички ExerciseEqiupments, за да се подадат на празното View при отвяряне на Create New Exercise
         IEnumerable<EquipmentViewModel> GetExerciseEquipments();
 
-        // Създаване на Exercise
+        // Създаване на Exercise с ASYNC Method
         public Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
     }
 }
