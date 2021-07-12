@@ -1,47 +1,30 @@
 ﻿@*View, което визуализира All exercises*@
 
 
-
-
 @model AllExercisesViewModel
 
-@{ 
-    this.ViewData["Title"] = "All exercises, Page...";
+@{
+    this.ViewData["Title"] = "All exercises / Page " + Model.PageNumber;
 }
 
-<h1>@this.ViewData["Title"]</h1>
 
-
-<div class="row">
-    @foreach(var exercise in Model.Exercises) 
-    {
-    <div class="media col-md-4">
-        @*Да заемат 3/12 от екрана*@
-        <img src="@exercise.ImageUrl" width="100" class="mr-3 img-responsive"> @*В "width" се уточнява размера на снимката, "ing-reponsive я прави reponsive"*@
-        <div class="media-body">
-            <h5 class="mt-0">@exercise.Name</h5>
-            @exercise.CategoryName
-        </div>
+<div>
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <div class="row">
+        @foreach (var exercise in Model.Exercises)
+        {
+            <div class="media col-md-4">
+                @*Да заемат 3/12 от екрана*@
+                <img src="@exercise.ImageUrl" width="150" class="mr-3 img-responsive"> @*В "width" се уточнява размера на снимката, "ing-reponsive я прави reponsive"*@
+                <div class="media-body">
+                    <h5 class="mt-0">@exercise.Name</h5>
+                    @exercise.CategoryName
+                </div>
+            </div>
+        }
     </div>
-    }
 </div>
-<hr /> @*Разделител между горния и долния елемент*@ 
-<nav aria-label="...">
-    <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-            <span class="page-link">Previous</span>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item active" aria-current="page">
-            <span class="page-link">
-                2
-                <span class="sr-only">(current)</span>
-            </span>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    </ul>
-</nav>
 
+<hr /> @*Разделител между горния и долния елемент*@
+
+<partial name="_PagingPartial" model="@Model" />  @*Тук поставяме _PartialView-то за Paging*@

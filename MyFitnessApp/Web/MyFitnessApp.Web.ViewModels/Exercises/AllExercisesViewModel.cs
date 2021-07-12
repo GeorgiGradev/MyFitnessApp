@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
 
-    public class AllExercisesViewModel
+    public class AllExercisesViewModel : PagingViewModel // Наследява PagingViewModel-a, в който са всички необходими параметри за Paging
     {
         public IEnumerable<ExerciseViewModel> Exercises { get; set; }
-
-        public int PageNumber { get; set; } // дава информация за номера на страницата, на която се намира 
     }
 }

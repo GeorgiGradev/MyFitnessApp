@@ -55,12 +55,15 @@
         // Визуализира всички елементи
         [HttpGet]
         [Authorize]
-        public IActionResult All(int id) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
+        public IActionResult All(int id = 1) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
         {
+            const int itemsPerPage = 12;
             var viewModel = new AllExercisesViewModel
             {
                 PageNumber = id,
-                Exercises = this.exercisesService.GetAllExercises(id, 12),
+                Exercises = this.exercisesService.GetAllExercises(id, itemsPerPage),
+                ExercisesCount = this.exercisesService.GetAllExercisesCount(), // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
+                ItemsPerPage = itemsPerPage, // дава информация колко Exercises има на една стрница
             };
 
             return this.View(viewModel);

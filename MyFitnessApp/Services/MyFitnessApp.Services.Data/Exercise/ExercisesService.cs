@@ -6,6 +6,7 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Exercises;
 
     public class ExercisesService : IExercisesService
@@ -81,19 +82,26 @@
             // 25-36 - page 3
             var viewModel = this.exerciseRepository
                 .All()
-                .OrderBy(x => x.Id) // последните добавени ще излизат най-отпред в списъка
-                .Skip(pageNumber * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
+                .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
+                .Skip((pageNumber - 1) * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
                 .Take(itemsPerPage)
-                .Select(x => new ExerciseViewModel
-                {
-                    AddedByUserId = x.AddedByUserId,
-                    Name = x.Name,
-                    CategoryName = x.Category.Name,
-                    ImageUrl = x.ImageUrl,
-                })
+                .To<ExerciseViewModel>()
+                        // .Select(x => new ExerciseViewModel
+                        // {
+                        //    AddedByUserId = x.AddedByUserId,
+                        //    Name = x.Name,
+                        //    CategoryName = x.Category.Name,
+                        //    ImageUrl = x.ImageUrl,
+                        // })
                 .ToList();
 
             return viewModel;
+        }
+
+        // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
+        public int GetAllExercisesCount()
+        {
+            return this.exerciseRepository.All().Count();
         }
     }
 }
