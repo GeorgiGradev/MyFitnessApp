@@ -72,5 +72,28 @@
             await this.exerciseRepository.AddAsync(exercise);
             await this.exerciseRepository.SaveChangesAsync();
         }
+
+        // Взима всички Exercises от базата
+        public IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12)
+        {
+            // 1-12 - page 1
+            // 13-24 - page 2
+            // 25-36 - page 3
+            var viewModel = this.exerciseRepository
+                .All()
+                .OrderBy(x => x.Id) // последните добавени ще излизат най-отпред в списъка
+                .Skip(pageNumber * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
+                .Take(itemsPerPage)
+                .Select(x => new ExerciseViewModel
+                {
+                    AddedByUserId = x.AddedByUserId,
+                    Name = x.Name,
+                    CategoryName = x.Category.Name,
+                    ImageUrl = x.ImageUrl,
+                })
+                .ToList();
+
+            return viewModel;
+        }
     }
 }

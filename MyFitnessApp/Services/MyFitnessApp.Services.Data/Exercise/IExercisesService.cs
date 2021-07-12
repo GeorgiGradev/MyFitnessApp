@@ -14,6 +14,9 @@
         IEnumerable<EquipmentViewModel> GetExerciseEquipments();
 
         // Създаване на Exercise с ASYNC Method
-        public Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
+        Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
+
+        // Взима всички Exercises от базата
+        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12); // нужни за пейджирането
     }
 }

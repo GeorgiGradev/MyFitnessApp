@@ -51,5 +51,19 @@
 
             return this.RedirectToAction("Index", "Home"); // Да се направи да връща All Exercises
         }
+
+        // Визуализира всички елементи
+        [HttpGet]
+        [Authorize]
+        public IActionResult All(int id) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
+        {
+            var viewModel = new AllExercisesViewModel
+            {
+                PageNumber = id,
+                Exercises = this.exercisesService.GetAllExercises(id, 12),
+            };
+
+            return this.View(viewModel);
+        }
     }
 }
