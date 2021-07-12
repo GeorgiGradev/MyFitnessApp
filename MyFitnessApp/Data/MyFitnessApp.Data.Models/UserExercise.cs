@@ -8,15 +8,18 @@
     using static MyFitnessApp.Common.DataConstants;
 
     // Mapping table between Exercise & TraiingDiary
-    public class TrainingDiaryExercise : BaseDeletableModel<int>
+    public class UserExercise : BaseDeletableModel<int>
     {
         public int ExerciseId { get; set; }
 
         public Exercise Exercise { get; set; }
 
-        public int TrainingDiaryId { get; set; }
+        public string UserId { get; set; }
 
-        public TrainingDiary TrainingDiary { get; set; }
+        public ApplicationUser User { get; set; }
+
+        // Dropdown Menu
+        public DayOfWeek DayOfWeekName { get; set; }
 
         [Range(ExerciseWeightMinValue, ExerciseWeightMaxValue)]
         public double Weight { get; set; }
@@ -26,11 +29,5 @@
 
         [Range(ExerciseSetsMinValue, ExerciseSetsMaxValue)]
         public int Sets { get; set; }
-
-        [Range(ExerciseDurationInMinutesMinValue, ExerciseDurationInMinutesMaxValue)]
-        public TimeSpan DurationInMinutes { get; set; } // to be removed
-
-        [Range(ExerciseCaloriesBurnedMinValue, ExerciseCaloriesBurnedMaxValue)]
-        public double CaloriesBurned { get; set; } // to be removed
     }
 }

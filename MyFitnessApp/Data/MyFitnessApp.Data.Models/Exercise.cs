@@ -1,6 +1,5 @@
 ﻿namespace MyFitnessApp.Data.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -12,7 +11,7 @@
     {
         public Exercise()
         {
-            this.TrainingDiaryExercises = new HashSet<TrainingDiaryExercise>();
+            this.UserExercises = new HashSet<UserExercise>();
         }
 
         [Required]
@@ -49,6 +48,6 @@
 
         public virtual ApplicationUser AddedByUser { get; set; }
 
-        public virtual ICollection<TrainingDiaryExercise> TrainingDiaryExercises { get; set; }
+        public virtual ICollection<UserExercise> UserExercises { get; set; }
     }
 }

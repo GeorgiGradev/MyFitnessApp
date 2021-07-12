@@ -52,9 +52,7 @@
 
         public DbSet<Profile> Profiles { get; set; }
 
-        public DbSet<TrainingDiary> TrainingDiaries { get; set; }
-
-        public DbSet<TrainingDiaryExercise> TrainingDiaryExercises { get; set; }
+        public DbSet<UserExercise> UserExercises { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

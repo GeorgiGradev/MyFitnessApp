@@ -112,11 +112,12 @@
                  .Select(x => new ExerciseViewModel
                  {
                      CategoryName = x.Category.Name,
-                     ImageUrl  = x.ImageUrl,
+                     ImageUrl = x.ImageUrl,
                      Description = x.Description,
                      Name = x.Name,
                      DifficultyName = x.Difficulty.ToString(),
                      EquipmentName = x.Equipment.Name,
+                     VideoUrl = x.VideoUrl,
                  }).FirstOrDefault();
 
             return viewModel;
