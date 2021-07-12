@@ -1,15 +1,34 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
     using System.Diagnostics;
+    using System.Linq;
 
     using Microsoft.AspNetCore.Mvc;
+    using MyFitnessApp.Data;
     using MyFitnessApp.Web.ViewModels;
+    using MyFitnessApp.Web.ViewModels.Home;
 
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext db;
+
+        public HomeController(ApplicationDbContext db)
+        {
+            this.db = db;
+        }
+
+
         public IActionResult Index()
         {
-            return this.View();
+            // За да се визуализират данните на началната страница
+            var viewModel = new IndexViewModel
+            {
+                Exercises = this.db.Exercises,
+                Foods = this.db.Foods,
+                UsersCount = this.db.Users.Count(),
+            };
+
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

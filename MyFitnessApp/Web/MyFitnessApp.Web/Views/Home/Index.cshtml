@@ -1,10 +1,47 @@
 ﻿@*View, което визуализира Index страницата*@
 
 @using MyFitnessApp.Common
+@using MyFitnessApp.Web.ViewModels.Home
+
+@model IndexViewModel
 @{
+    var counter1 = 0;
+    var counter2 = 0;
     this.ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to @GlobalConstants.SystemName</h1>
+</div>
+
+
+<div class="flex-container">
+
+    <div class="flex-child">
+        <div>
+            <h3>Exercise name</h3>
+            <ul class="list-group">
+                @foreach (var exercise in Model.Exercises)
+                {
+                    counter1++;
+                    <li class="list-group-item">@counter1.@exercise.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="flex-child">
+        <div>
+            <h3>Food name</h3>
+            <ul class="list-group">
+                @foreach (var food in Model.Foods)
+                {
+                    counter2++;
+                    <li class="list-group-item">@counter2.@food.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+
 </div>
