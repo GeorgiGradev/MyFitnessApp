@@ -68,5 +68,12 @@
 
             return this.View(viewModel);
         }
+
+        public IActionResult Details()
+        {
+            var vuewNidel = this.exercisesService.GetTestExercise();
+            return this.View(vuewNidel);
+        }
+
     }
 }

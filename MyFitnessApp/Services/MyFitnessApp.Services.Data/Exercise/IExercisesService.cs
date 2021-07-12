@@ -21,5 +21,8 @@
 
         // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
         int GetAllExercisesCount();
+
+        // // JUST FOR TESTING
+        ExerciseViewModel GetTestExercise();
     }
 }

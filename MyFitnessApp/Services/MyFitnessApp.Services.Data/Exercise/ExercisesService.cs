@@ -103,5 +103,23 @@
         {
             return this.exerciseRepository.All().Count();
         }
+
+        // JUST FOR TESTING
+        public ExerciseViewModel GetTestExercise()
+        {
+            var viewModel = this.exerciseRepository
+                 .All()
+                 .Select(x => new ExerciseViewModel
+                 {
+                     CategoryName = x.Category.Name,
+                     ImageUrl  = x.ImageUrl,
+                     Description = x.Description,
+                     Name = x.Name,
+                     DifficultyName = x.Difficulty.ToString(),
+                     EquipmentName = x.Equipment.Name,
+                 }).FirstOrDefault();
+
+            return viewModel;
+        }
     }
 }

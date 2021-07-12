@@ -28,9 +28,9 @@
         public int Sets { get; set; }
 
         [Range(ExerciseDurationInMinutesMinValue, ExerciseDurationInMinutesMaxValue)]
-        public TimeSpan DurationInMinutes { get; set; }
+        public TimeSpan DurationInMinutes { get; set; } // to be removed
 
         [Range(ExerciseCaloriesBurnedMinValue, ExerciseCaloriesBurnedMaxValue)]
-        public double CaloriesBurned { get; set; }
+        public double CaloriesBurned { get; set; } // to be removed
     }
 }
