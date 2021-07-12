@@ -57,7 +57,7 @@
         [Authorize]
         public IActionResult All(int id = 1) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
         {
-            const int itemsPerPage = 12;
+            const int itemsPerPage = 9;
             var viewModel = new AllExercisesViewModel
             {
                 PageNumber = id,

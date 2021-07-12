@@ -75,7 +75,7 @@
         }
 
         // Взима всички Exercises от базата
-        public IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12)
+        public IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage)
         {
             // 1-12 - page 1
             // 13-24 - page 2
