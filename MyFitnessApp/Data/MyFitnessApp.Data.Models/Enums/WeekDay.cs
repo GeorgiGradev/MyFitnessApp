@@ -1,6 +1,6 @@
 ﻿namespace MyFitnessApp.Data.Models
 {
-    public enum DayOfWeek
+    public enum WeekDay
     {
         Monday = 1,
         Tuesday = 2,

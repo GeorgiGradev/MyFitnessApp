@@ -13,7 +13,7 @@
         }
 
         // Dropdown Menu
-        public DayOfWeek DayOfWeekName { get; set; }
+        public WeekDay WeekDay { get; set; }
 
         [Required]
         public string UserId { get; set; }

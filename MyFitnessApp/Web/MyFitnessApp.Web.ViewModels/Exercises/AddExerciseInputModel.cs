@@ -1,12 +1,15 @@
 ﻿namespace MyFitnessApp.Web.ViewModels.Exercises
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
+
+    using MyFitnessApp.Data.Models;
 
     using static MyFitnessApp.Common.DataConstants;
 
     public class AddExerciseInputModel
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -27,7 +30,7 @@
 
         // Dropdown Menu
         [Display(Name = "Day of week")]
-        public DayOfWeek DayOfWeekName { get; set; }
+        public WeekDay WeekDay { get; set; }
 
         [Range(ExerciseWeightMinValue, ExerciseWeightMaxValue)]
         [Display(Name = "Exercise weight")]

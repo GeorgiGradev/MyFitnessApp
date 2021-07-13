@@ -19,7 +19,7 @@
         public ApplicationUser User { get; set; }
 
         // Dropdown Menu
-        public DayOfWeek DayOfWeekName { get; set; }
+        public WeekDay WeekDay { get; set; }
 
         [Range(ExerciseWeightMinValue, ExerciseWeightMaxValue)]
         public double Weight { get; set; }

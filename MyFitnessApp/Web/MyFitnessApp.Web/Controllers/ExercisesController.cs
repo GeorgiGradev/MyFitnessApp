@@ -69,7 +69,6 @@
             return this.View(view);
         }
 
-
         [HttpGet]
         [Authorize]
         public IActionResult Add(int id)
@@ -84,11 +83,13 @@
         {
             if (!this.ModelState.IsValid)
             {
+                var viewNodel = this.exercisesService.GetExerciseById(id); // вътре са данните за визуализация
+                return this.View(viewNodel);
             }
 
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.exercisesService.AddExerciseToUserAsync(model, userId);
-            return this.RedirectToAction("Exercises", "All");
+            return this.RedirectToAction("All", "Exercises");
         }
     }
 }

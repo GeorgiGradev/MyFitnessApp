@@ -14,15 +14,18 @@
         private readonly IDeletableEntityRepository<ExerciseCategory> exerciseCategoryRepository;
         private readonly IDeletableEntityRepository<ExerciseEquipment> exerciseEquipmentRepository;
         private readonly IDeletableEntityRepository<Exercise> exerciseRepository;
+        private readonly IDeletableEntityRepository<UserExercise> userExerciseRepository;
 
         public ExercisesService(
             IDeletableEntityRepository<ExerciseCategory> exerciseCategoryRepository,
             IDeletableEntityRepository<ExerciseEquipment> exerciseEquipmentRepository,
-            IDeletableEntityRepository<Exercise> exerciseRepository)
+            IDeletableEntityRepository<Exercise> exerciseRepository,
+            IDeletableEntityRepository<UserExercise> userExerciseRepository)
         {
             this.exerciseCategoryRepository = exerciseCategoryRepository;
             this.exerciseEquipmentRepository = exerciseEquipmentRepository;
             this.exerciseRepository = exerciseRepository;
+            this.userExerciseRepository = userExerciseRepository;
         }
 
         // Взима всички ExerciseCategories, за могат да се подадат в празната форма за Create New Exercise
@@ -86,6 +89,7 @@
                 .Skip((pageNumber - 1) * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
                 .Take(itemsPerPage)
                 .To<SingleExerciseViewModel>()
+
                         // .Select(x => new ExerciseViewModel
                         // {
                         //    AddedByUserId = x.AddedByUserId,
@@ -126,9 +130,20 @@
             return viewModel;
         }
 
-        public Task AddExerciseToUserAsync(AddExerciseInputModel model, string userId)
+        public async Task AddExerciseToUserAsync(AddExerciseInputModel model, string userId)
         {
-            throw new System.NotImplementedException();
+            var userExercise = new UserExercise
+            {
+                ExerciseId = model.Id,
+                UserId = userId,
+                Repetitions = model.Repetitions,
+                Sets = model.Sets,
+                Weight = model.Weight,
+                WeekDay = model.WeekDay,
+            };
+
+            await this.userExerciseRepository.AddAsync(userExercise);
+            await this.userExerciseRepository.SaveChangesAsync();
         }
 
  

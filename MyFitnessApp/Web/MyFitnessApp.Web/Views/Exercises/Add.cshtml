@@ -1,10 +1,10 @@
-﻿
+﻿@using MyFitnessApp.Data.Models
 @model AddExerciseInputModel
 
 @{
     this.ViewData["Title"] = "Exercise";
 }
-<div class="container>
+<div class="container">
     <div class="container">
         <div class="row">
             <form method="post">
@@ -28,14 +28,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="DayOfWeekName"></label>
-                    <select asp-for="DayOfWeekName" class="form-control">
-                        @foreach (int weekday in Enum.GetValues(typeof(DayOfWeek)))
+                    <label asp-for="WeekDay"></label>
+                    <select asp-for="WeekDay" class="form-control">
+                        @foreach (int weekday in Enum.GetValues(typeof(WeekDay)))
                         {
-                            <option value="@weekday">@Enum.GetName(typeof(DayOfWeek), weekday)</option>
+                            <option value="@weekday">@Enum.GetName(typeof(WeekDay), weekday)</option>
                         }
                     </select>
                 </div>
+                <input class="btn btn-primary float-md-left" type="submit" value="Add to my exercises" />
             </form>
         </div>
     </div>
@@ -72,8 +73,8 @@
                 </p>
             </div>
         </div>
-        <input class="btn btn-primary float-md-left" type="submit" value="Add to my exercises" />
-        <input class="btn btn-primary float-md-right" type="" value="Back to all exercises" />
+
+        @*<input class="btn btn-primary float-md-right" type="" value="Back to all exercises" />*@
     </div>
 </div>
 
