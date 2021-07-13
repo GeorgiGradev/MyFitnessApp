@@ -17,12 +17,15 @@
         Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
 
         // Взима всички Exercises от базата
-        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12); // нужни за пейджирането
+        IEnumerable<SingleExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12); // нужни за пейджирането
 
         // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
         int GetAllExercisesCount();
 
-        // // JUST FOR TESTING
-        ExerciseViewModel GetTestExercise();
+        // Взима даден Exercise по Id
+        AddExerciseInputModel GetExerciseById(int id);
+
+        // Добавя упражнение към потребител, като получава модел, от който си взима данните + usedId
+        Task AddExerciseToUserAsync(AddExerciseInputModel model, string userId);
     }
 }

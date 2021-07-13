@@ -75,7 +75,7 @@
         }
 
         // Взима всички Exercises от базата
-        public IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage)
+        public IEnumerable<SingleExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage)
         {
             // 1-12 - page 1
             // 13-24 - page 2
@@ -85,7 +85,7 @@
                 .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
                 .Skip((pageNumber - 1) * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
                 .Take(itemsPerPage)
-                .To<ExerciseViewModel>()
+                .To<SingleExerciseViewModel>()
                         // .Select(x => new ExerciseViewModel
                         // {
                         //    AddedByUserId = x.AddedByUserId,
@@ -104,23 +104,60 @@
             return this.exerciseRepository.All().Count();
         }
 
-        // JUST FOR TESTING
-        public ExerciseViewModel GetTestExercise()
+        public AddExerciseInputModel GetExerciseById(int id)
         {
             var viewModel = this.exerciseRepository
-                 .All()
-                 .Select(x => new ExerciseViewModel
-                 {
-                     CategoryName = x.Category.Name,
-                     ImageUrl = x.ImageUrl,
-                     Description = x.Description,
-                     Name = x.Name,
-                     DifficultyName = x.Difficulty.ToString(),
-                     EquipmentName = x.Equipment.Name,
-                     VideoUrl = x.VideoUrl,
-                 }).FirstOrDefault();
+                .All()
+                .Where(x => x.Id == id)
+                .Select(x => new AddExerciseInputModel
+                {
+                    Name = x.Name,
+                    Description = x.Description,
+                    CategoryId = x.CategoryId,
+                    CategoryName = x.Category.Name,
+                    ImageUrl = x.ImageUrl,
+                    VideoUrl = x.VideoUrl,
+                    EquipmentId = x.EquipmentId,
+                    EquipmentName = x.Equipment.Name,
+                    DifficultyName = x.Difficulty.ToString(),
+                })
+                .FirstOrDefault();
 
             return viewModel;
         }
+
+        public Task AddExerciseToUserAsync(AddExerciseInputModel model, string userId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+        // JUST FOR TESTING
+        //public void AddExerciseToUser1(AddExerciseInputModel model, string userId)
+        //{
+        //    var viewModel = this.exerciseRepository
+        //         .All()
+        //         .Select(x => new AddExerciseInputModel
+        //         {
+        //             CategoryName = x.Category.Name,
+        //             ImageUrl = x.ImageUrl,
+        //             Description = x.Description,
+        //             Name = x.Name,
+        //             DifficultyName = x.Difficulty.ToString(),
+        //             EquipmentName = x.Equipment.Name,
+        //             VideoUrl = x.VideoUrl,
+        //         }).FirstOrDefault();
+        //}
     }
 }

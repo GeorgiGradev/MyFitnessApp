@@ -22,11 +22,11 @@
         public IActionResult Create()
         {
             // така подаваме на View-то всички EquipmentsCategories в базата, за да се визуализират при празна форма
-            var view = new CreateExerciseInputModel();
-            view.Categories = this.exercisesService.GetExerciseCategories();
-            view.Equipments = this.exercisesService.GetExerciseEquipments();
+            var viewModel = new CreateExerciseInputModel();
+            viewModel.Categories = this.exercisesService.GetExerciseCategories();
+            viewModel.Equipments = this.exercisesService.GetExerciseEquipments();
 
-            return this.View(view);
+            return this.View(viewModel);
         }
 
         [HttpPost]
@@ -49,7 +49,7 @@
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.exercisesService.CreateExcerciseAsync(model, userId);
 
-            return this.RedirectToAction("Index", "Home"); // Да се направи да връща All Exercises
+            return this.RedirectToAction("All", "Exercises"); // Да се направи да връща All Exercises
         }
 
         // Визуализира всички елементи
@@ -58,7 +58,7 @@
         public IActionResult All(int id = 1) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
         {
             const int itemsPerPage = 9;
-            var viewModel = new AllExercisesViewModel
+            var view = new AllExercisesViewModel
             {
                 PageNumber = id,
                 Exercises = this.exercisesService.GetAllExercises(id, itemsPerPage),
@@ -66,14 +66,29 @@
                 ItemsPerPage = itemsPerPage, // дава информация колко Exercises има на една стрница
             };
 
-            return this.View(viewModel);
+            return this.View(view);
         }
 
-        public IActionResult Details()
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Add(int id)
         {
-            var vuewNidel = this.exercisesService.GetTestExercise();
-            return this.View(vuewNidel);
+            var viewNodel = this.exercisesService.GetExerciseById(id); // вътре са данните за визуализация
+            return this.View(viewNodel);
         }
 
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Add(AddExerciseInputModel model, int id)
+        {
+            if (!this.ModelState.IsValid)
+            {
+            }
+
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.exercisesService.AddExerciseToUserAsync(model, userId);
+            return this.RedirectToAction("Exercises", "All");
+        }
     }
 }

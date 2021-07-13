@@ -4,6 +4,6 @@
 
     public class AllExercisesViewModel : PagingViewModel // Наследява PagingViewModel-a, в който са всички необходими параметри за Paging
     {
-        public IEnumerable<ExerciseViewModel> Exercises { get; set; }
+        public IEnumerable<SingleExerciseViewModel> Exercises { get; set; }
     }
 }
