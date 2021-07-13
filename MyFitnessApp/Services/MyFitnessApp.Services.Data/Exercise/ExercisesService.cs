@@ -59,7 +59,7 @@
         }
 
         // Create new exercise ASYNC method
-        public async Task CreateExcerciseAsync (CreateExerciseInputModel model, string userId)
+        public async Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId)
         {
             var exercise = new Exercise()
             {
@@ -69,7 +69,7 @@
                 EquipmentId = model.EquipmentId,
                 Difficulty = model.Difficulty,
                 ImageUrl = model.ImageUrl,
-                VideoUrl = model.VideoUrl,
+                VideoUrl = this.GetEmbedYouTubeLink(model.VideoUrl),
                 AddedByUserId = userId,
             };
 
@@ -90,13 +90,13 @@
                 .Take(itemsPerPage)
                 .To<SingleExerciseViewModel>()
 
-                        // .Select(x => new ExerciseViewModel
-                        // {
-                        //    AddedByUserId = x.AddedByUserId,
-                        //    Name = x.Name,
-                        //    CategoryName = x.Category.Name,
-                        //    ImageUrl = x.ImageUrl,
-                        // })
+                // .Select(x => new ExerciseViewModel
+                // {
+                //    AddedByUserId = x.AddedByUserId,
+                //    Name = x.Name,
+                //    CategoryName = x.Category.Name,
+                //    ImageUrl = x.ImageUrl,
+                // })
                 .ToList();
 
             return viewModel;
@@ -146,7 +146,27 @@
             await this.userExerciseRepository.SaveChangesAsync();
         }
 
- 
+        public string GetEmbedYouTubeLink(string rawLink)
+        {
+            var result = string.Empty;
+            if (rawLink.Contains("watch"))
+            {
+                var source1 = rawLink.Split("watch")[0];
+                var source2 = rawLink.Split("=")[1];
+                var source3 = source2.Split("&")[0];
+                result = source1 + "embed/" + source3;
+            }
+            else if (rawLink.Contains("youtu.be"))
+            {
+                var source1 = rawLink.Split("youtu.be/")[0];
+                var source2 = rawLink.Split("youtu.be/")[1];
+                result = source1 + "www.youtube.com/embed/" + source2;
+            }
+
+            return result;
+        }
+
+
 
 
 

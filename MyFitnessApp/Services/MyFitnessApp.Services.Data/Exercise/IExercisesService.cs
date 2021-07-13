@@ -27,5 +27,8 @@
 
         // Добавя упражнение към потребител, като получава модел, от който си взима данните + usedId
         Task AddExerciseToUserAsync(AddExerciseInputModel model, string userId);
+
+        // Get EMBED youtube link
+        string GetEmbedYouTubeLink(string rawLink);
     }
 }
