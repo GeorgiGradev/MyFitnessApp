@@ -18,27 +18,65 @@ namespace MyFitnessApp.Data.Seeding
                 return;
             }
 
-            var exerciseCategoryNames = new List<string>
-            {
-                "Traps",
-                "Shoulders",
-                "Triceps",
-                "Biceps",
-                "Forearm",
-                "Chest",
-                "Back",
-                "Abs",
-                "Glutes",
-                "Quadriceps",
-                "Hamstrings",
-                "Calves",
-            };
+            var exerciseCategories = new List<ExerciseCategory>
+             {
+                 new ExerciseCategory
+                 {
+                     Name = "Chest",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Back",
+                 },
 
-            foreach (var item in exerciseCategoryNames)
+                 new ExerciseCategory
+                 {
+                     Name = "Biceps",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Triceps",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Shoulders",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Forearm",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Traps",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Abs",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Glutes",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Quadriceps",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Hamstrings",
+                 },
+                 new ExerciseCategory
+                 {
+                     Name = "Calves",
+                 },
+             };
+
+            foreach (var item in exerciseCategories)
             {
                 await dbContext.ExerciseCategories.AddAsync(new ExerciseCategory
                 {
-                    Name = item,
+                    Id = item.Id,
+                    Name = item.Name,
                 });
             }
         }

@@ -18,20 +18,36 @@ namespace MyFitnessApp.Data.Seeding
                 return;
             }
 
-            var articleCategoryNames = new List<string>
+            var articleCategories = new List<ArticleCategory>
             {
-                "Recipes",
-                "Nutrition",
-                "Weight loss",
-                "Fitness",
-                "Inspiration",
+                new ArticleCategory
+                {
+                    Name = "Fitness",
+                },
+                new ArticleCategory
+                {
+                    Name = "Recipes",
+                },
+                new ArticleCategory
+                {
+                    Name = "Nutrition",
+                },
+                new ArticleCategory
+                {
+                    Name = "Weight loss",
+                },
+                new ArticleCategory
+                {
+                    Name = "Inspiration",
+                },
             };
 
-            foreach (var item in articleCategoryNames)
+            foreach (var item in articleCategories)
             {
                 await dbContext.ArticleCategories.AddAsync(new ArticleCategory
                 {
-                    Name = item,
+                    Id = item.Id,
+                    Name = item.Name,
                 });
             }
         }

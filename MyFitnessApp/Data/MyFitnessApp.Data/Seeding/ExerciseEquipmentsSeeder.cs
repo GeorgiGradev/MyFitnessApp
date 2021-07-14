@@ -18,27 +18,61 @@ namespace MyFitnessApp.Data.Seeding
                 return;
             }
 
-            var exerciseEquipmentNames = new List<string>
-            {
-                "Bands",
-                "Foam Roll",
-                "Barbell",
-                "Kettlebells",
-                "Body Only",
-                "Machine",
-                "Cable",
-                "Medicine Ball",
-                "Dumbbell",
-                "EZ Curl Bar",
-                "Exercise Ball",
-                "Other",
-            };
+            var exerciseEquipments = new List<ExerciseEquipment>
+             {
+                 new ExerciseEquipment
+                 {
+                     Name = "Dumbbell",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Barbell",
+                 },
 
-            foreach (var item in exerciseEquipmentNames)
+                 new ExerciseEquipment
+                 {
+                     Name = "Machine",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Cable",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "EZ Curl Bar",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Bands",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Kettlebells",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Foam Roll",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Medicine Ball",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Exercise Ball",
+                 },
+                 new ExerciseEquipment
+                 {
+                     Name = "Body only",
+                 },
+             };
+
+            foreach (var item in exerciseEquipments)
             {
                 await dbContext.ExerciseEquipments.AddAsync(new ExerciseEquipment
                 {
-                    Name = item,
+                    Id = item.Id,
+                    Name = item.Name,
                 });
             }
         }

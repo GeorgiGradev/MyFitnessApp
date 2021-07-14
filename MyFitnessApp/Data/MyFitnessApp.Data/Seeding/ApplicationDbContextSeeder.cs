@@ -21,14 +21,18 @@
                 throw new ArgumentNullException(nameof(serviceProvider));
             }
 
-            var logger = serviceProvider.GetService<ILoggerFactory>().CreateLogger(typeof(ApplicationDbContextSeeder));
+            var logger = serviceProvider
+                .GetService<ILoggerFactory>()
+                .CreateLogger(typeof(ApplicationDbContextSeeder));
 
             var seeders = new List<ISeeder>
                           {
                               new RolesSeeder(),
+                              new AdminAccountSeeder(),
                               new ArticleCategoriesSeeder(),
                               new ExerciseCategoriesSeeder(),
                               new ExerciseEquipmentsSeeder(),
+                              new ExerciseSeeder(),
                           };
 
             foreach (var seeder in seeders)
