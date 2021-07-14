@@ -89,6 +89,7 @@
                 .Skip((pageNumber - 1) * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
                 .Take(itemsPerPage)
                 .To<SingleExerciseViewModel>()
+                .ToList();
 
                 // .Select(x => new ExerciseViewModel
                 // {
@@ -97,7 +98,7 @@
                 //    CategoryName = x.Category.Name,
                 //    ImageUrl = x.ImageUrl,
                 // })
-                .ToList();
+                // .ToList();
 
             return viewModel;
         }
@@ -164,6 +165,18 @@
             }
 
             return result;
+        }
+
+        public IEnumerable<SingleExerciseViewModel> GetExercisesByCategoryId(int categoryId)
+        {
+            var viewModel = this.exerciseRepository
+                .All()
+                .Where(x => x.CategoryId == categoryId)
+                .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
+                .To<SingleExerciseViewModel>()
+                .ToList();
+
+            return viewModel;
         }
 
         // JUST FOR TESTING

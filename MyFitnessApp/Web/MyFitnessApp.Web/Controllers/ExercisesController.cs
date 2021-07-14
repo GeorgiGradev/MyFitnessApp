@@ -91,5 +91,13 @@
             await this.exercisesService.AddExerciseToUserAsync(model, userId);
             return this.RedirectToAction("All", "Exercises");
         }
+
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Categories(int id)
+        {
+            return this.View();
+        }
     }
 }

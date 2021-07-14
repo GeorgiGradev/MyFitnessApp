@@ -30,5 +30,8 @@
 
         // Get EMBED youtube link
         string GetEmbedYouTubeLink(string rawLink);
+
+        // Get exercises by CategoryId
+        IEnumerable<SingleExerciseViewModel> GetExercisesByCategoryId(int categoryId);
     }
 }
