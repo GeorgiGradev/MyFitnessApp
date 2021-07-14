@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyFitnessApp.Data.Migrations
+﻿namespace MyFitnessApp.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class ChangeDatabaseEditExerciseDiaryFunctionality : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,7 +49,7 @@ namespace MyFitnessApp.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -115,7 +116,7 @@ namespace MyFitnessApp.Data.Migrations
                     DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -144,7 +145,7 @@ namespace MyFitnessApp.Data.Migrations
                     Repetitions = table.Column<int>(type: "int", nullable: false),
                     Sets = table.Column<int>(type: "int", nullable: false),
                     TrainingDiaryId = table.Column<int>(type: "int", nullable: false),
-                    Weight = table.Column<double>(type: "float", nullable: false)
+                    Weight = table.Column<double>(type: "float", nullable: false),
                 },
                 constraints: table =>
                 {

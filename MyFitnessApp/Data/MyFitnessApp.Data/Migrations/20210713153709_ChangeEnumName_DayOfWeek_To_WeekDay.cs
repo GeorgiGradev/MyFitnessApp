@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyFitnessApp.Data.Migrations
+﻿namespace MyFitnessApp.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class ChangeEnumName_DayOfWeek_To_WeekDay : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

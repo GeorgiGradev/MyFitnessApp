@@ -2,7 +2,7 @@
 {
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Services.Mapping;
- 
+
     // Визуализира едно упражнение
     public class SingleExerciseViewModel : IMapFrom<Exercise> // , IHaveCustomMappings
     {

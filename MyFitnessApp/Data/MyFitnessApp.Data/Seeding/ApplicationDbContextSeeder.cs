@@ -28,7 +28,7 @@
             var seeders = new List<ISeeder>
                           {
                               new RolesSeeder(),
-                              new AdminAccountSeeder(),
+                              new UsersSeeder(),
                               new ArticleCategoriesSeeder(),
                               new ExerciseCategoriesSeeder(),
                               new ExerciseEquipmentsSeeder(),

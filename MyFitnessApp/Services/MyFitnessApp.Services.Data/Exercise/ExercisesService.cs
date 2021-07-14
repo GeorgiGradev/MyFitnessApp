@@ -166,21 +166,9 @@
             return result;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         // JUST FOR TESTING
-        //public void AddExerciseToUser1(AddExerciseInputModel model, string userId)
-        //{
+        // public void AddExerciseToUser1(AddExerciseInputModel model, string userId)
+        // {
         //    var viewModel = this.exerciseRepository
         //         .All()
         //         .Select(x => new AddExerciseInputModel
@@ -193,6 +181,6 @@
         //             EquipmentName = x.Equipment.Name,
         //             VideoUrl = x.VideoUrl,
         //         }).FirstOrDefault();
-        //}
+        // }
     }
 }

@@ -17,7 +17,6 @@
             this.db = db;
         }
 
-
         public IActionResult Index()
         {
             // За да се визуализират данните на началната страница

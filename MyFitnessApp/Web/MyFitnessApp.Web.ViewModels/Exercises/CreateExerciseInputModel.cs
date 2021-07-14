@@ -27,12 +27,12 @@
 
         [Required(ErrorMessage = "The field is required")]
         [Url]
-        [Display(Name = "Image url")]
+        [Display(Name = "Image url (.jpg / .bmp / .png)")]
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
         [Url]
-        [Display(Name = "Video url")]
+        [Display(Name = "YouTube video url")]
         public string VideoUrl { get; set; }
 
         // Нужно е на View-то

@@ -39,19 +39,6 @@
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(ApplicationUser user)
-        {
-            var userName = await this.userManager.GetUserNameAsync(user);
-            var phoneNumber = await this.userManager.GetPhoneNumberAsync(user);
-
-            this.Username = userName;
-
-            this.Input = new InputModel
-            {
-                PhoneNumber = phoneNumber,
-            };
-        }
-
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await this.userManager.GetUserAsync(this.User);
@@ -92,6 +79,19 @@
             await this.signInManager.RefreshSignInAsync(user);
             this.StatusMessage = "Your profile has been updated";
             return this.RedirectToPage();
+        }
+
+        private async Task LoadAsync(ApplicationUser user)
+        {
+            var userName = await this.userManager.GetUserNameAsync(user);
+            var phoneNumber = await this.userManager.GetPhoneNumberAsync(user);
+
+            this.Username = userName;
+
+            this.Input = new InputModel
+            {
+                PhoneNumber = phoneNumber,
+            };
         }
     }
 }
