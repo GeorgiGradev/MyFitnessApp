@@ -36,5 +36,11 @@
 
         // Взима всички упражнения, които потребителят е добавил
         IEnumerable<SingleExerciseViewModel> GetAllExercisesByUserId(string userId);
+
+        // Взима упражнения по ден от седмицата + UserID
+        IEnumerable<DiaryExeriseViewModel> GetExercisesByDayOfWeek(string userId, string dayOfWeek);
+
+        // Премахва упражнението от Excercise Diary на User-a
+        Task RemoveExerciseAsync(string userId, int exerciseId);
     }
 }

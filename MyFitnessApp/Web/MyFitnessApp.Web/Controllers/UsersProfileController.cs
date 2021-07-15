@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
-    public class UsersController : Controller
+    public class UsersProfileController : Controller
     {
         public IActionResult MyGoals()
         {

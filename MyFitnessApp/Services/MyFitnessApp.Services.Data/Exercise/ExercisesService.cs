@@ -1,5 +1,6 @@
 ﻿namespace MyFitnessApp.Services.Data.Exercise
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -143,8 +144,31 @@
                 WeekDay = model.WeekDay,
             };
 
-            await this.userExerciseRepository.AddAsync(userExercise);
-            await this.userExerciseRepository.SaveChangesAsync();
+            bool doesExerciseExistInDiary = this.userExerciseRepository
+                .All()
+                .Any(x => x.ExerciseId == userExercise.ExerciseId
+                        && x.WeekDay == userExercise.WeekDay
+                        && x.UserId == userId);
+
+            if (!doesExerciseExistInDiary)
+            {
+                await this.userExerciseRepository.AddAsync(userExercise);
+                await this.userExerciseRepository.SaveChangesAsync();
+            }
+            // премахва и добавя наново упражнението = EDIT
+            else
+            {
+                var exerciseToRemove = this.userExerciseRepository
+                    .All()
+                    .Where(x => x.ExerciseId == userExercise.ExerciseId
+                        && x.WeekDay == userExercise.WeekDay
+                        && x.UserId == userId)
+                    .FirstOrDefault();
+                this.userExerciseRepository.Delete(exerciseToRemove);
+
+                await this.userExerciseRepository.AddAsync(userExercise);
+                await this.userExerciseRepository.SaveChangesAsync();
+            }
         }
 
         public string GetEmbedYouTubeLink(string rawLink)
@@ -189,6 +213,39 @@
                 .ToList();
 
             return viewModel;
+        }
+
+        public IEnumerable<DiaryExeriseViewModel> GetExercisesByDayOfWeek(string userId, string dayOfWeek)
+        {
+            var viewModel = this.userExerciseRepository
+                .All()
+                .Where(x => x.UserId == userId && x.WeekDay == Enum.Parse<WeekDay>(dayOfWeek))
+                .Select(x => new DiaryExeriseViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Exercise.Name,
+                    ImageUrl = x.Exercise.ImageUrl,
+                    DayOfWeek = dayOfWeek,
+                    Repetitions = x.Repetitions,
+                    Sets = x.Sets,
+                    Category = x.Exercise.Category.Name,
+                    Weight = x.Weight,
+                    ExerciseId = x.ExerciseId,
+                })
+                .ToList();
+
+            return viewModel;
+        }
+
+        public async Task RemoveExerciseAsync(string userId, int exerciseId)
+        {
+            var exercise = this.userExerciseRepository
+                .All()
+                .Where(x => x.UserId == userId && x.ExerciseId == exerciseId)
+                .FirstOrDefault();
+
+            this.userExerciseRepository.Delete(exercise);
+            await this.userExerciseRepository.SaveChangesAsync();
         }
     }
 }

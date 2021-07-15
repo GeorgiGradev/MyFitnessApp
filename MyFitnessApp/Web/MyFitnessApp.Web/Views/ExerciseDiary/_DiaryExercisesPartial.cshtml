@@ -1,0 +1,31 @@
+﻿@model AllDiaryExercisesViewModel
+
+
+<div class="row">
+    @foreach (var exercise in Model.Exercises)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@exercise.ImageUrl">
+            <div class="card-body">
+                <h5 class="card-title">@exercise.Name</h5>
+                <p class="card-text">@exercise.Category</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Repetitions: @exercise.Repetitions</li>
+                <li class="list-group-item">Sets: @exercise.Sets</li>
+                <li class="list-group-item">Weight: @exercise.Weight</li>
+            </ul>
+            <div class="card-body">
+
+                <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.ExerciseId" class="card-link">Edit</a>
+
+                <a asp-controller="Exercises" asp-action="All" class="card-link">Back to all</a>
+
+                <form method="post" asp-controller="Exercises" asp-action="Remove" id="deleteForm" asp-route-id="@exercise.ExerciseId">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+
+                </form>
+            </div>
+        </div>
+    }
+</div>

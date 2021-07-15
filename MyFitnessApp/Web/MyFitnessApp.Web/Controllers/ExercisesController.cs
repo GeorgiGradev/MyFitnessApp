@@ -89,7 +89,8 @@
 
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.exercisesService.AddExerciseToUserAsync(model, userId);
-            return this.RedirectToAction("All", "Exercises");
+            var dayOfWeek = model.WeekDay.ToString();
+            return this.RedirectToAction(dayOfWeek, "ExerciseDiary");
         }
 
 
@@ -113,5 +114,13 @@
             return this.View(view);
         }
 
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Remove(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.exercisesService.RemoveExerciseAsync(userId, id);
+            return this.RedirectToAction("Monday", "ExerciseDiary");
+        }
     }
 }
