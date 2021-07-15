@@ -179,21 +179,16 @@
             return viewModel;
         }
 
-        // JUST FOR TESTING
-        // public void AddExerciseToUser1(AddExerciseInputModel model, string userId)
-        // {
-        //    var viewModel = this.exerciseRepository
-        //         .All()
-        //         .Select(x => new AddExerciseInputModel
-        //         {
-        //             CategoryName = x.Category.Name,
-        //             ImageUrl = x.ImageUrl,
-        //             Description = x.Description,
-        //             Name = x.Name,
-        //             DifficultyName = x.Difficulty.ToString(),
-        //             EquipmentName = x.Equipment.Name,
-        //             VideoUrl = x.VideoUrl,
-        //         }).FirstOrDefault();
-        // }
+        public IEnumerable<SingleExerciseViewModel> GetAllExercisesByUserId(string userId)
+        {
+            var viewModel = this.exerciseRepository
+                .All()
+                .Where(x => x.AddedByUserId == userId)
+                .OrderByDescending(x => x.CreatedOn) // последнo добавените ще излизат най-отпред в списъка
+                .To<SingleExerciseViewModel>()
+                .ToList();
+
+            return viewModel;
+        }
     }
 }

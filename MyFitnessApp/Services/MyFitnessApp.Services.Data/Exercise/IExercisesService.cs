@@ -33,5 +33,8 @@
 
         // Get exercises by CategoryId
         IEnumerable<SingleExerciseViewModel> GetExercisesByCategoryId(int categoryId);
+
+        // Взима всички упражнения, които потребителят е добавил
+        IEnumerable<SingleExerciseViewModel> GetAllExercisesByUserId(string userId);
     }
 }

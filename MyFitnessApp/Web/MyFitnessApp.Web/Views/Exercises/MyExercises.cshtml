@@ -1,0 +1,29 @@
+﻿@model AllExercisesViewModel
+
+@{
+    var userName = this.User.Identity.Name;
+    this.ViewData["Title"] = "Exercises added by" + " " + userName;
+} 
+
+<div>
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <div class="row">
+        @foreach (var exercise in Model.Exercises)
+        {
+            <div class="col-md-4">
+                <div class="card text-center" style="width: 18rem;">
+                    <a asp-action="Add" asp-route-id="@exercise.Id">
+                        <img src="@exercise.ImageUrl" class="card-img-top">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"> <a asp-action="Add" asp-route-id="@exercise.Id">@exercise.Name</a></h5>
+                        Target Muscle Group:
+                        <a asp-controller="ExerciseCategories" asp-action="@exercise.CategoryName">
+                            <p class="card-text"> @exercise.CategoryName</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -95,9 +95,23 @@
 
         [HttpGet]
         [Authorize]
-        public IActionResult Categories(int id)
+        public IActionResult Categories()
         {
             return this.View();
         }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult MyExercises()
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var view = new AllExercisesViewModel
+            {
+                Exercises = this.exercisesService.GetAllExercisesByUserId(userId),
+            };
+
+            return this.View(view);
+        }
+
     }
 }
