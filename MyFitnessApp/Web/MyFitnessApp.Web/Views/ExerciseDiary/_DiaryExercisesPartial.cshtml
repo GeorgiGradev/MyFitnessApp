@@ -9,11 +9,6 @@
                 <h2 class="text-center">No exercises found for the given day of week</h2>
             </div>
         </div>
-        <div class="container">
-            <div class="col-md-10 text-center">
-                <a asp-controller="Exercises" asp-action="All" class="btn btn-primary mt-3">Add exercise</a>
-            </div>
-        </div>
     }
     @if (Model.Exercises.Any())
     {
@@ -34,15 +29,32 @@
                 <div class="card-body">
                     <div class="text-center">
                         <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.ExerciseId" class="btn btn-primary mt-3">Show/Edit</a>
-                        <a asp-controller="Exercises" asp-action="All" class="btn btn-primary mt-3">Add exercise</a>
+                        <a asp-controller="Exercises" asp-action="All" class="btn btn-primary mt-3">Back to all</a>
                     </div>
                     <div class="text-center">
-                        <form method="post" asp-controller="Exercises" asp-action="Remove" id="deleteForm" asp-route-id="@exercise.ExerciseId">
-                            <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                        </form>
+                        <form method="post" asp-controller="Exercises" asp-action="Remove" id="deleteForm" asp-route-id="@exercise.ExerciseId"></form>
+                        <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>Do you want to delete "@exercise.Name"?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        </div>
                     </div>
                 </div>
             </div>
         }
     }
 </div>
+
+@*Изтриването + въпрос дали да се трие (Workshop MoiteRecepti / View - ById.cshtml )*@
+
