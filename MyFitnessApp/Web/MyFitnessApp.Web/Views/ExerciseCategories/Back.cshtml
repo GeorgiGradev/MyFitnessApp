@@ -1,11 +1,10 @@
 ﻿@model AllExercisesViewModel
 
 @{
-    this.ViewData["Title"] = "Back";
+    this.ViewBag.Title = "Back";
 }
 
-
 <div>
-    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <h1 class="text-center">@this.ViewBag.Title</h1>
     <partial name="_SingleCategoryPartial" model="@Model" />
 </div>

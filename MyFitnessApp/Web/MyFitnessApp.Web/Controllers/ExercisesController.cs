@@ -46,7 +46,7 @@
                 return this.View(model);
             }
 
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var userId = this.User.GetId(); // специално създаден метод в Web.Infrastructure
             await this.exercisesService.CreateExcerciseAsync(model, userId);
 
             return this.RedirectToAction("All", "Exercises"); // Да се направи да връща All Exercises
@@ -87,7 +87,7 @@
                 return this.View(viewNodel);
             }
 
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var userId = this.User.GetId();
             await this.exercisesService.AddExerciseToUserAsync(model, userId);
             var dayOfWeek = model.WeekDay.ToString();
             return this.RedirectToAction(dayOfWeek, "ExerciseDiary");
@@ -105,7 +105,7 @@
         [Authorize]
         public IActionResult MyExercises()
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var userId = this.User.GetId();
             var view = new AllExercisesViewModel
             {
                 Exercises = this.exercisesService.GetAllExercisesByUserId(userId),
@@ -118,7 +118,7 @@
         [Authorize]
         public async Task<IActionResult> Remove(int id)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var userId = this.User.GetId();
             await this.exercisesService.RemoveExerciseAsync(userId, id);
             return this.RedirectToAction("Monday", "ExerciseDiary");
         }
