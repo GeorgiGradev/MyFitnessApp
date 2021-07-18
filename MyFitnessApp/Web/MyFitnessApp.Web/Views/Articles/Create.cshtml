@@ -1,2 +1,52 @@
 ﻿@*View, което визуализира форма за създаване на Article*@
 
+@using MyFitnessApp.Data.Models
+@model CreateArticleInputModel
+
+@{
+    this.ViewData["Title"] = "Create new article";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
+            @*Прави формата responsive при различни размери на екрана*@
+            <h2 class="heading-margin text-center">@this.ViewData["Title"]</h2>
+            <form method="post" enctype="multipart/form-data">
+                @*добавяме enctype, за да може формата да пази файлове*@
+
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" placeholder="Title here...">
+                    <span asp-validation-for="Title" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Content"></label>
+                    <textarea asp-for="Content" class="form-control" rows="4" placeholder="Content here..."></textarea>
+                    <span asp-validation-for="Content" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryId"></label>
+                    <select asp-for="CategoryId" class="form-control">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Image"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="small text-danger"></span>
+                </div>
+
+
+                <input class="btn btn-primary float-right mt-3" type="submit" value="Save" />
+            </form>
+        </div>
+    </div>
+</div>
+

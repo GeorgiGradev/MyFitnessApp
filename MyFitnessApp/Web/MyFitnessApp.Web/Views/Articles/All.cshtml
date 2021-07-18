@@ -1,2 +1,27 @@
 ﻿@*View, което визуалира всички Articles*@
 
+
+@model AllArticlesViewModel
+
+@{
+    this.ViewData["Title"] = "All articles";
+}
+
+<div>
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <div class="row">
+        @foreach (var article in Model.Articles)
+        {
+        <div class="card text-center" style="width: 18rem;">
+            <a asp-action="Article" asp-route-id="@article.Id">
+                <img src="@article.ImagePath" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"> <a asp-action="Article" asp-route-id="@article.Id">@article.Title</a></h5>
+                <p class="card-text">@article.ShortContent</p>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+

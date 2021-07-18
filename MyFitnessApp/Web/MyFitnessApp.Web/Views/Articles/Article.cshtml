@@ -1,0 +1,13 @@
+﻿@model SingleArticleViewModel 
+
+
+
+<div class="col-md-10 blogShort">
+    <h1>@Model.Title</h1>
+    <img src="@Model.ImagePath" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10">
+    <article>
+        <p>
+            @Model.Content
+        </p>
+    </article>
+</div>
