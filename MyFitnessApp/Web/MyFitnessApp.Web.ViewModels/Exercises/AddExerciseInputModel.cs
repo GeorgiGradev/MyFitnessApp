@@ -33,7 +33,7 @@
         public WeekDay WeekDay { get; set; }
 
         [Range(ExerciseWeightMinValue, ExerciseWeightMaxValue)]
-        [Display(Name = "Exercise weight")]
+        [Display(Name = "Exercise weight in kg")]
         public double Weight { get; set; }
 
         [Range(ExerciseRepetitionsMinValue, ExerciseRepetitionsMaxValue)]
