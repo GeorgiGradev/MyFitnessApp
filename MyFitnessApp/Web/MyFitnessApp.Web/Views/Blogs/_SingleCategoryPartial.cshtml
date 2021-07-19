@@ -1,0 +1,17 @@
+﻿
+@model AllArticlesViewModel
+
+<div class="row">
+    @foreach (var article in Model.Articles)
+    {
+        <div class="card text-center col-md-4 mt-3" style="width: 18rem;">
+            <a asp-controller="Articles" asp-action="Article" asp-route-id="@article.Id">
+                <img src="@article.ImagePath" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"> <a asp-controller="Articles" asp-action="Article" asp-route-id="@article.Id">@article.Title</a></h5>
+                <p class="card-text">@article.ShortContent</p>
+            </div>
+        </div>
+    }
+</div>

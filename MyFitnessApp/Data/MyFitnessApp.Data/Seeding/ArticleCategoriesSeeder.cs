@@ -37,7 +37,7 @@ namespace MyFitnessApp.Data.Seeding
                 },
                 new ArticleCategory
                 {
-                    Name = "Weight loss",
+                    Name = "Weight-loss",
                     ImageUrl = "/images/seededArticleCategories/" + "weightloss" + "." + "jpg",
                 },
                 new ArticleCategory

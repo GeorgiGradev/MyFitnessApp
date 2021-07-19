@@ -1,0 +1,10 @@
+﻿@model AllArticlesViewModel
+
+@{
+    this.ViewBag.Title = "Weight loss";
+}
+
+<div>
+    <h1 class="text-center">@this.ViewBag.Title</h1>
+    <partial name="_SingleCategoryPartial" model="@Model" />
+</div>
