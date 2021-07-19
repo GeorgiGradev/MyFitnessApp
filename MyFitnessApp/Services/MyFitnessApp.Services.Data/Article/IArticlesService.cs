@@ -18,5 +18,8 @@
 
         // Взима даден Articles по Id
         SingleArticleViewModel GetArticleById(int id);
+
+        // Get articles by CategoryId
+        IEnumerable<SingleArticleViewModel> GetArticlesByCategoryId(int categoryId);
     }
 }

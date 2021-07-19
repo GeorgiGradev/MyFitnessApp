@@ -8,6 +8,7 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Articles;
 
     // IDeletableEntityRepository<Article>
@@ -110,6 +111,27 @@
                     UserId = x.AddedByUserId,
                 })
                 .FirstOrDefault();
+
+            return viewModel;
+        }
+
+        public IEnumerable<SingleArticleViewModel> GetArticlesByCategoryId(int categoryId)
+        {
+            var viewModel = this.articleRepository
+                    .All()
+                    .Where(x => x.CategoryId == categoryId)
+                    .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
+                    .Select(x => new SingleArticleViewModel
+                    { 
+                        Id = x.Id,
+                        CategoryId = x.CategoryId,
+                        Title = x.Title,
+                        CategoryName = x.Category.Name,
+                        Content = x.Content,
+                        ImagePath = "/images/articles/" + x.Id + "." + "jpg",
+                        UserId = x.AddedByUserId,
+                    })
+                    .ToList();
 
             return viewModel;
         }

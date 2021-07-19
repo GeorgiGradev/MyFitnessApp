@@ -12,13 +12,19 @@
     <div class="row">
         @foreach (var article in Model.Articles)
         {
-        <div class="card text-center" style="width: 18rem;">
+        <div class="card text-center col-md-4 mt-3" style="width: 18rem;">
             <a asp-action="Article" asp-route-id="@article.Id">
                 <img src="@article.ImagePath" class="card-img-top">
             </a>
             <div class="card-body">
                 <h5 class="card-title"> <a asp-action="Article" asp-route-id="@article.Id">@article.Title</a></h5>
                 <p class="card-text">@article.ShortContent</p>
+            </div>
+            <div class="card-footer">
+                Article category:
+                <a asp-controller="Blogs" asp-action="@article.CategoryName">
+                    <p class="card-text"> @article.CategoryName</p>
+                </a>
             </div>
         </div>
         }

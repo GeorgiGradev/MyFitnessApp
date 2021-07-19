@@ -84,5 +84,13 @@
             var viewNodel = this.articlesService.GetArticleById(id); // вътре са данните за визуализация
             return this.View(viewNodel);
         }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Categories()
+        {
+            return this.View();
+        }
+
     }
 }

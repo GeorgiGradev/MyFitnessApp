@@ -23,22 +23,32 @@ namespace MyFitnessApp.Data.Seeding
                 new ArticleCategory
                 {
                     Name = "Fitness",
+                    ImageUrl = "/images/seededArticleCategories/" + "fitness" + "." + "jpg",
                 },
                 new ArticleCategory
                 {
                     Name = "Recipes",
+                    ImageUrl = "/images/seededArticleCategories/" + "recipes" + "." + "jpg",
                 },
                 new ArticleCategory
                 {
                     Name = "Nutrition",
+                    ImageUrl = "/images/seededArticleCategories/" + "nutrition" + "." + "jpg",
                 },
                 new ArticleCategory
                 {
                     Name = "Weight loss",
+                    ImageUrl = "/images/seededArticleCategories/" + "weightloss" + "." + "jpg",
                 },
                 new ArticleCategory
                 {
                     Name = "Inspiration",
+                    ImageUrl = "/images/seededArticleCategories/" + "inspiration" + "." + "jpg",
+                },
+                new ArticleCategory
+                {
+                    Name = "Essentials",
+                    ImageUrl = "/images/seededArticleCategories/" + "essentials" + "." + "jpg",
                 },
             };
 
@@ -48,6 +58,7 @@ namespace MyFitnessApp.Data.Seeding
                 {
                     Id = item.Id,
                     Name = item.Name,
+                    ImageUrl = item.ImageUrl,
                 });
             }
         }
