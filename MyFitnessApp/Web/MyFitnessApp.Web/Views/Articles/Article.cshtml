@@ -1,13 +1,45 @@
-﻿@model SingleArticleViewModel 
+﻿@model SingleArticleViewModel
 
+@{ var userId = User.GetId(); }
 
+<div class="col-md-12 blogShort">
+    <h1 class="text-center">@Model.Title</h1>
+    <div class="row-md-4">
+        <ul>
+            <li>Written by: @Model.Username</li>
+            <li>Written on: @Model.CreatedOn</li>
+            <li>Category: @Model.CategoryName</li>
+        </ul>
+    </div>
+    <div class="row-md-4 text-center">
+        <img src="@Model.ImagePath" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10">
+        <article>
+            <p class="text-justify">
+                @Model.Content
+            </p>
+        </article>
+    </div>
+    @if (userId == Model.UserId || User.IsInRole("Administrator"))
+    {
+        <div class="text-center">
+            <form method="post" asp-controller="Articles" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id"></form>
+            <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
+        </div>
+    }
 
-<div class="col-md-10 blogShort">
-    <h1>@Model.Title</h1>
-    <img src="@Model.ImagePath" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10">
-    <article>
-        <p>
-            @Model.Content
-        </p>
-    </article>
 </div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Are you sure you want to remove "@Model.Title" from your articles ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+

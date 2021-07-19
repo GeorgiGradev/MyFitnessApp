@@ -21,5 +21,8 @@
 
         // Get articles by CategoryId
         IEnumerable<SingleArticleViewModel> GetArticlesByCategoryId(int categoryId);
+
+        // Премахва Article
+        Task DeleteArticleAsync(int articleId);
     }
 }

@@ -16,6 +16,12 @@
 
         public string UserId { get; set; }
 
+        public string Username { get; set; }
+
         public string ImagePath { get; set; }
+
+        public string CreatedOn { get; set; }
+
+        public string UpdatedOn { get; set; }
     }
 }

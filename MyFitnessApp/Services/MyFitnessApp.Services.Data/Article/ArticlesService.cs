@@ -89,6 +89,8 @@
                 CategoryName = x.Category.Name,
                 ImagePath = "/images/articles/" + x.Id + "." + "jpg",
                 UserId = x.AddedByUserId,
+                CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
+                Username = x.AddedByUser.UserName,
              })
              .ToList();
 
@@ -109,6 +111,8 @@
                     CategoryName = x.Category.Name,
                     ImagePath = "/images/articles/" + x.Id + "." + "jpg",
                     UserId = x.AddedByUserId,
+                    CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
+                    Username = x.AddedByUser.UserName,
                 })
                 .FirstOrDefault();
 
@@ -130,10 +134,23 @@
                         Content = x.Content,
                         ImagePath = "/images/articles/" + x.Id + "." + "jpg",
                         UserId = x.AddedByUserId,
+                        CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
+                        Username = x.AddedByUser.UserName,
                     })
                     .ToList();
 
             return viewModel;
+        }
+
+        public async Task DeleteArticleAsync(int articleId)
+        {
+            var article = this.articleRepository
+                .All()
+                .Where(x => x.Id == articleId)
+                .FirstOrDefault();
+
+            this.articleRepository.Delete(article);
+            await this.articleRepository.SaveChangesAsync();
         }
     }
 }

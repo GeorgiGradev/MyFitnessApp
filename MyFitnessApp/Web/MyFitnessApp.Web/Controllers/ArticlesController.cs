@@ -92,5 +92,12 @@
             return this.View();
         }
 
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.articlesService.DeleteArticleAsync(id);
+            return this.RedirectToAction("All", "Articles");
+        }
     }
 }
