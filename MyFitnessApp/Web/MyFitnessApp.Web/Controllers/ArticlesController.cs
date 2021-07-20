@@ -59,8 +59,7 @@
 
             this.TempData["Message"] = "Article added successfully.";
 
-
-            return this.RedirectToAction("All", "Articles"); 
+            return this.RedirectToAction("All", "Articles");
 
         }
 

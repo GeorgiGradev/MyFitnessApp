@@ -92,15 +92,14 @@
                 .To<SingleExerciseViewModel>()
                 .ToList();
 
-                // .Select(x => new ExerciseViewModel
-                // {
-                //    AddedByUserId = x.AddedByUserId,
-                //    Name = x.Name,
-                //    CategoryName = x.Category.Name,
-                //    ImageUrl = x.ImageUrl,
-                // })
-                // .ToList();
-
+            // .Select(x => new ExerciseViewModel
+            // {
+            //    AddedByUserId = x.AddedByUserId,
+            //    Name = x.Name,
+            //    CategoryName = x.Category.Name,
+            //    ImageUrl = x.ImageUrl,
+            // })
+            // .ToList();
             return viewModel;
         }
 
@@ -155,6 +154,7 @@
                 await this.userExerciseRepository.AddAsync(userExercise);
                 await this.userExerciseRepository.SaveChangesAsync();
             }
+
             // премахва и добавя наново упражнението = EDIT
             else
             {

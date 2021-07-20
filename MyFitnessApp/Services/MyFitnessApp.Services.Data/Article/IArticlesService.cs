@@ -14,7 +14,7 @@
         Task CreateArticleAsync(CreateArticleInputModel model, string userId, string imagePath);
 
         // Взима всички Articles от базата
-        IEnumerable<SingleArticleViewModel> GetAllArticles(); 
+        IEnumerable<SingleArticleViewModel> GetAllArticles();
 
         // Взима даден Articles по Id
         SingleArticleViewModel GetArticleById(int id);

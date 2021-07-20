@@ -93,7 +93,6 @@
             return this.RedirectToAction(dayOfWeek, "ExerciseDiary");
         }
 
-
         [HttpGet]
         [Authorize]
         public IActionResult Categories()

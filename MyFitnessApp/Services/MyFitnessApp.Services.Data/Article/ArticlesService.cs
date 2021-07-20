@@ -58,7 +58,6 @@
             var articleId = article.Id;
             var extension = Path.GetExtension(model.Image.FileName).TrimStart('.');
 
-
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
                 throw new Exception($"Invalid image extension {extension}");
@@ -76,21 +75,21 @@
 
         public IEnumerable<SingleArticleViewModel> GetAllArticles()
         {
-  
+
             var viewModel = this.articleRepository
                 .All()
                 .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
              .Select(x => new SingleArticleViewModel
              {
-                Id = x.Id,
-                Title = x.Title,
-                Content = x.Content,
-                CategoryId = x.CategoryId,
-                CategoryName = x.Category.Name,
-                ImagePath = "/images/articles/" + x.Id + "." + "jpg",
-                UserId = x.AddedByUserId,
-                CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
-                Username = x.AddedByUser.UserName,
+                 Id = x.Id,
+                 Title = x.Title,
+                 Content = x.Content,
+                 CategoryId = x.CategoryId,
+                 CategoryName = x.Category.Name,
+                 ImagePath = "/images/articles/" + x.Id + "." + "jpg",
+                 UserId = x.AddedByUserId,
+                 CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
+                 Username = x.AddedByUser.UserName,
              })
              .ToList();
 
@@ -126,7 +125,7 @@
                     .Where(x => x.CategoryId == categoryId)
                     .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
                     .Select(x => new SingleArticleViewModel
-                    { 
+                    {
                         Id = x.Id,
                         CategoryId = x.CategoryId,
                         Title = x.Title,

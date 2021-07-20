@@ -34,7 +34,6 @@
                               new ExerciseEquipmentsSeeder(),
                               new ExerciseSeeder(),
                               new ArticlesSeeder(),
-
                           };
 
             foreach (var seeder in seeders)

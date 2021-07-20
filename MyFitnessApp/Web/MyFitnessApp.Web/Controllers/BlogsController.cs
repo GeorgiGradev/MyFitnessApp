@@ -52,7 +52,7 @@
 
         [HttpGet]
         [Authorize]
-        public IActionResult WeightLoss()
+        public IActionResult Weightloss()
         {
             var view = new AllArticlesViewModel
             {

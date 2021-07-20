@@ -21,7 +21,7 @@
                 Title = "Chocolate N’Ice Cream",
                 Content = "Skip the dairy, fat and sugar — all with the magic of “nice cream.” The secret lies in the creamy sweetness of ripe bananas, frozen solid and then pureed. You’ll need a good blender and need to work quickly, so you can eat the nice cream while it has the texture of soft-serve. You can freeze the puree to eat later. Just spread it thinly in a storage tub so it softens evenly when you get it out to serve. The colder a food is, the harder it is to taste the sugar, so foods taste sweeter at room temperature than if they are frozen. That’s one of the reasons ice cream has so much sugar: It’s served cold, so it needs more sugar to taste sweet. All this to say, your “nice cream” will taste sweeter and creamier if it is lightly frozen, instead of totally frozen. Active time: 10 minutes Total time: 8 hours",
                 AddedByUser = dbContext.Users.Where(x => x.UserName == "admin").FirstOrDefault(),
-                Category= dbContext.ArticleCategories.Where(x => x.Name == "Recipes").FirstOrDefault(),
+                Category = dbContext.ArticleCategories.Where(x => x.Name == "Recipes").FirstOrDefault(),
                 ImageUrl = "/images/articles/" + "1" + "." + "jpg",
             });
             await dbContext.SaveChangesAsync();
@@ -35,7 +35,6 @@
                 ImageUrl = "/images/articles/" + "2" + "." + "jpg",
             });
             await dbContext.SaveChangesAsync();
-
 
             await dbContext.Articles.AddAsync(new Article
             {
@@ -68,7 +67,6 @@
             await dbContext.SaveChangesAsync();
 
             // Fitness
-
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "5 Stretches to Relieve Work-From-Home Pains",
@@ -170,14 +168,13 @@
             });
             await dbContext.SaveChangesAsync();
 
-            // Weight-loss
-
+            // Weightloss
             await dbContext.Articles.AddAsync(new Article
             {
                 Title = "8 Foods That Are Surprisingly Good For Weight Loss",
                 Content = "Losing weight doesn’t always have to be about deprivation and denial. In fact, it shouldn’t be. Successful, sustainable weight loss is far more attainable when you focus on the quality of food rather than the quantity. Eat wholesome, nutritious, (and even calorie-filled) foods and you’ll be far more satisfied and content on less. Many of the foods people think are off-limits when it comes to losing weight are the very foods that have the ability to actually help us reach our goal. Here are eight foods that cannot only help you reach your weight-loss goal, but help you keep it off for good. Drink skim and stay slim? Not always so when it comes to dairy. A recent study published in the American Journal of Nutrition found that more than 18,000 women who consumed more higher-fat and whole-milk dairy products had a lower risk of being overweight. How can this be? Some essential fatty acids are stripped when milk is skimmed — the very component that may help you feel fuller sooner and stay full longer with full fat products. Several studies have found that when people reduce the amount of fat in their diet, they tend to replace it with sugar and refined carbohydrates, which can have a worse effect on overall health.",
                 AddedByUser = dbContext.Users.Where(x => x.UserName == "admin").FirstOrDefault(),
-                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weight-loss").FirstOrDefault(),
+                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weightloss").FirstOrDefault(),
                 ImageUrl = "/images/articles/" + "16" + "." + "jpg",
             });
             await dbContext.SaveChangesAsync();
@@ -187,7 +184,7 @@
                 Title = "The Truth About Meal Replacement Shakes for Weight Loss",
                 Content = "Imagine this: You’re sitting at your desk between meetings, and you realize you’ve only got 10 minutes for lunch. You didn’t prep anything ahead of time, and 10 minutes isn’t long enough to whip up something healthy or even run out to grab a salad. If you’re trying to stay on track with your weight-loss goal, this can be a stressful situation.Enter: the meal replacement shake. A quick, convenient solution, these pre-made drinks are usually easy to find in grocery stores — or you can order a whole case online to keep on hand for situations just like this. As for why meal replacement shakes seem to be making a comeback, there are a couple of big reasons, according to Olivia Ashton Brant, RD, Certified Specialist in Sports Dietetics. “The first is because they are easy and convenient, especially in the mornings, when most of us prioritize a few extra minutes of sleep over cooking breakfast.” The second is the idea of a shake being associated with weight loss, even if it’s not explicitly marketed that way. “I think, by default, people associate all meal replacement products to be something that will help with weight management,” Brant explains.",
                 AddedByUser = dbContext.Users.Where(x => x.UserName == "admin").FirstOrDefault(),
-                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weight-loss").FirstOrDefault(),
+                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weightloss").FirstOrDefault(),
                 ImageUrl = "/images/articles/" + "17" + "." + "jpg",
             });
             await dbContext.SaveChangesAsync();
@@ -197,7 +194,7 @@
                 Title = "Are Food Sensitivities Making it Harder for You to Lose Weight?",
                 Content = "Losing weight can feel like such an uphill battle. Whether you’re dealing with cravings, stress eating or hormonal imbalance, there are lots of potential roadblocks that could keep you from reaching your goal on the timeline you expected. But, is eating foods that don’t agree with you a potential contributing factor to slow weight loss? Here’s what experts had to say, plus how to deal if you suspect you have a food sensitivity. Food intolerances, on the other hand, are usually GI-related. They happen when the body has a hard time digesting a certain food. “The most common example is a lactose intolerance, which happens when someone lacks enough of the digestive enzyme lactase to digest lactose, a sugar found in cow’s milk,” McAsey explains. These reactions happen almost exclusively in the GI tract, meaning they primarily cause digestive symptoms, and don’t cause the widespread immune response seen with allergies. Food sensitivities are understudied compared to allergies and intolerances, Cureton says. They’re similar in the sense that they’re immune-mediated reactions to particular nutrients (meaning the immune system is involved), but they’re not exactly the same as food allergies, and they’re not as well-understood. “Importantly, the symptoms of the sensitivity can change, meaning that reactions don’t always happen the same way,” Cureton says. One day, eating the nutrient you’re sensitive to could result in a stomachache, the next day it could produce eczema, the next day it could result in joint pain, she explains. That can make food sensitivities tricky to pin down.",
                 AddedByUser = dbContext.Users.Where(x => x.UserName == "admin").FirstOrDefault(),
-                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weight-loss").FirstOrDefault(),
+                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weightloss").FirstOrDefault(),
                 ImageUrl = "/images/articles/" + "18" + "." + "jpg",
             });
             await dbContext.SaveChangesAsync();
@@ -207,7 +204,7 @@
                 Title = "10 Summer Foods to Boost Weight Loss",
                 Content = "Whether you’re hitting the beach, tanning by the pool or just trying to look and feel your best this summer, it’s important to incorporate fresh, seasonal fruits and vegetables into your diet. With all that sunshine comes foods that are packed with antioxidants, nutrients and water to rehydrate your long summer days. Although eating certain foods can’t automatically prompt weight loss, replacing high-calorie foods with low-calorie ones can shift you toward burning more calories than you consume — the key to shedding extra weight. The best way to make these swaps is by choosing nutrient-dense foods (that are naturally lower in calories) to enhance your health and ensure you’re still getting all the necessary nutrients needed for your weight-loss journey. Whichever kind you prefer — blueberries, blackberries, raspberries or strawberries — these summer fruits contain several important nutrients and are lower in calories than other fruits such as bananas and mangoes. Berries are high in fiber (one cup of raspberries has 8 grams of dietary fiber, which is nearly a third of the recommended intake for women and 20% of what men need in a day), which helps you feel full longer and reduces the temptation to snack between meals. Berries are also rich in antioxidants and vitamins B and C.",
                 AddedByUser = dbContext.Users.Where(x => x.UserName == "admin").FirstOrDefault(),
-                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weight-loss").FirstOrDefault(),
+                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weightloss").FirstOrDefault(),
                 ImageUrl = "/images/articles/" + "19" + "." + "jpg",
             });
             await dbContext.SaveChangesAsync();
@@ -217,7 +214,7 @@
                 Title = "Healthy Habits For Life: 10 Tips For Better Nutrition and Weight Loss",
                 Content = "You don’t have to completely overhaul your diet to lose weight. Start by making small changes such as eating fruit instead of drinking fruit juice and adding more colorful foods to your plate. Over time these small tweaks will add up to big results. If you’re looking for more inspiration, check out these 67 science-backed weight loss strategies. A portion size is the amount of food or drink you actually consume in one sitting. This guide will help you match your portions to recommended servings sizes, or what’s on a food label. Learning to be mindful of portions can help prevent overeating. For more of a visual, here’s what 1,200, 1,500 and 2,000 calories in a day looks like. There’s no one-size fits all diet. While keto, paleo, DASH or intermittent fasting might work well for a friend or family member, that doesn’t necessarily mean it’s right for you. Rather, it’s important to focus on eating a variety of nutrient-dense foods, including fruits, veggies, grains, lean proteins and healthy fats. Ultimately, healthy eating is a lifestyle that nourishes your body, gives you energy and is sustainable long-term.",
                 AddedByUser = dbContext.Users.Where(x => x.UserName == "admin").FirstOrDefault(),
-                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weight-loss").FirstOrDefault(),
+                Category = dbContext.ArticleCategories.Where(x => x.Name == "Weightloss").FirstOrDefault(),
                 ImageUrl = "/images/articles/" + "20" + "." + "jpg",
             });
             await dbContext.SaveChangesAsync();
