@@ -11,9 +11,12 @@
     {
         public Post()
         {
-            this.Likes = new HashSet<Like>();
             this.Comments = new HashSet<Comment>();
         }
+
+        [Required]
+        [MaxLength(PostTitleMaxLength)]
+        public string Title { get; set; }
 
         [Required]
         [MaxLength(PostContentMaxLength)]
@@ -24,7 +27,9 @@
 
         public virtual ApplicationUser AddedByUser { get; set; }
 
-        public virtual ICollection<Like> Likes { get; set; }
+        public int CategoryId { get; set; }
+
+        public ForumCategory Category { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
     }

@@ -10,18 +10,6 @@
 
     internal class UsersSeeder : ISeeder
     {
-        private readonly UserManager<ApplicationUser> userManager;
-
-        public UsersSeeder(
-            UserManager<ApplicationUser> userManager)
-        {
-            this.userManager = userManager;
-        }
-
-        public UsersSeeder()
-        {
-        }
-
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
             if (!dbContext.Users.Any(x => x.UserName == "User"))

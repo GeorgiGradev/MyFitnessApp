@@ -22,6 +22,10 @@
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Articles = new HashSet<Article>();
+            this.Posts = new HashSet<Post>();
+            this.Followees = new HashSet<FollowerFollowee>();
+            this.Followers = new HashSet<FollowerFollowee>();
+            this.Comments = new HashSet<Comment>();
         }
 
         [Required]
@@ -49,26 +53,24 @@
 
         public virtual ICollection<Food> Foods { get; set; }
 
-        public virtual ICollection<Like> Likes { get; set; }
-
-        public virtual ICollection<Post> Posts { get; set; }
-
-        public virtual ICollection<Article> Articles { get; set; }
-
-        public virtual ICollection<Comment> Comments { get; set; }
-
         public virtual ICollection<FoodDiary> FoodDiaries { get; set; }
 
         public virtual ICollection<UserExercise> UserExercises { get; set; }
-
-        public virtual ICollection<FollowerFollowee> Followers { get; set; }
-
-        public virtual ICollection<FollowerFollowee> Followees { get; set; }
 
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<Article> Articles { get; set; }
+
+        public virtual ICollection<Post> Posts { get; set; }
+
+        public virtual ICollection<FollowerFollowee> Followees { get; set; }
+
+        public virtual ICollection<FollowerFollowee> Followers { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

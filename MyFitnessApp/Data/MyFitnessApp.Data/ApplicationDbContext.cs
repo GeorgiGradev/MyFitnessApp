@@ -44,11 +44,11 @@
 
         public DbSet<FoodMeal> FoodMeals { get; set; }
 
-        public DbSet<Like> Likes { get; set; }
-
         public DbSet<Meal> Meals { get; set; }
 
         public DbSet<Post> Posts { get; set; }
+
+        public DbSet<ForumCategory> ForumCategories { get; set; }
 
         public DbSet<Profile> Profiles { get; set; }
 

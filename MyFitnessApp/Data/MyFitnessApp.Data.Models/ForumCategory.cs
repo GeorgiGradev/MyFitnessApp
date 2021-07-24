@@ -7,19 +7,19 @@
 
     using static MyFitnessApp.Common.DataConstants;
 
-    public class ArticleCategory : BaseDeletableModel<int>
+    public class ForumCategory : BaseDeletableModel<int>
     {
-        public ArticleCategory()
+        public ForumCategory()
         {
-            this.Articles = new HashSet<Article>();
+            this.Posts = new HashSet<Post>();
         }
 
         [Required]
-        [MaxLength(ArticleCategoryNameMaxLength)]
+        [MaxLength(ForumCategoryNameMaxLength)]
         public string Name { get; set; }
 
         public string ImageUrl { get; set; }
 
-        public virtual ICollection<Article> Articles { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

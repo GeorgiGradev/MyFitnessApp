@@ -20,14 +20,22 @@
         public const int ArticleContentMaxLength = 10000;
 
         // ArticleCategory Model
-        public const int ArticleCategoryTitleMinLength = 2;
-        public const int ArticleCategoryTitleMaxLength = 20;
+        public const int ArticleCategoryNameMinLength = 2;
+        public const int ArticleCategoryNameMaxLength = 20;
+
+        // ForumCategory Model
+        public const int ForumCategoryNameMinLength = 20;
+        public const int ForumCategoryNameMaxLength = 20;
 
         // Comment Model
-        public const int CommentContentMaxLength = 5000;
+        public const int CommentContentMaxLength = 500;
 
         // Post Model
-        public const int PostContentMaxLength = 5000;
+        public const int PostTitleMinLength = 2;
+        public const int PostTitleMaxLength = 20;
+
+        public const int PostContentMinLength = 2;
+        public const int PostContentMaxLength = 1000;
 
         // Exercise Model
         public const int ExerciseNameMinLength = 2;
