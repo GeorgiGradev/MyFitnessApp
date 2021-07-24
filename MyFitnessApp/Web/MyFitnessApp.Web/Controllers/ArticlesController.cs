@@ -60,7 +60,6 @@
             this.TempData["Message"] = "Article added successfully.";
 
             return this.RedirectToAction("All", "Articles");
-
         }
 
         [HttpGet]
@@ -70,7 +69,6 @@
             var view = new AllArticlesViewModel
             {
                 Articles = this.articlesService.GetAllArticles(),
-
             };
 
             return this.View(view);

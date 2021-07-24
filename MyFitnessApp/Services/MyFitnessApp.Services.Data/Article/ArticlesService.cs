@@ -8,7 +8,6 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Articles;
 
     // IDeletableEntityRepository<Article>
@@ -75,7 +74,6 @@
 
         public IEnumerable<SingleArticleViewModel> GetAllArticles()
         {
-
             var viewModel = this.articleRepository
                 .All()
                 .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
@@ -88,7 +86,7 @@
                  CategoryName = x.Category.Name,
                  ImagePath = "/images/articles/" + x.Id + "." + "jpg",
                  UserId = x.AddedByUserId,
-                 CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
+                 CreatedOn = x.CreatedOn.ToString("f"),
                  Username = x.AddedByUser.UserName,
              })
              .ToList();
@@ -110,7 +108,7 @@
                     CategoryName = x.Category.Name,
                     ImagePath = "/images/articles/" + x.Id + "." + "jpg",
                     UserId = x.AddedByUserId,
-                    CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
+                    CreatedOn = x.CreatedOn.ToString("f"),
                     Username = x.AddedByUser.UserName,
                 })
                 .FirstOrDefault();
@@ -133,7 +131,7 @@
                         Content = x.Content,
                         ImagePath = "/images/articles/" + x.Id + "." + "jpg",
                         UserId = x.AddedByUserId,
-                        CreatedOn = x.CreatedOn.ToString("dddd, dd MMMM yyyy"),
+                        CreatedOn = x.CreatedOn.ToString("f"),
                         Username = x.AddedByUser.UserName,
                     })
                     .ToList();
