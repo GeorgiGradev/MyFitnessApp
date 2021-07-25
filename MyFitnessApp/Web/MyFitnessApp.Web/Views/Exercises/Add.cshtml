@@ -5,42 +5,48 @@
     this.ViewBag.Title = "Exercise";
 }
 
-<partial name="_AddPartial" model="@Model" />
 
 <div class="container">
-
-    <h2 class="item-title">@Model.Name</h2>
     <div class="row">
-        <div class="col-md-6">
-            <p class="img" ">
-                <img src="@Model.ImageUrl" class="img-fluid" alt="Responsive image" />
-            </p>
+        <div class="col-md-3">
+            <partial name="_AddPartial" model="@Model" />
         </div>
-        <div class="col-md-6">
-            <p class="item-description">
-                Muscle group: @Model.CategoryName
-            </p>
-            <p class="item-description">
-                Equipment: @Model.EquipmentName
-            </p>
-            <p class="item-description">
-                Difficulty: @Model.DifficultyName
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="@Model.VideoUrl" allowfullscreen></iframe>
+        <div class="col-md-9">
+            <h2 class="item-title">@Model.Name</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="img" ">
+                        <img src="@Model.ImageUrl" class="img-fluid" alt="Responsive image" />
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="item-description">
+                        Muscle group: @Model.CategoryName
+                    </p>
+                    <p class="item-description">
+                        Equipment: @Model.EquipmentName
+                    </p>
+                    <p class="item-description">
+                        Difficulty: @Model.DifficultyName
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <p class="item-description">
-                Instructions: @Model.Description
-            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="@Model.VideoUrl" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="item-description">
+                        Instructions: @Model.Description
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 
 
