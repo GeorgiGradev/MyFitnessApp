@@ -165,9 +165,4 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Community\" />
-    <Folder Include="Views\Profile\" />
-  </ItemGroup>
 </Project>

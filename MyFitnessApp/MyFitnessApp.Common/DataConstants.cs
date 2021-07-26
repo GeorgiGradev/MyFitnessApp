@@ -27,6 +27,9 @@
         public const int ForumCategoryNameMinLength = 2;
         public const int ForumCategoryNameMaxLength = 50;
 
+        public const int ForumCategoryDescriptionMinLength = 2;
+        public const int ForumCategoryDescriptionMaxLength = 100;
+
         // Comment Model
         public const int CommentContentMaxLength = 500;
 
