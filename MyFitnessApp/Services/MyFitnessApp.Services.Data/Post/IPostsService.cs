@@ -14,5 +14,7 @@
         Task<int> CreatePostAsync(CreatePostInputModel model, string userId);
 
         PostViewModel GetPostById(int id);
+
+        Task DeletePostAsync(int postId);
     }
 }

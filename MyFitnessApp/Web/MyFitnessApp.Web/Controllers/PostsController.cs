@@ -61,5 +61,13 @@
 
             return this.View(postViewModel);
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.postsService.DeletePostAsync(id);
+            return this.RedirectToAction("Categories", "Forums");
+        }
     }
 }

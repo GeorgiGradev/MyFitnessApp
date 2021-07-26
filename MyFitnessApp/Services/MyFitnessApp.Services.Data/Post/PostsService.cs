@@ -61,5 +61,16 @@
 
             return post;
         }
+
+        public async Task DeletePostAsync(int postId)
+        {
+            var post = this.postRepository
+                .All()
+                .Where(x => x.Id == postId)
+                .FirstOrDefault();
+
+            this.postRepository.Delete(post);
+            await this.postRepository.SaveChangesAsync();
+        }
     }
 }
