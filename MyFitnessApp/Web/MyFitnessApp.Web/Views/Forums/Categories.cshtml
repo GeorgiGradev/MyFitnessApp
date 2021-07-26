@@ -6,6 +6,10 @@
 
 <div class="col-md-9">
     <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <div class="text-center">
+        <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-4">Create post</a>
+    </div>
+
     <ol class="list-group list-group-numbered">
         @foreach (var category in Model.Categories)
         {

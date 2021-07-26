@@ -80,7 +80,7 @@
 
             dbContext.ForumCategories.Add(new ForumCategory
             {
-                Name = "Powerlifting/Strongman",
+                Name = "Powerlifting",
                 Description = "Strongest people in the world.",
             });
             dbContext.SaveChanges();

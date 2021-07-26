@@ -37,5 +37,16 @@
 
             return viewModel;
         }
+
+        public string GetCategoryNameById(int id)
+        {
+            var categoryName = this.forumCategoryRepository
+                .All()
+                .Where(x => x.Id == id)
+                .Select(x => x.Name)
+                .FirstOrDefault();
+
+            return categoryName;
+        }
     }
 }
