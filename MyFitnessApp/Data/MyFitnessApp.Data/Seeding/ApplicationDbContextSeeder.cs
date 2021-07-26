@@ -34,6 +34,7 @@
                               new ExerciseEquipmentsSeeder(),
                               new ExerciseSeeder(),
                               new ArticlesSeeder(),
+                              new ForumCategoriesSeeder(),
                           };
 
             foreach (var seeder in seeders)
