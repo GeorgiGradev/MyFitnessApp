@@ -5,6 +5,7 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Forum;
 
     public class ForumsService : IForumsService
@@ -20,13 +21,19 @@
         {
             var viewModel = this.forumCategoryRepository
                 .All()
-                .Select(x => new CategoryViewModel
-                {
-                    Name = x.Name,
-                    Description = x.Description,
-                    Posts = x.Posts,
-                })
+                .To<CategoryViewModel>()
                 .ToList();
+
+            return viewModel;
+        }
+
+        public CategoryViewModel GetCategoryByName(string name)
+        {
+            var viewModel = this.forumCategoryRepository
+                .All()
+                .Where(x => x.Name.Replace(" ", "-") == name.Replace(" ", "-"))
+                .To<CategoryViewModel>()
+                .FirstOrDefault();
 
             return viewModel;
         }

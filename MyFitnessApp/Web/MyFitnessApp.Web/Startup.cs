@@ -133,6 +133,7 @@
             app.UseEndpoints(
                 endpoints =>
                     {
+                        endpoints.MapControllerRoute("forumCatefgory", "ForumCategories/ByName/{name:minlength(3)}", new { Controller = "ForumCategories", action = "ByName" });
                         endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();

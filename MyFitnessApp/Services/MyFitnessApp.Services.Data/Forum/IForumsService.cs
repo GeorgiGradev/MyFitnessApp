@@ -7,5 +7,7 @@
     public interface IForumsService
     {
         IEnumerable<CategoryViewModel> GetAllCategories();
+
+        CategoryViewModel GetCategoryByName(string name);
     }
 }

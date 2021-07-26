@@ -13,7 +13,6 @@
             this.forumsService = forumsService;
         }
 
-
         public IActionResult Categories()
         {
             var categories = this.forumsService.GetAllCategories();

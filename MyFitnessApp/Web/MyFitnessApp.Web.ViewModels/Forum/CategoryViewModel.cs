@@ -3,13 +3,18 @@
     using System.Collections.Generic;
 
     using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Services.Mapping;
 
-    public class CategoryViewModel
+    public class CategoryViewModel : IMapFrom<ForumCategory>
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public IEnumerable<Post> Posts { get; set; }
+        public IEnumerable<PostInCategoryViewModel> Posts { get; set; }
+
+        public string Url => $"/ForumCategories/ByName/{this.Name.Replace(' ', '-')}";
     }
 }

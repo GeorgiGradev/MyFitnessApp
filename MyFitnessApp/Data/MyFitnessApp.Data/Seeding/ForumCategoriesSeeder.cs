@@ -10,7 +10,6 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-
             if (dbContext.ForumCategories.Any())
             {
                 return;
@@ -60,21 +59,21 @@
 
             dbContext.ForumCategories.Add(new ForumCategory
             {
-                Name = "Loosing fat",
+                Name = "Loosing Fat",
                 Description = "Get tips for reaching your fat loss goals!",
             });
             dbContext.SaveChanges();
 
             dbContext.ForumCategories.Add(new ForumCategory
             {
-                Name = "Teen bodybuilding",
+                Name = "Teen Bodybuilding",
                 Description = "Teenagers discuss your issues here!",
             });
             dbContext.SaveChanges();
 
             dbContext.ForumCategories.Add(new ForumCategory
             {
-                Name = "Female bodybuilding",
+                Name = "Female Bodybuilding",
                 Description = "Discuss training, nutrition, competing and getting in shape. Introduce yourself!",
             });
             dbContext.SaveChanges();

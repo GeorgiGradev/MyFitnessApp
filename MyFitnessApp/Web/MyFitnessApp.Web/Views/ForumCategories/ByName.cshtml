@@ -1,0 +1,28 @@
+﻿@model MyFitnessApp.Web.ViewModels.Forum.CategoryViewModel
+
+@{
+    this.ViewData["Title"] = Model.Name;
+}
+
+<h1 class="text-center">@Model.Name</h1>
+<div class="alert alert-info">
+    @Model.Description
+</div>
+
+@foreach (var post in Model.Posts)
+{
+<div class="media-body">
+    <h4 class="media-heading"><a asp-controller="Posts" asp-action="ById" asp-route-id="@post.Id">@post.Title</a></h4>
+    <p>@post.ShortContent</p>
+    <ul class="list-inline list-unstyled text-right">
+        <li class="list-inline-item">
+            <i class="fas fa-user-edit"></i> @post.AddedByUserUserName
+        </li>
+        <li class="list-inline-item">
+            <i class="fas fa-calendar-alt"></i> @post.CreatedOn
+        </li>
+        <li class="list-inline-item">
+            <i class="fas fa-comment-dots"></i> @post.CommentsCount comments
+        </li>
+    </ul>
+</div>}

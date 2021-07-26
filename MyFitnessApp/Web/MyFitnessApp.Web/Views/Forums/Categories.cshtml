@@ -1,22 +1,24 @@
 ﻿@model AllCategoriesViewModel
 
 @{
-    this.ViewData["Title"] = "Forum categories";
+    this.ViewData["Title"] = "Forum";
 }
 
 <div class="col-md-9">
-    <h1 class="text-center">Forum</h1>
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
     <ol class="list-group list-group-numbered">
         @foreach (var category in Model.Categories)
         {
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-                <div class="font-weight-bold">@category.Name</div>
-                <div>@category.Description</div>
-                <span class="badge bg-light rounded-right font-italic">Last post: ..:..:.. Day/Month/Year by .............</span>
-            </div>
-            <span class="badge bg-light rounded-right font-weight-bold">Posts: @category.Posts.Count()</span>
-        </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <a href="@category.Url">
+                        <div class="font-weight-bold"> @category.Name</div>
+                    </a>
+                    <div>@category.Description</div>
+                    <span class="badge bg-light rounded-right font-italic">Last post: ..:..:.. Day/Month/Year by .............  (view component)</span>
+                </div>
+                <span class="badge bg-light rounded-right font-weight-bold">Posts: @category.Posts.Count()</span>
+            </li>
         }
     </ol>
 </div>
