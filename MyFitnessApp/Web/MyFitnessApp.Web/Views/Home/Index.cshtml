@@ -8,12 +8,23 @@
     this.ViewData["Title"] = "Home Page";
 }
 
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@this.TempData["Message"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div class="text-center">
     <h1 class="display-4">Welcome to @GlobalConstants.SystemName</h1>
 </div>
 
 <div class="col-md-12">
     <div>
-            <img src="/images/homepage/mainimage.jpg" class="card-img-top">
+        <img src="/images/homepage/mainimage.jpg" class="card-img-top">
     </div>
 </div>
+

@@ -96,5 +96,12 @@
 
         public const int ProfileDailyIntakeGoalMinValue = 1;
         public const int ProfileDailyIntakeGoalMaxValue = 10000;
+
+        // E-mail model
+        public const int EmailSubjectMinLength = 2;
+        public const int EmailSubjectMaxLength = 20;
+
+        public const int EmailContentMinLength = 2;
+        public const int EmailContentMaxLength = 1000;
     }
 }

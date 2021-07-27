@@ -29,7 +29,7 @@
     using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Data.Report;
     using MyFitnessApp.Services.Data.Training;
-
+    using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Services.Messaging;
 
@@ -82,7 +82,7 @@
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // EmailSender service
-            services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IEmailSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"])); // => тук се задава Api Key
 
             // Application services
             services.AddTransient<IArticlesService, ArticlesService>();
@@ -95,6 +95,7 @@
             services.AddTransient<IProfilesService, ProfilesService>();
             services.AddTransient<IReportsService, ReportsService>();
             services.AddTransient<ITrainingsService, TrainingsService>();
+            services.AddTransient<IUsersService, UsersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

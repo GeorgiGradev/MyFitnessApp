@@ -1,0 +1,33 @@
+﻿@model MyFitnessApp.Web.ViewModels.Communities.SendInvitationEmailInputModel
+
+@{
+    this.ViewData["Title"] = "Invite friends to join you on My Fitness App platform";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
+            <h2 class="heading-margin text-center">@this.ViewData["Title"]</h2>
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="ReceiverEmailAddress"></label>
+                    <input asp-for="ReceiverEmailAddress" class="form-control" placeholder="Email address here...">
+                    <span asp-validation-for="ReceiverEmailAddress" class="small text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmailSubject"></label>
+                    <input asp-for="EmailSubject" class="form-control" placeholder="Subject here...">
+                    <span asp-validation-for="EmailSubject" class="small text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmailContent"></label>
+                    <textarea asp-for="EmailContent" class="form-control" rows="14" placeholder="Content here..."></textarea>
+                    <span asp-validation-for="EmailContent" class="small text-danger"></span>
+                </div>
+                <input class="btn btn-primary float-right mt-3" type="submit" value="Send E-mail" />
+            </form>
+        </div>
+    </div>
+</div>
+
