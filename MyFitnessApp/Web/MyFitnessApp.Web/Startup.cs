@@ -22,9 +22,7 @@
     using MyFitnessApp.Services.Data.Article;
     using MyFitnessApp.Services.Data.Comment;
     using MyFitnessApp.Services.Data.Exercise;
-    using MyFitnessApp.Services.Data.Food;
     using MyFitnessApp.Services.Data.Forum;
-    using MyFitnessApp.Services.Data.Meal;
     using MyFitnessApp.Services.Data.Post;
     using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Data.Report;
@@ -90,8 +88,6 @@
             services.AddTransient<IPostsService, PostsService>();
             services.AddTransient<IForumsService, ForumsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
-            services.AddTransient<IFoodsService, FoodsService>();
-            services.AddTransient<IMealsService, MealsService>();
             services.AddTransient<IProfilesService, ProfilesService>();
             services.AddTransient<IReportsService, ReportsService>();
             services.AddTransient<ITrainingsService, TrainingsService>();

@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Foods\" />
     <Folder Include="Reports\" />
   </ItemGroup>
 

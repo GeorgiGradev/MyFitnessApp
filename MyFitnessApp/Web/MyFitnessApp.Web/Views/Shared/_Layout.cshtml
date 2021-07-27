@@ -25,15 +25,15 @@
                         {
                             <div class="dropdown">
                                 <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                    My Home
+                                    My Profile
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Home</a>
                                     <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Goals</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Check-In</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My profile</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Following</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Followers</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Profile</a>
+                                    @*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Check-In</a>*@
+                                    @*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Following</a>*@
+                                    @*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Followers</a>*@
                                 </div>
                             </div>
 
@@ -47,28 +47,6 @@
                                     <a class="dropdown-item" asp-area="" asp-controller="Exercises" asp-action="Categories">Exercise by muscle group</a>
                                     <a class="dropdown-item" asp-area="" asp-controller="Exercises" asp-action="MyExercises">My exercises</a>
                                     <a class="dropdown-item" asp-area="" asp-controller="ExerciseDiary" asp-action="Monday">My weekly exercise diary</a>
-                                </div>
-                            </div>
-
-                            <div class="dropdown">
-                                <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                    Food
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">All foods</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Create new food</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My foods</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My daily food diary</a>
-                                </div>
-                            </div>
-
-                            <div class="dropdown">
-                                <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                    Reports
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Charts</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Export Data</a>
                                 </div>
                             </div>
 
@@ -91,6 +69,16 @@
                                     <a class="dropdown-item" asp-area="" asp-controller="Articles" asp-action="All">All articles</a>
                                     <a class="dropdown-item" asp-area="" asp-controller="Articles" asp-action="Categories">Article categories</a>
                                     <a class="dropdown-item" asp-area="" asp-controller="Articles" asp-action="Create">Create new article</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
+                                    Reports
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Charts</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Export Data</a>
                                 </div>
                             </div>
                         }
@@ -124,10 +112,10 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; @DateTime.Now.Year - @GlobalConstants.SystemName
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Terms </a>
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy </a>
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Terms </a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy </a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
         </div>
 
 
@@ -141,3 +129,19 @@
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+
+
+
+@*<div class="dropdown">
+    <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
+        Food
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">All foods</a>
+        <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Create new food</a>
+        <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My foods</a>
+        <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My daily food diary</a>
+    </div>
+</div>*@
