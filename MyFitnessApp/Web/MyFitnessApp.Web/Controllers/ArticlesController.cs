@@ -57,7 +57,7 @@
                 return this.View(model);
             }
 
-            this.TempData["Message"] = "Article added successfully.";
+            this.TempData["Message"] = "Article created successfully.";
 
             return this.RedirectToAction("All", "Articles");
         }

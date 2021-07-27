@@ -48,6 +48,8 @@
             var userId = this.User.GetId(); // специално създаден метод в Web.Infrastructure
             await this.exercisesService.CreateExcerciseAsync(model, userId);
 
+            this.TempData["Message"] = "Exercise created successfully.";
+
             return this.RedirectToAction("All", "Exercises"); // Да се направи да връща All Exercises
         }
 
@@ -89,6 +91,9 @@
             var userId = this.User.GetId();
             await this.exercisesService.AddExerciseToUserAsync(model, userId);
             var dayOfWeek = model.WeekDay.ToString();
+
+            this.TempData["Message"] = "Exercise added to my diary.";
+
             return this.RedirectToAction(dayOfWeek, "ExerciseDiary");
         }
 

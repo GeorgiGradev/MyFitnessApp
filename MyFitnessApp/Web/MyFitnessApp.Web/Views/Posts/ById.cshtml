@@ -5,7 +5,17 @@
     var userId = User.GetId();
 }
 
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@this.TempData["Message"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
 
+this.TempData["Message"] = "E-mail sent successfully.";
 <div class="container-fluid mt-100">
     <div class="row">
         <div class="col-md-12">
@@ -71,35 +81,35 @@
                             </article>
                         </div>
                         @if (userId == reply.AddedByUserId || User.IsInRole("Administrator"))
-                            {
-                                <div class="text-right m-1">
-                                    <form method="post" asp-controller="Comments" asp-action="Delete" id="deleteForm1" asp-route-id="@reply.Id"></form>
-                                    <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal1">Delete comment</button>
-                                </div>
+                        {
+                            <div class="text-right m-1">
+                                <form method="post" asp-controller="Comments" asp-action="Delete" id="deleteForm1" asp-route-id="@reply.Id"></form>
+                                <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal1">Delete comment</button>
+                            </div>
 
-                                <div class="modal" tabindex="-1" role="dialog" id="deleteModal1">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <p>Are you sure you want to remove your comment"?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger" onclick="deleteForm1.submit()">Yes</button>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                            </div>
+                            <div class="modal" tabindex="-1" role="dialog" id="deleteModal1">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <p>Are you sure you want to remove your comment"?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" onclick="deleteForm1.submit()">Yes</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                         </div>
                                     </div>
                                 </div>
-                            }
-                   </div>
-                       }
-                        <div class="card-footer">
-                            <div class="text-center">
-                                <a asp-controller="Comments" asp-action="Reply" asp-route-id="@Model.Id" class="btn btn-primary btn-outline-light m-1">Reply</a>
                             </div>
-                        </div>
+                        }
+                    </div>
+                }
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a asp-controller="Comments" asp-action="Reply" asp-route-id="@Model.Id" class="btn btn-primary btn-outline-light m-1">Reply</a>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
 </div>
 

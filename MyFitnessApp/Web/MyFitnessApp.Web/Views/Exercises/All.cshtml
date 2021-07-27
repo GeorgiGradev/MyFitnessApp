@@ -7,30 +7,40 @@
     this.ViewData["Title"] = "All exercises / Page " + Model.PageNumber;
 }
 
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@this.TempData["Message"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div>
     <h1 class="text-center">@this.ViewData["Title"]</h1>
     <div class="row">
         @foreach (var exercise in Model.Exercises)
         {
-        <div class="col-md-4 mt-3">
-            <div class="card text-center alert-info" style="width: 18rem;">
-                <a asp-action="Add" asp-route-id="@exercise.Id">
-                    <img src="@exercise.ImageUrl" class="card-img-top">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title"> <a asp-action="Add" asp-route-id="@exercise.Id">@exercise.Name</a></h5>
-                    Target Muscle Group:
-                    <a asp-controller="ExerciseCategories" asp-action="@exercise.CategoryName">
-                        <p class="card-text"> @exercise.CategoryName</p>
+            <div class="col-md-4 mt-3">
+                <div class="card text-center alert-info" style="width: 18rem;">
+                    <a asp-action="Add" asp-route-id="@exercise.Id">
+                        <img src="@exercise.ImageUrl" class="card-img-top">
                     </a>
+                    <div class="card-body">
+                        <h5 class="card-title"> <a asp-action="Add" asp-route-id="@exercise.Id">@exercise.Name</a></h5>
+                        Target Muscle Group:
+                        <a asp-controller="ExerciseCategories" asp-action="@exercise.CategoryName">
+                            <p class="card-text"> @exercise.CategoryName</p>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
         }
     </div>
 </div>
 
- 
+
 
 <hr /> @*Разделител между горния и долния елемент*@
 
