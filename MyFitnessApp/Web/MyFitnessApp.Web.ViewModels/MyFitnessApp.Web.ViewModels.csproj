@@ -33,7 +33,6 @@
   <ItemGroup>
     <Folder Include="Foods\" />
     <Folder Include="Reports\" />
-    <Folder Include="Users\" />
   </ItemGroup>
 
 </Project>
