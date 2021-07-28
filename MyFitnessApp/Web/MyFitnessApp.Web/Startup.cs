@@ -22,6 +22,7 @@
     using MyFitnessApp.Services.Data.Article;
     using MyFitnessApp.Services.Data.Comment;
     using MyFitnessApp.Services.Data.Exercise;
+    using MyFitnessApp.Services.Data.Food;
     using MyFitnessApp.Services.Data.Forum;
     using MyFitnessApp.Services.Data.Post;
     using MyFitnessApp.Services.Data.Profile;
@@ -92,6 +93,7 @@
             services.AddTransient<IReportsService, ReportsService>();
             services.AddTransient<ITrainingsService, TrainingsService>();
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IFoodsService, FoodsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

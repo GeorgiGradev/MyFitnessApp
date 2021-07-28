@@ -40,8 +40,6 @@
 
         public DbSet<Food> Foods { get; set; }
 
-        public DbSet<FoodDiary> FoodDiaries { get; set; }
-
         public DbSet<FoodMeal> FoodMeals { get; set; }
 
         public DbSet<Meal> Meals { get; set; }

@@ -16,7 +16,7 @@
         {
             this.Id = Guid.NewGuid().ToString();
             this.Foods = new HashSet<Food>();
-            this.FoodDiaries = new HashSet<FoodDiary>();
+            this.Meals = new HashSet<Meal>();
             this.UserExercises = new HashSet<UserExercise>();
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
@@ -53,7 +53,7 @@
 
         public virtual ICollection<Food> Foods { get; set; }
 
-        public virtual ICollection<FoodDiary> FoodDiaries { get; set; }
+        public virtual ICollection<Meal> Meals { get; set; }
 
         public virtual ICollection<UserExercise> UserExercises { get; set; }
 

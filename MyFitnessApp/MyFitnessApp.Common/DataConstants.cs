@@ -35,11 +35,11 @@
         public const int CommentContentMaxLength = 1000;
 
         // Post Model
-        public const int PostTitleMinLength = 2;
-        public const int PostTitleMaxLength = 20;
+        public const int PostTitleMinLength = 1;
+        public const int PostTitleMaxLength = 50;
 
         public const int PostContentMinLength = 2;
-        public const int PostContentMaxLength = 1000;
+        public const int PostContentMaxLength = 5000;
 
         // Exercise Model
         public const int ExerciseNameMinLength = 2;
@@ -73,7 +73,7 @@
 
         // Food Model
         public const int FoodNameMinLength = 2;
-        public const int FoodNameMaxLength = 20;
+        public const int FoodNameMaxLength = 50;
 
         public const int FoodBrandNameMinLength = 2;
         public const int FoodBrandNameMaxLength = 20;
