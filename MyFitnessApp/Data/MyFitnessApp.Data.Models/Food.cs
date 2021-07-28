@@ -27,8 +27,6 @@
         [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
         public double FatIn100Grams { get; set; }
 
-        public double TotalCalories { get; set; }
-
         [Required]
         public string AddedByUserId { get; set; }
 

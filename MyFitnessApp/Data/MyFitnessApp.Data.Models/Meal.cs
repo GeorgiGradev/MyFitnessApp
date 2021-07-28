@@ -16,8 +16,6 @@
 
         public string AddedByUserId { get; set; }
 
-        public virtual ApplicationUser AddedByUser { get; set; }
-
         public virtual ICollection<FoodMeal> FoodMeals { get; set; }
     }
 }

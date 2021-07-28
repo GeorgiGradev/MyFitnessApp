@@ -1,10 +1,11 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Forum;
     using MyFitnessApp.Web.ViewModels.Forum;
-    using System.Threading.Tasks;
 
     public class ForumsController : Controller
     {

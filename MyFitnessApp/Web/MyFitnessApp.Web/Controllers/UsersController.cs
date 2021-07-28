@@ -1,10 +1,11 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
+    using System.Linq;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Web.ViewModels.Users;
-    using System.Linq;
 
     public class UsersController : Controller
     {
