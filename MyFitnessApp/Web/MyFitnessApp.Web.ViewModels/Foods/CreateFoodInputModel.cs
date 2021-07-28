@@ -14,17 +14,17 @@
 
         [Required(ErrorMessage = "The field is required")]
         [Range(FoodNutritionMinValue, FoodNutritionMaxValue, ErrorMessage = "The value must be between 0 and 20000")]
-        [Display(Name = "Protein content in 100 grams")]
+        [Display(Name = "Protein in 100 grams of food")]
         public double ProteinIn100Grams { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
         [Range(FoodNutritionMinValue, FoodNutritionMaxValue, ErrorMessage = "The value must be between 0 and 20000")]
-        [Display(Name = "Carbohydrates content in 100 grams")]
+        [Display(Name = "Carbohydrates in 100 grams of food")]
         public double CarbohydratesIn100Grams { get; set; }
 
-        [Required(ErrorMessage = "The field is required")]
+        [Required(ErrorMessage = "The field is required of food")]
         [Range(FoodNutritionMinValue, FoodNutritionMaxValue, ErrorMessage = "The value must be between 0 and 20000")]
-        [Display(Name = "Fat content in 100 grams")]
+        [Display(Name = "Fat in 100 grams")]
         public double FatIn100Grams { get; set; }
 
         public double CalculatedTotalCalories => (this.ProteinIn100Grams * 4) + (this.CarbohydratesIn100Grams * 4) + (this.FatIn100Grams * 9);

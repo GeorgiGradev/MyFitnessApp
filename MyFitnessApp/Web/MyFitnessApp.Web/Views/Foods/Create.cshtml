@@ -1,0 +1,55 @@
+﻿
+@model CreateFoodInputModel
+
+@{
+    ViewData["Title"] = "Create new food";
+}
+
+@if (this.TempData.ContainsKey("MessageForExistingFood"))
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@this.TempData["MessageForExistingFood"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
+            @*Прави формата responsive при различни размери на екрана*@
+            <h2 class="heading-margin text-center">@ViewData["Title"]</h2>
+            <form method="post">
+
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" placeholder="food name here...">
+                    <span asp-validation-for="Name" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProteinIn100Grams"></label>
+                    <input asp-for="ProteinIn100Grams" class="form-control" placeholder="protein in grams here...">
+                    <span asp-validation-for="ProteinIn100Grams" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CarbohydratesIn100Grams"></label>
+                    <input asp-for="CarbohydratesIn100Grams" class="form-control" placeholder="carbs in grams here...">
+                    <span asp-validation-for="CarbohydratesIn100Grams" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FatIn100Grams"></label>
+                    <input asp-for="FatIn100Grams" class="form-control" placeholder="fat in grams here...">
+                    <span asp-validation-for="FatIn100Grams" class="small text-danger"></span>
+                </div>
+
+                <input class="btn btn-primary float-right mt-3" type="submit" value="Save" />
+            </form>
+        </div>
+    </div>
+</div>
+
