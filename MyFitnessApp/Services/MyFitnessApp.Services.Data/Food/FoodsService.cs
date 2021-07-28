@@ -115,6 +115,7 @@
             meal.FoodMeals.Add(foodMeal);
 
             var searvingSize = meal.FoodMeals.Select(x => x.ServingSizeInGrams).FirstOrDefault();
+
             // foodMeal.Food.ProteinIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.ProteinIn100Grams;
             // foodMeal.Food.CarbohydratesIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.CarbohydratesIn100Grams;
             // foodMeal.Food.FatIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.FatIn100Grams;
