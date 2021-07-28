@@ -14,5 +14,7 @@
         IEnumerable<FoodViewModel> GetAllFoods();
 
         Task AddFoodToDiaryAsync(AddFoodInputModel model, string userId, string foodName);
+
+        FoodDiaryViewModel GetFoodDiary(string userId);
     }
 }

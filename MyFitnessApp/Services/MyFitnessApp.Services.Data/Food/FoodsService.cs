@@ -1,5 +1,6 @@
 ﻿namespace MyFitnessApp.Services.Data.Food
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -112,6 +113,92 @@
             await this.foodMealsRepository.SaveChangesAsync();
 
             meal.FoodMeals.Add(foodMeal);
+
+            var searvingSize = meal.FoodMeals.Select(x => x.ServingSizeInGrams).FirstOrDefault();
+            // foodMeal.Food.ProteinIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.ProteinIn100Grams;
+            // foodMeal.Food.CarbohydratesIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.CarbohydratesIn100Grams;
+            // foodMeal.Food.FatIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.FatIn100Grams;
+        }
+
+        public FoodDiaryViewModel GetFoodDiary(string userId)
+        {
+            var breakfastFoods = this.foodMealsRepository
+                .All()
+                .Where(x => x.Meal.Name == Enum.Parse<MealName>("Breakfast") && x.Meal.AddedByUserId == userId)
+                .Select(x => x.Food)
+                .ToList();
+
+            var breakfastViewModel = breakfastFoods
+                .Select(x => new FoodViewModel
+                {
+                    Name = x.Name,
+                    ProteinIn100Grams = x.ProteinIn100Grams,
+                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
+                    FatIn100Grams = x.FatIn100Grams,
+                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
+                });
+
+
+
+            var lunchFoods = this.foodMealsRepository
+                .All()
+                .Where(x => x.Meal.Name == Enum.Parse<MealName>("Lunch") && x.Meal.AddedByUserId == userId)
+                .Select(x => x.Food)
+                .ToList();
+
+            var lunchViewModel = lunchFoods
+                .Select(x => new FoodViewModel
+                {
+                    Name = x.Name,
+                    ProteinIn100Grams = x.ProteinIn100Grams,
+                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
+                    FatIn100Grams = x.FatIn100Grams,
+                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
+                });
+
+
+            var snackFoods = this.foodMealsRepository
+                .All()
+                .Where(x => x.Meal.Name == Enum.Parse<MealName>("Snack") && x.Meal.AddedByUserId == userId)
+                .Select(x => x.Food)
+                .ToList();
+
+            var snackViewModel = snackFoods
+                .Select(x => new FoodViewModel
+                {
+                    Name = x.Name,
+                    ProteinIn100Grams = x.ProteinIn100Grams,
+                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
+                    FatIn100Grams = x.FatIn100Grams,
+                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
+                });
+
+
+            var dinnerFoods = this.foodMealsRepository
+                .All()
+                .Where(x => x.Meal.Name == Enum.Parse<MealName>("Dinner") && x.Meal.AddedByUserId == userId)
+                .Select(x => x.Food)
+                .ToList();
+
+            var dinnerViewModel = dinnerFoods
+                .Select(x => new FoodViewModel
+                {
+                    Name = x.Name,
+                    ProteinIn100Grams = x.ProteinIn100Grams,
+                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
+                    FatIn100Grams = x.FatIn100Grams,
+                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
+                });
+
+            var viewModel = new FoodDiaryViewModel
+            {
+                Breakfast = breakfastViewModel,
+                Lunch = lunchViewModel,
+                Snack = snackViewModel,
+                Dinner = dinnerViewModel,
+            };
+
+            return viewModel;
         }
     }
 }

@@ -62,13 +62,6 @@
 
         [HttpGet]
         [Authorize]
-        public IActionResult MyDiary()
-        {
-            return this.View();
-        }
-
-        [HttpGet]
-        [Authorize]
         public IActionResult Add(AddFoodInputModel model)
         {
             return this.View(model);
@@ -92,13 +85,13 @@
             return this.RedirectToAction("All", "Foods");
         }
 
-        //[HttpGet]
-        //[Authorize]
-        //public IActionResult ByName(string name)
-        //{
-        //    var viewModel = this.foodsService.GetFoodByName(name);
-
-        //    return this.View(viewModel);
-        //}
+        [HttpGet]
+        [Authorize]
+        public IActionResult FoodDiary()
+        {
+            var userId = this.User.GetId();
+            var viewModel = this.foodsService.GetFoodDiary(userId);
+            return this.View(viewModel);
+        }
     }
 }
