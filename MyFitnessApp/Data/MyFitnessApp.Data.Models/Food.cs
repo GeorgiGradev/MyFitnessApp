@@ -27,7 +27,7 @@
         [Range(FoodNutritionMinValue, FoodNutritionMaxValue)]
         public double FatIn100Grams { get; set; }
 
-        public double CalculatedTotalCalories => (this.ProteinIn100Grams * 4) + (this.CarbohydratesIn100Grams * 4) + (this.FatIn100Grams * 9);
+        public double TotalCalories { get; set; }
 
         [Required]
         public string AddedByUserId { get; set; }

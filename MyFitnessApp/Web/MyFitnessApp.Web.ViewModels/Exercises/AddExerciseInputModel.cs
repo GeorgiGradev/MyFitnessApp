@@ -32,15 +32,15 @@
         [Display(Name = "Day of week")]
         public WeekDay WeekDay { get; set; }
 
-        [Range(ExerciseWeightMinValue, ExerciseWeightMaxValue)]
+        [Range(ExerciseWeightMinValue, ExerciseWeightMaxValue, ErrorMessage ="The value must be betwenn 0 and 500")]
         [Display(Name = "Exercise weight in kg")]
         public double Weight { get; set; }
 
-        [Range(ExerciseRepetitionsMinValue, ExerciseRepetitionsMaxValue)]
+        [Range(ExerciseRepetitionsMinValue, ExerciseRepetitionsMaxValue, ErrorMessage = "The value must be betwenn 1 and 100")]
         [Display(Name = "Repetitions")]
         public int Repetitions { get; set; }
 
-        [Range(ExerciseSetsMinValue, ExerciseSetsMaxValue)]
+        [Range(ExerciseSetsMinValue, ExerciseSetsMaxValue, ErrorMessage = "The value must be betwenn 1 and 100")]
         [Display(Name = "Sets")]
         public int Sets { get; set; }
     }

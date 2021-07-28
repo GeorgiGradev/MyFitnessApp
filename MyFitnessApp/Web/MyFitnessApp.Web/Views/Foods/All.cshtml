@@ -1,4 +1,8 @@
-﻿
+﻿@model AllFoodsViewModel
+
+@{
+    this.ViewData["Title"] = "All Foods";
+}
 
 @if (this.TempData.ContainsKey("Message"))
 {
@@ -10,4 +14,30 @@
     </div>
 }
 
-<h1>All foods here...</h1>
+<div class="col-md-8 offset-2">
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+
+    <ol class="list-group list-group-numbered">
+        @foreach (var food in Model.Foods)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 align-self-center">
+                            <div><strong>@food.Name</strong></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div><strong>Protein:</strong> @food.ProteinIn100Grams gr.</div>
+                            <div><strong>Carbohydrates:</strong> @food.CarbohydratesIn100Grams gr.</div>
+                            <div><strong>Fats:</strong> @food.FatIn100Grams gr.</div>
+                            <div><strong>Total calories:</strong> @food.TotalCalories</div>
+                        </div>
+                        <div class="col-md-4 align-self-center text-md-right">
+                             <a asp-controller="Foods" asp-action="Add" asp-route-id="@food.Name"><strong>Select food</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ol>
+</div>
