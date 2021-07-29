@@ -16,19 +16,20 @@
     </div>
 }
 
-<h1 class="text-center">@this.ViewData["Title"]</h1>
+<h2 class="text-center"><strong>@this.ViewData["Title"]</strong></h2>
 
 <div class="container-fluid">
 
-    <h5 class="text-center">Breakfast</h5>
+    <h4 class="text-center"><strong>Breakfast</strong></h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">
-                <th class="col-md-4 text-center">Name</th>
-                <th class="col-md-2 text-center">Protein</th>
-                <th class="col-md-2 text-center">Carbs</th>
-                <th class="col-md-2 text-center">Fat</th>
-                <th class="col-md-2 text-center">Calories</th>
+                <th class="col-md-3 text-center">Name</th>
+                <th class="col-md-2 text-center">Serving Size (gram)</th>
+                <th class="col-md-2 text-center">Protein (gram)</th>
+                <th class="col-md-2 text-center">Carbs (gram)</th>
+                <th class="col-md-2 text-center">Fat (gram)</th>
+                <th class="col-md-1 text-center">Calories</th>
             </tr>
         </thead>
         <tbody>
@@ -36,94 +37,101 @@
             {
                 calories += item.TotalCalories;
                 <tr class="col">
-                    <td class="col-md-4 text-center">@item.Name</td>
+                    <td class="col-md-3 text-center">@item.Name</td>
+                    <td class="col-md-2 text-center">@item.ServingSize</td>
                     <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
                     <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
                     <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.TotalCalories</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories</td>
                 </tr>
             }
         </tbody>
     </table>
-    <h5 class="text-center">Lunch</h5>
+    <h4 class="text-center"><strong>Lunch</strong></h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">
-                <th class="col-md-4 text-center">Name</th>
-                <th class="col-md-2 text-center">Protein</th>
-                <th class="col-md-2 text-center">Carbs</th>
-                <th class="col-md-2 text-center">Fat</th>
-                <th class="col-md-2 text-center">Calories</th>
+                <th class="col-md-3 text-center">Name</th>
+                <th class="col-md-2 text-center">Serving Size (gram)</th>
+                <th class="col-md-2 text-center">Protein (gram)</th>
+                <th class="col-md-2 text-center">Carbs (gram)</th>
+                <th class="col-md-2 text-center">Fat (gram)</th>
+                <th class="col-md-1 text-center">Calories</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Lunch)
             {
                 calories += item.TotalCalories;
-                <tr class="col">
-                    <td class="col-md-4 text-center">@item.Name</td>
-                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.TotalCalories</td>
-                </tr>
+            <tr class="col">
+                <td class="col-md-3 text-center">@item.Name</td>
+                <td class="col-md-2 text-center">@item.ServingSize</td>
+                <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
+                <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
+                <td class="col-md-2 text-center">@item.FatIn100Grams</td>
+                <td class="col-md-1 text-center">@item.TotalCalories</td>
+            </tr>
             }
         </tbody>
     </table>
-    <h5 class="text-center">Snack</h5>
+    <h4 class="text-center"><strong>Snack</strong></h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">
-                <th class="col-md-4 text-center">Name</th>
-                <th class="col-md-2 text-center">Protein</th>
-                <th class="col-md-2 text-center">Carbs</th>
-                <th class="col-md-2 text-center">Fat</th>
-                <th class="col-md-2 text-center">Calories</th>
+                <th class="col-md-3 text-center">Name</th>
+                <th class="col-md-2 text-center">Serving Size (gram)</th>
+                <th class="col-md-2 text-center">Protein (gram)</th>
+                <th class="col-md-2 text-center">Carbs (gram)</th>
+                <th class="col-md-2 text-center">Fat (gram)</th>
+                <th class="col-md-1 text-center">Calories</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Snack)
             {
                 calories += item.TotalCalories;
-                <tr class="col">
-                    <td class="col-md-4 text-center">@item.Name</td>
-                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.TotalCalories</td>
-                </tr>
+            <tr class="col">
+                <td class="col-md-3 text-center">@item.Name</td>
+                <td class="col-md-2 text-center">@item.ServingSize</td>
+                <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
+                <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
+                <td class="col-md-2 text-center">@item.FatIn100Grams</td>
+                <td class="col-md-1 text-center">@item.TotalCalories</td>
+            </tr>
             }
         </tbody>
     </table>
-    <h5 class="text-center">Dinner</h5>
+    <h4 class="text-center"><strong>Dinner</strong></h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">
-                <th class="col-md-4 text-center">Name</th>
-                <th class="col-md-2 text-center">Protein</th>
-                <th class="col-md-2 text-center">Carbs</th>
-                <th class="col-md-2 text-center">Fat</th>
-                <th class="col-md-2 text-center">Calories</th>
+                <th class="col-md-3 text-center">Name</th>
+                <th class="col-md-2 text-center">Serving Size (gram)</th>
+                <th class="col-md-2 text-center">Protein (gram)</th>
+                <th class="col-md-2 text-center">Carbs (gram)</th>
+                <th class="col-md-2 text-center">Fat (gram)</th>
+                <th class="col-md-1 text-center">Calories</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Dinner)
             {
                 calories += item.TotalCalories;
-                <tr class="col">
-                    <td class="col-md-4 text-center">@item.Name</td>
-                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.TotalCalories</td>
-                </tr>
+            <tr class="col">
+                <td class="col-md-3 text-center">@item.Name</td>
+                <td class="col-md-2 text-center">@item.ServingSize</td>
+                <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
+                <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
+                <td class="col-md-2 text-center">@item.FatIn100Grams</td>
+                <td class="col-md-1 text-center">@item.TotalCalories</td>
+            </tr>
             }
         </tbody>
     </table>
     <h5 class="text-md-right">Total calories: <strong>@calories</strong></h5>
     <h5 class="text-md-right">Calories goal: <strong>@usersCaloriesCoal</strong></h5>
     @{
-        double caloriesDifference = usersCaloriesCoal - calories;
+        double caloriesDifference = calories - usersCaloriesCoal;
     }
 
     @if (caloriesDifference > 0)

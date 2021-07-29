@@ -4,12 +4,12 @@
 
     public class FoodDiaryViewModel
     {
-        public IEnumerable<FoodViewModel> Breakfast { get; set; }
+        public List<FoodViewModel> Breakfast { get; set; }
 
-        public IEnumerable<FoodViewModel> Lunch { get; set; }
+        public List<FoodViewModel> Lunch { get; set; }
 
-        public IEnumerable<FoodViewModel> Snack { get; set; }
+        public List<FoodViewModel> Snack { get; set; }
 
-        public IEnumerable<FoodViewModel> Dinner { get; set; }
+        public List<FoodViewModel> Dinner { get; set; }
     }
 }

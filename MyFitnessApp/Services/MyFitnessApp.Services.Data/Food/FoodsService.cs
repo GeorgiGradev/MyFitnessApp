@@ -117,9 +117,6 @@
 
             var searvingSize = meal.FoodMeals.Select(x => x.ServingSizeInGrams).FirstOrDefault();
 
-            // foodMeal.Food.ProteinIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.ProteinIn100Grams;
-            // foodMeal.Food.CarbohydratesIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.CarbohydratesIn100Grams;
-            // foodMeal.Food.FatIn100Grams *= (double)searvingSize / 100 * foodMeal.Food.FatIn100Grams;
         }
 
         public FoodDiaryViewModel GetFoodDiary(string userId)
@@ -127,80 +124,94 @@
             var breakfastFoods = this.foodMealsRepository
                 .All()
                 .Where(x => x.Meal.Name == Enum.Parse<MealName>("Breakfast") && x.Meal.AddedByUserId == userId)
-                .Select(x => x.Food)
                 .ToList();
 
-            var breakfastViewModel = breakfastFoods
-                .Select(x => new FoodViewModel
-                {
-                    Name = x.Name,
-                    ProteinIn100Grams = x.ProteinIn100Grams,
-                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
-                    FatIn100Grams = x.FatIn100Grams,
-                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
-                });
+            var breakFastViewModel = new List<FoodViewModel>();
 
-
+            foreach (var item in breakfastFoods)
+            {
+                var viewModel = new FoodViewModel();
+                var food = this.foodsRepository.All().Where(x => x.Id == item.FoodId).FirstOrDefault();
+                viewModel.Name = food.Name;
+                viewModel.ProteinIn100Grams = item.ServingSizeInGrams / 100 * food.ProteinIn100Grams;
+                viewModel.CarbohydratesIn100Grams = item.ServingSizeInGrams / 100 * food.CarbohydratesIn100Grams;
+                viewModel.FatIn100Grams = item.ServingSizeInGrams / 100 * food.FatIn100Grams;
+                viewModel.TotalCalories = (viewModel.ProteinIn100Grams * 4) + (viewModel.CarbohydratesIn100Grams * 4) + (viewModel.FatIn100Grams * 9);
+                viewModel.ServingSize = item.ServingSizeInGrams;
+                breakFastViewModel.Add(viewModel);
+            }
 
             var lunchFoods = this.foodMealsRepository
                 .All()
                 .Where(x => x.Meal.Name == Enum.Parse<MealName>("Lunch") && x.Meal.AddedByUserId == userId)
-                .Select(x => x.Food)
                 .ToList();
 
-            var lunchViewModel = lunchFoods
-                .Select(x => new FoodViewModel
-                {
-                    Name = x.Name,
-                    ProteinIn100Grams = x.ProteinIn100Grams,
-                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
-                    FatIn100Grams = x.FatIn100Grams,
-                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
-                });
+            var lunchViewModel = new List<FoodViewModel>();
 
+            foreach (var item in lunchFoods)
+            {
+                var viewModel = new FoodViewModel();
+                var food = this.foodsRepository.All().Where(x => x.Id == item.FoodId).FirstOrDefault();
+                viewModel.Name = food.Name;
+                viewModel.ProteinIn100Grams = item.ServingSizeInGrams / 100 * food.ProteinIn100Grams;
+                viewModel.CarbohydratesIn100Grams = item.ServingSizeInGrams / 100 * food.CarbohydratesIn100Grams;
+                viewModel.FatIn100Grams = item.ServingSizeInGrams / 100 * food.FatIn100Grams;
+                viewModel.TotalCalories = (viewModel.ProteinIn100Grams * 4) + (viewModel.CarbohydratesIn100Grams * 4) + (viewModel.FatIn100Grams * 9);
+                viewModel.ServingSize = item.ServingSizeInGrams;
+                lunchViewModel.Add(viewModel);
+            }
 
             var snackFoods = this.foodMealsRepository
                 .All()
                 .Where(x => x.Meal.Name == Enum.Parse<MealName>("Snack") && x.Meal.AddedByUserId == userId)
-                .Select(x => x.Food)
                 .ToList();
 
-            var snackViewModel = snackFoods
-                .Select(x => new FoodViewModel
-                {
-                    Name = x.Name,
-                    ProteinIn100Grams = x.ProteinIn100Grams,
-                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
-                    FatIn100Grams = x.FatIn100Grams,
-                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
-                });
+            var snackViewModel = new List<FoodViewModel>();
 
+            foreach (var item in snackFoods)
+            {
+                var viewModel = new FoodViewModel();
+                var food = this.foodsRepository.All().Where(x => x.Id == item.FoodId).FirstOrDefault();
+                viewModel.Name = food.Name;
+                viewModel.ProteinIn100Grams = item.ServingSizeInGrams / 100 * food.ProteinIn100Grams;
+                viewModel.CarbohydratesIn100Grams = item.ServingSizeInGrams / 100 * food.CarbohydratesIn100Grams;
+                viewModel.FatIn100Grams = item.ServingSizeInGrams / 100 * food.FatIn100Grams;
+                viewModel.TotalCalories = (viewModel.ProteinIn100Grams * 4) + (viewModel.CarbohydratesIn100Grams * 4) + (viewModel.FatIn100Grams * 9);
+                viewModel.ServingSize = item.ServingSizeInGrams;
+                snackViewModel.Add(viewModel);
+            }
 
             var dinnerFoods = this.foodMealsRepository
                 .All()
                 .Where(x => x.Meal.Name == Enum.Parse<MealName>("Dinner") && x.Meal.AddedByUserId == userId)
-                .Select(x => x.Food)
                 .ToList();
 
-            var dinnerViewModel = dinnerFoods
-                .Select(x => new FoodViewModel
-                {
-                    Name = x.Name,
-                    ProteinIn100Grams = x.ProteinIn100Grams,
-                    CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
-                    FatIn100Grams = x.FatIn100Grams,
-                    TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
-                });
+            var dinnerViewModel = new List<FoodViewModel>();
 
-            var viewModel = new FoodDiaryViewModel
+            foreach (var item in dinnerFoods)
             {
-                Breakfast = breakfastViewModel,
+                var viewModel = new FoodViewModel();
+                var food = this.foodsRepository.All().Where(x => x.Id == item.FoodId).FirstOrDefault();
+                viewModel.Name = food.Name;
+                viewModel.ProteinIn100Grams = item.ServingSizeInGrams / 100 * food.ProteinIn100Grams;
+                viewModel.CarbohydratesIn100Grams = item.ServingSizeInGrams / 100 * food.CarbohydratesIn100Grams;
+                viewModel.FatIn100Grams = item.ServingSizeInGrams / 100 * food.FatIn100Grams;
+                viewModel.TotalCalories = (viewModel.ProteinIn100Grams * 4) + (viewModel.CarbohydratesIn100Grams * 4) + (viewModel.FatIn100Grams * 9);
+                viewModel.ServingSize = item.ServingSizeInGrams;
+                dinnerViewModel.Add(viewModel);
+            }
+
+
+
+            var viewModelToAdd = new FoodDiaryViewModel
+            {
+                Breakfast = breakFastViewModel,
                 Lunch = lunchViewModel,
                 Snack = snackViewModel,
                 Dinner = dinnerViewModel,
             };
 
-            return viewModel;
+            return viewModelToAdd;
         }
     }
 }
