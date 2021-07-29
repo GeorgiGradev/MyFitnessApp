@@ -40,10 +40,10 @@
                 <tr class="col">
                     <td class="col-md-3 text-center">@item.Name</td>
                     <td class="col-md-2 text-center">@item.ServingSize</td>
-                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-1 text-center">@item.TotalCalories</td>
+                    <td class="col-md-2 text-center">@item.ProteinIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.FatIn100Grams.ToString("f2")</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories.ToString("f2")</td>
                 </tr>
             }
         </tbody>
@@ -67,10 +67,10 @@
                 <tr class="col">
                     <td class="col-md-3 text-center">@item.Name</td>
                     <td class="col-md-2 text-center">@item.ServingSize</td>
-                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-1 text-center">@item.TotalCalories</td>
+                    <td class="col-md-2 text-center">@item.ProteinIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.FatIn100Grams.ToString("f2")</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories.ToString("f2")</td>
                 </tr>
             }
         </tbody>
@@ -93,11 +93,11 @@
                 calories += item.TotalCalories;
                 <tr class="col">
                     <td class="col-md-3 text-center">@item.Name</td>
-                    <td class="col-md-2 text-center">@item.ServingSize</td>
-                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-1 text-center">@item.TotalCalories</td>
+                    <td class="col-md-2 text-center">@item.ServingSize.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.ProteinIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.FatIn100Grams.ToString("f2")</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories.ToString("f2")</td>
                 </tr>
             }
         </tbody>
@@ -121,27 +121,27 @@
                 <tr class="col">
                     <td class="col-md-3 text-center">@item.Name</td>
                     <td class="col-md-2 text-center">@item.ServingSize</td>
-                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                    <td class="col-md-1 text-center">@item.TotalCalories</td>
+                    <td class="col-md-2 text-center">@item.ProteinIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams.ToString("f2")</td>
+                    <td class="col-md-2 text-center">@item.FatIn100Grams.ToString("f2")</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories.ToString("f2")</td>
                 </tr>
             }
         </tbody>
     </table>
-    <h5 class="text-md-right">Total calories: <strong>@calories</strong></h5>
-    <h5 class="text-md-right">Calories goal: <strong>@usersCaloriesCoal</strong></h5>
+    <h5 class="text-md-right">Total calories: <strong>@calories.ToString("f2")</strong></h5>
+    <h5 class="text-md-right">Calories goal: <strong>@usersCaloriesCoal.ToString("f2")</strong></h5>
     @{
         double caloriesDifference = calories - usersCaloriesCoal;
     }
 
     @if (caloriesDifference > 0)
     {
-        <h5 class="text-md-right">You are <strong>@caloriesDifference</strong> calories over your daily goal.</h5>
+        <h5 class="text-md-right">You are <strong>@caloriesDifference.ToString("f2")</strong> calories over your daily goal.</h5>
     }
     @if (caloriesDifference < 0)
     {
-        <h5 class="text-md-right">You are <strong>@(-caloriesDifference)</strong> calories behind your daily goal.</h5>
+        <h5 class="text-md-right">You are <strong>@((-caloriesDifference).ToString("f2"))</strong> calories behind your daily goal.</h5>
     }
     @if (caloriesDifference == 0)
     {
