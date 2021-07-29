@@ -6,6 +6,16 @@
     double calories = 0;
 }
 
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@this.TempData["Message"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <h1 class="text-center">@this.ViewData["Title"]</h1>
 
 <div class="container-fluid">
@@ -37,6 +47,15 @@
     </table>
     <h5 class="text-center">Lunch</h5>
     <table class="table table-bordered table-sm">
+        <thead>
+            <tr class="col">
+                <th class="col-md-4 text-center">Name</th>
+                <th class="col-md-2 text-center">Protein</th>
+                <th class="col-md-2 text-center">Carbs</th>
+                <th class="col-md-2 text-center">Fat</th>
+                <th class="col-md-2 text-center">Calories</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach (var item in Model.Lunch)
             {
@@ -53,6 +72,15 @@
     </table>
     <h5 class="text-center">Snack</h5>
     <table class="table table-bordered table-sm">
+        <thead>
+            <tr class="col">
+                <th class="col-md-4 text-center">Name</th>
+                <th class="col-md-2 text-center">Protein</th>
+                <th class="col-md-2 text-center">Carbs</th>
+                <th class="col-md-2 text-center">Fat</th>
+                <th class="col-md-2 text-center">Calories</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach (var item in Model.Snack)
             {
@@ -69,6 +97,15 @@
     </table>
     <h5 class="text-center">Dinner</h5>
     <table class="table table-bordered table-sm">
+        <thead>
+            <tr class="col">
+                <th class="col-md-4 text-center">Name</th>
+                <th class="col-md-2 text-center">Protein</th>
+                <th class="col-md-2 text-center">Carbs</th>
+                <th class="col-md-2 text-center">Fat</th>
+                <th class="col-md-2 text-center">Calories</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach (var item in Model.Dinner)
             {
@@ -101,5 +138,7 @@
     {
         <h5 class="text-md-right">You reached your calories goal.</h5>
     }
-
+    <div class="text-center">
+        <a asp-controller="Foods" asp-action="All" class="btn btn-primary btn-outline-light m-2">Back to foods</a>
+    </div>
 </div>

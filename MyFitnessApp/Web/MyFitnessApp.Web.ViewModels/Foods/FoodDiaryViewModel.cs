@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace MyFitnessApp.Web.ViewModels.Foods
+﻿namespace MyFitnessApp.Web.ViewModels.Foods
 {
+    using System.Collections.Generic;
+
     public class FoodDiaryViewModel
     {
         public IEnumerable<FoodViewModel> Breakfast { get; set; }

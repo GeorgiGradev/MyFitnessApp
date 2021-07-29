@@ -82,7 +82,7 @@
 
             this.TempData["Message"] = "Food successfully added to food diary.";
 
-            return this.RedirectToAction("All", "Foods");
+            return this.RedirectToAction("FoodDiary", "Foods");
         }
 
         [HttpGet]

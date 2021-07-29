@@ -64,6 +64,7 @@
                     CarbohydratesIn100Grams = x.CarbohydratesIn100Grams,
                     FatIn100Grams = x.FatIn100Grams,
                     TotalCalories = (x.ProteinIn100Grams * 4) + (x.CarbohydratesIn100Grams * 4) + (x.FatIn100Grams * 9),
+                    CreatedOn = x.CreatedOn,
                 })
                 .ToList();
 
