@@ -148,12 +148,12 @@
         <h5 class="text-md-right">You reached your calories goal.</h5>
     }
     <div class="text-center">
-        <a asp-controller="Foods" asp-action="All" class="btn btn-primary btn-outline-light m-2">Back to foods</a>
+        <a asp-controller="Foods" asp-action="All" class="btn btn-primary btn-outline-light m-2">Add food</a>
     </div>
 
     @if (userId == @Model.UserId || User.IsInRole("Administrator"))
     {
-        <div class="text-right m-1">
+        <div class="text-center">
             <form method="post" asp-controller="Foods" asp-action="Delete" id="deleteForm"></form>
             <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete diary</button>
         </div>
