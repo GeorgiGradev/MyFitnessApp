@@ -4,6 +4,7 @@
     ViewData["Title"] = "My food diary";
     double usersCaloriesCoal = 3000; @*Да се настрои, след като се създаде User's goals*@
     double calories = 0;
+    var userId = User.GetId();
 }
 
 @if (this.TempData.ContainsKey("Message"))
@@ -63,14 +64,14 @@
             @foreach (var item in Model.Lunch)
             {
                 calories += item.TotalCalories;
-            <tr class="col">
-                <td class="col-md-3 text-center">@item.Name</td>
-                <td class="col-md-2 text-center">@item.ServingSize</td>
-                <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                <td class="col-md-1 text-center">@item.TotalCalories</td>
-            </tr>
+                <tr class="col">
+                    <td class="col-md-3 text-center">@item.Name</td>
+                    <td class="col-md-2 text-center">@item.ServingSize</td>
+                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
+                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
+                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories</td>
+                </tr>
             }
         </tbody>
     </table>
@@ -90,14 +91,14 @@
             @foreach (var item in Model.Snack)
             {
                 calories += item.TotalCalories;
-            <tr class="col">
-                <td class="col-md-3 text-center">@item.Name</td>
-                <td class="col-md-2 text-center">@item.ServingSize</td>
-                <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                <td class="col-md-1 text-center">@item.TotalCalories</td>
-            </tr>
+                <tr class="col">
+                    <td class="col-md-3 text-center">@item.Name</td>
+                    <td class="col-md-2 text-center">@item.ServingSize</td>
+                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
+                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
+                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories</td>
+                </tr>
             }
         </tbody>
     </table>
@@ -117,14 +118,14 @@
             @foreach (var item in Model.Dinner)
             {
                 calories += item.TotalCalories;
-            <tr class="col">
-                <td class="col-md-3 text-center">@item.Name</td>
-                <td class="col-md-2 text-center">@item.ServingSize</td>
-                <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
-                <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
-                <td class="col-md-2 text-center">@item.FatIn100Grams</td>
-                <td class="col-md-1 text-center">@item.TotalCalories</td>
-            </tr>
+                <tr class="col">
+                    <td class="col-md-3 text-center">@item.Name</td>
+                    <td class="col-md-2 text-center">@item.ServingSize</td>
+                    <td class="col-md-2 text-center">@item.ProteinIn100Grams</td>
+                    <td class="col-md-2 text-center">@item.CarbohydratesIn100Grams</td>
+                    <td class="col-md-2 text-center">@item.FatIn100Grams</td>
+                    <td class="col-md-1 text-center">@item.TotalCalories</td>
+                </tr>
             }
         </tbody>
     </table>
@@ -148,5 +149,27 @@
     }
     <div class="text-center">
         <a asp-controller="Foods" asp-action="All" class="btn btn-primary btn-outline-light m-2">Back to foods</a>
+    </div>
+
+    @if (userId == @Model.UserId || User.IsInRole("Administrator"))
+    {
+        <div class="text-right m-1">
+            <form method="post" asp-controller="Foods" asp-action="Delete" id="deleteForm"></form>
+            <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete diary</button>
+        </div>
+    }
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Are you sure you want to delete your food diary?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
     </div>
 </div>

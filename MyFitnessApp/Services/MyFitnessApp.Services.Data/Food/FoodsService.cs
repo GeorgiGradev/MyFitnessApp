@@ -201,17 +201,31 @@
                 dinnerViewModel.Add(viewModel);
             }
 
-
-
             var viewModelToAdd = new FoodDiaryViewModel
             {
                 Breakfast = breakFastViewModel,
                 Lunch = lunchViewModel,
                 Snack = snackViewModel,
                 Dinner = dinnerViewModel,
+                UserId = userId,
             };
 
             return viewModelToAdd;
+        }
+
+        public async Task DeleteFoodDiary(string userId)
+        {
+            var userDiaryMeals = this.mealsRepository
+                .All()
+                .Where(x => x.AddedByUserId == userId)
+                .ToList();
+
+            foreach (var meal in userDiaryMeals)
+            {
+                this.mealsRepository.Delete(meal);
+            }
+
+            await this.mealsRepository.SaveChangesAsync();
         }
     }
 }

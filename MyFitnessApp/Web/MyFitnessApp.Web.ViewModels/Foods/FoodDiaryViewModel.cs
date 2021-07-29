@@ -11,5 +11,7 @@
         public List<FoodViewModel> Snack { get; set; }
 
         public List<FoodViewModel> Dinner { get; set; }
+
+        public string UserId { get; set; }
     }
 }

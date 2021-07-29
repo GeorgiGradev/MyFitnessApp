@@ -93,5 +93,17 @@
             var viewModel = this.foodsService.GetFoodDiary(userId);
             return this.View(viewModel);
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Delete()
+        {
+            string userId = this.User.GetId();
+            await this.foodsService.DeleteFoodDiary(userId);
+
+            this.TempData["Message"] = "Food diary succesfully deleted";
+
+            return this.RedirectToAction("FoodDiary", "Foods");
+        }
     }
 }
