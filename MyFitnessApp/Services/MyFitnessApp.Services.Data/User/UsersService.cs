@@ -8,6 +8,7 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Services.Data.Food;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Users;
 
@@ -16,13 +17,16 @@
         private readonly string[] allowedExtensions = new[] { "jpg" }; // позволени разширения
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
         private readonly IDeletableEntityRepository<Profile> profileRepository;
+        private readonly IFoodsService foodsService;
 
         public UsersService(
             IDeletableEntityRepository<ApplicationUser> userRepository,
-            IDeletableEntityRepository<Profile> profileRepository)
+            IDeletableEntityRepository<Profile> profileRepository,
+            IFoodsService foodsService)
         {
             this.userRepository = userRepository;
             this.profileRepository = profileRepository;
+            this.foodsService = foodsService;
         }
 
         public string GetUserEmailbyId(string userId)
@@ -142,6 +146,70 @@
                 .Any(x => x.AddedByUserId == userId);
 
             return doesUserHaveProfile;
+        }
+
+        public ProfileViewModel GetProfileData(string userId)
+        {
+            var userName = this.userRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.UserName)
+                .FirstOrDefault();
+            var firstName = this.userRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.FirstName)
+                .FirstOrDefault();
+            var lastName = this.userRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.LastName)
+                .FirstOrDefault();
+            var memberSince = this.userRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.CreatedOn)
+                .FirstOrDefault()
+                .ToString("dddd, dd MMMM yyyy");
+
+            var foodDiaryCalories = this.foodsService.GetFoodDiary(userId);
+            var totalFOodDiaryCalories =
+                foodDiaryCalories.Breakfast.Sum(x => x.TotalCalories)
+                + foodDiaryCalories.Lunch.Sum(x => x.TotalCalories)
+                + foodDiaryCalories.Snack.Sum(x => x.TotalCalories)
+                + foodDiaryCalories.Dinner.Sum(x => x.TotalCalories);
+
+            var viewModel = this.profileRepository
+                .All()
+                .Where(x => x.AddedByUserId == userId)
+                .Select(x => new ProfileViewModel
+                {
+                    Username = userName,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    MemberSince = memberSince,
+                    Gender = x.Gender.ToString(),
+                    ActivityLevel = x.ActivityLevel.ToString(),
+                    ImageUrl = x.ImageUrl,
+                    CurrentWeightInKg = x.CurrentWeightInKg,
+                    GoalWeightInKg = x.GoalWeightInKg,
+                    HeightInCm = x.HeightInCm,
+                    NeckInCm = x.NeckInCm,
+                    WaistInCm = x.WaistInCm,
+                    HipsInCm = x.HipsInCm,
+                    DailyProteinIntakeGoal = x.DailyProteinIntakeGoal,
+                    DailyCarbohydratesIntakeGoal = x.DailyCarbohydratesIntakeGoal,
+                    DailyFatIntakeGoal = x.DailyFatIntakeGoal,
+                    AboutMe = x.AboutMe,
+                    WhyGetInShape = x.WhyGetInShape,
+                    MyInspirations = x.MyInspirations,
+                    DailyCaloriesIntakeGoal = (x.DailyProteinIntakeGoal * 4) + (x.DailyCarbohydratesIntakeGoal * 4) + (x.DailyFatIntakeGoal * 9),
+                    FoodDiaryCalories = totalFOodDiaryCalories,
+                    CaloriesIntakeDifference = totalFOodDiaryCalories - (x.DailyProteinIntakeGoal * 4) + (x.DailyCarbohydratesIntakeGoal * 4) + (x.DailyFatIntakeGoal * 9),
+                })
+                .FirstOrDefault();
+
+            return viewModel;
         }
     }
 }

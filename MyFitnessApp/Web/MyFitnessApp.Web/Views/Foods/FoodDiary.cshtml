@@ -1,10 +1,19 @@
 ﻿@model FoodDiaryViewModel
 
+@using MyFitnessApp.Services.Data.User
+@inject IUsersService userService;
+
 @{
     ViewData["Title"] = "My food diary";
-    double usersCaloriesCoal = 3000; @*Да се настрои, след като се създаде User's goals*@
-    double calories = 0;
     var userId = User.GetId();
+    var profileViewModel = this.userService.GetProfileData(userId);
+    double usersCaloriesCoal = 0;
+    if (profileViewModel != null)
+    {
+        usersCaloriesCoal = profileViewModel.DailyCaloriesIntakeGoal;
+    }
+    double calories = 0;
+
 }
 
 @if (this.TempData.ContainsKey("Message"))

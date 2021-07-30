@@ -60,6 +60,8 @@
         [Authorize]
         public IActionResult MyProfile()
         {
+            var userId = this.User.GetId();
+            var viewModel = this.usersService.GetProfileData(userId);
             return this.View();
         }
 

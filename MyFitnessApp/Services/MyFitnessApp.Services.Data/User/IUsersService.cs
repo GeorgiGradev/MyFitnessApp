@@ -22,5 +22,7 @@
         Task CreateProfileAsync(CreateProfileInputModel model, string userId, string imagePath);
 
         bool DoesUserHaveProfile(string userId);
+
+        ProfileViewModel GetProfileData(string userId);
     }
 }
