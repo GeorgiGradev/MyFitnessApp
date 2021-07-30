@@ -97,6 +97,12 @@
         public const int ProfileDailyIntakeGoalMinValue = 1;
         public const int ProfileDailyIntakeGoalMaxValue = 10000;
 
+        public const int AboutMeMaxLength = 500;
+
+        public const int WhyGetInShapeMaxLength = 500;
+
+        public const int MyInspirationsMaxLength = 500;
+
         // E-mail model
         public const int EmailSubjectMinLength = 2;
         public const int EmailSubjectMaxLength = 20;

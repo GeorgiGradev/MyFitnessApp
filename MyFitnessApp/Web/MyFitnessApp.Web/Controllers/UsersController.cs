@@ -44,6 +44,7 @@
             return this.View();
         }
 
+        // Until here
         [HttpGet]
         [Authorize]
         public IActionResult Search()

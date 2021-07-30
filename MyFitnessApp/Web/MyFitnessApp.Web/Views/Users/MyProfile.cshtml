@@ -1,6 +1,195 @@
-﻿@{
-    this.ViewData["Title"] = "My Profile";
+﻿@using MyFitnessApp.Data.Models
+@model MyProfileInputModel
+
+@{
+    this.ViewData["Title"] = "Create Profile";
 }
 
-<h1 class="text-center">@this.ViewData["Title"]</h1>
+<div class="container">
+    <div class="row text-sm">
+        <div class="col-md">
+            @*Прави формата responsive при различни размери на екрана*@
+            <h2 class="heading-margin text-center">@this.ViewData["Title"]</h2>
+            <form method="post" enctype="multipart/form-data">
+                @*добавяме enctype, за да може формата да пази файлове*@
 
+                <div class="row">
+
+                    <div class="col-md">
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="Gender" class="text-center"></label>
+                            </div>
+                            <div class="col-md">
+                                <select asp-for="Gender" class="form-control">
+                                    @foreach (int choice in Enum.GetValues(typeof(Gender)))
+                                    {
+                                        <option value="@choice">@Enum.GetName(typeof(Gender), choice)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="ActivityLevel"></label>
+                            </div>
+                            <div class="col-md">
+                                <select asp-for="ActivityLevel" class="form-control">
+                                    @foreach (int activity in Enum.GetValues(typeof(ActivityLevel)))
+                                    {
+                                        <option value="@activity">@Enum.GetName(typeof(ActivityLevel), activity)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="CurrentWeightInKg"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="CurrentWeightInKg" class="form-control" placeholder="Current weight here...">
+                                <span asp-validation-for="CurrentWeightInKg" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="GoalWeightInKg"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="GoalWeightInKg" class="form-control" placeholder="Goal weight here...">
+                                <span asp-validation-for="GoalWeightInKg" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="HeightInCm"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="HeightInCm" class="form-control" placeholder="Height here...">
+                                <span asp-validation-for="HeightInCm" class="small text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="NeckInCm"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="NeckInCm" class="form-control" placeholder="Neck measurement here...">
+                                <span asp-validation-for="NeckInCm" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="WaistInCm"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="WaistInCm" class="form-control" placeholder="Waist measurement here...">
+                                <span asp-validation-for="WaistInCm" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="HipsInCm"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="HipsInCm" class="form-control" placeholder="Hips measurement here...">
+                                <span asp-validation-for="HipsInCm" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="DailyProteinIntakeGoal"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="DailyProteinIntakeGoal" class="form-control" placeholder="Protein intake goal here...">
+                                <span asp-validation-for="DailyProteinIntakeGoal" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="DailyCarbohydratesIntakeGoal"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="DailyCarbohydratesIntakeGoal" class="form-control" placeholder="Carbs intake goal here...">
+                                <span asp-validation-for="DailyCarbohydratesIntakeGoal" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="DailyFatIntakeGoal"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="DailyFatIntakeGoal" class="form-control" placeholder="Carbs intake goal here...">
+                                <span asp-validation-for="DailyFatIntakeGoal" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="ImageUrl"></label>
+                            </div>
+                            <div class="col-md">
+                                <input asp-for="ImageUrl" class="form-control" />
+                                <span asp-validation-for="ImageUrl" class="small text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="AboutMe"></label>
+                            </div>
+                            <div class="col-md">
+                                <textarea asp-for="AboutMe" class="form-control" rows="8" placeholder="Enter text here..."></textarea>
+                                <span asp-validation-for="AboutMe" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="WhyGetInShape"></label>
+                            </div>
+                            <div class="col-md">
+                                <textarea asp-for="WhyGetInShape" class="form-control" rows="8" placeholder="Enter text here..."></textarea>
+                                <span asp-validation-for="WhyGetInShape" class="small text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-md-right">
+                            <div class="col-md">
+                                <label asp-for="MyInspirations"></label>
+                            </div>
+                            <div class="col-md">
+                                <textarea asp-for="MyInspirations" class="form-control" rows="8" placeholder="Enter text here..."></textarea>
+                                <span asp-validation-for="MyInspirations" class="small text-danger"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <input class="btn btn-primary float-right mt-3" type="submit" value="Save" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="form-group">
+        <label asp-for="BirthDate"></label>
+        <input asp-for="BirthDate" class="form-control" placeholder="Title here...">
+        <span asp-validation-for="BirthDate" class="small text-danger"></span>
+    </div>*@

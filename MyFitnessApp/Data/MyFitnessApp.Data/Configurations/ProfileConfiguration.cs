@@ -9,7 +9,7 @@
         public void Configure(EntityTypeBuilder<Profile> profile)
         {
             profile
-                .HasOne(x => x.User)
+                .HasOne(x => x.AddedByUser)
                 .WithOne(x => x.Profile)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);

@@ -31,7 +31,7 @@
 
             appUser
                 .HasOne(e => e.Profile)
-                .WithOne(e => e.User)
+                .WithOne(e => e.AddedByUser)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
         }

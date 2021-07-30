@@ -14,10 +14,8 @@
 
         public Gender Gender { get; set; }
 
-        public ActivityLevel ActivityLevelName { get; set; }
+        public ActivityLevel ActivityLevel { get; set; }
 
-        [Required]
-        [Url]
         public string ImageUrl { get; set; }
 
         [Range(ProfileWeightInKgMinValue, ProfileWeightInKgMaxValue)]
@@ -47,12 +45,21 @@
         [Range(ProfileDailyIntakeGoalMinValue, ProfileDailyIntakeGoalMaxValue)]
         public double DailyFatIntakeGoal { get; set; }
 
+        [MaxLength(AboutMeMaxLength)]
+        public string AboutMe { get; set; }
+
+        [MaxLength(WhyGetInShapeMaxLength)]
+        public string WhyGetInShape { get; set; }
+
+        [MaxLength(MyInspirationsMaxLength)]
+        public string MyInspirations { get; set; }
+
         public double CalculatedDailyCaloriesIntakeGoal => (this.DailyProteinIntakeGoal * 4) + (this.DailyCarbohydratesIntakeGoal * 4) + (this.DailyFatIntakeGoal * 9);
 
         [Required]
-        [ForeignKey(nameof(User))]
-        public string UserId { get; set; }
+        [ForeignKey(nameof(AddedByUser))]
+        public string AddedByUserId { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser AddedByUser { get; set; }
     }
 }

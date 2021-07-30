@@ -94,6 +94,7 @@
         public async Task<IActionResult> Delete(int id)
         {
             await this.articlesService.DeleteArticleAsync(id);
+            this.TempData["Message"] = "Article deleted successfully.";
             return this.RedirectToAction("All", "Articles");
         }
     }
