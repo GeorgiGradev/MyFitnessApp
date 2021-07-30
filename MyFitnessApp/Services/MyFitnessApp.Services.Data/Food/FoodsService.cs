@@ -95,7 +95,7 @@
                 };
                 await this.mealsRepository.AddAsync(meal);
                 await this.mealsRepository.SaveChangesAsync();
-            };
+            }
 
             var foodId = this.foodsRepository
                 .All()
@@ -116,7 +116,6 @@
             meal.FoodMeals.Add(foodMeal);
 
             var searvingSize = meal.FoodMeals.Select(x => x.ServingSizeInGrams).FirstOrDefault();
-
         }
 
         public FoodDiaryViewModel GetFoodDiary(string userId)

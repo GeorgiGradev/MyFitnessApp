@@ -18,6 +18,34 @@
 
         [HttpGet]
         [Authorize]
+        public IActionResult MyProfile()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult MyProfile(MyProfileInputModel model)
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult MyGoals()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult MyGoals(MyGoalsInputModel model)
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        [Authorize]
         public IActionResult Search()
         {
             return this.View();
@@ -96,6 +124,5 @@
         {
             return this.View();
         }
-
     }
 }

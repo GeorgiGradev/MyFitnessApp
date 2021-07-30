@@ -24,7 +24,10 @@
     <div class="text-center">
         <h2 class="text-center">Welcome to @GlobalConstants.SystemName</h2>
     </div>
-    <div class="row">
+    <div>
+        <img src="/images/homepage/mainimage.jpg" class="card-img">
+    </div>
+    @*<div class="row">
         <div class="col-md-3 align-self-md-center">
             <div class="text">
                 <h5 class="text"><a asp-controller="Exercises" asp-action="All">Choose an exercise</a></h5>
@@ -49,8 +52,8 @@
             <div>
                 <img src="/images/homepage/mainimage.jpg" class="card-img-top">
             </div>
-        </div>
-    </div>
+        </div>*@
+    @*</div>*@
 }
 @if (!this.User.Identity.IsAuthenticated)
 {
