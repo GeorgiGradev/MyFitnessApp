@@ -19,14 +19,10 @@
 
         public IActionResult Index()
         {
-            // За да се визуализират данните на началната страница
             var viewModel = new IndexViewModel
             {
-                Exercises = this.db.Exercises,
-                Foods = this.db.Foods,
-                UsersCount = this.db.Users.Count(),
-            };
 
+            };
             return this.View(viewModel);
         }
 

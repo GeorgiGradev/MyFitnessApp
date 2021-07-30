@@ -25,15 +25,11 @@
                         {
                             <div class="dropdown">
                                 <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                    My Profile
+                                    My Home
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Home</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Goals</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Profile</a>
-                                    @*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Check-In</a>*@
-                                    @*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Following</a>*@
-                                    @*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Followers</a>*@
+                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My Profile</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">My Goals</a>
                                 </div>
                             </div>
 
@@ -50,7 +46,7 @@
                                 </div>
                             </div>
 
-                                <div class="dropdown">
+                            <div class="dropdown">
                                 <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
                                     Food
                                 </button>
@@ -93,20 +89,18 @@
                                 </div>
                             </div>
                         }
-                        @if (!this.User.Identity.IsAuthenticated)
+                        @*@if (!this.User.Identity.IsAuthenticated)
                         {
                             <div class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </div>
-
                             <div class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Terms</a>
                             </div>
-
                             <div class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
                             </div>
-                        }
+                        }*@
                     </div>
                 </div>
             </div>
@@ -145,3 +139,6 @@
 
 
 
+@*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Check-In</a>*@
+@*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Following</a>*@
+@*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Followers</a>*@
