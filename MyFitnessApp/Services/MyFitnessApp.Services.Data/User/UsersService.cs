@@ -1,7 +1,10 @@
 ﻿namespace MyFitnessApp.Services.Data.User
 {
+    using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
@@ -10,11 +13,16 @@
 
     public class UsersService : IUsersService
     {
+        private readonly string[] allowedExtensions = new[] { "jpg" }; // позволени разширения
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
+        private readonly IDeletableEntityRepository<Profile> profileRepository;
 
-        public UsersService(IDeletableEntityRepository<ApplicationUser> userRepository)
+        public UsersService(
+            IDeletableEntityRepository<ApplicationUser> userRepository,
+            IDeletableEntityRepository<Profile> profileRepository)
         {
             this.userRepository = userRepository;
+            this.profileRepository = profileRepository;
         }
 
         public string GetUserEmailbyId(string userId)
@@ -81,6 +89,59 @@
                  .ToList();
 
             return user;
+        }
+
+        public async Task CreateProfileAsync(CreateProfileInputModel model, string userId, string imagePath)
+        {
+            var profile = new Profile
+            {
+                Gender = model.Gender,
+                ActivityLevel = model.ActivityLevel,
+                CurrentWeightInKg = model.CurrentWeightInKg,
+                GoalWeightInKg = model.GoalWeightInKg,
+                HeightInCm = model.HeightInCm,
+                NeckInCm = model.NeckInCm,
+                WaistInCm = model.WaistInCm,
+                HipsInCm = model.HipsInCm,
+                DailyProteinIntakeGoal = model.DailyProteinIntakeGoal,
+                DailyCarbohydratesIntakeGoal = model.DailyCarbohydratesIntakeGoal,
+                DailyFatIntakeGoal = model.DailyFatIntakeGoal,
+                AboutMe = model.AboutMe,
+                WhyGetInShape = model.WhyGetInShape,
+                MyInspirations = model.MyInspirations,
+                AddedByUserId = userId,
+            };
+
+            await this.profileRepository.AddAsync(profile);
+            await this.profileRepository.SaveChangesAsync();
+
+            Directory.CreateDirectory($"{imagePath}/profileimages/");
+
+            var profileId = profile.Id;
+            var extension = Path.GetExtension(model.ImageUrl.FileName).TrimStart('.');
+
+            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            {
+                throw new Exception($"Invalid image extension {extension}");
+            }
+
+            var physicalPath = $"{imagePath}/profileimages/{profileId}.{extension}";
+            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await model.ImageUrl.CopyToAsync(fileStream);
+
+            profile.ImageUrl = physicalPath;
+            await this.profileRepository.SaveChangesAsync();
+
+            // записваме картинката като комбинация от Id на Article и extension (123.jpeg)
+        }
+
+        public bool DoesUserHaveProfile(string userId)
+        {
+            bool doesUserHaveProfile = this.profileRepository
+                .All()
+                .Any(x => x.AddedByUserId == userId);
+
+            return doesUserHaveProfile;
         }
     }
 }

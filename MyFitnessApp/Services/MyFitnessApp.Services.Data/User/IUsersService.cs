@@ -1,6 +1,7 @@
 ﻿namespace MyFitnessApp.Services.Data.User
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     using MyFitnessApp.Web.ViewModels.Users;
 
@@ -17,5 +18,9 @@
         public IEnumerable<FoundUserViewModel> SearchUserByFirstName(string firstName);
 
         public IEnumerable<FoundUserViewModel> SearchUserByLastName(string lastName);
+
+        Task CreateProfileAsync(CreateProfileInputModel model, string userId, string imagePath);
+
+        bool DoesUserHaveProfile(string userId);
     }
 }

@@ -1,8 +1,10 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
+    using System;
     using System.Linq;
-
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Web.ViewModels.Users;
@@ -10,10 +12,48 @@
     public class UsersController : Controller
     {
         private readonly IUsersService usersService;
+        private readonly IWebHostEnvironment environment;
 
-        public UsersController(IUsersService usersService)
+        public UsersController(
+            IUsersService usersService,
+            IWebHostEnvironment environment)
         {
             this.usersService = usersService;
+            this.environment = environment;
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult CreateProfile()
+        {
+            var viewModel = new CreateProfileInputModel();
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> CreateProfile(CreateProfileInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var userId = this.User.GetId();
+
+            try
+            {
+                await this.usersService.CreateProfileAsync(model, userId, $"{this.environment.WebRootPath}/images");
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(model);
+            }
+
+            this.TempData["Message"] = "Profile created successfully.";
+
+            return this.Redirect("/");
         }
 
         [HttpGet]
@@ -23,12 +63,6 @@
             return this.View();
         }
 
-        [HttpPost]
-        [Authorize]
-        public IActionResult MyProfile(MyProfileInputModel model)
-        {
-            return this.View();
-        }
 
         [HttpGet]
         [Authorize]

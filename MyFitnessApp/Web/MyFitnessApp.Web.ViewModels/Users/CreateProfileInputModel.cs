@@ -8,10 +8,10 @@
 
     using static MyFitnessApp.Common.DataConstants;
 
-    public class MyProfileInputModel
+    public class CreateProfileInputModel
     {
-        [Required(ErrorMessage = "The field is required")]
-        public DateTime BirthDate { get; set; }
+        //[Required(ErrorMessage = "The field is required")]
+        //public DateTime BirthDate { get; set; }
 
         [Display(Name = "Choose gender")]
         public Gender Gender { get; set; }
@@ -81,7 +81,6 @@
 
         public double CalculatedDailyCaloriesIntakeGoal => (this.DailyProteinIntakeGoal * 4) + (this.DailyCarbohydratesIntakeGoal * 4) + (this.DailyFatIntakeGoal * 9);
 
-        [Required]
         public string AddedByUserId { get; set; }
     }
 }

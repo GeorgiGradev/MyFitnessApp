@@ -1,4 +1,7 @@
 ﻿@using MyFitnessApp.Common
+@using MyFitnessApp.Services.Data.User
+@inject IUsersService userService;
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,14 +25,20 @@
                     <partial name="_LoginPartial" />
                     <div class="navbar-nav flex-grow-1">
                         @if (this.User.Identity.IsAuthenticated)
-                        {
+                        {var userId = User.GetId();var doesUserHaveProfile = userService.DoesUserHaveProfile(userId);
                             <div class="dropdown">
                                 <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
                                     My Home
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="MyProfile">My Profile</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="MyGoals">My Goals</a>
+                                    @if (doesUserHaveProfile == false)
+                                    {
+                                        <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="CreateProfile">Create Profile</a>
+                                    }
+                                    @if (doesUserHaveProfile == true)
+                                    {
+                                        <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="MyProfile">My Profile</a>
+                                    }
                                 </div>
                             </div>
 
@@ -90,17 +99,17 @@
                             </div>
                         }
                         @*@if (!this.User.Identity.IsAuthenticated)
-                        {
-                            <div class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </div>
-                            <div class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Terms</a>
-                            </div>
-                            <div class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
-                            </div>
-                        }*@
+                            {
+                                <div class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                </div>
+                                <div class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Terms</a>
+                                </div>
+                                <div class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
+                                </div>
+                            }*@
                     </div>
                 </div>
             </div>
