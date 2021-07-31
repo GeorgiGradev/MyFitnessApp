@@ -21,7 +21,6 @@
         {
             var viewModel = new IndexViewModel
             {
-
             };
             return this.View(viewModel);
         }

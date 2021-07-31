@@ -1,13 +1,14 @@
 ﻿namespace MyFitnessApp.Services.Data.Profile
 {
-    using MyFitnessApp.Data.Common.Repositories;
-    using MyFitnessApp.Web.ViewModels.Profiles;
-    using System.Threading.Tasks;
-    using MyFitnessApp.Data.Models;
+    using System;
     using System.IO;
     using System.Linq;
-    using System;
+    using System.Threading.Tasks;
+
+    using MyFitnessApp.Data.Common.Repositories;
+    using MyFitnessApp.Data.Models;
     using MyFitnessApp.Services.Data.Food;
+    using MyFitnessApp.Web.ViewModels.Profiles;
 
     public class ProfilesService : IProfilesService
     {
@@ -25,7 +26,6 @@
             this.usersRepository = usersRepository;
             this.foodsService = foodsService;
         }
-
 
         public async Task CreateProfileAsync(CreateProfileInputModel model, string userId, string imagePath)
         {

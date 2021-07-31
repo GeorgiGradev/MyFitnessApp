@@ -53,7 +53,7 @@
                 .All()
                 .Where(x => x.PostId == postId)
                 .Select(x => new CommentViewModel
-                { 
+                {
                    Id = x.Id,
                    AddedByUserCreatedOn = x.AddedByUser.CreatedOn,
                    AddedByUserId = x.AddedByUserId,

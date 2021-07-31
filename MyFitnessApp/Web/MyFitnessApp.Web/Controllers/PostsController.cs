@@ -46,7 +46,6 @@
             var postId = await this.postsService.CreatePostAsync(model, userId);
 
             // return this.Redirect($"/ForumCategories/ByName/{categoryName.Replace(" ", "-")}");
-
             this.TempData["Message"] = "Post created successfully.";
 
             return this.RedirectToAction("ById", new { id = postId });

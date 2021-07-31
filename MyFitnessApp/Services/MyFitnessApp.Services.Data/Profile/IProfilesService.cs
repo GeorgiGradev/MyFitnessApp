@@ -1,7 +1,8 @@
 ﻿namespace MyFitnessApp.Services.Data.Profile
 {
-    using MyFitnessApp.Web.ViewModels.Profiles;
     using System.Threading.Tasks;
+
+    using MyFitnessApp.Web.ViewModels.Profiles;
 
     public interface IProfilesService
     {
