@@ -1,8 +1,8 @@
-﻿using MyFitnessApp.Web.ViewModels.Profiles;
-using System.Threading.Tasks;
-
-namespace MyFitnessApp.Services.Data.Profile
+﻿namespace MyFitnessApp.Services.Data.Profile
 {
+    using MyFitnessApp.Web.ViewModels.Profiles;
+    using System.Threading.Tasks;
+
     public interface IProfilesService
     {
         Task CreateProfileAsync(CreateProfileInputModel model, string userId, string imagePath);
@@ -11,6 +11,6 @@ namespace MyFitnessApp.Services.Data.Profile
 
         ProfileViewModel GetProfileData(string userId);
 
-
+        string GetInternalImagePath(string userId);
     }
 }

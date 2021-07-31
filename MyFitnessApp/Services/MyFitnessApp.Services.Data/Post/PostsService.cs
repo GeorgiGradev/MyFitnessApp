@@ -6,7 +6,10 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Services.Data.Comment;
+    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Mapping;
+    using MyFitnessApp.Web.ViewModels.Comments;
     using MyFitnessApp.Web.ViewModels.Posts;
 
     public class PostsService : IPostsService
@@ -14,15 +17,21 @@
         private readonly IDeletableEntityRepository<ForumCategory> forumCategoryRepository;
         private readonly IDeletableEntityRepository<Post> postRepository;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
+        private readonly IProfilesService profilesService;
+        private readonly ICommentsService commentsService;
 
         public PostsService(
             IDeletableEntityRepository<ForumCategory> forumCategoryRepository,
             IDeletableEntityRepository<Post> postRepository,
-            IDeletableEntityRepository<ApplicationUser> userRepository)
+            IDeletableEntityRepository<ApplicationUser> userRepository,
+            IProfilesService profilesService,
+            ICommentsService commentsService)
         {
             this.forumCategoryRepository = forumCategoryRepository;
             this.postRepository = postRepository;
             this.userRepository = userRepository;
+            this.profilesService = profilesService;
+            this.commentsService = commentsService;
         }
 
         public IEnumerable<CategoryViewModel> GetForumCategories()
@@ -58,6 +67,12 @@
                 .Where(x => x.Id == id)
                 .To<PostViewModel>()
                 .FirstOrDefault();
+
+            var internalImage = this.profilesService.GetInternalImagePath(post.AddedByUserId);
+            post.UserProfileImage = internalImage;
+
+            var comments = this.commentsService.GetAllPostComments(post.Id);
+            post.Comments = comments;
 
             return post;
         }

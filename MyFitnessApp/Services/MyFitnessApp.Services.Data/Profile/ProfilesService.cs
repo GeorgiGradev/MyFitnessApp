@@ -111,19 +111,7 @@
                 + foodDiaryCalories.Snack.Sum(x => x.TotalCalories)
                 + foodDiaryCalories.Dinner.Sum(x => x.TotalCalories);
 
-            var imagePath = this.profileRepository
-                .All()
-                .Where(x => x.AddedByUserId == userId)
-                .Select(x => x.ImageUrl)
-                .FirstOrDefault();
-
-            var applicationImagePath = string.Empty;
-
-            if (imagePath != string.Empty)
-            {
-                var splittedPath = imagePath.Split("wwwroot").ToList();
-                applicationImagePath = splittedPath[1];
-            }
+            var internalImagePath = this.GetInternalImagePath(userId);
 
             var viewModel = this.profileRepository
                 .All()
@@ -136,7 +124,7 @@
                     MemberSince = memberSince,
                     Gender = x.Gender.ToString(),
                     ActivityLevel = x.ActivityLevel.ToString(),
-                    ImageUrl = applicationImagePath,
+                    ImageUrl = internalImagePath,
                     CurrentWeightInKg = x.CurrentWeightInKg,
                     GoalWeightInKg = x.GoalWeightInKg,
                     HeightInCm = x.HeightInCm,
@@ -156,6 +144,25 @@
                 .FirstOrDefault();
 
             return viewModel;
+        }
+
+        public string GetInternalImagePath(string userId)
+        {
+            var imagePath = this.profileRepository
+            .All()
+            .Where(x => x.AddedByUserId == userId)
+            .Select(x => x.ImageUrl)
+            .FirstOrDefault();
+
+            var internalImagePath = string.Empty;
+
+            if (imagePath != string.Empty)
+            {
+                var splittedPath = imagePath.Split("wwwroot").ToList();
+                internalImagePath = splittedPath[1];
+            }
+
+            return internalImagePath;
         }
     }
 }

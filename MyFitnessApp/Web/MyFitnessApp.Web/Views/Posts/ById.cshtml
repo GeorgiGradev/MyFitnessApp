@@ -21,7 +21,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <div class="media flex-wrap w-100 align-items-center">
-                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg" class="d-block ui-w-40 rounded-circle" alt="">
+                        <img src="@Model.UserProfileImage" class="rounded-circle" width="70" alt="">
                         <div class="media-body ml-3">
                             <div>
                                 <h4>@Model.Title</h4>
@@ -56,10 +56,10 @@
 
                 @foreach (var reply in Model.Comments)
                 {
-                    <div class="col-md-12">
+                    <div class="col-md-11 offset-1">
                         <div class="card-header">
                             <div class="media flex-wrap w-100 align-items-center">
-                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/3.jpg" class="d-block ui-w-40 rounded-circle" alt="">
+                                <img src="@reply.UserProfileImage" class="rounded-circle" width="70" alt="">
                                 <div class="media-body ml-3">
                                     <div class="text-muted small">
                                         <strong>Comment by:</strong> @reply.AddedByUserUserName

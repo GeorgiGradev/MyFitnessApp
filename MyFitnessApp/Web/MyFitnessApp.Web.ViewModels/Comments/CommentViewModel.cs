@@ -18,5 +18,7 @@
         public DateTime CreatedOn { get; set; }
 
         public DateTime AddedByUserCreatedOn { get; set; }
+
+        public string UserProfileImage { get; set; }
     }
 }

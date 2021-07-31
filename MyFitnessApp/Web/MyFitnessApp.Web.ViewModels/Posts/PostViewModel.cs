@@ -25,6 +25,8 @@
 
         public string CategoryName { get; set; }
 
+        public string UserProfileImage { get; set; }
+
         public IEnumerable<CommentViewModel> Comments { get; set; }
     }
 }
