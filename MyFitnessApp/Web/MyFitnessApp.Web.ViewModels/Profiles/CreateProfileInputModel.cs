@@ -1,4 +1,4 @@
-﻿namespace MyFitnessApp.Web.ViewModels.Users
+﻿namespace MyFitnessApp.Web.ViewModels.Profiles
 {
     using System;
     using System.ComponentModel.DataAnnotations;

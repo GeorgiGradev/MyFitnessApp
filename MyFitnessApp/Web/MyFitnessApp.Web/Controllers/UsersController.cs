@@ -12,74 +12,13 @@
     public class UsersController : Controller
     {
         private readonly IUsersService usersService;
-        private readonly IWebHostEnvironment environment;
 
         public UsersController(
-            IUsersService usersService,
-            IWebHostEnvironment environment)
+            IUsersService usersService)
         {
             this.usersService = usersService;
-            this.environment = environment;
         }
 
-        [HttpGet]
-        [Authorize]
-        public IActionResult CreateProfile()
-        {
-            var viewModel = new CreateProfileInputModel();
-            return this.View(viewModel);
-        }
-
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> CreateProfile(CreateProfileInputModel model)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(model);
-            }
-
-            var userId = this.User.GetId();
-
-            try
-            {
-                await this.usersService.CreateProfileAsync(model, userId, $"{this.environment.WebRootPath}/images");
-            }
-            catch (Exception ex)
-            {
-                this.ModelState.AddModelError(string.Empty, ex.Message);
-                return this.View(model);
-            }
-
-            this.TempData["Message"] = "Profile created successfully.";
-
-            return this.Redirect("/");
-        }
-
-        [HttpGet]
-        [Authorize]
-        public IActionResult MyProfile()
-        {
-            var userId = this.User.GetId();
-            var viewModel = this.usersService.GetProfileData(userId);
-            return this.View(viewModel);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public IActionResult MyGoals()
-        {
-            return this.View();
-        }
-
-        [HttpPost]
-        [Authorize]
-        public IActionResult MyGoals(MyGoalsInputModel model)
-        {
-            return this.View();
-        }
-
-        // Until here
         [HttpGet]
         [Authorize]
         public IActionResult Search()

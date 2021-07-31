@@ -1,6 +1,6 @@
 ﻿@using MyFitnessApp.Common
-@using MyFitnessApp.Services.Data.User
-@inject IUsersService userService;
+@using MyFitnessApp.Services.Data.Profile
+@inject IProfilesService profilesService;
  
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@
                     <partial name="_LoginPartial" />
                     <div class="navbar-nav flex-grow-1">
                         @if (this.User.Identity.IsAuthenticated)
-                        {var userId = User.GetId();var doesUserHaveProfile = userService.DoesUserHaveProfile(userId);
+                        {var userId = User.GetId();var doesUserHaveProfile = profilesService.DoesUserHaveProfile(userId);
                             <div class="dropdown">
                                 <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
                                     My Home
@@ -33,11 +33,11 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @if (doesUserHaveProfile == false)
                                     {
-                                        <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="CreateProfile">Create Profile</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="CreateProfile">Create Profile</a>
                                     }
                                     @if (doesUserHaveProfile == true)
                                     {
-                                        <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="MyProfile">My Profile</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="MyProfile">My Profile</a>
                                     }
                                 </div>
                             </div>

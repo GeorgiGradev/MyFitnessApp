@@ -1,12 +1,12 @@
 ﻿@model FoodDiaryViewModel
 
-@using MyFitnessApp.Services.Data.User
-@inject IUsersService userService;
+@using MyFitnessApp.Services.Data.Profile
+@inject IProfilesService profilesService; 
 
 @{
     ViewData["Title"] = "My food diary";
     var userId = User.GetId();
-    var profileViewModel = this.userService.GetProfileData(userId);
+    var profileViewModel = this.profilesService.GetProfileData(userId);
     double usersCaloriesCoal = 0;
     if (profileViewModel != null)
     {

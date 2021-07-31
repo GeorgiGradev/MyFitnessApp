@@ -18,11 +18,5 @@
         public IEnumerable<FoundUserViewModel> SearchUserByFirstName(string firstName);
 
         public IEnumerable<FoundUserViewModel> SearchUserByLastName(string lastName);
-
-        Task CreateProfileAsync(CreateProfileInputModel model, string userId, string imagePath);
-
-        bool DoesUserHaveProfile(string userId);
-
-        ProfileViewModel GetProfileData(string userId);
     }
 }
