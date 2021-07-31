@@ -15,6 +15,6 @@
 
         public IEnumerable<PostInCategoryViewModel> Posts { get; set; }
 
-        public string Url => $"/ForumCategories/ByName/{this.Name.Replace(' ', '-')}";
+        public string Url => $"/Forums/ByName/{this.Name.Replace(' ', '-')}";
     }
 }

@@ -1,7 +1,5 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
-    using System.Threading.Tasks;
-
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Forum;
@@ -24,6 +22,14 @@
             {
                 Categories = categories,
             };
+
+            return this.View(viewModel);
+        }
+
+        [Authorize]
+        public IActionResult ByName(string name)
+        {
+            var viewModel = this.forumsService.GetCategoryByName(name);
 
             return this.View(viewModel);
         }
