@@ -2,10 +2,18 @@
 
 
 @model AllExercisesViewModel
+@*@{
+        this.ViewData["Title"] = "All exercises / Page " + Model.PageNumber;
+    }*@
 
-@{
-    this.ViewData["Title"] = "All exercises / Page " + Model.PageNumber;
-}
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All exercises</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 @if (this.TempData.ContainsKey("Message"))
 {

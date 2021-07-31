@@ -5,6 +5,16 @@
     this.ViewBag.Title = "Exercise";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Exercises/All">All exercises</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 
 <div class="container">
     <div class="row">
@@ -25,10 +35,10 @@
                     </p>
                     <p class="item-description">
                         <strong>Equipment: </strong>@Model.EquipmentName
-</p>
+                    </p>
                     <p class="item-description">
                         <strong>Difficulty: </strong>@Model.DifficultyName
-</p>
+                    </p>
                 </div>
             </div>
             <div class="row">
@@ -40,7 +50,7 @@
                 <div class="col-md-6">
                     <p class="item-description">
                         <strong>Instructions: </strong>@Model.Description
-</p>
+                    </p>
                 </div>
             </div>
         </div>

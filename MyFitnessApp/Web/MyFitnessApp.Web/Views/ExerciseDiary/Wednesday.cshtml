@@ -4,9 +4,18 @@
     this.ViewData["Title"] = "Wednesday";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Exercises/All">All exercises</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 <div class="container">
-    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    @*<h1 class="text-center">@this.ViewData["Title"]</h1>*@
     <div>
         <div class="row">
             <div class="col-md-2">
