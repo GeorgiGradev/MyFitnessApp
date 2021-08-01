@@ -71,5 +71,13 @@
         {
             return this.View();
         }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult UsersProfile(string id)
+        {
+            var viewModel = this.profilesService.GetProfileData(id);
+            return this.View(viewModel);
+        }
     }
 }

@@ -1,0 +1,205 @@
+﻿@model ProfileViewModel
+
+@{ 
+    var imagePath = Model.ImageUrl;
+    var userId = this.User.GetId();
+}
+
+
+<div class="container">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="@imagePath" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>@Model.Username</h4>
+                                @if (userId == Model.UserId)
+                                {
+                                    <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit profile</a>
+                                }
+                                @if (userId != Model.UserId)
+                                {
+                                    <button class="btn btn-primary">Follow</button>
+                                    <a asp-controller="Communities" asp-action="SendEmail" class="btn btn-outline-primary">Message</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">about me</i></h6>
+                        <small>@Model.AboutMe</small>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Why I want to get in shape</i></h6>
+                        <small>@Model.WhyGetInShape</small>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">My inspirations</i></h6>
+                        <small>@Model.MyInspirations</small>
+                    </div>
+                </div>
+            </div>
+            @*First column*@
+
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Full name</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.FirstName @Model.LastName
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">E-mail</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.Email
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Gender</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.Gender
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Activity level</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.ActivityLevel
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Current weight</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.CurrentWeightInKg kg
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Goal weight</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.GoalWeightInKg kg
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Height</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.HeightInCm cm
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Neck</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.NeckInCm cm
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Waist</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.WaistInCm cm
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Hips</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.HipsInCm cm
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Daily protein intake goal</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.DailyProteinIntakeGoal gr
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Daily carbs intake goal</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.DailyCarbohydratesIntakeGoal gr
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Daily fat intake goal</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.DailyFatIntakeGoal gr
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Today's calories goal'</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.DailyCaloriesIntakeGoal kcal
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">Today's food diary calories</h6>
+                            </div>
+                            <div class="col-sm-7 text-secondary">
+                                @Model.FoodDiaryCalories kcal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
