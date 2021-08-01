@@ -17,17 +17,32 @@
         </nav>
         <!-- /Breadcrumb -->
 
-        <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
+        <div class="row gutters-md">
+            <div class="col-5 md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="@imagePath" class="rounded-circle" width="150">
+                            <img src="@imagePath" class="rounded-circle embed-responsive-item" width="150">
                             <div class="mt-3">
                                 <h4>@Model.Username</h4>
                                 @if (userId == Model.UserId)
                                 {
-                                    <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
+                                  <div class="container-fluid">
+                                    <div class="row mt-2">
+                                        <div class="col md-4">
+                                            <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6 mt-2">
+                                            <a asp-controller="ExerciseDiary" asp-action="Monday" class="btn btn-outline-info">My exercise diary</a>
+                                        </div>
+                                        <div class="col-md-6 mt-2">
+                                            <a asp-controller="Foods" asp-action="FoodDiary" class="btn btn-outline-info">My food diary</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 }
                                 @if (userId != Model.UserId)
                                 {
@@ -59,7 +74,7 @@
             </div>
             @*First column*@
 
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="row">
