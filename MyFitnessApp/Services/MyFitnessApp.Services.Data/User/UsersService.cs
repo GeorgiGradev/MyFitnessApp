@@ -67,5 +67,14 @@
 
             return user;
         }
+
+        public bool DoesUserExists(string userId)
+        {
+            var doesUserExists = this.usersRepository
+                .All()
+                .Any(x => x.Id == userId);
+
+            return doesUserExists;
+        }
     }
 }

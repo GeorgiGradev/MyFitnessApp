@@ -37,7 +37,22 @@
         {
             if (model.UserName != null)
             {
-                var user = this.usersService.SearchUserByUserName(model.UserName);
+                var username = model.UserName;
+                var user = this.usersService.SearchUserByUserName(username);
+
+                if (user == null)
+                {
+                    this.TempData["Message"] = "There is no user with this username.";
+                    return this.View();
+                }
+
+                var doesUserHaveProfile = this.profilesService.DoesUserHaveProfile(user.Id);
+
+                if (doesUserHaveProfile == false)
+                {
+                    this.TempData["Message"] = "User has no profile yet.";
+                    return this.View();
+                }
 
                 var viewModel = new FoundUserViewModel()
                 {
@@ -53,7 +68,22 @@
             }
             else if (model.Email != null)
             {
-                var user = this.usersService.SearchUserByEmail(model.Email);
+                var email = model.Email;
+                var user = this.usersService.SearchUserByEmail(email);
+
+                if (user == null)
+                {
+                    this.TempData["Message"] = "There is no user with this email.";
+                    return this.View();
+                }
+
+                var doesUserHaveProfile = this.profilesService.DoesUserHaveProfile(user.Id);
+
+                if (doesUserHaveProfile == false)
+                {
+                    this.TempData["Message"] = "User has no profile yet.";
+                    return this.View();
+                }
 
                 var viewModel = new FoundUserViewModel()
                 {

@@ -4,4 +4,11 @@
     this.ViewData["Title"] = "Users Profile";
 }
 
+@if (Model == null)
+            {
+                <h2>User has no profile yet</h2>
+            }
+
 <partial name="_ProfilePartial" model="@Model" />
+
+
