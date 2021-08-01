@@ -69,6 +69,14 @@
             await this.profileRepository.SaveChangesAsync();
 
             // записваме картинката като комбинация от Id на Article и extension (123.jpeg)
+
+            var user = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .FirstOrDefault();
+
+            user.ProfileId = profile.Id;
+            await this.usersRepository.SaveChangesAsync();
         }
 
         public bool DoesUserHaveProfile(string userId)

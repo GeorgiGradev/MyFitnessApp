@@ -30,7 +30,10 @@
                                 <strong>Post by:</strong> @Model.AddedByUserUserName
                             </div>
                             <div class="text-muted small">
-                                <strong>Category:</strong> @Model.CategoryName
+                                <strong>Category:</strong>
+                                <a href="/Forums/ByName/@Model.CategoryName">
+                                    @Model.CategoryName
+                                 </a>
                             </div>
                             <div class="text-muted small">
                                 <strong>Created on:</strong> @Model.CreatedOn.ToString("f")

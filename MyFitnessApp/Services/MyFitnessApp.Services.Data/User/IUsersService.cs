@@ -11,7 +11,5 @@
         public FoundUserViewModel SearchUserByUserName(string userName);
 
         public FoundUserViewModel SearchUserByEmail(string email);
-
-        bool DoesUserExists(string userId);
     }
 }
