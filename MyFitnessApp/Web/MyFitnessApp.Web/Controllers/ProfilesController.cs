@@ -74,9 +74,11 @@
 
         [HttpGet]
         [Authorize]
-        public IActionResult UsersProfile(string id)
+        public IActionResult UsersProfile(string userName)
         {
-            var viewModel = this.profilesService.GetProfileData(id);
+            var userId = this.profilesService.GetUserIdByUserName(userName);
+
+            var viewModel = this.profilesService.GetProfileData(userId);
             return this.View(viewModel);
         }
     }

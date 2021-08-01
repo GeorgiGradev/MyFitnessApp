@@ -13,5 +13,7 @@
         ProfileViewModel GetProfileData(string userId);
 
         string GetInternalImagePath(string userId);
+
+        string GetUserIdByUserName(string userName);
     }
 }

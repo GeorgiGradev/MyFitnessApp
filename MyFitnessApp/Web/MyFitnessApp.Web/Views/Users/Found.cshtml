@@ -13,7 +13,7 @@
         }
         @if (Model != null)
         {
-            <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-id="@Model.Id">
+            <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.UserName">
                 <div class="card-header col-md-8 offset-2 border border-dark mt-2">
                     <div class="media flex-wrap w-100 align-items-center">
                         <img src="@Model.UserProfileImage" class="class=" rounded-circle" width="150" alt="">

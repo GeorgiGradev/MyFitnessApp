@@ -171,5 +171,16 @@
 
             return internalImagePath;
         }
+
+        public string GetUserIdByUserName(string userName)
+        {
+            var userId = this.usersRepository
+                .All()
+                .Where(x => x.UserName == userName)
+                .Select(x => x.Id)
+                .FirstOrDefault();
+
+            return userId;
+        }
     }
 }
