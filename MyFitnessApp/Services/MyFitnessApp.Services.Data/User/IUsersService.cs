@@ -1,8 +1,5 @@
 ﻿namespace MyFitnessApp.Services.Data.User
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-
     using MyFitnessApp.Web.ViewModels.Users;
 
     public interface IUsersService
@@ -11,12 +8,8 @@
 
         string GetUserEmailbyId(string userId);
 
-        public IEnumerable<FoundUserViewModel> SearchUserByUserName(string userName);
+        public FoundUserViewModel SearchUserByUserName(string userName);
 
-        public IEnumerable<FoundUserViewModel> SearchUserByEmail(string email);
-
-        public IEnumerable<FoundUserViewModel> SearchUserByFirstName(string firstName);
-
-        public IEnumerable<FoundUserViewModel> SearchUserByLastName(string lastName);
+        public FoundUserViewModel SearchUserByEmail(string email);
     }
 }

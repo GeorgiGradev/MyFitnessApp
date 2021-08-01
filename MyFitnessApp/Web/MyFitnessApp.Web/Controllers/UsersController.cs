@@ -7,17 +7,21 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
+    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Web.ViewModels.Users;
 
     public class UsersController : Controller
     {
         private readonly IUsersService usersService;
+        private readonly IProfilesService profilesService;
 
         public UsersController(
-            IUsersService usersService)
+            IUsersService usersService,
+            IProfilesService profilesService)
         {
             this.usersService = usersService;
+            this.profilesService = profilesService;
         }
 
         [HttpGet]
@@ -31,61 +35,34 @@
         [Authorize]
         public IActionResult Search(SearchUserInputModel model)
         {
-            if (model.FirstName != null)
+            if (model.UserName != null)
             {
-                var users = this.usersService.SearchUserByFirstName(model.FirstName);
+                var user = this.usersService.SearchUserByUserName(model.UserName);
 
-                var viewModel = new AllFoundUsersViewModel()
+                var viewModel = new FoundUserViewModel()
                 {
-                    FoundUsers = users,
-                };
-
-                return this.View("Found", viewModel);
-            }
-            else if (model.LastName != null)
-            {
-                var users = this.usersService.SearchUserByLastName(model.LastName);
-
-                if (users.Count() == 0)
-                {
-                    return this.View();
-                }
-
-                var viewModel = new AllFoundUsersViewModel()
-                {
-                    FoundUsers = users,
-                };
-
-                return this.View("Found", viewModel);
-            }
-            else if (model.UserName != null)
-            {
-                var users = this.usersService.SearchUserByUserName(model.UserName);
-
-                if (users.Count() == 0)
-                {
-                    return this.View();
-                }
-
-                var viewModel = new AllFoundUsersViewModel()
-                {
-                    FoundUsers = users,
+                   FirstName = user.FirstName,
+                   LastName = user.LastName,
+                   Email = user.Email,
+                   UserName = user.UserName,
+                   Id = user.Id,
+                   UserProfileImage = this.profilesService.GetInternalImagePath(user.Id),
                 };
 
                 return this.View("Found", viewModel);
             }
             else if (model.Email != null)
             {
-                var users = this.usersService.SearchUserByEmail(model.Email);
+                var user = this.usersService.SearchUserByEmail(model.Email);
 
-                if (users.Count() == 0)
+                var viewModel = new FoundUserViewModel()
                 {
-                    return this.View();
-                }
-
-                var viewModel = new AllFoundUsersViewModel()
-                {
-                    FoundUsers = users,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    UserName = user.UserName,
+                    Id = user.Id,
+                    UserProfileImage = this.profilesService.GetInternalImagePath(user.Id),
                 };
 
                 return this.View("Found", viewModel);

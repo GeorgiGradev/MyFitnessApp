@@ -1,41 +1,34 @@
-﻿@model MyFitnessApp.Web.ViewModels.Users.AllFoundUsersViewModel
+﻿@model MyFitnessApp.Web.ViewModels.Users.FoundUserViewModel
 
 @{
-    this.ViewData["Title"] = "Found users:";
+    this.ViewData["Title"] = "Found user:";
 }
 
-@if (Model.FoundUsers.Count() == 0)
+@if (Model == null)
 {
     <h4 class="text-center">
-        There are no users found!
+        There was no user found with the given username or email.
     </h4>
 }
-@if (Model.FoundUsers.Count() > 0)
+@if (Model != null)
 {
-    <h4 class="text-center">
-        @Model.FoundUsers.Count() user(s) found.
-    </h4>
-    @foreach (var user in Model.FoundUsers)
-    {
-        <div class="card-header col-md-6 offset-3 border border-dark mt-2">
-            <div class="media flex-wrap w-100 align-items-center">
-                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg" class="d-block ui-w-40 rounded-circle" alt="">
-                <div class="media-body ml-3">
-                    <div class="text-muted small">
-                        <strong>Username:</strong> @user.UserName
-                    </div>
-                    <div class="text-muted small">
-                        <strong>First name:</strong> @user.FirstName
-                    </div>
-                    <div class="text-muted small">
-                        <strong>Last name:</strong> @user.LastName
-                    </div>
-                    <div class="text-muted small">
-                        <strong>E-mail:</strong> @user.Email
-                    </div>
-
+    <div class="card-header col-md-6 offset-3 border border-dark mt-2">  
+        <div class="media flex-wrap w-100 align-items-center">
+            <img src="@Model.UserProfileImage" class="d-block ui-w-40 rounded-circle" alt="">
+            <div class="media-body ml-3">
+                <div class="text-muted small">
+                    <strong>Username:</strong> @Model.UserName
+                </div>
+                <div class="text-muted small">
+                    <strong>First name:</strong> @Model.FirstName
+                </div>
+                <div class="text-muted small">
+                    <strong>Last name:</strong> @Model.LastName
+                </div>
+                <div class="text-muted small">
+                    <strong>E-mail:</strong> @Model.Email
                 </div>
             </div>
         </div>
-    }
+    </div>
 }

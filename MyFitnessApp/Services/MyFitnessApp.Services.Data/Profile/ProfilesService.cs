@@ -103,6 +103,11 @@
                 .Select(x => x.CreatedOn)
                 .FirstOrDefault()
                 .ToString("dddd, dd MMMM yyyy");
+            var email = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.Email)
+                .FirstOrDefault();
 
             var foodDiaryCalories = this.foodsService.GetFoodDiary(userId);
             var totalFOodDiaryCalories =
@@ -118,9 +123,11 @@
                 .Where(x => x.AddedByUserId == userId)
                 .Select(x => new ProfileViewModel
                 {
+                    UserId = userId,
                     Username = userName,
                     FirstName = firstName,
                     LastName = lastName,
+                    Email = email,
                     MemberSince = memberSince,
                     Gender = x.Gender.ToString(),
                     ActivityLevel = x.ActivityLevel.ToString(),

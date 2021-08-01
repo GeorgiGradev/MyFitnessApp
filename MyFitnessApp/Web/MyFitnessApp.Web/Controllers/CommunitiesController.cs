@@ -23,14 +23,14 @@
 
         [HttpGet]
         [Authorize]
-        public IActionResult SendInvitationEmail()
+        public IActionResult SendEmail()
         {
             return this.View();
         }
 
         [HttpPost]
         [Authorize]
-        public IActionResult SendInvitationEmail(SendInvitationEmailInputModel model)
+        public IActionResult SendEmail(SendInvitationEmailInputModel model)
         {
             if (!this.ModelState.IsValid)
             {

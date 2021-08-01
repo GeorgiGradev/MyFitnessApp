@@ -6,18 +6,22 @@
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Services.Data.Food;
+    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Users;
 
     public class UsersService : IUsersService
     {
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
+        private readonly IProfilesService profilesService;
 
         public UsersService(
             IDeletableEntityRepository<ApplicationUser> userRepository,
-            IFoodsService foodsService)
+            IFoodsService foodsService,
+            IProfilesService profilesService)
         {
             this.usersRepository = userRepository;
+            this.profilesService = profilesService;
         }
 
         public string GetUserEmailbyId(string userId)
@@ -42,46 +46,24 @@
             return userName;
         }
 
-        public IEnumerable<FoundUserViewModel> SearchUserByFirstName(string firstName)
-        {
-            var users = this.usersRepository
-                .All()
-                .Where(x => x.FirstName == firstName)
-                .To<FoundUserViewModel>()
-                .ToList();
-
-            return users;
-        }
-
-        public IEnumerable<FoundUserViewModel> SearchUserByLastName(string lastName)
-        {
-            var users = this.usersRepository
-                .All()
-                .Where(x => x.LastName == lastName)
-                .To<FoundUserViewModel>()
-                .ToList();
-
-            return users;
-        }
-
-        public IEnumerable<FoundUserViewModel> SearchUserByUserName(string userName)
+        public FoundUserViewModel SearchUserByUserName(string userName)
         {
             var user = this.usersRepository
                 .All()
                 .Where(x => x.UserName == userName)
                 .To<FoundUserViewModel>()
-                 .ToList();
+                 .FirstOrDefault();
 
             return user;
         }
 
-        public IEnumerable<FoundUserViewModel> SearchUserByEmail(string email)
+        public FoundUserViewModel SearchUserByEmail(string email)
         {
             var user = this.usersRepository
                 .All()
                 .Where(x => x.Email == email)
                 .To<FoundUserViewModel>()
-                 .ToList();
+                .FirstOrDefault();
 
             return user;
         }

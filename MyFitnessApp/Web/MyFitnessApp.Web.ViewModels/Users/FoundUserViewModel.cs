@@ -5,6 +5,10 @@
 
     public class FoundUserViewModel : IMapFrom<ApplicationUser>
     {
+        public string Id { get; set; }
+
+        public string UserProfileImage { get; set; }
+
         public string UserName { get; set; }
 
         public string FirstName { get; set; }
