@@ -27,7 +27,7 @@
                                 <h4>@Model.Username</h4>
                                 @if (userId == Model.UserId)
                                 {
-                                    <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit profile</a>
+                                    <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
                                 }
                                 @if (userId != Model.UserId)
                                 {

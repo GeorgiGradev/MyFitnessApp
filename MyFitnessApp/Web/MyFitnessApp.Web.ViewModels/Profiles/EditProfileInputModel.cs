@@ -1,6 +1,5 @@
 ﻿namespace MyFitnessApp.Web.ViewModels.Profiles
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
 
     using Microsoft.AspNetCore.Http;
@@ -8,19 +7,40 @@
 
     using static MyFitnessApp.Common.DataConstants;
 
-    public class CreateProfileInputModel
+    public class EditProfileInputModel
     {
-        // [Required(ErrorMessage = "The field is required")]
-        // public DateTime BirthDate { get; set; }
+        [Required]
+        [MinLength(UsernameMinLength)]
+        [MaxLength(UsernameMaxLength)]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
+        [MinLength(FirstNameMinLength)]
+        [MaxLength(FirstNameMaxLength)]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MinLength(LastNameMinLength)]
+        [MaxLength(LastNameMaxLength)]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "E-mail")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Please upload profile image")]
+        [Display(Name = "Image (.jpg format only)")]
+        public IFormFile ImageUrl { get; set; }
+
         [Display(Name = "Choose gender")]
         public Gender Gender { get; set; }
 
         [Display(Name = "Choose activity level")]
         public ActivityLevel ActivityLevel { get; set; }
-
-        [Required(ErrorMessage = "Please upload profile image")]
-        [Display(Name = "Image (.jpg format only)")]
-        public IFormFile ImageUrl { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
         [Range(ProfileWeightInKgMinValue, ProfileWeightInKgMaxValue, ErrorMessage = "The value must be between {1} and {2}")]
@@ -78,9 +98,5 @@
         [MaxLength(MyInspirationsMaxLength, ErrorMessage = "Text must have maximum {1} letters")]
         [Display(Name = "My inspirations for getting in shape:")]
         public string MyInspirations { get; set; }
-
-        public double CalculatedDailyCaloriesIntakeGoal => (this.DailyProteinIntakeGoal * 4) + (this.DailyCarbohydratesIntakeGoal * 4) + (this.DailyFatIntakeGoal * 9);
-
-        public string AddedByUserId { get; set; }
     }
 }

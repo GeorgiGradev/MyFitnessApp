@@ -53,7 +53,7 @@
 
             this.TempData["Message"] = "Profile created successfully.";
 
-            return this.Redirect("/");
+            return this.RedirectToAction("MyProfile", "Profiles");
         }
 
         [HttpGet]
@@ -80,6 +80,34 @@
 
             var viewModel = this.profilesService.GetProfileData(userId);
             return this.View(viewModel);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Edit()
+        {
+            var userId = this.User.GetId();
+            var viewModel = this.profilesService.GetProfileDataForUpdate(userId);
+ 
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> EditAsync(EditProfileInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var userId = this.User.GetId();
+
+            await this.profilesService.EditProfileAsync(model, userId, $"{this.environment.WebRootPath}/images");
+
+            this.TempData["Message"] = "Profile updated successfully.";
+
+            return this.RedirectToAction("MyProfile", "Profiles");
         }
     }
 }

@@ -51,11 +51,10 @@
             await this.profileRepository.AddAsync(profile);
             await this.profileRepository.SaveChangesAsync();
 
+            // записваме картинката като комбинация от Id на Article и extension (123.jpeg)
             Directory.CreateDirectory($"{imagePath}/profileimages/");
-
             var profileId = profile.Id;
             var extension = Path.GetExtension(model.ImageUrl.FileName).TrimStart('.');
-
             if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
             {
                 throw new Exception($"Invalid image extension {extension}");
@@ -64,11 +63,8 @@
             var physicalPath = $"{imagePath}/profileimages/{profileId}.{extension}";
             using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
             await model.ImageUrl.CopyToAsync(fileStream);
-
             profile.ImageUrl = physicalPath;
             await this.profileRepository.SaveChangesAsync();
-
-            // записваме картинката като комбинация от Id на Article и extension (123.jpeg)
 
             var user = this.usersRepository
                 .All()
@@ -190,5 +186,106 @@
 
             return userId;
         }
+
+        public async Task EditProfileAsync(EditProfileInputModel model, string userId, string imagePath)
+        {
+            var userProfile = this.profileRepository
+                .All()
+                .FirstOrDefault(x => x.AddedByUserId == userId);
+
+            var user = this.usersRepository
+                .All()
+                .FirstOrDefault(x => x.Id == userId);
+
+            userProfile.Gender = model.Gender;
+            userProfile.ActivityLevel = model.ActivityLevel;
+            userProfile.CurrentWeightInKg = model.CurrentWeightInKg;
+            userProfile.GoalWeightInKg = model.GoalWeightInKg;
+            userProfile.HeightInCm = model.HeightInCm;
+            userProfile.NeckInCm = model.NeckInCm;
+            userProfile.WaistInCm = model.WaistInCm;
+            userProfile.HipsInCm = model.HipsInCm;
+            userProfile.DailyProteinIntakeGoal = model.DailyProteinIntakeGoal;
+            userProfile.DailyCarbohydratesIntakeGoal = model.DailyCarbohydratesIntakeGoal;
+            userProfile.DailyFatIntakeGoal = model.DailyFatIntakeGoal;
+            userProfile.AboutMe = model.AboutMe;
+            userProfile.WhyGetInShape = model.WhyGetInShape;
+            userProfile.MyInspirations = model.MyInspirations;
+
+            Directory.CreateDirectory($"{imagePath}/profileimages/");
+            var profileId = userProfile.Id;
+            var extension = Path.GetExtension(model.ImageUrl.FileName).TrimStart('.');
+            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            {
+                throw new Exception($"Invalid image extension {extension}");
+            }
+
+            var physicalPath = $"{imagePath}/profileimages/{profileId}.{extension}";
+            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await model.ImageUrl.CopyToAsync(fileStream);
+            userProfile.ImageUrl = physicalPath;
+            await this.profileRepository.SaveChangesAsync();
+
+            user.UserName = model.Username;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Email = model.Email;
+            await this.usersRepository.SaveChangesAsync();
+        }
+
+        public EditProfileInputModel GetProfileDataForUpdate(string userId)
+        {
+            var userName = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.UserName)
+                .FirstOrDefault();
+            var firstName = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.FirstName)
+                .FirstOrDefault();
+            var lastName = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.LastName)
+                .FirstOrDefault();
+            var email = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.Email)
+                .FirstOrDefault();
+
+            var internalImagePath = this.GetInternalImagePath(userId);
+
+            var viewModel = this.profileRepository
+                .All()
+                .Where(x => x.AddedByUserId == userId)
+                .Select(x => new EditProfileInputModel
+                {
+                    Username = userName,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Email = email,
+                    Gender = x.Gender,
+                    ActivityLevel = x.ActivityLevel,
+                    CurrentWeightInKg = x.CurrentWeightInKg,
+                    GoalWeightInKg = x.GoalWeightInKg,
+                    HeightInCm = x.HeightInCm,
+                    NeckInCm = x.NeckInCm,
+                    WaistInCm = x.WaistInCm,
+                    HipsInCm = x.HipsInCm,
+                    DailyProteinIntakeGoal = x.DailyProteinIntakeGoal,
+                    DailyCarbohydratesIntakeGoal = x.DailyCarbohydratesIntakeGoal,
+                    DailyFatIntakeGoal = x.DailyFatIntakeGoal,
+                    AboutMe = x.AboutMe,
+                    WhyGetInShape = x.WhyGetInShape,
+                    MyInspirations = x.MyInspirations,
+                })
+                .FirstOrDefault();
+
+            return viewModel;
+        }
+
     }
 }

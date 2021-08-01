@@ -17,6 +17,9 @@
     using Microsoft.Extensions.Logging;
     using MyFitnessApp.Data.Models;
 
+    using static MyFitnessApp.Common.DataConstants;
+
+
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
@@ -47,16 +50,18 @@
         public class InputModel
         {
             [Required]
-            [MinLength(3)]
-            [MaxLength(20)]
+            [MinLength(UsernameMinLength)]
+            [MaxLength(UsernameMaxLength)]
             public string Username { get; set; }
 
             [Required]
-            [MaxLength(20)]
+            [MinLength(FirstNameMinLength)]
+            [MaxLength(FirstNameMaxLength)]
             public string FirstName { get; set; }
 
             [Required]
-            [MaxLength(20)]
+            [MinLength(LastNameMinLength)]
+            [MaxLength(LastNameMaxLength)]
             public string LastName { get; set; }
 
             [Required]

@@ -23,23 +23,16 @@
         public const int ArticleCategoryNameMinLength = 2;
         public const int ArticleCategoryNameMaxLength = 20;
 
-        // ForumCategory Model
-        public const int ForumCategoryNameMinLength = 2;
-        public const int ForumCategoryNameMaxLength = 50;
-
-        public const int ForumCategoryDescriptionMinLength = 2;
-        public const int ForumCategoryDescriptionMaxLength = 100;
-
         // Comment Model
         public const int CommentContentMinLength = 1;
         public const int CommentContentMaxLength = 1000;
 
-        // Post Model
-        public const int PostTitleMinLength = 1;
-        public const int PostTitleMaxLength = 50;
+        // E-mail model
+        public const int EmailSubjectMinLength = 2;
+        public const int EmailSubjectMaxLength = 20;
 
-        public const int PostContentMinLength = 2;
-        public const int PostContentMaxLength = 5000;
+        public const int EmailContentMinLength = 2;
+        public const int EmailContentMaxLength = 1000;
 
         // Exercise Model
         public const int ExerciseNameMinLength = 2;
@@ -71,6 +64,13 @@
         public const int ExerciseEquipmentNameMinLength = 2;
         public const int ExerciseEquipmentNameMaxLength = 20;
 
+        // ForumCategory Model
+        public const int ForumCategoryNameMinLength = 2;
+        public const int ForumCategoryNameMaxLength = 50;
+
+        public const int ForumCategoryDescriptionMinLength = 2;
+        public const int ForumCategoryDescriptionMaxLength = 100;
+
         // Food Model
         public const int FoodNameMinLength = 2;
         public const int FoodNameMaxLength = 50;
@@ -86,6 +86,14 @@
 
         public const int FoodQuantityInGramsMinValue = 1;
         public const int FoodQuantityInGramsMaxValue = 5000;
+
+
+        // Post Model
+        public const int PostTitleMinLength = 1;
+        public const int PostTitleMaxLength = 50;
+
+        public const int PostContentMinLength = 2;
+        public const int PostContentMaxLength = 5000;
 
         // Profile Model
         public const double ProfileWeightInKgMinValue = 20;
@@ -103,11 +111,14 @@
 
         public const int MyInspirationsMaxLength = 500;
 
-        // E-mail model
-        public const int EmailSubjectMinLength = 2;
-        public const int EmailSubjectMaxLength = 20;
+        // User model
+        public const int UsernameMinLength = 3;
+        public const int UsernameMaxLength = 20;
 
-        public const int EmailContentMinLength = 2;
-        public const int EmailContentMaxLength = 1000;
+        public const int FirstNameMinLength = 1;
+        public const int FirstNameMaxLength = 20;
+
+        public const int LastNameMinLength = 1;
+        public const int LastNameMaxLength = 20;
     }
 }
