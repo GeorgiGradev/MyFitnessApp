@@ -10,8 +10,6 @@
 
     public class CreateProfileInputModel
     {
-        // [Required(ErrorMessage = "The field is required")]
-        // public DateTime BirthDate { get; set; }
         [Display(Name = "Choose gender")]
         public Gender Gender { get; set; }
 

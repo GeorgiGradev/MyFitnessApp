@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyFitnessApp.Data.Migrations
+﻿namespace MyFitnessApp.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class AddPropertiesToProfileModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

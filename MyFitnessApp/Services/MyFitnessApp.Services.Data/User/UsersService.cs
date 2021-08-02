@@ -8,6 +8,7 @@
     using MyFitnessApp.Services.Data.Food;
     using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Mapping;
+    using MyFitnessApp.Web.ViewModels.Administration.Users;
     using MyFitnessApp.Web.ViewModels.Users;
 
     public class UsersService : IUsersService
@@ -72,9 +73,30 @@
         {
             var totalUsersCount = this.usersRepository
                 .All()
+                .Where(x => x.ProfileId != 0 && x.UserName != "admin")
                 .Count();
 
             return totalUsersCount;
+        }
+
+        public IEnumerable<GetAllUsersViewModel> GetAll()
+        {
+            var viewModel = this.usersRepository
+                .All()
+                .Where(x => x.ProfileId != 0 && x.UserName != "admin")
+                .OrderBy(x => x.FirstName)
+                .ThenBy(x => x.LastName)
+                .Select(x => new GetAllUsersViewModel
+                {
+                 FirstName = x.FirstName,
+                 LastName = x.LastName,
+                 Email = x.Email,
+                 Username = x.UserName,
+                 CreatedOn =x.CreatedOn,
+                })
+                .ToList();
+
+            return viewModel;
         }
     }
 }

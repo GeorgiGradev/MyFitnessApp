@@ -8,7 +8,10 @@
             <h1 class="text-center mt-2">@Model.Title</h1>
             <div class="row-md-4 mt-2">
                 <ul>
-                    <li><strong>Written by: </strong>@Model.Username</li>
+                    <li>
+                        <strong>Written by: </strong>
+                        <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.Username">@Model.Username</a>
+                    </li>
                     <li><strong>Written on: </strong>@Model.CreatedOn</li>
                     <li><strong>Category: </strong> <a asp-controller="Blogs" asp-action="@Model.CategoryName">@Model.CategoryName</a></li>          
                 </ul>
@@ -28,12 +31,6 @@
         </div>
     </div>
 </div>
-@*<div class="card mt-3">
-        <div class="card-body">
-            <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">about me</i></h6>
-            <small>@Model.AboutMe</small>
-        </div>
-    </div>*@
 
 
 @if (userId == Model.UserId || User.IsInRole("Administrator"))
@@ -42,8 +39,6 @@
     <form method="post" asp-controller="Articles" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id"></form>
     <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
 </div>}
-
-    </div>
 
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">

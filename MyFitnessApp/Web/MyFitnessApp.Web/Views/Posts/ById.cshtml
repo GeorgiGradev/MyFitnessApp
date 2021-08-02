@@ -27,7 +27,8 @@
                                 <h4>@Model.Title</h4>
                             </div>
                             <div class="text-muted small">
-                                <strong>Post by:</strong> @Model.AddedByUserUserName
+                                <strong>Post by:</strong>
+                                <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.AddedByUserUserName">@Model.AddedByUserUserName</a>
                             </div>
                             <div class="text-muted small">
                                 <strong>Category:</strong>
@@ -65,7 +66,8 @@
                                 <img src="@reply.UserProfileImage" class="rounded-circle" width="70" alt="">
                                 <div class="media-body ml-3">
                                     <div class="text-muted small">
-                                        <strong>Comment by:</strong> @reply.AddedByUserUserName
+                                        <strong>Comment by:</strong>
+                                        <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@reply.AddedByUserUserName">@reply.AddedByUserUserName</a>
                                     </div>
                                     <div class="text-muted small">
                                         <strong>Created on:</strong> @reply.CreatedOn.ToString("f")

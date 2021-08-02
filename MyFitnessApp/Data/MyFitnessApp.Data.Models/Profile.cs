@@ -10,8 +10,6 @@
 
     public class Profile : BaseDeletableModel<int>
     {
-        public DateTime BirthDate { get; set; }
-
         public Gender Gender { get; set; }
 
         public ActivityLevel ActivityLevel { get; set; }

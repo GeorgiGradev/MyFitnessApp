@@ -108,6 +108,8 @@
 
                     await this.emailSender.SendEmailAsync(this.Input.Email, "Confirm your email", $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
+                    this.TempData["Message"] = "In order to use the application please fill out user profile form.";
+
                     if (this.userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return this.RedirectToPage("RegisterConfirmation", new { email = this.Input.Email, returnUrl = returnUrl });

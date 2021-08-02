@@ -118,7 +118,7 @@
                                 <h6 class="mb-0">Current weight</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.CurrentWeightInKg kg
+                                @Model.CurrentWeightInKg.ToString("f2") kg
                             </div>
                         </div>
                         <hr>
@@ -127,7 +127,7 @@
                                 <h6 class="mb-0">Goal weight</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.GoalWeightInKg kg
+                                @Model.GoalWeightInKg.ToString("f2") kg
                             </div>
                         </div>
                         <hr>
@@ -136,7 +136,7 @@
                                 <h6 class="mb-0">Height</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.HeightInCm cm
+                                @Model.HeightInCm.ToString("f2") cm
                             </div>
                         </div>
                         <hr>
@@ -145,7 +145,7 @@
                                 <h6 class="mb-0">Neck</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.NeckInCm cm
+                                @Model.NeckInCm.ToString("f2") cm
                             </div>
                         </div>
                         <hr>
@@ -154,7 +154,7 @@
                                 <h6 class="mb-0">Waist</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.WaistInCm cm
+                                @Model.WaistInCm.ToString("f2") cm
                             </div>
                         </div>
                         <hr>
@@ -163,7 +163,7 @@
                                 <h6 class="mb-0">Hips</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.HipsInCm cm
+                                @Model.HipsInCm.ToString("f2") cm
                             </div>
                         </div>
                         <hr>
@@ -172,7 +172,7 @@
                                 <h6 class="mb-0">Daily protein intake goal</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.DailyProteinIntakeGoal gr
+                                @Model.DailyProteinIntakeGoal.ToString("f2") gr
                             </div>
                         </div>
                         <hr>
@@ -181,7 +181,7 @@
                                 <h6 class="mb-0">Daily carbs intake goal</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.DailyCarbohydratesIntakeGoal gr
+                                @Model.DailyCarbohydratesIntakeGoal.ToString("f2") gr
                             </div>
                         </div>
                         <hr>
@@ -190,7 +190,7 @@
                                 <h6 class="mb-0">Daily fat intake goal</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.DailyFatIntakeGoal gr
+                                @Model.DailyFatIntakeGoal.ToString("f2") gr
                             </div>
                         </div>
                         <hr>
@@ -199,7 +199,7 @@
                                 <h6 class="mb-0">Today's calories goal'</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.DailyCaloriesIntakeGoal kcal
+                                @Model.DailyCaloriesIntakeGoal.ToString("f2") kcal
                             </div>
                         </div>
                         <hr>
@@ -208,7 +208,7 @@
                                 <h6 class="mb-0">Today's food diary calories</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                @Model.FoodDiaryCalories kcal
+                                @Model.FoodDiaryCalories.ToString("f2") kcal
                             </div>
                         </div>
                     </div>
