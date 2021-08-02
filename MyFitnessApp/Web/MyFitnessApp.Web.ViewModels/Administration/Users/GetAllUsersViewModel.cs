@@ -15,5 +15,9 @@
         public string Email { get; set; }
 
         public DateTime CreatedOn { get; set; }
+
+        public bool IsBanned { get; set; }
+
+        public DateTime? BannedOn { get; set; }
     }
 }

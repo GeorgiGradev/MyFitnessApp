@@ -120,5 +120,8 @@
 
         public const int LastNameMinLength = 1;
         public const int LastNameMaxLength = 20;
+
+        public const int UserBanReasonMinLength = 5;
+        public const int UserBanReasonMaxLength = 200;
     }
 }

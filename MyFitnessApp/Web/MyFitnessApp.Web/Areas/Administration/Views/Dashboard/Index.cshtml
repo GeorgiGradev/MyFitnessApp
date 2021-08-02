@@ -10,17 +10,12 @@
                 <h3 class="text-muted mb-4">Users</h3>
                 <hr />
                 <div class="d-flex justify-content-center">
-                    <div class="text-center">
-                        <h6 class="font-weight-bold text-primary">Total registered users - @Model.UsersCount</h6>
-                        <hr />
-                        <div class="dropdown">
-                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Actions
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <a asp-controller="Users" asp-action="All" class="dropdown-item">All users</a>
-                            </div>
-                        </div>
+                    <div class="text-md-center mt-3">
+                        <h5 class="font-weight-bold"> 
+                            <a asp-controller="Users" asp-action="All">
+                                Total registered users - @Model.UsersCount
+                            </a>
+                         </h5>
                     </div>
                 </div>
             </div>

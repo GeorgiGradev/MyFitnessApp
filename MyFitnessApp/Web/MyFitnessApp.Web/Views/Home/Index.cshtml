@@ -1,7 +1,7 @@
-﻿@*View, което визуализира Index страницата*@
-
+﻿@using MyFitnessApp.Services.Data.User
 @using MyFitnessApp.Common
 @using MyFitnessApp.Web.ViewModels.Home
+@inject IUsersService usersService;
 
 @model IndexViewModel
 @{
@@ -18,44 +18,25 @@
     </div>
 }
 
-
 @if (this.User.Identity.IsAuthenticated)
 {
-    <div class="text-center">
-        <h2 class="text-center">Welcome to @GlobalConstants.SystemName</h2>
-    </div>
-    <div>
-        <img src="/images/homepage/mainimage.jpg" class="card-img">
-    </div>
-    @*<div class="row">
-        <div class="col-md-3 align-self-md-center">
-            <div class="text">
-                <h5 class="text"><a asp-controller="Exercises" asp-action="All">Choose an exercise</a></h5>
-            </div>
-            <div class="text">
-                <h5 class="text"><a asp-controller="ExerciseDiary" asp-action="Monday">Check your exercise diary</a></h5>
-            </div>
-            <div class="text">
-                <h5 class="text"><a asp-controller="Foods" asp-action="All">Choose a meal</a></h5>
-            </div>
-            <div class="text">
-                <h5 class="text"><a asp-controller="Foods" asp-action="FoodDiary">Check your food diary</a></h5>
-            </div>
-            <div class="text">
-                <h5 class="text"><a asp-controller="Forums" asp-action="Categories">Forum</a></h5>
-            </div>
-            <div class="text">
-                <h5 class="text"><a asp-controller="Articles" asp-action="All">See our blog articles</a></h5>
-            </div>
+    var userId = User.GetId();
+    @if (this.usersService.IsUserBanned(userId) == true)
+    {
+        <h1 class="text-center">You are banned from MyFitnessApp!</h1>
+        <h1 class="text-center">Contact <u>admin@admin.com</u> to find out the reason.</h1>
+    }
+    else
+    {
+        <div class="text-center">
+            <h2 class="text-center">Welcome to @GlobalConstants.SystemName</h2>
         </div>
-        <div class="col-md-9">
-            <div>
-                <img src="/images/homepage/mainimage.jpg" class="card-img-top">
-            </div>
-        </div>*@
-    @*</div>*@
+        <div>
+            <img src="/images/homepage/mainimage.jpg" class="card-img">
+        </div>
+    }
 }
-@if (!this.User.Identity.IsAuthenticated)
+else
 {
     <div>
         <h2 class="text-center">Get in shape with MyFitnessApp for FREE!</h2>

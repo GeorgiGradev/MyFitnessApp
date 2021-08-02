@@ -1,8 +1,9 @@
 ﻿namespace MyFitnessApp.Services.Data.User
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
-
+    using System.Threading.Tasks;
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Services.Data.Food;
@@ -88,15 +89,56 @@
                 .ThenBy(x => x.LastName)
                 .Select(x => new GetAllUsersViewModel
                 {
-                 FirstName = x.FirstName,
-                 LastName = x.LastName,
-                 Email = x.Email,
-                 Username = x.UserName,
-                 CreatedOn =x.CreatedOn,
+                     FirstName = x.FirstName,
+                     LastName = x.LastName,
+                     Email = x.Email,
+                     Username = x.UserName,
+                     CreatedOn =x.CreatedOn,
+                     Id = x.Id,
+                     IsBanned = x.IsBanned,
+                     BannedOn = x.BannedOn,
                 })
                 .ToList();
 
             return viewModel;
+        }
+
+        public async Task Ban(BanUserInputModel model, string userId)
+        {
+            var user = this.usersRepository
+                    .All()
+                    .FirstOrDefault(x => x.Id == userId);
+
+            user.IsBanned = true;
+            user.BannedOn = DateTime.UtcNow;
+            user.BanReason = model.BanReason;
+
+            this.usersRepository.Update(user);
+            await this.usersRepository.SaveChangesAsync();
+        }
+
+        public async Task Unban(string userId)
+        {
+            var user = this.usersRepository
+                    .All()
+                    .FirstOrDefault(x => x.Id == userId);
+
+            user.IsBanned = false;
+            user.BannedOn = null;
+            user.BanReason = null;
+
+            this.usersRepository.Update(user);
+            await this.usersRepository.SaveChangesAsync();
+        }
+
+        public bool IsUserBanned(string userId)
+        {
+            bool isUserBanned = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Any(x => x.IsBanned == true);
+
+            return isUserBanned;
         }
     }
 }

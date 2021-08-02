@@ -1,5 +1,6 @@
 ﻿namespace MyFitnessApp.Web.Areas.Administration.Controllers
 {
+    using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.User;
@@ -27,6 +28,26 @@
             };
 
             return this.View(viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult Ban()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Ban(BanUserInputModel input, string id)
+        {
+            await this.usersService.Ban(input, id);
+            return this.Redirect("/Administration/Users/All");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Unban(string id)
+        {
+            await this.usersService.Unban(id);
+            return this.Redirect("/Administration/Users/All");
         }
     }
 }

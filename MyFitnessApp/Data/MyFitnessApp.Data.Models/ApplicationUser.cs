@@ -35,6 +35,14 @@
         [MaxLength(ApplicationUserLastNameMaxLength)]
         public string LastName { get; set; }
 
+        [Required]
+        public bool IsBanned { get; set; }
+
+        public DateTime? BannedOn { get; set; }
+
+        [MaxLength(UserBanReasonMaxLength)]
+        public string BanReason { get; set; }
+
         // Audit info
         public DateTime CreatedOn { get; set; }
 
