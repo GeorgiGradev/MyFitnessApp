@@ -42,5 +42,7 @@
 
         // Премахва упражнението от Excercise Diary на User-a
         Task RemoveExerciseAsync(string userId, int exerciseId);
+
+        int GetCounts();
     }
 }

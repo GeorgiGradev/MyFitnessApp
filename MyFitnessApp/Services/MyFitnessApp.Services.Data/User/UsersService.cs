@@ -67,5 +67,14 @@
 
             return user;
         }
+
+        public int GetCounts()
+        {
+            var totalUsersCount = this.usersRepository
+                .All()
+                .Count();
+
+            return totalUsersCount;
+        }
     }
 }

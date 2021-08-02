@@ -149,5 +149,14 @@
             this.articleRepository.Delete(article);
             await this.articleRepository.SaveChangesAsync();
         }
+
+        public int GetCounts()
+        {
+            var totalArticlesCount = this.articleRepository
+                .All()
+                .Count();
+
+            return totalArticlesCount;
+        }
     }
 }

@@ -18,5 +18,7 @@
         FoodDiaryViewModel GetFoodDiary(string userId);
 
         Task DeleteFoodDiary(string userId);
+
+        int GetCounts();
     }
 }

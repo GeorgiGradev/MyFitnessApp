@@ -87,5 +87,14 @@
             this.postRepository.Delete(post);
             await this.postRepository.SaveChangesAsync();
         }
+
+        public int GetCounts()
+        {
+            var totalPostsCount = this.postRepository
+                .All()
+                .Count();
+
+            return totalPostsCount;
+        }
     }
 }

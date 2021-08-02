@@ -247,5 +247,14 @@
             this.userExerciseRepository.Delete(exercise);
             await this.userExerciseRepository.SaveChangesAsync();
         }
+
+        public int GetCounts()
+        {
+            var totalExercisesCount = this.exerciseRepository
+                .All()
+                .Count();
+
+            return totalExercisesCount;
+        }
     }
 }

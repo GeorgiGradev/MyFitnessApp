@@ -24,5 +24,7 @@
 
         // Премахва Article
         Task DeleteArticleAsync(int articleId);
+
+        int GetCounts();
     }
 }

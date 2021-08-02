@@ -11,5 +11,7 @@
         public FoundUserViewModel SearchUserByUserName(string userName);
 
         public FoundUserViewModel SearchUserByEmail(string email);
+
+        int GetCounts();
     }
 }

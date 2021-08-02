@@ -3,4 +3,117 @@
     this.ViewData["Title"] = "Admin dashboard";
 }
 
-<h1>@this.ViewData["Title"]</h1>
+<div class="row d-flex justify-content-center">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h3 class="text-muted mb-4">Users</h3>
+                <hr />
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h6 class="font-weight-bold text-primary">Total registered users - @Model.UsersCount</h6>
+                        <hr />
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a asp-controller="Users" asp-action="All" class="dropdown-item">All users</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h3 class="text-muted mb-4">Blog Articles</h3>
+                <hr />
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h6 class="font-weight-bold text-primary">Total articles - @Model.ArticlesCount</h6>
+                        <hr />
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a asp-controller="Articles" asp-action="All" class="dropdown-item">All articles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h3 class="text-muted mb-4">Exercises</h3>
+                <hr />
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h6 class="font-weight-bold text-primary">Total exercises - @Model.ExercisesCount</h6>
+                        <hr />
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a asp-controller="Exercises" asp-action="All" class="dropdown-item">All exercises</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h3 class="text-muted mb-4">Forum Posts</h3>
+                <hr />
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h6 class="font-weight-bold text-primary">Total forum posts - @Model.PostsCount</h6>
+                        <hr />
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a asp-controller="Posts" asp-action="All" class="dropdown-item">All forum posts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h3 class="text-muted mb-4">Foods</h3>
+                <hr />
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h6 class="font-weight-bold text-primary">Total foods - @Model.FoodsCount</h6>
+                        <hr />
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a asp-controller="Foods" asp-action="All" class="dropdown-item">All foods</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

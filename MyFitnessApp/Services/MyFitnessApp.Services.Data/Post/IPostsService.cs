@@ -16,5 +16,7 @@
         PostViewModel GetPostById(int id);
 
         Task DeletePostAsync(int postId);
+
+        int GetCounts();
     }
 }

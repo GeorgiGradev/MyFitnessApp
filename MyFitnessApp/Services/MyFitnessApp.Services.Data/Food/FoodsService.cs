@@ -226,5 +226,14 @@
 
             await this.mealsRepository.SaveChangesAsync();
         }
+
+        public int GetCounts()
+        {
+            var totalFoodsCount = this.foodsRepository
+                .All()
+                .Count();
+
+            return totalFoodsCount;
+        }
     }
 }
