@@ -8,12 +8,6 @@
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Administration\**" />
-    <EmbeddedResource Remove="Administration\**" />
-    <None Remove="Administration\**" />
-  </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />
   </ItemGroup>

@@ -19,7 +19,6 @@
 
     using static MyFitnessApp.Common.DataConstants;
 
-
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {

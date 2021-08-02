@@ -88,7 +88,6 @@
         {
             var userId = this.User.GetId();
             var viewModel = this.profilesService.GetProfileDataForUpdate(userId);
- 
             return this.View(viewModel);
         }
 
