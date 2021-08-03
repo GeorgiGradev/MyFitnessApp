@@ -31,5 +31,9 @@
         Task Unfollow(string followerId, string followeeId);
 
         public bool IsFollowee(string loggedUserId, string searchedUserId);
+
+        IEnumerable<FollowerFolloweeViewModel> GetFollowers(string userId);
+
+        IEnumerable<FollowerFolloweeViewModel> GetFollowees(string userId);
     }
 }

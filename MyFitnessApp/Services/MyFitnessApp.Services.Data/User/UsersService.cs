@@ -177,5 +177,41 @@
 
             return isFollowee;
         }
+
+        public IEnumerable<FollowerFolloweeViewModel> GetFollowers(string userId)
+        {
+            var viewModel = this.followerFolloweesRepository
+                .All()
+                .Where(x => x.FolloweeId == userId)
+                .Select(x => new FollowerFolloweeViewModel
+                {
+                    Id = x.FollowerId,
+                    FirstName = x.Follower.FirstName,
+                    LastName = x.Follower.LastName,
+                    ImageUrl = this.profilesService.GetInternalImagePath(x.FollowerId),
+                    Username = x.Follower.UserName,
+                })
+                .ToList();
+
+            return viewModel;
+        }
+
+        public IEnumerable<FollowerFolloweeViewModel> GetFollowees(string userId)
+        {
+            var viewModel = this.followerFolloweesRepository
+                .All()
+                .Where(x => x.FollowerId == userId)
+                .Select(x => new FollowerFolloweeViewModel
+                {
+                    Id = x.FolloweeId,
+                    FirstName = x.Followee.FirstName,
+                    LastName = x.Followee.LastName,
+                    ImageUrl = this.profilesService.GetInternalImagePath(x.FolloweeId),
+                    Username = x.Followee.UserName,
+                })
+                .ToList();
+
+            return viewModel;
+        }
     }
 }

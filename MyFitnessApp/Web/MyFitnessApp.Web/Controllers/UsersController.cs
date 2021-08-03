@@ -131,5 +131,33 @@
             this.TempData["Message"] = @$"Successfully unfollowed {username}.";
             return this.Redirect($"/Profiles/UsersProfile?username={username}");
         }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Followers()
+        {
+            var userId = this.User.GetId();
+            var followers = this.usersService.GetFollowers(userId);
+            var viewModel = new AllFollowerFolloweeViewModel()
+            {
+                FollowerFollowees = followers,
+            };
+
+            return this.View(viewModel);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Followees()
+        {
+            var userId = this.User.GetId();
+            var followees = this.usersService.GetFollowees(userId);
+            var viewModel = new AllFollowerFolloweeViewModel()
+            {
+                FollowerFollowees = followees,
+            };
+
+            return this.View(viewModel);
+        }
     }
 }

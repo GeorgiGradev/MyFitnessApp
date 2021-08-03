@@ -1,0 +1,34 @@
+﻿@model MyFitnessApp.Web.ViewModels.Users.AllFollowerFolloweeViewModel
+
+@{ this.ViewData["Title"] = "Followers"; }
+
+<div class="text-center">
+    <h1>@this.ViewData["Title"]</h1>
+</div>
+
+
+<div class="row">
+    @foreach (var follower in this.Model.FollowerFollowees)
+    {
+        <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
+            <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@follower.Username">
+                <div class="card-header col-md-8 offset-2 border border-dark mt-2 text-center">
+                    <div class="media flex-wrap w-100 align-items-center">
+                        <img src="@follower.ImageUrl" class="rounded-circle text-center" width="150">
+                        <div class="media-body ml-3">
+                            <div class="text-muted small">
+                                <strong>Username:</strong> @follower.Username
+                            </div>
+                            <div class="text-muted small">
+                                <strong>First name:</strong> @follower.FirstName
+                            </div>
+                            <div class="text-muted small">
+                                <strong>Last name:</strong> @follower.LastName
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
