@@ -107,5 +107,29 @@
         {
             return this.View();
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Follow(string username)
+        {
+            var loggedUserId = this.User.GetId();
+            var searchedUserId = this.profilesService.GetUserIdByUserName(username);
+            await this.usersService.Follow(loggedUserId, searchedUserId);
+
+            this.TempData["Message"] = $"Successfully followed {username}.";
+            return this.Redirect($"/Profiles/UsersProfile?username={username}");
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Unfollow(string username)
+        {
+            var loggedUserId = this.User.GetId();
+            var searchedUserId = this.profilesService.GetUserIdByUserName(username);
+            await this.usersService.Unfollow(loggedUserId, searchedUserId);
+
+            this.TempData["Message"] = @$"Successfully unfollowed {username}.";
+            return this.Redirect($"/Profiles/UsersProfile?username={username}");
+        }
     }
 }

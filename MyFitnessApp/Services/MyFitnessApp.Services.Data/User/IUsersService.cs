@@ -25,5 +25,11 @@
         Task Unban(string userId);
 
         bool IsUserBanned(string userId);
+
+        Task Follow(string followerId, string followeeId);
+
+        Task Unfollow(string followerId, string followeeId);
+
+        public bool IsFollowee(string loggedUserId, string searchedUserId);
     }
 }

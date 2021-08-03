@@ -54,7 +54,7 @@
             this.emailSender.SendEmailAsync(senderEmail, userName, receiverEmail, model.EmailSubject, model.EmailContent);
 
             this.TempData["Message"] = "E-mail sent successfully.";
-            return this.Redirect("/");
+            return this.RedirectToAction("SendEmail", "Communities");
         }
     }
 }

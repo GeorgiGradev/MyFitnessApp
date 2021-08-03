@@ -4,15 +4,5 @@
     this.ViewData["Title"] = "My Profile";
 }
 
-@if (this.TempData.ContainsKey("Message"))
-{
-    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <strong>@this.TempData["Message"]</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
-
 
 <partial name="_ProfilePartial" model="@Model" />

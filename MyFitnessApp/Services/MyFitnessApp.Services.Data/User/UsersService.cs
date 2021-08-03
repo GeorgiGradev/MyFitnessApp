@@ -16,14 +16,16 @@
     public class UsersService : IUsersService
     {
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
+        private readonly IDeletableEntityRepository<FollowerFollowee> followerFolloweesRepository;
         private readonly IProfilesService profilesService;
 
         public UsersService(
             IDeletableEntityRepository<ApplicationUser> userRepository,
-            IFoodsService foodsService,
+            IDeletableEntityRepository<FollowerFollowee> followerFolloweesRepository,
             IProfilesService profilesService)
         {
             this.usersRepository = userRepository;
+            this.followerFolloweesRepository = followerFolloweesRepository;
             this.profilesService = profilesService;
         }
 
@@ -140,6 +142,40 @@
                 .Any(x => x.IsBanned == true);
 
             return isUserBanned;
+        }
+
+        public async Task Follow(string followerId, string followeeId)
+        {
+            var followerFollowee = new FollowerFollowee()
+            {
+                FollowerId = followerId,
+                FolloweeId = followeeId,
+            };
+
+            await this.followerFolloweesRepository.AddAsync(followerFollowee);
+            await this.followerFolloweesRepository.SaveChangesAsync();
+        }
+
+        public async Task Unfollow(string followerId, string followeeId)
+        {
+            var followerFollowee = this.followerFolloweesRepository
+                .All()
+                .FirstOrDefault(x => x.FollowerId == followerId &&
+                                      x.FolloweeId == followeeId);
+
+            this.followerFolloweesRepository.HardDelete(followerFollowee);
+
+            await this.followerFolloweesRepository.SaveChangesAsync();
+        }
+
+        public bool IsFollowee(string loggedUserId, string searchedUserId)
+        {
+            var isFollowee = this.followerFolloweesRepository
+                .All()
+                .Any(x => x.FollowerId == loggedUserId &&
+                           x.FolloweeId == searchedUserId);
+
+            return isFollowee;
         }
     }
 }
