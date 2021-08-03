@@ -12,18 +12,20 @@
     {
         <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
             <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@followee.Username">
-                <div class="card-header col-md-8 offset-2 border border-dark mt-2 text-center">
+                <div class="card-header col-md-10 offset-1 border border-dark mt-4 text-center">
                     <div class="media flex-wrap w-100 align-items-center">
-                        <img src="@followee.ImageUrl" class="rounded-circle text-center" width="150">
-                        <div class="media-body ml-3">
-                            <div class="text-muted small">
-                                <strong>Username:</strong> @followee.Username
-                            </div>
-                            <div class="text-muted small">
-                                <strong>First name:</strong> @followee.FirstName
-                            </div>
-                            <div class="text-muted small">
-                                <strong>Last name:</strong> @followee.LastName
+                        <div class="col">
+                            <img src="@followee.ImageUrl" class="rounded-circle text-center" width="150">
+                            <div class="media-body text-center">
+                                <div class="text-muted">
+                                    <strong>Username:</strong> @followee.Username
+                                </div>
+                                <div class="text-muted">
+                                    <strong>First name:</strong> @followee.FirstName
+                                </div>
+                                <div class="text-muted">
+                                    <strong>Last name:</strong> @followee.LastName
+                                </div>
                             </div>
                         </div>
                     </div>
