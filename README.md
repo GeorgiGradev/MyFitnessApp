@@ -22,6 +22,7 @@ Project overview here......
 - **Integrated SendGrid API** giving users the option to send E-mails and receive reports
 - **Initial seeding** of administrator profile, common user profile, sample images & videos
 - Using of **IFormFle** for uploading images as well as option for adding image and video as a link
+- Using of **AuthorizationFilterAttribute** to restrict access for banned users
 - Using separate storage for all **data constants**
 - Administrator's username: **Admin** / password: **123456**
 - User's username: **User** / password: **123456**
