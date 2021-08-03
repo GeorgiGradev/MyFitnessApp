@@ -16,7 +16,9 @@
 
         string GetUserIdByUserName(string userName);
 
-        Task EditProfileAsync(EditProfileInputModel model, string userId, string imagePath);
+        Task EditProfileAsync(EditProfileInputModel model, string userId);
+
+        Task EditProfileImageAsync(EditProfileImageInputModel model, string userId, string imagePath);
 
         public EditProfileInputModel GetProfileDataForUpdate(string userId);
     }

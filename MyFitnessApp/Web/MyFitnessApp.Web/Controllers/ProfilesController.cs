@@ -102,11 +102,38 @@
 
             var userId = this.User.GetId();
 
-            await this.profilesService.EditProfileAsync(model, userId, $"{this.environment.WebRootPath}/images");
+            await this.profilesService.EditProfileAsync(model, userId);
 
             this.TempData["Message"] = "Profile updated successfully.";
 
             return this.RedirectToAction("MyProfile", "Profiles");
         }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult EditProfileImage()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> EditProfileImage(EditProfileImageInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var userId = this.User.GetId();
+
+            await this.profilesService.EditProfileImageAsync(model, userId, $"{this.environment.WebRootPath}/images");
+
+            this.TempData["Message"] = "Profile image updated successfully.";
+
+            return this.RedirectToAction("MyProfile", "Profiles");
+        }
+
+
     }
 }

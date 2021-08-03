@@ -32,10 +32,6 @@
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please upload profile image")]
-        [Display(Name = "Image (.jpg format only)")]
-        public IFormFile ImageUrl { get; set; }
-
         [Display(Name = "Choose gender")]
         public Gender Gender { get; set; }
 

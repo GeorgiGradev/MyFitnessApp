@@ -187,7 +187,7 @@
             return userId;
         }
 
-        public async Task EditProfileAsync(EditProfileInputModel model, string userId, string imagePath)
+        public async Task EditProfileAsync(EditProfileInputModel model, string userId)
         {
             var userProfile = this.profileRepository
                 .All()
@@ -212,24 +212,13 @@
             userProfile.WhyGetInShape = model.WhyGetInShape;
             userProfile.MyInspirations = model.MyInspirations;
 
-            Directory.CreateDirectory($"{imagePath}/profileimages/");
-            var profileId = userProfile.Id;
-            var extension = Path.GetExtension(model.ImageUrl.FileName).TrimStart('.');
-            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
-            {
-                throw new Exception($"Invalid image extension {extension}");
-            }
-
-            var physicalPath = $"{imagePath}/profileimages/{profileId}.{extension}";
-            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-            await model.ImageUrl.CopyToAsync(fileStream);
-            userProfile.ImageUrl = physicalPath;
             await this.profileRepository.SaveChangesAsync();
 
             user.UserName = model.Username;
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.Email = model.Email;
+
             await this.usersRepository.SaveChangesAsync();
         }
 
@@ -287,5 +276,25 @@
             return viewModel;
         }
 
+        public async Task EditProfileImageAsync(EditProfileImageInputModel model, string userId, string imagePath)
+        {
+            var userProfile = this.profileRepository
+                .All()
+                .FirstOrDefault(x => x.AddedByUserId == userId);
+
+            Directory.CreateDirectory($"{imagePath}/profileimages/");
+            var profileId = userProfile.Id;
+            var extension = Path.GetExtension(model.ImageUrl.FileName).TrimStart('.');
+            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            {
+                throw new Exception($"Invalid image extension {extension}");
+            }
+
+            var physicalPath = $"{imagePath}/profileimages/{profileId}.{extension}";
+            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await model.ImageUrl.CopyToAsync(fileStream);
+            userProfile.ImageUrl = physicalPath;
+            await this.profileRepository.SaveChangesAsync();
+        }
     }
 }

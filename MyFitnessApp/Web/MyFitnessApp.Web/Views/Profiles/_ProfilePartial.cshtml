@@ -28,12 +28,15 @@
                                 @if (userId == Model.UserId)
                                 {
                                   <div class="container-fluid">
-                                    <div class="row mt-2">
-                                        <div class="col md-4">
-                                            <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
-                                        </div>
-                                       
-                                    </div>
+                                      <div class="row mt-2">
+                                          <div class="col col-md-6 mt-2">
+                                              <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
+                                          </div>
+                                          <div class="col col-md-6 mt-2">
+                                              <a asp-controller="Profiles" asp-action="EditProfileImage" class="btn btn-outline-info">Edit image</a>
+                                          </div>
+
+                                      </div>
                                     <div class="row mt-2">
                                         <div class="col-md-6 mt-2">
                                             <a asp-controller="ExerciseDiary" asp-action="Monday" class="btn btn-outline-info">My exercise diary</a>
@@ -55,7 +58,7 @@
                 </div>
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">about me</i></h6>
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">About me</i></h6>
                         <small>@Model.AboutMe</small>
                     </div>
                 </div>
