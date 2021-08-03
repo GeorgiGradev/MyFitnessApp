@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyFitnessApp.Data.Migrations
+﻿namespace MyFitnessApp.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class AddBanPropertyToApplicationUserModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

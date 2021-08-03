@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using MyFitnessApp.Web.ViewModels.Administration.Users;
     using MyFitnessApp.Web.ViewModels.Users;
 
