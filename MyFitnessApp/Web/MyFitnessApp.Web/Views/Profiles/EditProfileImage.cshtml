@@ -1,7 +1,7 @@
 ﻿@model EditProfileImageInputModel
 
 @{
-    ViewData["Title"] = "Edit profile image";
+    this.ViewData["Title"] = "Edit profile image";
 }
 
 <!-- Breadcrumb -->
@@ -9,7 +9,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Profiles/MyProfile">My profile</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->

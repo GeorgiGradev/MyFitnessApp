@@ -1,8 +1,7 @@
-﻿
-@model AddExerciseInputModel
+﻿@model AddExerciseInputModel
 
 @{
-    this.ViewBag.Title = Model.Name;
+   this.ViewData["Title"] = Model.Name;
 }
 
 <!-- Breadcrumb -->
@@ -11,11 +10,10 @@
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Exercises/All">All exercises</a></li>
         <li class="breadcrumb-item"><a href="/ExerciseCategories/@Model.CategoryName">@Model.CategoryName</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->
-
 
 <div class="container">
     <div class="row">
@@ -56,11 +54,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-

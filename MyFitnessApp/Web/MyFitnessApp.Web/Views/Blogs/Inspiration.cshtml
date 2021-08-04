@@ -1,7 +1,7 @@
 ﻿@model AllArticlesViewModel
 
 @{
-    this.ViewBag.Title = "Inspiration";
+    this.ViewData["Title"] = "Inspiration";
 }
 
 <!-- Breadcrumb -->
@@ -10,7 +10,7 @@
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Articles/All">All articles</a></li>
         <li class="breadcrumb-item"><a href="/Articles/Categories">Article categories</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->

@@ -4,7 +4,6 @@
 @inject IProfilesService profilesService;
 @inject IUsersService usersService;
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +14,7 @@
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3">
@@ -27,6 +27,17 @@
                 <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse">
                     <partial name="_LoginPartial" />
                     <div class="navbar-nav flex-grow-1">
+
+                        <div class="dropdown">
+                            <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
+                                Home
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy policy</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Terms">Terms and conditions</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="CommunityGuidelines">Community guidelines</a>
+                            </div>
+                        </div>
 
                         @if (this.User.Identity.IsAuthenticated)
                         {
@@ -99,7 +110,6 @@
                                             <a class="dropdown-item" asp-area="" asp-controller="Articles" asp-action="Create">Create new article</a>
                                         </div>
                                     </div>
-
                                 }
                             }
                         }
@@ -119,13 +129,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; @DateTime.Now.Year - @GlobalConstants.SystemName
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">Terms </a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy </a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
         </div>
-
-
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
@@ -139,14 +143,6 @@
 
 
 
-
-
-@*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Check-In</a>*@
-@*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Following</a>*@
-@*<a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Followers</a>*@
-
-
-
 @*<div class="dropdown">
         <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
             Reports
@@ -156,19 +152,3 @@
             <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Export Data</a>
         </div>
     </div>*@
-
-
-
-
-@*@if (!this.User.Identity.IsAuthenticated)
-    {
-        <div class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Terms</a>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Community Guidelines </a>
-        </div>
-    }*@

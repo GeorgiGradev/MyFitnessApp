@@ -1,6 +1,4 @@
-﻿@*View, което визуализира форма за създаване на Article*@
-
-@using MyFitnessApp.Data.Models
+﻿@using MyFitnessApp.Data.Models
 @model CreateArticleInputModel
 
 @{
@@ -17,13 +15,10 @@
 </nav>
 <!-- /Breadcrumb -->
 
-
 <div class="container">
     <div class="row">
         <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
-            @*Прави формата responsive при различни размери на екрана*@
             <form method="post" enctype="multipart/form-data">
-                @*добавяме enctype, за да може формата да пази файлове*@
 
                 <div class="form-group">
                     <label asp-for="Title"></label>
@@ -52,7 +47,6 @@
                     <input asp-for="Image" class="form-control" />
                     <span asp-validation-for="Image" class="small text-danger"></span>
                 </div>
-
 
                 <input class="btn btn-primary float-right mt-3" type="submit" value="Save" />
             </form>

@@ -1,7 +1,5 @@
-﻿@*View, което визуализира All exercises*@
+﻿@model AllExercisesViewModel
 
-
-@model AllExercisesViewModel
 @{
   this.ViewData["Title"] = "All exercises";
 }
@@ -48,8 +46,6 @@
     </div>
 </div>
 
+<hr /> 
 
-
-<hr /> @*Разделител между горния и долния елемент*@
-
-<partial name="_PagingPartial" model="@Model" />  @*Тук поставяме _PartialView-то за Paging*@
+<partial name="_PagingPartial" model="@Model" />

@@ -1,7 +1,7 @@
 ﻿@model AllExercisesViewModel
 
 @{
-    this.ViewBag.Title = "Chest";
+    this.ViewData["Title"] = "Chest";
 }
 
 <!-- Breadcrumb -->
@@ -10,7 +10,7 @@
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Exercises/All">All exerises</a></li>
         <li class="breadcrumb-item"><a href="/Exercises/Categories">Exercise by muscle group</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->

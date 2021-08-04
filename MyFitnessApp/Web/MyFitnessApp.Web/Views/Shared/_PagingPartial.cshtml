@@ -1,6 +1,5 @@
 ﻿@*PartialView за всички страници, които имат нужда от него*@
 
-
 @model PagingViewModel
 
 <nav aria-label="...">
@@ -30,7 +29,6 @@
             }
 
         }
-        @*<li class="page-item"><a class="page-link" href="#">3</a></li>*@
         <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
             <a class="page-link" asp-controller="Exercises" asp-action="All" asp-route-id="@Model.NextPageNumber">Next</a>
         </li>

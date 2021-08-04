@@ -24,6 +24,7 @@
         <strong>Currently there are no post in this category.</strong>
     </h6>
 }
+
 @if (Model.Posts.Count() > 0)
 {
     @foreach (var post in Model.Posts.OrderByDescending(x => x.CreatedOn))
@@ -50,6 +51,7 @@
 <div class="text-center">
     <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-2">Create post</a>
 </div>
+
 <div class="text-center">
     <a asp-controller="Forums" asp-action="Categories" class="btn btn-primary btn-outline-light m-2">Back to all categories</a>
 </div>
