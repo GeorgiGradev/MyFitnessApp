@@ -10,6 +10,7 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
+    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class CommentsController : Controller
     {
         private readonly ICommentsService commentsService;

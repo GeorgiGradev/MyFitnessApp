@@ -10,6 +10,7 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
+    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class FoodsController : Controller
     {
         private readonly IFoodsService foodsService;

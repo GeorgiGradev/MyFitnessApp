@@ -11,6 +11,7 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
+    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class CommunitiesController : Controller
     {
         private readonly IEmailSender emailSender;

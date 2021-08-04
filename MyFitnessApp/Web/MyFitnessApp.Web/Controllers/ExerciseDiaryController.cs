@@ -10,6 +10,7 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
+    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class ExerciseDiaryController : Controller
     {
         private readonly IExercisesService exercisesService;

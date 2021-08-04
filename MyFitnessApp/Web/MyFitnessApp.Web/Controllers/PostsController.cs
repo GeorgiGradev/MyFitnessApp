@@ -11,6 +11,7 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
+    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class PostsController : Controller
     {
         private readonly IPostsService postsService;

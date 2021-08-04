@@ -8,6 +8,7 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
+    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class ForumsController : Controller
     {
         private readonly IForumsService forumsService;

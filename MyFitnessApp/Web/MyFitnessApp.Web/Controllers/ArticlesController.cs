@@ -12,6 +12,7 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
+    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class ArticlesController : Controller
     {
         private readonly IArticlesService articlesService;
