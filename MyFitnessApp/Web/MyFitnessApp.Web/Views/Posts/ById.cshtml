@@ -2,8 +2,19 @@
 
 
 @{
+    this.ViewData["Title"] = $"Post by {Model.AddedByUserUserName}";
     var userId = User.GetId();
 }
+ 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Forums/Categories">Forums</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 @if (this.TempData.ContainsKey("Message"))
 {
@@ -34,7 +45,7 @@
                                 <strong>Category:</strong>
                                 <a href="/Forums/ByName/@Model.CategoryName">
                                     @Model.CategoryName
-                                 </a>
+                                </a>
                             </div>
                             <div class="text-muted small">
                                 <strong>Created on:</strong> @Model.CreatedOn.ToString("f")
@@ -117,7 +128,6 @@
     </div>
 </div>
 
-<hr />
 <div class="text-center">
     <a asp-controller="Forums" asp-action="Categories" class="btn btn-primary mt-3">Back to forum categories</a>
 </div>

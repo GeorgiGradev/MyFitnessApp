@@ -1,5 +1,4 @@
-﻿
-@model AllArticlesViewModel
+﻿@model AllArticlesViewModel
 
 <div class="row">
     @foreach (var article in Model.Articles.OrderByDescending(x => x.CreatedOn))

@@ -1,7 +1,7 @@
 ﻿@model FoodDiaryViewModel
 
 @using MyFitnessApp.Services.Data.Profile
-@inject IProfilesService profilesService; 
+@inject IProfilesService profilesService;
 
 @{
     ViewData["Title"] = "My food diary";
@@ -16,6 +16,16 @@
 
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Foods/All">All foods</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 @if (this.TempData.ContainsKey("Message"))
 {
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -26,11 +36,9 @@
     </div>
 }
 
-<h2 class="text-center"><strong>@this.ViewData["Title"]</strong></h2>
-
 <div class="container-fluid">
 
-    <h4 class="text-center"><strong>Breakfast</strong></h4>
+    <h4 class="text-center">Breakfast</h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">
@@ -57,7 +65,7 @@
             }
         </tbody>
     </table>
-    <h4 class="text-center"><strong>Lunch</strong></h4>
+    <h4 class="text-center">Lunch</h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">
@@ -84,7 +92,7 @@
             }
         </tbody>
     </table>
-    <h4 class="text-center"><strong>Snack</strong></h4>
+    <h4 class="text-center">Snack</h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">
@@ -111,7 +119,7 @@
             }
         </tbody>
     </table>
-    <h4 class="text-center"><strong>Dinner</strong></h4>
+    <h4 class="text-center">Dinner</h4>
     <table class="table table-bordered table-sm">
         <thead>
             <tr class="col">

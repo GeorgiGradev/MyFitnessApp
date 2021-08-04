@@ -2,7 +2,7 @@
 
 @{
     var userName = this.User.Identity.Name;
-    this.ViewData["Title"] = "Exercises added by" + " " + userName;
+    this.ViewData["Title"] = "Exercises created by" + " " + userName;
 }
 
 <!-- Breadcrumb -->
@@ -10,14 +10,12 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Exercises/All">All exercises</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@ViewData["Title"]</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->
 
-
 <div>
-    @*<h1 class="text-center">@this.ViewData["Title"]</h1>*@
     <div class="row">
         @foreach (var exercise in Model.Exercises)
         {

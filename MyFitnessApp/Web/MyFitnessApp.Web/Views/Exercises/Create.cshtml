@@ -1,7 +1,4 @@
-﻿@*View, което визуализира форма за създаване на New Exercise*@
-
-
-@using MyFitnessApp.Data.Models
+﻿@using MyFitnessApp.Data.Models
 @model CreateExerciseInputModel
 
 @{
@@ -13,7 +10,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Exercises/All">All exercises</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@ViewData["Title"]</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->
@@ -22,10 +19,7 @@
 <div class="container">
     <div class="row">
         <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
-            @*Прави формата responsive при различни размери на екрана*@
-            @*<h2 class="heading-margin text-center">@ViewData["Title"]</h2>*@
             <form method="post">
-
                 <div class="form-group">
                     <label asp-for="Name"></label>
                     <input asp-for="Name" class="form-control" placeholder="exercise name here...">

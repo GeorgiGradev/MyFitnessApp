@@ -2,10 +2,15 @@
 
 @{ this.ViewData["Title"] = "Followers"; }
 
-<div class="text-center">
-    <h1>@this.ViewData["Title"]</h1>
-</div>
-
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Profiles/MyProfile">My Profile</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 <div class="row">
     @foreach (var follower in this.Model.FollowerFollowees)

@@ -4,6 +4,15 @@
     this.ViewData["Title"] = "All Foods";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 @if (this.TempData.ContainsKey("Message"))
 {
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -15,8 +24,6 @@
 }
 
 <div class="col-md-8 offset-2">
-    <h1 class="text-center">@this.ViewData["Title"]</h1>
-
     <ol class="list-group list-group-numbered">
         @foreach (var food in Model.Foods.OrderByDescending(x => x.CreatedOn))
         {
@@ -33,7 +40,7 @@
                             <div><strong>Total calories:</strong> @food.TotalCalories</div>
                         </div>
                         <div class="col-md-4 align-self-center text-md-right">
-                             <a asp-controller="Foods" asp-action="Add" asp-route-id="@food.Name"><strong>Select food</strong></a>
+                            <a asp-controller="Foods" asp-action="Add" asp-route-id="@food.Name"><strong>Select food</strong></a>
                         </div>
                     </div>
                 </div>

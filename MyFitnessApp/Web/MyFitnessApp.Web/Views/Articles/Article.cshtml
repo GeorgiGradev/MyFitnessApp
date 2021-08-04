@@ -1,11 +1,24 @@
 ﻿@model SingleArticleViewModel
 
-@{ var userId = User.GetId(); }
+@{ 
+    this.ViewData["Title"] = Model.Title;
+    var userId = User.GetId();
+}
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Articles/All">All articles</a></li>
+        <li class="breadcrumb-item"><a href="/Articles/Categories">Article categories</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 <div class="card">
     <div class="card-body">
         <div class="col-md-12 blogShort">
-            <h1 class="text-center mt-2">@Model.Title</h1>
             <div class="row-md-4 mt-2">
                 <ul>
                     <li>
@@ -13,11 +26,11 @@
                         <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.Username">@Model.Username</a>
                     </li>
                     <li><strong>Written on: </strong>@Model.CreatedOn</li>
-                    <li><strong>Category: </strong> <a asp-controller="Blogs" asp-action="@Model.CategoryName">@Model.CategoryName</a></li>          
+                    <li><strong>Category: </strong> <a asp-controller="Blogs" asp-action="@Model.CategoryName">@Model.CategoryName</a></li>
                 </ul>
             </div>
-            <div class="row-md-4 text-left mt-2">
-                <img src="@Model.ImagePath" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10" width="700">
+            <div class="row-md-4 text-left mt-2 text-center">
+                <img src="@Model.ImagePath" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10" width="500">
             </div>
             <div class="row-md-4 mt-2">
                 <div class="card">

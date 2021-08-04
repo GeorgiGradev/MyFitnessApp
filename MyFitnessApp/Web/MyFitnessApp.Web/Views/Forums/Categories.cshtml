@@ -4,8 +4,16 @@
     this.ViewData["Title"] = "Forum";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 <div class="col-md-10 offset-1">
-    <h1 class="text-center">@this.ViewData["Title"]</h1>
     <div class="text-center">
         <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-4">Create post</a>
     </div>

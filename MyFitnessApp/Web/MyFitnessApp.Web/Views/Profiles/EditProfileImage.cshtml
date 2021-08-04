@@ -4,12 +4,17 @@
     ViewData["Title"] = "Edit profile image";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Profiles/MyProfile">My profile</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 <div class="container">
-    <div class="row">
-        <div class="col md">
-            <h2 class="heading-margin text-center">@this.ViewData["Title"]</h2>
-        </div>
-    </div>
     <div class="row">
         <div class="col md mt-5">
             <form method="post" enctype="multipart/form-data">

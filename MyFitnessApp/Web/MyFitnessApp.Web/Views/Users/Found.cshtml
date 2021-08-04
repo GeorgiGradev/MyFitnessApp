@@ -1,38 +1,49 @@
 ﻿@model MyFitnessApp.Web.ViewModels.Users.FoundUserViewModel
 
 @{
-    this.ViewData["Title"] = "Found user:";
+    this.ViewData["Title"] = $"Found user: {Model.UserName}";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Profiles/MyProfile">My profile</a></li>
+        <li class="breadcrumb-item"><a href="/Users/Search">Search for another user</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 <div class="container-fluid">
-        @if (Model == null)
-        {
-            <h4 class="text-center">
-                There was no user found with the given username or email.
-            </h4>
-        }
-        @if (Model != null)
-        {
-            <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.UserName">
-                <div class="card-header col-md-8 offset-2 border border-dark mt-2">
-                    <div class="media flex-wrap w-100 align-items-center">
-                        <img src="@Model.UserProfileImage" class="class=" rounded-circle" width="150" alt="">
-                        <div class="media-body ml-3">
-                            <div class="text-muted small">
-                                <strong>Username:</strong> @Model.UserName
-                            </div>
-                            <div class="text-muted small">
-                                <strong>First name:</strong> @Model.FirstName
-                            </div>
-                            <div class="text-muted small">
-                                <strong>Last name:</strong> @Model.LastName
-                            </div>
-                            <div class="text-muted small">
-                                <strong>E-mail:</strong> @Model.Email
-                            </div>
+    @if (Model == null)
+    {
+        <h4 class="text-center">
+            There was no user found with the given username or email.
+        </h4>
+    }
+    @if (Model != null)
+    {
+        <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.UserName">
+            <div class="card-header col-md-8 offset-2 border border-dark mt-2">
+                <div class="media flex-wrap w-100 align-items-center">
+                    <img src="@Model.UserProfileImage" class="class=" rounded-circle" width="150" alt="">
+                    <div class="media-body ml-3">
+                        <div class="text-muted small">
+                            <strong>Username:</strong> @Model.UserName
+                        </div>
+                        <div class="text-muted small">
+                            <strong>First name:</strong> @Model.FirstName
+                        </div>
+                        <div class="text-muted small">
+                            <strong>Last name:</strong> @Model.LastName
+                        </div>
+                        <div class="text-muted small">
+                            <strong>E-mail:</strong> @Model.Email
                         </div>
                     </div>
                 </div>
-            </a>
-        }
+            </div>
+        </a>
+    }
 </div>

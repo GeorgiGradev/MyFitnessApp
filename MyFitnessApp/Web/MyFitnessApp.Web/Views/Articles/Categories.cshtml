@@ -2,11 +2,20 @@
     this.ViewData["Title"] = "Article categories";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Articles/All">All articles</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 <div>
-    <h1 class="text-center">@this.ViewData["Title"]</h1>
     <div class="row">
         <div class="col-md-4 mt-3">
-            <div class="card text-center alert-warning" style="width: 18rem;">
+            <div class="card text-center alert-info" style="width: 18rem;">
                 <a asp-controller="Blogs" asp-action="Recipes">
                     <img src="/images/articlecategories/recipes.jpg" class="card-img-top">
                 </a>
@@ -16,7 +25,7 @@
             </div>
         </div>
         <div class="col-md-4 mt-3">
-            <div class="card text-center alert-warning" style="width: 18rem;">
+            <div class="card text-center alert-info" style="width: 18rem;">
                 <a asp-controller="Blogs" asp-action="Fitness">
                     <img src="/images/articlecategories/fitness.jpg" class="card-img-top">
                 </a>
@@ -26,7 +35,7 @@
             </div>
         </div>
         <div class="col-md-4 mt-3">
-            <div class="card text-center alert-warning" style="width: 18rem;">
+            <div class="card text-center alert-info" style="width: 18rem;">
                 <a asp-controller="Blogs" asp-action="Nutrition">
                     <img src="/images/articlecategories/nutrition.jpg" class="card-img-top">
                 </a>
@@ -38,7 +47,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 mt-3">
-            <div class="card text-center alert-warning" style="width: 18rem;">
+            <div class="card text-center alert-info" style="width: 18rem;">
                 <a asp-controller="Blogs" asp-action="WeightLoss">
                     <img src="/images/articlecategories/weightloss.jpg" class="card-img-top">
                 </a>
@@ -48,7 +57,7 @@
             </div>
         </div>
         <div class="col-md-4 mt-3">
-            <div class="card text-center alert-warning" style="width: 18rem;">
+            <div class="card text-center alert-info" style="width: 18rem;">
                 <a asp-controller="Blogs" asp-action="Inspiration">
                     <img src="/images/articlecategories/inspiration.jpg" class="card-img-top">
                 </a>
@@ -58,7 +67,7 @@
             </div>
         </div>
         <div class="col-md-4 mt-3">
-            <div class="card text-center alert-warning" style="width: 18rem;">
+            <div class="card text-center alert-info" style="width: 18rem;">
                 <a asp-controller="Blogs" asp-action="Essentials">
                     <img src="/images/articlecategories/essentials.jpg" class="card-img-top">
                 </a>

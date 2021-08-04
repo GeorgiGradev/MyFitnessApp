@@ -5,6 +5,16 @@
     ViewData["Title"] = "Create new food";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Foods/All">All foods</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 @if (this.TempData.ContainsKey("MessageForExistingFood"))
 {
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -15,12 +25,10 @@
     </div>
 }
 
-
 <div class="container">
     <div class="row">
         <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
-            @*Прави формата responsive при различни размери на екрана*@
-            <h2 class="heading-margin text-center">@ViewData["Title"]</h2>
+            <!-- Прави формата responsive при различни размери на екрана -->
             <form method="post">
 
                 <div class="form-group">
@@ -50,6 +58,6 @@
                 <input class="btn btn-primary float-right mt-3" type="submit" value="Save" />
             </form>
         </div>
-    </div>
-</div>
+            </div>
+        </div>
 

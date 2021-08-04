@@ -4,7 +4,17 @@
     this.ViewBag.Title = "Weightloss";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Articles/All">All articles</a></li>
+        <li class="breadcrumb-item"><a href="/Articles/Categories">Article categories</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 <div>
-    <h1 class="text-center">@this.ViewBag.Title</h1>
     <partial name="_SingleCategoryPartial" model="@Model" />
 </div>

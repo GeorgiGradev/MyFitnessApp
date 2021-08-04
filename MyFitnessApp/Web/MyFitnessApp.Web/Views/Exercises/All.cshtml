@@ -2,15 +2,16 @@
 
 
 @model AllExercisesViewModel
-@*@{
-        this.ViewData["Title"] = "All exercises / Page " + Model.PageNumber;
-    }*@
+@{
+  this.ViewData["Title"] = "All exercises";
+}
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">All exercises</li>
+        <li class="breadcrumb-item"><a href="/Exercises/Categories">Exercise by muscle group</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->
@@ -26,7 +27,6 @@
 }
 
 <div>
-    <h1 class="text-center">@this.ViewData["Title"]</h1>
     <div class="row">
         @foreach (var exercise in Model.Exercises)
         {

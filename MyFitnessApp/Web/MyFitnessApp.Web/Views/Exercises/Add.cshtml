@@ -2,7 +2,7 @@
 @model AddExerciseInputModel
 
 @{
-    this.ViewBag.Title = "Exercise";
+    this.ViewBag.Title = Model.Name;
 }
 
 <!-- Breadcrumb -->
@@ -10,7 +10,8 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Exercises/All">All exercises</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+        <li class="breadcrumb-item"><a href="/ExerciseCategories/@Model.CategoryName">@Model.CategoryName</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
     </ol>
 </nav>
 <!-- /Breadcrumb -->
@@ -22,7 +23,6 @@
             <partial name="_AddPartial" model="@Model" />
         </div>
         <div class="col-md-9">
-            <h2 class="item-title">@Model.Name</h2>
             <div class="row">
                 <div class="col-md-6">
                     <p class="img" ">

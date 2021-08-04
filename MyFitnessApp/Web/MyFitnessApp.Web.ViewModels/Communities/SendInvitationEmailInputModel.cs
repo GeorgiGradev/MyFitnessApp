@@ -8,7 +8,7 @@
     {
         [Required(ErrorMessage = "The field is required")]
         [EmailAddress]
-        [Display(Name = "Receiver E-mail Address")]
+        [Display(Name = "E-mail address")]
         public string ReceiverEmailAddress { get; set; }
 
         [Required(ErrorMessage = "The field is required")]

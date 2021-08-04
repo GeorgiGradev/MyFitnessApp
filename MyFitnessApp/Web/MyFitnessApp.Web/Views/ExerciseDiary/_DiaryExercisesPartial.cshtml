@@ -1,6 +1,5 @@
 ﻿@model AllDiaryExercisesViewModel
 
-
 @if (this.TempData.ContainsKey("Message"))
 {
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -16,7 +15,7 @@
     {
         <div class="container">
             <div class="col-md-10 text-center">
-                <h2 class="text-center">No exercises found for the given day of week</h2>
+                <h4 class="text-center">No exercises found for the given day of week</h4>
             </div>
         </div>
     }
@@ -24,8 +23,7 @@
     {
         @foreach (var exercise in Model.Exercises)
         {
-
-            <div class="card mt-3 alert-info" style="width: 18rem;">
+            <div class="card ml-3 mt-3 alert-info" style="width: 18rem;">
                 <img class="card-img-top" src="@exercise.ImageUrl">
                 <div class="card-body">
                     <h5 class="card-title">@exercise.Name</h5>
@@ -64,6 +62,4 @@
         }
     }
 </div>
-
-@*Изтриването + въпрос дали да се трие (Workshop MoiteRecepti / View - ById.cshtml )*@
 

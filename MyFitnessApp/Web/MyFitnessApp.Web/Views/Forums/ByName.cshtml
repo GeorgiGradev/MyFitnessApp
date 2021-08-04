@@ -4,16 +4,25 @@
     this.ViewData["Title"] = Model.Name;
 }
 
-<h1 class="text-center">@Model.Name</h1>
-<div class="alert alert-info">
-    @Model.Description
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Forums/Categories">Forums</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
+<div class="alert alert-info text-center">
+    <strong>@Model.Description</strong>
 </div>
 
 @if (Model.Posts.Count() == 0)
 {
-    <h4 class="text-center">
-        There are no post in this category
-    </h4>
+    <h6 class="text-center text-danger">
+        <strong>Currently there are no post in this category.</strong>
+    </h6>
 }
 @if (Model.Posts.Count() > 0)
 {
@@ -34,10 +43,10 @@
                 </li>
             </ul>
         </div>
+        <hr />
     }
 }
 
-<hr />
 <div class="text-center">
     <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-2">Create post</a>
 </div>

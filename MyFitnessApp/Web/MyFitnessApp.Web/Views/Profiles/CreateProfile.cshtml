@@ -5,18 +5,21 @@
     this.ViewData["Title"] = "Create Profile";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 <div class="container">
     <div class="row text-sm">
         <div class="col-md">
-            @*Прави формата responsive при различни размери на екрана*@
-            <h2 class="heading-margin text-center">@this.ViewData["Title"]</h2>
             <form method="post" enctype="multipart/form-data">
-                @*добавяме enctype, за да може формата да пази файлове*@
-
                 <div class="row">
-
                     <div class="col-md">
-
                         <div class="form-group row text-md-right">
                             <div class="col-md">
                                 <label asp-for="Gender" class="text-center"></label>
@@ -177,10 +180,8 @@
                             </div>
 
                         </div>
-
                     </div>
                 </div>
-
                 <input class="btn btn-primary float-right mt-3" type="submit" value="Save" />
             </form>
         </div>

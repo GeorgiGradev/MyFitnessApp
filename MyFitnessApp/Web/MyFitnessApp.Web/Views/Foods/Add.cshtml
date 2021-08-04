@@ -2,9 +2,18 @@
 @model AddFoodInputModel
 
 @{
-    this.ViewBag.Title = "Add food";
+    this.ViewBag.Title = "Add to food diary";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Foods/All">All foods</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewBag.Title</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 <div class="container">
     <div class="row">
@@ -18,7 +27,7 @@
 
                 <div class="form-group">
                     <label asp-for="ServingSize"></label>
-                    <input asp-for="ServingSize" class="form-control" >
+                    <input asp-for="ServingSize" class="form-control">
                     <span asp-validation-for="ServingSize" class="small text-danger"></span>
                 </div>
 
