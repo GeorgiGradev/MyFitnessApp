@@ -1,7 +1,5 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
-    using System;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
@@ -9,8 +7,11 @@
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Data.User;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Users;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class UsersController : Controller
     {
         private readonly IUsersService usersService;
@@ -25,14 +26,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Search()
         {
             return this.View();
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult Search(SearchUserInputModel model)
         {
             if (model.UserName != null)
@@ -109,7 +108,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Follow(string username)
         {
             var loggedUserId = this.User.GetId();
@@ -121,7 +119,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Unfollow(string username)
         {
             var loggedUserId = this.User.GetId();
@@ -133,7 +130,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Followers()
         {
             var userId = this.User.GetId();
@@ -147,7 +143,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Followees()
         {
             var userId = this.User.GetId();

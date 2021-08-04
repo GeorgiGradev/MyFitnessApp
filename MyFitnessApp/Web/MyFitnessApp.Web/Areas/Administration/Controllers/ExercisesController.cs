@@ -68,6 +68,7 @@
                 await this.db.SaveChangesAsync();
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", exercise.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.ExerciseCategories, "Id", "Name", exercise.CategoryId);
             this.ViewData["EquipmentId"] = new SelectList(this.db.ExerciseEquipments, "Id", "Name", exercise.EquipmentId);
@@ -87,6 +88,7 @@
             {
                 return this.NotFound();
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", exercise.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.ExerciseCategories, "Id", "Name", exercise.CategoryId);
             this.ViewData["EquipmentId"] = new SelectList(this.db.ExerciseEquipments, "Id", "Name", exercise.EquipmentId);
@@ -123,8 +125,10 @@
                         throw;
                     }
                 }
+
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", exercise.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.ExerciseCategories, "Id", "Name", exercise.CategoryId);
             this.ViewData["EquipmentId"] = new SelectList(this.db.ExerciseEquipments, "Id", "Name", exercise.EquipmentId);

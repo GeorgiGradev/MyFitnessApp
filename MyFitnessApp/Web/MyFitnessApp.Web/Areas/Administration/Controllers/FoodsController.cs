@@ -64,6 +64,7 @@
                 await this.db.SaveChangesAsync();
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", food.AddedByUserId);
             return this.View(food);
         }
@@ -81,6 +82,7 @@
             {
                 return this.NotFound();
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", food.AddedByUserId);
             return this.View(food);
         }
@@ -115,8 +117,10 @@
                         throw;
                     }
                 }
+
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", food.AddedByUserId);
             return this.View(food);
         }

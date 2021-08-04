@@ -5,8 +5,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Food;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Foods;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class FoodsController : Controller
     {
         private readonly IFoodsService foodsService;
@@ -17,14 +20,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Create()
         {
             return this.View();
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateFoodInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -48,7 +49,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult All()
         {
             var foods = this.foodsService.GetAllFoods();
@@ -61,14 +61,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Add(AddFoodInputModel model)
         {
             return this.View(model);
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Add(string name, AddFoodInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -86,7 +84,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult FoodDiary()
         {
             var userId = this.User.GetId();
@@ -95,7 +92,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Delete()
         {
             string userId = this.User.GetId();

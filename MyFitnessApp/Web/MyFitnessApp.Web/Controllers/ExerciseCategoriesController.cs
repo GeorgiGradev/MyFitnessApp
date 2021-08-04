@@ -3,8 +3,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Exercise;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Exercises;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class ExerciseCategoriesController : Controller
     {
         private readonly IExercisesService exercisesService;
@@ -15,7 +18,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Shoulders()
         {
             var view = new AllExercisesViewModel
@@ -27,7 +29,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Triceps()
         {
             var view = new AllExercisesViewModel
@@ -39,7 +40,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Biceps()
         {
             var view = new AllExercisesViewModel
@@ -51,7 +51,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Back()
         {
             var view = new AllExercisesViewModel
@@ -63,7 +62,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Chest()
         {
             var view = new AllExercisesViewModel
@@ -75,7 +73,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Forearm()
         {
             var view = new AllExercisesViewModel
@@ -87,7 +84,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Traps()
         {
             var view = new AllExercisesViewModel
@@ -99,7 +95,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Abs()
         {
             var view = new AllExercisesViewModel
@@ -111,7 +106,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Glutes()
         {
             var view = new AllExercisesViewModel
@@ -123,7 +117,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Quadriceps()
         {
             var view = new AllExercisesViewModel
@@ -135,7 +128,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Hamstrings()
         {
             var view = new AllExercisesViewModel
@@ -147,7 +139,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Calves()
         {
             var view = new AllExercisesViewModel

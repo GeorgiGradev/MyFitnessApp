@@ -1,22 +1,15 @@
 ﻿namespace MyFitnessApp.Web.Controllers
 {
     using System.Diagnostics;
-    using System.Linq;
 
     using Microsoft.AspNetCore.Mvc;
-    using MyFitnessApp.Data;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels;
     using MyFitnessApp.Web.ViewModels.Home;
 
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext db;
-
-        public HomeController(ApplicationDbContext db)
-        {
-            this.db = db;
-        }
-
+        [HttpGet]
         public IActionResult Index()
         {
             var viewModel = new IndexViewModel
@@ -25,6 +18,7 @@
             return this.View(viewModel);
         }
 
+        [HttpGet]
         public IActionResult Privacy()
         {
             return this.View();

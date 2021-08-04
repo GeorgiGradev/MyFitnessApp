@@ -6,8 +6,11 @@
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Services.Messaging;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Communities;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class CommunitiesController : Controller
     {
         private readonly IEmailSender emailSender;
@@ -22,14 +25,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult SendEmail()
         {
             return this.View();
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult SendEmail(SendInvitationEmailInputModel model)
         {
             if (!this.ModelState.IsValid)

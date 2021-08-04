@@ -7,8 +7,11 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Article;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Articles;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class ArticlesController : Controller
     {
         private readonly IArticlesService articlesService;
@@ -23,7 +26,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Create()
         {
             var viewModel = new CreateArticleInputModel();
@@ -33,7 +35,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateArticleInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -63,7 +64,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult All()
         {
             var view = new AllArticlesViewModel
@@ -75,7 +75,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Article(int id)
         {
             var viewNodel = this.articlesService.GetArticleById(id); // вътре са данните за визуализация
@@ -83,14 +82,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Categories()
         {
             return this.View();
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             await this.articlesService.DeleteArticleAsync(id);

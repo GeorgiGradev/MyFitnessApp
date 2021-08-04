@@ -3,8 +3,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Forum;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Forum;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class ForumsController : Controller
     {
         private readonly IForumsService forumsService;
@@ -14,7 +17,7 @@
             this.forumsService = forumsService;
         }
 
-        [Authorize]
+        [HttpGet]
         public IActionResult Categories()
         {
             var categories = this.forumsService.GetAllCategories();
@@ -26,7 +29,7 @@
             return this.View(viewModel);
         }
 
-        [Authorize]
+        [HttpGet]
         public IActionResult ByName(string name)
         {
             var viewModel = this.forumsService.GetCategoryByName(name);

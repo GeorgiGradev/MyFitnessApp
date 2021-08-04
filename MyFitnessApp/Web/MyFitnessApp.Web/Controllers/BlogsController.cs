@@ -3,8 +3,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Article;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Articles;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class BlogsController : Controller
     {
         private readonly IArticlesService articlesService;
@@ -15,7 +18,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Recipes()
         {
             var view = new AllArticlesViewModel
@@ -27,7 +29,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Fitness()
         {
             var view = new AllArticlesViewModel
@@ -39,7 +40,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Nutrition()
         {
             var view = new AllArticlesViewModel
@@ -51,7 +51,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Weightloss()
         {
             var view = new AllArticlesViewModel
@@ -63,7 +62,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Inspiration()
         {
             var view = new AllArticlesViewModel
@@ -75,7 +73,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Essentials()
         {
             var view = new AllArticlesViewModel

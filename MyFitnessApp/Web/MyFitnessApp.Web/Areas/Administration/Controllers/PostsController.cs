@@ -66,6 +66,7 @@
                 await this.db.SaveChangesAsync();
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", post.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.ForumCategories, "Id", "Description", post.CategoryId);
             return this.View(post);
@@ -84,6 +85,7 @@
             {
                 return this.NotFound();
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", post.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.ForumCategories, "Id", "Description", post.CategoryId);
             return this.View(post);
@@ -119,8 +121,10 @@
                         throw;
                     }
                 }
+
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", post.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.ForumCategories, "Id", "Description", post.CategoryId);
             return this.View(post);

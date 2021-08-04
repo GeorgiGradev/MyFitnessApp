@@ -5,8 +5,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Comment;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Comments;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class CommentsController : Controller
     {
         private readonly ICommentsService commentsService;
@@ -17,7 +20,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Reply()
         {
             var viewModel = new CreateCommentInputModel();
@@ -25,7 +27,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Reply(int id, CreateCommentInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -40,7 +41,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             await this.commentsService.DeleteCommentAsync(id);

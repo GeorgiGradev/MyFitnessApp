@@ -6,8 +6,11 @@
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Forum;
     using MyFitnessApp.Services.Data.Post;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Posts;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class PostsController : Controller
     {
         private readonly IPostsService postsService;
@@ -22,7 +25,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Create()
         {
             var viewModel = new CreatePostInputModel();
@@ -32,7 +34,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreatePostInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -51,7 +52,7 @@
             return this.RedirectToAction("ById", new { id = postId });
         }
 
-        [Authorize]
+        [HttpGet]
         public IActionResult ById(int id)
         {
             var postViewModel = this.postsService.GetPostById(id);
@@ -65,7 +66,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             await this.postsService.DeletePostAsync(id);

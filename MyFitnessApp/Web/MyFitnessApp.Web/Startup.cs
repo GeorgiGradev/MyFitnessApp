@@ -31,7 +31,7 @@
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Services.Messaging;
-
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels;
 
     public class Startup
@@ -95,6 +95,9 @@
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IFoodsService, FoodsService>();
             services.AddTransient<IProfilesService, ProfilesService>();
+
+            // Filters
+            services.AddScoped<RestrictBannedUsersAttribute>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,8 +5,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Exercise;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Exercises;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class ExercisesController : Controller
     {
         private readonly IExercisesService exercisesService;
@@ -17,7 +20,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Create()
         {
             // така подаваме на View-то всички EquipmentsCategories в базата, за да се визуализират при празна форма
@@ -29,7 +31,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateExerciseInputModel model)
         {
             // Създаваме проверка на валидациите. Ако има грешка върни същото View, за да продължи потребителя с попълването
@@ -55,7 +56,6 @@
 
         // Визуализира всички елементи
         [HttpGet]
-        [Authorize]
         public IActionResult All(int id = 1) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
         {
             const int itemsPerPage = 9;
@@ -71,7 +71,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Add(int id)
         {
             var viewNodel = this.exercisesService.GetExerciseById(id); // вътре са данните за визуализация
@@ -79,7 +78,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Add(AddExerciseInputModel model, int id)
         {
             if (!this.ModelState.IsValid)
@@ -98,14 +96,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Categories()
         {
             return this.View();
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult MyExercises()
         {
             var userId = this.User.GetId();
@@ -118,7 +114,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Remove(int id)
         {
             var userId = this.User.GetId();

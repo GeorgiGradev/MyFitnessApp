@@ -5,8 +5,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Exercise;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Exercises;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class ExerciseDiaryController : Controller
     {
         private readonly IExercisesService exercisesService;
@@ -17,7 +20,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Monday()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -30,7 +32,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Tuesday()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -43,7 +44,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Wednesday()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -56,7 +56,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Thursday()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -69,7 +68,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Friday()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -82,7 +80,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Saturday()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -95,7 +92,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Sunday()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;

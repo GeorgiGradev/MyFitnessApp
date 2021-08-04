@@ -19,7 +19,6 @@
         [HttpGet]
         public IActionResult All()
         {
-
             var users = this.usersService.GetAll();
 
             var viewModel = new ListAllUserViewModel()

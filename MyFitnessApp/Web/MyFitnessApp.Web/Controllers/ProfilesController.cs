@@ -7,8 +7,11 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using MyFitnessApp.Services.Data.Profile;
+    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels.Profiles;
 
+    [Authorize]
+    [TypeFilter(typeof(RestrictBannedUsersAttribute))]
     public class ProfilesController : Controller
     {
         private readonly IProfilesService profilesService;
@@ -23,7 +26,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult CreateProfile()
         {
             var viewModel = new CreateProfileInputModel();
@@ -31,7 +33,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> CreateProfile(CreateProfileInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -57,7 +58,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult MyProfile()
         {
             var userId = this.User.GetId();
@@ -66,14 +66,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult MyGoals()
         {
             return this.View();
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult UsersProfile(string userName)
         {
             var userId = this.profilesService.GetUserIdByUserName(userName);
@@ -83,7 +81,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Edit()
         {
             var userId = this.User.GetId();
@@ -92,7 +89,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> EditAsync(EditProfileInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -110,14 +106,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult EditProfileImage()
         {
             return this.View();
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> EditProfileImage(EditProfileImageInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -133,7 +127,5 @@
 
             return this.RedirectToAction("MyProfile", "Profiles");
         }
-
-
     }
 }
