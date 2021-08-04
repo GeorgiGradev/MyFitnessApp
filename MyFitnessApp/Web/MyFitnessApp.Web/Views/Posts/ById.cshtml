@@ -97,7 +97,7 @@
                         @if (userId == reply.AddedByUserId || User.IsInRole("Administrator"))
                         {
                             <div class="text-right m-1">
-                                <form method="post" asp-controller="Comments" asp-action="Delete" id="deleteForm1" asp-route-id="@reply.Id"></form>
+                                <form method="post" asp-controller="Comments" asp-action="Delete" id="deleteForm1" asp-route-commentId="@reply.Id" asp-route-postId="@Model.Id"></form>
                                 <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal1">Delete comment</button>
                             </div>
 

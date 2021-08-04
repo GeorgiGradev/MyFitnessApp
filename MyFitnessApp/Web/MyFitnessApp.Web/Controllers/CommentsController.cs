@@ -42,10 +42,10 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int commentId, int postId)
         {
-            await this.commentsService.DeleteCommentAsync(id);
-            return this.RedirectToAction("Categories", "Forums");
+            await this.commentsService.DeleteCommentAsync(commentId);
+            return this.RedirectToAction("ById", "Posts", new { id = postId });
         }
     }
 }
