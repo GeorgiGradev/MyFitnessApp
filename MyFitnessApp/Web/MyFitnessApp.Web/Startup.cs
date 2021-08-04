@@ -26,7 +26,6 @@
     using MyFitnessApp.Services.Data.Forum;
     using MyFitnessApp.Services.Data.Post;
     using MyFitnessApp.Services.Data.Profile;
-    using MyFitnessApp.Services.Data.Report;
     using MyFitnessApp.Services.Data.Training;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Services.Mapping;
@@ -90,7 +89,6 @@
             services.AddTransient<IForumsService, ForumsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
             services.AddTransient<IProfilesService, ProfilesService>();
-            services.AddTransient<IReportsService, ReportsService>();
             services.AddTransient<ITrainingsService, TrainingsService>();
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IFoodsService, FoodsService>();

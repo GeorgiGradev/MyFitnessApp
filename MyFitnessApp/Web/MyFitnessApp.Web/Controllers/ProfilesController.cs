@@ -125,7 +125,7 @@
 
             this.TempData["Message"] = "Profile image updated successfully.";
 
-            return this.RedirectToAction("MyProfile", "Profiles");
+            return this.Redirect("/Profiles/MyProfile");
         }
     }
 }
