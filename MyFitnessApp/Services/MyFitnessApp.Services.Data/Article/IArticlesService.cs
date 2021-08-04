@@ -26,5 +26,7 @@
         Task DeleteArticleAsync(int articleId);
 
         int GetCounts();
+
+        Task EditArticleAsync(EditArticleInputModel model, int articleId, string imagePath, string userId);
     }
 }

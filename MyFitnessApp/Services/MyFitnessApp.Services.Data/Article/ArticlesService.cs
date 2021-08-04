@@ -13,7 +13,7 @@
     // IDeletableEntityRepository<Article>
     public class ArticlesService : IArticlesService
     {
-        private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" }; // позволени разширения
+        private readonly string[] allowedExtensions = new[] { "jpg"}; // позволени разширения
         private readonly IDeletableEntityRepository<ArticleCategory> articleCategoryRepository;
         private readonly IDeletableEntityRepository<Article> articleRepository;
 
@@ -157,6 +157,33 @@
                 .Count();
 
             return totalArticlesCount;
+        }
+
+        public async Task EditArticleAsync(EditArticleInputModel model, int articleId, string imagePath, string userId)
+        {
+            Directory.CreateDirectory($"{imagePath}/articles/");
+            var extension = Path.GetExtension(model.Image.FileName).TrimStart('.');
+            if (!this.allowedExtensions.Any(x => extension.EndsWith(x)))
+            {
+                throw new Exception($"Invalid image extension {extension}");
+            }
+
+            var physicalPath = $"{imagePath}/articles/{articleId}.{extension}";
+            using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+            await model.Image.CopyToAsync(fileStream);
+
+            var article = this.articleRepository
+                .All()
+                .Where(x => x.Id == articleId)
+                .FirstOrDefault();
+
+            article.Title = model.Title;
+            article.Content = model.Content;
+            article.CategoryId = model.CategoryId;
+            article.ImageUrl = physicalPath;
+
+            this.articleRepository.Update(article);
+            await this.articleRepository.SaveChangesAsync();
         }
     }
 }

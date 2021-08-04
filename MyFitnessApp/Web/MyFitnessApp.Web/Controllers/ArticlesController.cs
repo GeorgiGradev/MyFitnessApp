@@ -95,5 +95,44 @@
             this.TempData["Message"] = "Article deleted successfully.";
             return this.RedirectToAction("All", "Articles");
         }
+
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            var viewModel = new EditArticleInputModel();
+            viewModel.Categories = this.articlesService.GetArticleCategories();
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditAsync(int id, EditArticleInputModel model)
+        {
+            var userId = this.User.GetId();
+
+            if (!this.ModelState.IsValid)
+            {
+                model.Categories = this.articlesService.GetArticleCategories();
+
+                return this.View(model);
+            }
+
+            try
+            {
+                await this.articlesService.EditArticleAsync(model, id, $"{this.environment.WebRootPath}/images", userId);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+
+                model.Categories = this.articlesService.GetArticleCategories();
+                return this.View(model);
+            }
+
+            this.TempData["Message"] = "Article updated successfully.";
+
+            return this.Redirect($"/Articles/Article/{id}");
+        }
     }
 }
+//"The property 'Article.Id' has a temporary value while attempting to change the entity's state to 'Modified'. Either set a permanent value explicitly, or ensure that the database is configured to generate values for this property."}
