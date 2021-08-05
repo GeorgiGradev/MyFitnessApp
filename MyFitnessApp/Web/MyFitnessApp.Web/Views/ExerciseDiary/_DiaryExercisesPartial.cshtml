@@ -40,7 +40,7 @@
                         <a asp-controller="Exercises" asp-action="All" class="btn btn-primary mt-3">Back to all</a>
                     </div>
                     <div class="text-center">
-                        <form method="post" asp-controller="Exercises" asp-action="Remove" id="deleteForm" asp-route-id="@exercise.ExerciseId"></form>
+                        <form method="post" asp-controller="Exercises" asp-action="Remove" id="deleteForm" asp-route-id="@exercise.ExerciseId" asp-route-day="@this.ViewData["Title"]"></form>
                         <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
                     </div>
                 </div>

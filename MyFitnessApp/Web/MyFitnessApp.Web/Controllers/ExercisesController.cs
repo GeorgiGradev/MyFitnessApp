@@ -103,11 +103,11 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Remove(int id)
+        public async Task<IActionResult> Remove(int id, string day)
         {
             var userId = this.User.GetId();
             await this.exercisesService.RemoveExerciseAsync(userId, id);
-            return this.RedirectToAction("Monday", "ExerciseDiary");
+            return this.Redirect($"/ExerciseDiary/{day}");
         }
     }
 }
