@@ -27,7 +27,7 @@
 
         [Required(ErrorMessage = "The field is required")]
         [Url]
-        [Display(Name = "Image url (.jpg / .bmp / .png)")]
+        [Display(Name = "Image url (.jpg only)")]
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
