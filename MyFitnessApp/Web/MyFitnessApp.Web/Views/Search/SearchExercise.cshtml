@@ -1,14 +1,14 @@
-﻿@model MyFitnessApp.Web.ViewModels.Search.FoodInputModel
+﻿@model MyFitnessApp.Web.ViewModels.Search.ExerciseInputModel
 
 @{
-    this.ViewData["Title"] = "Search for food";
+    this.ViewData["Title"] = "Search for an exercise";
 }
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/Foods/All">All foods</a></li>
+        <li class="breadcrumb-item"><a href="/Exercises/All">All exercises</a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
@@ -29,7 +29,7 @@
         <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
             <form method="post">
                 <div class="form-group">
-                    <label asp-for="Keyword">Search for a food name using a keyword</label>
+                    <label asp-for="Keyword">Search for an exercise by name or category using a keyword</label>
                     <input asp-for="Keyword" class="form-control" placeholder="Enter a word" />
                 </div>
                 <div class="text-center">

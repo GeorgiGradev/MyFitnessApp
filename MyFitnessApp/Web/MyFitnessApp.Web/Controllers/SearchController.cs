@@ -69,5 +69,30 @@
                 return this.View();
             }
         }
+
+        [HttpGet]
+        public IActionResult SearchExercise()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public IActionResult SearchExercise(ExerciseInputModel model)
+        {
+            var exercises = this.searchService.SearchExerciseByKeyword(model.Keyword);
+            if (exercises.Count() != 0)
+            {
+                var viewModel = new AllExercisesViewModel
+                {
+                    Exercises = exercises,
+                };
+                return this.View("FoundExercise", viewModel);
+            }
+            else
+            {
+                this.TempData["Message"] = "There was no exercise found with the given keyword.";
+                return this.View();
+            }
+        }
     }
 }

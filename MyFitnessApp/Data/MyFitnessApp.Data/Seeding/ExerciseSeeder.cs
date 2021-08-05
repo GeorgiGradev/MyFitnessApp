@@ -22,7 +22,7 @@
                {
                   // SHOULDERS
                   Name = "Seated Arnold Press",
-                  Description = "Keep your back flat against the pad throughout the duration of the exercise. Don’t allow the head to jut forward excessively. Drive the bicep to the ear and exhale as you press. If you sense any pressure in your neck or traps during the movement, look to address a lack of thoracic spine extension or shoulder flexion. Keeping the elbows slightly bent at the top and not locking out entirely will help to keep tension on the shoulders. If you can’t lock out the elbows overhead than it may indicate a lack of shoulder mobility due to poor scapular upward rotation.",
+                  Description = "Keep your back flat against the pad throughout the duration of the exercise. Don’t allow the head to jut forward excessively. Drive the biceps to the ear and exhale as you press. If you sense any pressure in your neck or traps during the movement, look to address a lack of thoracic spine extension or shoulder flexion. Keeping the elbows slightly bent at the top and not locking out entirely will help to keep tension on the shoulders. If you can’t lock out the elbows overhead than it may indicate a lack of shoulder mobility due to poor scapular upward rotation.",
                   EquipmentId = 11, // Dumbbell
                   CategoryId = 1, // Shoulder
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
@@ -101,8 +101,8 @@
                },
                new Exercise
                {
-                  Name = "Straight Bar Tricep Extension",
-                  Description = "The straight bar tricep extension is a variation of the cable tricep extension and an exercise used to build the muscles of the triceps. Well-built triceps also have a lot of positive carryover into your pressing movements such as bench press variations and shoulder press variations. The straight bar tricep extension can be included in your tricep workouts, upper body workouts, push workouts, and full body workouts.",
+                  Name = "Straight Bar Triceps Extension",
+                  Description = "The straight bar triceps extension is a variation of the cable triceps extension and an exercise used to build the muscles of the triceps. Well-built triceps also have a lot of positive carryover into your pressing movements such as bench press variations and shoulder press variations. The straight bar triceps extension can be included in your triceps workouts, upper body workouts, push workouts, and full body workouts.",
                   EquipmentId = 8, // Cable
                   CategoryId = 2, // Triceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
@@ -114,7 +114,7 @@
                },
                new Exercise
                {
-                  Name = "Seated Dumbbell Tricep Extension",
+                  Name = "Seated Dumbbell Triceps Extension",
                   Description = "Select the desired weight from the rack and position an adjustable bench at 90 degrees. To get into position, sit in an upright position and lift the dumbbell to the top of your shoulder. Take a deep breath, overlap your hands around the dumbbell, then press it into position overhead. Maintain an overlapping grip and slowly lower the dumbbell behind your head by unlocking your elbows. Once your forearms reach parallel or just below, drive the dumbbell back to the starting point by extending the elbows and flexing the triceps. Repeat for the desired number of repetitions.",
                   EquipmentId = 11, // Dumbbell
                   CategoryId = 2, // Triceps
@@ -140,7 +140,7 @@
                },
                new Exercise
                {
-                  Name = "Decline Lying Tricep Extension (Skullcrusher)",
+                  Name = "Decline Lying Triceps Extension (Skullcrusher)",
                   Description = "Select your desired weight and sit on the edge of an decline bench at roughly 20-30 degrees. To get into position, lay back and keep the bar close to your chest. Once you are supine, press the weight to lockout. Unlock the elbows and allow the ez bar to drop toward your forehead or just above. Once your forearms reach parallel or just below, reverse the movement by extending the elbows while flexing the triceps to lockout the weight. Repeat for the desired number of repetitions.",
                   EquipmentId = 7, // EZ Curl Bar
                   CategoryId = 2, // Triceps
@@ -168,7 +168,7 @@
                },
                new Exercise
                {
-                  Name = "Bicep Curl Sled Drag",
+                  Name = "Biceps Curl Sled Drag",
                   Description = "Load the desired weight onto the sled and attach a set of handles with a nylon strap. Grasp the handles with the arms extended and elbows locked out. Lean away from the sled to establish some resting tension on the strap, then contract the biceps and flex the elbow to drag the sled forward. Walk forward a few steps to reestablish tension and repeat step #3. Repeat until you reach the desired number of repetitions, distance, or time.",
                   EquipmentId = 8, // Cable
                   CategoryId = 3, // Biceps
@@ -195,7 +195,7 @@
                new Exercise
                {
                   Name = "Dumbbell Hammer Preacher Curl",
-                  Description = "Select the desired weight from the rack, and sit in an upright position with your chest flat against the preacher bench. Keep your upper arm pressed into the pad and use a neutral (palms facing up) grip. Take a deep breath and slowly lower the dumbbell away from your shoulder. Once the bicep is fully lengthened, curl the weight back to the starting position. Repeat for the desired number of repetitions on both sides.",
+                  Description = "Select the desired weight from the rack, and sit in an upright position with your chest flat against the preacher bench. Keep your upper arm pressed into the pad and use a neutral (palms facing up) grip. Take a deep breath and slowly lower the dumbbell away from your shoulder. Once the biceps is fully lengthened, curl the weight back to the starting position. Repeat for the desired number of repetitions on both sides.",
                   EquipmentId = 11, // Dumbell
                   CategoryId = 3, // Biceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
