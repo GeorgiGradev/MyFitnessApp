@@ -59,7 +59,7 @@
         [HttpGet]
         public IActionResult All(int id = 1) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
         {
-            const int itemsPerPage = 9;
+            const int itemsPerPage = 6;
             var view = new AllExercisesViewModel
             {
                 PageNumber = id,
