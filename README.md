@@ -32,3 +32,10 @@ TBA....
 - User's username: **User** / password: **123456**
 ## :wrench: DB Diagram
 TBA....
+
+## :handshake: Credits
+
+- [ASP.NET-MVC-Template](https://github.com/NikolayIT/ASP.NET-Core-Template) originally developed by:
+   * [Nikolay Kostov](https://github.com/NikolayIT)
+   * [Vladislav Karamfilov](https://github.com/vladislav-karamfilov)
+   * [Stoyan Shopov](https://github.com/StoyanShopov)
