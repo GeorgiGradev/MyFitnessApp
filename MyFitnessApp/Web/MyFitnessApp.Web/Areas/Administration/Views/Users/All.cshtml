@@ -2,9 +2,14 @@
 
 @{ this.ViewData["Title"] = "All users"; }
 
-<div class="text-center">
-    <h1>@this.ViewData["Title"]</h1>
-</div>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Administration/Dashboard">Administration dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 <div class="table-responsive">
     <table class="table table-sm table-hover table-bordered">
@@ -22,30 +27,30 @@
         <tbody>
             @foreach (var user in this.Model.AllUsers)
             {
-            <tr>
-                <td><a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@user.Username">@user.Username</a></td>
-                <td>@user.FirstName</td>
-                <td>@user.LastName</td>
-                <td>@user.CreatedOn.ToString("f")</td>
-                <td>@user.Email</td>
-                <td>
-                    @if (user.IsBanned)
-                    {
-                        <form method="post" asp-controller="Users" asp-action="Unban" asp-route-id="@user.Id">
-                            <button type="submit" class="btn btn-success btn-sm">Unban</button>
-                        </form> 
-                    }
-                    else
-                    {
-                        <a class="btn btn-danger btn-sm" asp-controller="Users" asp-action="Ban" asp-route-id="@user.Id">Ban</a>}
-                </td>
-                <td>
-                    @if (user.IsBanned)
-                    {
-                        @user.BannedOn?.ToString("f")
-                    }
-                </td>
-            </tr>
+                <tr>
+                    <td><a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@user.Username">@user.Username</a></td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.CreatedOn.ToString("f")</td>
+                    <td>@user.Email</td>
+                    <td>
+                        @if (user.IsBanned)
+                        {
+                            <form method="post" asp-controller="Users" asp-action="Unban" asp-route-id="@user.Id">
+                                <button type="submit" class="btn btn-success btn-sm">Unban</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a class="btn btn-danger btn-sm" asp-controller="Users" asp-action="Ban" asp-route-id="@user.Id">Ban</a>}
+                    </td>
+                    <td>
+                        @if (user.IsBanned)
+                        {
+                            @user.BannedOn?.ToString("f")
+                        }
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

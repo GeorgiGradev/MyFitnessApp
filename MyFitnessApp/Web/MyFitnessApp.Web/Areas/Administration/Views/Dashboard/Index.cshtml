@@ -3,7 +3,71 @@
     this.ViewData["Title"] = "Admin dashboard";
 }
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+            <div class="counter-box">
+                <a asp-controller="Users" asp-action="All">
+                    <i class="fa fa-user"></i>
+                    <span class="counter">@Model.UsersCount</span>
+                    <p>Total users</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+            <div class="counter-box">
+                <a asp-controller="Exercises" asp-action="Index">
+                    <i class="fa fa-running"></i>
+                    <span class="counter">@Model.ExercisesCount</span>
+                    <p>Total exercises</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+            <div class="counter-box">
+                <a asp-controller="Articles" asp-action="Index">
+                    <i class="fa fa-newspaper"></i>
+                    <span class="counter">@Model.ArticlesCount</span>
+                    <p>Total articles</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row d-flex justify-content-center">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+        <div class="counter-box">
+            <a asp-controller="Posts" asp-action="Index">
+                <i class="fa fa-edit"></i>
+                <span class="counter">@Model.PostsCount</span>
+                <p>Total posts</p>
+            </a>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+        <div class="counter-box">
+            <a asp-controller="Foods" asp-action="Index">
+                <i class="fa fa-drumstick-bite"></i>
+                <span class="counter">@Model.FoodsCount</span>
+                <p>Total foods</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="row d-flex justify-content-center">
 
     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
         <div class="card shadow-sm h-100">
@@ -96,6 +160,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-</div>
+    </div>-->
+@*</div>*@
