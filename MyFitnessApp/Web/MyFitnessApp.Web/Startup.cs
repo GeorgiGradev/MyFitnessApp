@@ -26,6 +26,7 @@
     using MyFitnessApp.Services.Data.Forum;
     using MyFitnessApp.Services.Data.Post;
     using MyFitnessApp.Services.Data.Profile;
+    using MyFitnessApp.Services.Data.Search;
     using MyFitnessApp.Services.Data.Training;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Services.Mapping;
@@ -93,6 +94,7 @@
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IFoodsService, FoodsService>();
             services.AddTransient<IProfilesService, ProfilesService>();
+            services.AddTransient<ISearchService, SearchService>();
 
             // Filters
             services.AddScoped<RestrictBannedUsersAttribute>();

@@ -7,7 +7,6 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Services.Data.Food;
     using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Administration.Users;

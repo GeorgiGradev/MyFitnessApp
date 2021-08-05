@@ -166,12 +166,16 @@
     <div class="text-center">
         <a asp-controller="Foods" asp-action="All" class="btn btn-primary btn-outline-light m-2">Add food</a>
     </div>
+    <div class="text-center">
+        <a asp-controller="Search" asp-action="SearchFood" class="btn btn-info btn-outline-light m-2">Search for food</a>
+    </div>
+
 
     @if (userId == @Model.UserId || User.IsInRole("Administrator"))
     {
         <div class="text-center">
             <form method="post" asp-controller="Foods" asp-action="Delete" id="deleteForm"></form>
-            <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete diary</button>
+            <button class="btn btn-danger btn-outline-light mt-3" data-toggle="modal" data-target="#deleteModal">Delete diary</button>
         </div>
     }
 </div>

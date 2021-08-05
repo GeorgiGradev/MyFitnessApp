@@ -203,18 +203,6 @@
             return viewModel;
         }
 
-        public IEnumerable<SingleExerciseViewModel> GetAllExercisesByUserId(string userId)
-        {
-            var viewModel = this.exerciseRepository
-                .All()
-                .Where(x => x.AddedByUserId == userId)
-                .OrderByDescending(x => x.CreatedOn) // последнo добавените ще излизат най-отпред в списъка
-                .To<SingleExerciseViewModel>()
-                .ToList();
-
-            return viewModel;
-        }
-
         public IEnumerable<DiaryExeriseViewModel> GetExercisesByDayOfWeek(string userId, string dayOfWeek)
         {
             var viewModel = this.userExerciseRepository

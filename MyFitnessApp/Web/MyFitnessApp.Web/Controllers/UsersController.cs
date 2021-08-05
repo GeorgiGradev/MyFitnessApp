@@ -42,7 +42,7 @@
 
                 if (user == null)
                 {
-                    this.TempData["Message"] = "There is no user with this username.";
+                    this.TempData["Message"] = "There was no user found with the given username.";
                     return this.View();
                 }
 

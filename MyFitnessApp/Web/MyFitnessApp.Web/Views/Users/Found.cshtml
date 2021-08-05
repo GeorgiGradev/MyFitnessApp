@@ -9,7 +9,6 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/Profiles/MyProfile">My profile</a></li>
-        <li class="breadcrumb-item"><a href="/Users/Search">Search for another user</a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
@@ -46,4 +45,7 @@
             </div>
         </a>
     }
+    <div class="text-center">
+        <a asp-controller="Users" asp-action="Search" class="btn btn-primary btn-outline-light m-2">Search again</a>
+    </div>
 </div>

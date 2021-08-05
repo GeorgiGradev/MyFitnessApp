@@ -102,18 +102,6 @@
             return this.View();
         }
 
-        [HttpGet]
-        public IActionResult MyExercises()
-        {
-            var userId = this.User.GetId();
-            var view = new AllExercisesViewModel
-            {
-                Exercises = this.exercisesService.GetAllExercisesByUserId(userId),
-            };
-
-            return this.View(view);
-        }
-
         [HttpPost]
         public async Task<IActionResult> Remove(int id)
         {
