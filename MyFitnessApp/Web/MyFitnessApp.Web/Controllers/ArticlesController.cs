@@ -97,9 +97,13 @@
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
             var viewModel = new EditArticleInputModel();
+            var currentArticle = this.articlesService.GetArticleById(id);
+
+            viewModel.Title = currentArticle.Title;
+            viewModel.Content = currentArticle.Content;
             viewModel.Categories = this.articlesService.GetArticleCategories();
 
             return this.View(viewModel);

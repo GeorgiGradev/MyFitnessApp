@@ -1,7 +1,7 @@
 ﻿@model AllExercisesViewModel
 
 @{
-  this.ViewData["Title"] = "All exercises";
+    this.ViewData["Title"] = "All exercises";
 }
 
 <!-- Breadcrumb -->
@@ -24,28 +24,45 @@
     </div>
 }
 
-<div>
+<div class="container-fluid">
     <div class="row">
         @foreach (var exercise in Model.Exercises)
         {
-            <div class="col-md-4 mt-3">
-                <div class="card text-center alert-info" style="width: 18rem;">
-                    <a asp-action="Add" asp-route-id="@exercise.Id">
-                        <img src="@exercise.ImageUrl" class="card-img-top">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"> <a asp-action="Add" asp-route-id="@exercise.Id">@exercise.Name</a></h5>
-                        Target Muscle Group:
-                        <a asp-controller="ExerciseCategories" asp-action="@exercise.CategoryName">
-                            <p class="card-text"> @exercise.CategoryName</p>
-                        </a>
+            <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
+                <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.Id">
+                    <div class="card-header col-md border border-dark mt-2 text-center">
+                        <div class="media flex-wrap w-100 align-items-center">
+                            <div class="col">
+                                <div class="media-body text-center">
+                                    <div class="row mb-2 text-center">
+                                        <div class="col">
+                                            <strong>@exercise.Name</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center mb-2">
+                                        <div class="col">
+                                            <img src="@exercise.ImageUrl" width="220">
+                                            <div class="text-muted">
+                                                Category: <strong> @exercise.CategoryName</strong>
+                                            </div>
+                                            <div class="text-muted">
+                                                Difficulty: <strong>@exercise.Difficulty</strong>
+                                            </div>
+                                            <div class="text-muted">
+                                                Equipment: <strong>@exercise.EquipmentName</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         }
     </div>
 </div>
 
-<hr /> 
+<hr />
 
 <partial name="_PagingPartial" model="@Model" />

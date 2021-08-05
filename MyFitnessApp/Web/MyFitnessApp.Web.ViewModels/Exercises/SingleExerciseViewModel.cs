@@ -20,7 +20,7 @@
 
         public string CategoryName { get; set; }
 
-        public string DifficultyName { get; set; }
+        public string Difficulty { get; set; }
 
         public string ImageUrl { get; set; }
 
