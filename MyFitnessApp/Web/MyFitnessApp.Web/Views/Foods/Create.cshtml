@@ -29,32 +29,34 @@
         <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
             <!-- Прави формата responsive при различни размери на екрана -->
             <form method="post">
+                <div>
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" placeholder="food name here...">
+                        <span asp-validation-for="Name" class="small text-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="Name"></label>
-                    <input asp-for="Name" class="form-control" placeholder="food name here...">
-                    <span asp-validation-for="Name" class="small text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="ProteinIn100Grams"></label>
+                        <input asp-for="ProteinIn100Grams" class="form-control" placeholder="protein in grams here...">
+                        <span asp-validation-for="ProteinIn100Grams" class="small text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CarbohydratesIn100Grams"></label>
+                        <input asp-for="CarbohydratesIn100Grams" class="form-control" placeholder="carbs in grams here...">
+                        <span asp-validation-for="CarbohydratesIn100Grams" class="small text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="FatIn100Grams"></label>
+                        <input asp-for="FatIn100Grams" class="form-control" placeholder="fat in grams here...">
+                        <span asp-validation-for="FatIn100Grams" class="small text-danger"></span>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label asp-for="ProteinIn100Grams"></label>
-                    <input asp-for="ProteinIn100Grams" class="form-control" placeholder="protein in grams here...">
-                    <span asp-validation-for="ProteinIn100Grams" class="small text-danger"></span>
+                <div class="text-center pt-2">
+                    <input class="btn btn-primary btn-outline-light" type="submit" value="Save" />
                 </div>
-
-                <div class="form-group">
-                    <label asp-for="CarbohydratesIn100Grams"></label>
-                    <input asp-for="CarbohydratesIn100Grams" class="form-control" placeholder="carbs in grams here...">
-                    <span asp-validation-for="CarbohydratesIn100Grams" class="small text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="FatIn100Grams"></label>
-                    <input asp-for="FatIn100Grams" class="form-control" placeholder="fat in grams here...">
-                    <span asp-validation-for="FatIn100Grams" class="small text-danger"></span>
-                </div>
-
-                <input class="btn btn-primary float-right mt-3" type="submit" value="Save" />
             </form>
         </div>
      </div>

@@ -27,44 +27,45 @@
 }
 
 <div class="container-fluid">
-
-    <div class="card">
-        <div class="card-body">
-            <div class="col-md-12 blogShort">
-                <div class="row-md-4 mt-2">
-                    <ul>
-                        <li>
-                            <strong>Written by: </strong>
-                            <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.Username">@Model.Username</a>
-                        </li>
-                        <li><strong>Written on: </strong>@Model.CreatedOn</li>
-                        <li><strong>Category: </strong> <a asp-controller="Blogs" asp-action="@Model.CategoryName">@Model.CategoryName</a></li>
-                    </ul>
-                </div>
-                <div class="row-md-4 text-left mt-2 text-center">
-                    <img src="@Model.ImagePath" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10" width="500">
-                </div>
-                <div class="row-md-4 mt-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <article>
-                                @Model.Content
-                            </article>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-12 blogShort">
+                    <div class="row-md-4 mt-2">
+                        <ul>
+                            <li>
+                                <strong>Written by: </strong>
+                                <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.Username">@Model.Username</a>
+                            </li>
+                            <li><strong>Written on: </strong>@Model.CreatedOn</li>
+                            <li><strong>Category: </strong> <a asp-controller="Blogs" asp-action="@Model.CategoryName">@Model.CategoryName</a></li>
+                        </ul>
+                    </div>
+                    <div class="row-md-4 text-left mt-2 text-center">
+                        <img src="@Model.ImagePath" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10" width="500">
+                    </div>
+                    <div class="row-md-4 mt-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <article>
+                                    @Model.Content
+                                </article>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
     @if (userId == Model.UserId || User.IsInRole("Administrator"))
     {
-        <div class="text-center">
-            <a asp-controller="Articles" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary btn-outline-light m-2">Edit</a>
-        </div>
-        <div class="text-center">
-            <form method="post" asp-controller="Articles" asp-action="Delete" asp-route-id="@Model.Id" id="deleteForm"></form>
-            <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
+        <div class="text-center pt-2">
+            <div class="text-center">
+                <a asp-controller="Articles" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary btn-outline-light">Edit</a>
+            </div>
+            <div class="text-center pt-2">
+                <form method="post" asp-controller="Articles" asp-action="Delete" asp-route-id="@Model.Id" id="deleteForm"></form>
+                <button class="btn btn-danger btn-outline-light" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            </div>
         </div>
     }
 </div>

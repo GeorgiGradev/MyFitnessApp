@@ -59,18 +59,18 @@
                                                 @if (isUserFollowee)
                                                 {
                                                     <form method="post" id="followForm" asp-controller="Users" asp-action="Unfollow" asp-route-username="@Model.Username">
-                                                        <button class="btn btn-danger btn"> Unfollow</button>
+                                                        <button class="btn btn-danger btn-outline-light"> Unfollow</button>
                                                     </form>
                                                 }
                                                 else
                                                 {
                                                     <form method="post" id="followForm" asp-controller="Users" asp-action="Follow" asp-route-username="@Model.Username">
-                                                        <button class="btn btn-success btn"> Follow</button>
+                                                        <button class="btn btn-success btn-outline-light"> Follow</button>
                                                     </form>
                                                 }
                                             </div>
                                             <div class="col col-md-6 mt-2">
-                                                <a asp-controller="Communities" asp-action="SendEmail" class="btn btn-outline-primary">Message</a>
+                                                <a asp-controller="Communities" asp-action="SendEmail" class="btn btn-primary btn-outline-light">Message</a>
                                             </div>
                                         </div>
                                     </div>

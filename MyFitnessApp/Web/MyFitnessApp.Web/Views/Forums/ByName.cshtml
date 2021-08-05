@@ -14,44 +14,50 @@
 </nav>
 <!-- /Breadcrumb -->
 
-<div class="alert alert-info text-center">
-    <strong>@Model.Description</strong>
-</div>
+<div class="container-fluid">
 
-@if (Model.Posts.Count() == 0)
-{
-    <h6 class="text-center text-danger">
-        <strong>Currently there are no post in this category.</strong>
-    </h6>
-}
+    <div class="alert alert-info text-center">
+        <strong>@Model.Description</strong>
+    </div>
 
-@if (Model.Posts.Count() > 0)
-{
-    @foreach (var post in Model.Posts.OrderByDescending(x => x.CreatedOn))
+    @if (Model.Posts.Count() == 0)
     {
-        <div class="media-body">
-            <h4 class="media-heading"><a asp-controller="Posts" asp-action="ById" asp-route-id="@post.Id">@post.Title</a></h4>
-            <p>@post.ShortContent</p>
-            <ul class="list-inline list-unstyled text-right">
-                <li class="list-inline-item">
-                    <i class="fas fa-user-edit"></i> @post.AddedByUserUserName
-                </li>
-                <li class="list-inline-item">
-                    <i class="fas fa-calendar-alt"></i> @post.CreatedOn
-                </li>
-                <li class="list-inline-item">
-                    <i class="fas fa-comment-dots"></i> @post.CommentsCount comments
-                </li>
-            </ul>
+        <div class="text-center pt-2">
+            <h6 class="text-center text-danger">
+                <strong>Currently there are no post in this category.</strong>
+            </h6>
         </div>
-        <hr />
     }
-}
 
-<div class="text-center">
-    <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-2">Create post</a>
-</div>
+    @if (Model.Posts.Count() > 0)
+    {
+        @foreach (var post in Model.Posts.OrderByDescending(x => x.CreatedOn))
+        {
+            <div class="media-body">
+                <h4 class="media-heading"><a asp-controller="Posts" asp-action="ById" asp-route-id="@post.Id">@post.Title</a></h4>
+                <p>@post.ShortContent</p>
+                <ul class="list-inline list-unstyled text-right">
+                    <li class="list-inline-item">
+                        <i class="fas fa-user-edit"></i> @post.AddedByUserUserName
+                    </li>
+                    <li class="list-inline-item">
+                        <i class="fas fa-calendar-alt"></i> @post.CreatedOn
+                    </li>
+                    <li class="list-inline-item">
+                        <i class="fas fa-comment-dots"></i> @post.CommentsCount comments
+                    </li>
+                </ul>
+            </div>
+            <hr />
+        }
+    }
+    <div class="text-center pt-2">
+        <div class="text-center">
+            <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-2">Create post</a>
+        </div>
 
-<div class="text-center">
-    <a asp-controller="Forums" asp-action="Categories" class="btn btn-primary btn-outline-light m-2">Back to all categories</a>
+        <div class="text-center pt-2">
+            <a asp-controller="Forums" asp-action="Categories" class="btn btn-primary btn-outline-light m-2">Back to all categories</a>
+        </div>
+    </div>
 </div>

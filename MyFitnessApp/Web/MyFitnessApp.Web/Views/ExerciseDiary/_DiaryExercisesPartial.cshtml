@@ -36,12 +36,12 @@
                 </ul>
                 <div class="card-body">
                     <div class="text-center">
-                        <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.ExerciseId" class="btn btn-primary mt-3">Show/Edit</a>
-                        <a asp-controller="Exercises" asp-action="All" class="btn btn-primary mt-3">Back to all</a>
+                        <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.ExerciseId" class="btn btn-primary btn-outline-light mt-3">Show/Edit</a>
+                        <a asp-controller="Exercises" asp-action="All" class="btn btn-primary btn-outline-light mt-3">Back to all</a>
                     </div>
                     <div class="text-center">
                         <form method="post" asp-controller="Exercises" asp-action="Remove" id="deleteForm" asp-route-id="@exercise.ExerciseId" asp-route-day="@this.ViewData["Title"]"></form>
-                        <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                        <button class="btn btn-danger mt-3 btn-outline-light" data-toggle="modal" data-target="#deleteModal">Delete</button>
                     </div>
                 </div>
             </div>

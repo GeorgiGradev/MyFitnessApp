@@ -20,21 +20,25 @@
         <div class="col-md-6 offset-2">
             <form method="post">
                 <h3 class="text-center">@Model.Name</h3>
-                <div class="form-group">
-                    <label asp-for="ServingSize"></label>
-                    <input asp-for="ServingSize" class="form-control">
-                    <span asp-validation-for="ServingSize" class="small text-danger"></span>
+                <div>
+                    <div class="form-group">
+                        <label asp-for="ServingSize"></label>
+                        <input asp-for="ServingSize" class="form-control">
+                        <span asp-validation-for="ServingSize" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MealName"></label>
+                        <select asp-for="MealName" class="form-control">
+                            @foreach (int mealName in Enum.GetValues(typeof(MealName)))
+                            {
+                                <option value="@mealName">@Enum.GetName(typeof(MealName), mealName)</option>
+                            }
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="MealName"></label>
-                    <select asp-for="MealName" class="form-control">
-                        @foreach (int mealName in Enum.GetValues(typeof(MealName)))
-                        {
-                            <option value="@mealName">@Enum.GetName(typeof(MealName), mealName)</option>
-                        }
-                    </select>
+                <div class="text-center pt-2">
+                    <input class="btn btn-primary btn-outline-light" type="submit" value="Add to food diary" />
                 </div>
-                <input class="btn btn-primary float-md-left" type="submit" value="Add to food diary" />
             </form>
         </div>
     </div>

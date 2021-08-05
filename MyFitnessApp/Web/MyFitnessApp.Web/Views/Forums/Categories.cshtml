@@ -15,7 +15,7 @@
 
 <div class="col-md-10 offset-1">
     <div class="text-center">
-        <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-4">Create post</a>
+        <a asp-controller="Posts" asp-action="Create" class="btn btn-primary btn-outline-light m-4">Create new post</a>
     </div>
 
     <ol class="list-group list-group-numbered">
@@ -27,7 +27,7 @@
                         <div class="font-weight-bold"> @category.Name</div>
                     </a>
                     <div>@category.Description</div>
-                    <span class="badge bg-light rounded-right font-italic">Last post: ..:..:.. Day/Month/Year by .............  (view component)</span>
+                    @*<span class="badge bg-light rounded-right font-italic">Last post: ..:..:.. Day/Month/Year by .............  (view component)</span>*@
                 </div>
                 <span class="badge bg-light rounded-right font-weight-bold">Posts: @category.Posts.Count()</span>
             </li>
