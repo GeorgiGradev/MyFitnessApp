@@ -10,10 +10,36 @@
     public class SearchService : ISearchService
     {
         private readonly IDeletableEntityRepository<Food> foodsRepository;
+        private readonly IDeletableEntityRepository<Article> articlesRepository;
 
-        public SearchService(IDeletableEntityRepository<Food> foodsRepository)
+        public SearchService(
+            IDeletableEntityRepository<Food> foodsRepository,
+            IDeletableEntityRepository<Article> articlesRepository)
         {
             this.foodsRepository = foodsRepository;
+            this.articlesRepository = articlesRepository;
+        }
+
+        public IEnumerable<ArticleViewModel> SearchArticleByKeyword(string keyword)
+        {
+            var viewModel = this.articlesRepository
+               .All()
+               .Where(x => x.Title.Contains(keyword))
+            .Select(x => new ArticleViewModel
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Content = x.Content,
+                CategoryId = x.CategoryId,
+                CategoryName = x.Category.Name,
+                ImagePath = "/images/articles/" + x.Id + "." + "jpg",
+                UserId = x.AddedByUserId,
+                CreatedOn = x.CreatedOn.ToString("f"),
+                Username = x.AddedByUser.UserName,
+            })
+            .ToList();
+
+            return viewModel;
         }
 
         public IEnumerable<FoodViewModel> SearchFoodByKeyword(string keyword)

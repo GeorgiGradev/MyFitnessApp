@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace MyFitnessApp.Web.ViewModels.Search
+﻿namespace MyFitnessApp.Web.ViewModels.Search
 {
+    using System;
+
     public class FoodViewModel
     {
         public string Name { get; set; }

@@ -7,5 +7,7 @@
     public interface ISearchService
     {
         IEnumerable<FoodViewModel> SearchFoodByKeyword(string keyword);
+
+        IEnumerable<ArticleViewModel> SearchArticleByKeyword(string keyword);
     }
 }
