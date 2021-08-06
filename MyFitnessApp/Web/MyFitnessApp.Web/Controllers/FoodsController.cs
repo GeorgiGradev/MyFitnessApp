@@ -50,12 +50,15 @@
         }
 
         [HttpGet]
-        public IActionResult All()
+        public IActionResult All(int id = 1)
         {
-            var foods = this.foodsService.GetAllFoods();
+            const int itemsPerPage = 5;
             var viewModel = new AllFoodsViewModel
             {
-                Foods = foods,
+                PageNumber = id,
+                Foods = this.foodsService.GetAllFoods(id, itemsPerPage),
+                ItemsCount = this.foodsService.GetCounts(),
+                ItemsPerPage = itemsPerPage,
             };
 
             return this.View(viewModel);

@@ -1,17 +1,15 @@
-﻿@*PartialView за всички страници, които имат нужда от него*@
-
-@model PagingViewModel
+﻿@model PagingViewModel
 
 <nav aria-label="...">
     <ul class="pagination justify-content-center">
         <li class="page-item @if (!Model.HasPreviousPage) { <text>disabled</text> }">
-            <a class="page-link" asp-controller="Exercises" asp-action="All" asp-route-id="@Model.PreviousPageNumber">Previous</a>
+            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.PreviousPageNumber">Previous</a>
         </li>
         @for (int i = Model.PageNumber - 2; i < Model.PageNumber; i++)
         {
             if (i > 0)
             {
-                <li class="page-item"><a class="page-link" asp-controller="Exercises" asp-action="All" asp-route-id="@i">@i</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@i">@i</a></li>
             }
 
         }
@@ -25,12 +23,12 @@
         {
             if (i <= Model.PagesCount)
             {
-                <li class="page-item"><a class="page-link" asp-controller="Exercises" asp-action="All" asp-route-id="@i">@i</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@i">@i</a></li>
             }
 
         }
         <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
-            <a class="page-link" asp-controller="Exercises" asp-action="All" asp-route-id="@Model.NextPageNumber">Next</a>
+            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.NextPageNumber">Next</a>
         </li>
     </ul>
 </nav>

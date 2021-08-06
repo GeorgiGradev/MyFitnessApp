@@ -1,4 +1,4 @@
-﻿namespace MyFitnessApp.Web.ViewModels.Exercises
+﻿namespace MyFitnessApp.Web.ViewModels
 {
     using System;
 
@@ -10,14 +10,14 @@
 
         public bool HasNextPage => this.PageNumber < this.PagesCount; // Ако PageNumber < от броя на всички страници, значи имаме следваща страница
 
-        public int PagesCount => (int)Math.Ceiling((double)this.ExercisesCount / this.ItemsPerPage); // броят на всички страници
+        public int PagesCount => (int)Math.Ceiling((double)this.ItemsCount / this.ItemsPerPage); // броят на всички страници
 
         public int PreviousPageNumber => this.PageNumber - 1;  // номер на предишната страница
 
         public int NextPageNumber => this.PageNumber + 1; // номер на следвашата страница
 
-        public int ExercisesCount { get; set; } // дава информация колко е броя на всички Exercises
+        public int ItemsCount { get; set; } // дава информация колко е броя на всички Items
 
-        public int ItemsPerPage { get; set; } // дава информация колко Exercises има на една стрница
+        public int ItemsPerPage { get; set; } // дава информация колко Items има на една стрница
     }
 }

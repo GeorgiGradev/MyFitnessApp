@@ -64,8 +64,8 @@
             {
                 PageNumber = id,
                 Exercises = this.exercisesService.GetAllExercises(id, itemsPerPage),
-                ExercisesCount = this.exercisesService.GetAllExercisesCount(), // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
-                ItemsPerPage = itemsPerPage, // дава информация колко Exercises има на една стрница
+                ItemsCount = this.exercisesService.GetCounts(), // Броят на Items ни е нужен за пейджирането, за да знаем коя е последната страница
+                ItemsPerPage = itemsPerPage, // дава информация колко Items има на една страница
             };
 
             return this.View(view);

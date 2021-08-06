@@ -14,9 +14,9 @@
 
         public double TotalCalories { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
         public double ServingSize { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public string Url => $"/Foods/ByName/{this.Name.Replace(' ', '-')}";
     }

@@ -53,10 +53,13 @@
             return doesFoodExists;
         }
 
-        public IEnumerable<FoodViewModel> GetAllFoods()
+        public IEnumerable<FoodViewModel> GetAllFoods(int pageNumber, int itemsPerPage)
         {
             var viewModel = this.foodsRepository
                 .All()
+                .OrderByDescending(x => x.Id)
+                .Skip((pageNumber - 1) * itemsPerPage)
+                .Take(itemsPerPage)
                 .Select(x => new FoodViewModel
                 {
                     Name = x.Name,

@@ -11,7 +11,7 @@
 
         bool DoesFoodExists(string name);
 
-        IEnumerable<FoodViewModel> GetAllFoods();
+        IEnumerable<FoodViewModel> GetAllFoods(int pageNumber, int itemsPerPage = 12);
 
         Task AddFoodToDiaryAsync(AddFoodInputModel model, string userId, string foodName);
 

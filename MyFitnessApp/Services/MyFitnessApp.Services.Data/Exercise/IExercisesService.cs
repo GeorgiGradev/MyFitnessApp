@@ -17,10 +17,10 @@
         Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
 
         // Взима всички Exercises от базата
-        IEnumerable<SingleExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12); // нужни за пейджирането
+        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12); // нужни за пейджирането
 
         // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
-        int GetAllExercisesCount();
+        int GetCounts();
 
         // Взима даден Exercise по Id
         AddExerciseInputModel GetExerciseById(int id);
@@ -32,14 +32,12 @@
         string GetEmbedYouTubeLink(string rawLink);
 
         // Get exercises by CategoryId
-        IEnumerable<SingleExerciseViewModel> GetExercisesByCategoryId(int categoryId);
+        IEnumerable<ExerciseViewModel> GetExercisesByCategoryId(int categoryId);
 
         // Взима упражнения по ден от седмицата + UserID
         IEnumerable<DiaryExeriseViewModel> GetExercisesByDayOfWeek(string userId, string dayOfWeek);
 
         // Премахва упражнението от Excercise Diary на User-a
         Task RemoveExerciseAsync(string userId, int exerciseId);
-
-        int GetCounts();
     }
 }

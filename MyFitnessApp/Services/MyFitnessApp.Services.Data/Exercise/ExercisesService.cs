@@ -79,7 +79,7 @@
         }
 
         // Взима всички Exercises от базата
-        public IEnumerable<SingleExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage)
+        public IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage)
         {
             // 1-12 - page 1
             // 13-24 - page 2
@@ -89,7 +89,7 @@
                 .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
                 .Skip((pageNumber - 1) * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
                 .Take(itemsPerPage)
-                .To<SingleExerciseViewModel>()
+                .To<ExerciseViewModel>()
                 .ToList();
 
             // .Select(x => new ExerciseViewModel
@@ -191,13 +191,13 @@
             return result;
         }
 
-        public IEnumerable<SingleExerciseViewModel> GetExercisesByCategoryId(int categoryId)
+        public IEnumerable<ExerciseViewModel> GetExercisesByCategoryId(int categoryId)
         {
             var viewModel = this.exerciseRepository
                 .All()
                 .Where(x => x.CategoryId == categoryId)
                 .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
-                .To<SingleExerciseViewModel>()
+                .To<ExerciseViewModel>()
                 .ToList();
 
             return viewModel;

@@ -4,7 +4,7 @@
     using MyFitnessApp.Services.Mapping;
 
     // Визуализира едно упражнение
-    public class SingleExerciseViewModel : IMapFrom<Exercise> // , IHaveCustomMappings
+    public class ExerciseViewModel : IMapFrom<Exercise> // , IHaveCustomMappings
     {
         public int Id { get; set; }
 
