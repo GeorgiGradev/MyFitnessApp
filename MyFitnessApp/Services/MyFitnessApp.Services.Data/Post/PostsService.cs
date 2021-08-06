@@ -68,7 +68,9 @@
                 .To<PostViewModel>()
                 .FirstOrDefault();
 
-            var internalImage = this.profilesService.GetInternalImagePath(post.AddedByUserId);
+            var profileId = this.profilesService.GetPofileIdByUserId(post.AddedByUserId);
+
+            var internalImage = "/images/profileimages/" + profileId + "." + "jpg"; ;
             post.UserProfileImage = internalImage;
 
             var comments = this.commentsService.GetAllPostComments(post.Id);

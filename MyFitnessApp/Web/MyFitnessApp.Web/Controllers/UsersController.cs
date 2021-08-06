@@ -54,6 +54,8 @@
                     return this.View();
                 }
 
+                var profileId = this.profilesService.GetPofileIdByUserId(user.Id);
+
                 var viewModel = new FoundUserViewModel()
                 {
                    FirstName = user.FirstName,
@@ -61,7 +63,7 @@
                    Email = user.Email,
                    UserName = user.UserName,
                    Id = user.Id,
-                   UserProfileImage = this.profilesService.GetInternalImagePath(user.Id),
+                   UserProfileImage = "/images/profileimages/" + profileId + "." + "jpg",
                 };
 
                 return this.View("Found", viewModel);
@@ -92,7 +94,7 @@
                     Email = user.Email,
                     UserName = user.UserName,
                     Id = user.Id,
-                    UserProfileImage = this.profilesService.GetInternalImagePath(user.Id),
+                    UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(user.Id) + "." + "jpg",
                 };
 
                 return this.View("Found", viewModel);

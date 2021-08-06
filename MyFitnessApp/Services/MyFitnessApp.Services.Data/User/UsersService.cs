@@ -76,7 +76,7 @@
         {
             var totalUsersCount = this.usersRepository
                 .All()
-                .Where(x => x.ProfileId != 0 && x.UserName != "admin")
+                .Where(x => x.Profile != null && x.UserName != "admin")
                 .Count();
 
             return totalUsersCount;
@@ -86,9 +86,9 @@
         {
             var viewModel = this.usersRepository
                 .All()
-                .Where(x => x.ProfileId != 0 && x.UserName != "admin")
+                .Where(x => x.Profile != null && x.UserName != "admin")
                 .OrderBy(x => x.FirstName)
-                .ThenBy(x => x.LastName)
+                .ThenBy(x => x.LastName) 
                 .Select(x => new GetAllUsersViewModel
                 {
                      FirstName = x.FirstName,
@@ -187,7 +187,7 @@
                     Id = x.FollowerId,
                     FirstName = x.Follower.FirstName,
                     LastName = x.Follower.LastName,
-                    ImageUrl = this.profilesService.GetInternalImagePath(x.FollowerId),
+                    ImageUrl = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.FollowerId) + "." + "jpg",
                     Username = x.Follower.UserName,
                 })
                 .ToList();
@@ -205,7 +205,7 @@
                     Id = x.FolloweeId,
                     FirstName = x.Followee.FirstName,
                     LastName = x.Followee.LastName,
-                    ImageUrl = this.profilesService.GetInternalImagePath(x.FolloweeId),
+                    ImageUrl = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.FolloweeId) + "." + "jpg",
                     Username = x.Followee.UserName,
                 })
                 .ToList();

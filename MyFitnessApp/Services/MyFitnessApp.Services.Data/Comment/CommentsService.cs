@@ -60,7 +60,7 @@
                    Content = x.Content,
                    CreatedOn = x.CreatedOn,
                    AddedByUserUserName = x.AddedByUser.UserName,
-                   UserProfileImage = this.profilesService.GetInternalImagePath(x.AddedByUserId),
+                   UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.AddedByUserId) + "." + "jpg",
                 })
                 .ToList();
 

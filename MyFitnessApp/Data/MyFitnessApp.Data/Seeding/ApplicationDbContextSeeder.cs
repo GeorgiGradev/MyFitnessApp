@@ -36,6 +36,7 @@
                               new ArticlesSeeder(),
                               new ForumCategoriesSeeder(),
                               new FoodsSeeder(),
+                              new ProfileSeeder(),
                           };
 
             foreach (var seeder in seeders)

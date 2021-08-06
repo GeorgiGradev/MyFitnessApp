@@ -12,8 +12,6 @@
 
         ProfileViewModel GetProfileData(string userId);
 
-        string GetInternalImagePath(string userId);
-
         string GetUserIdByUserName(string userName);
 
         Task EditProfileAsync(EditProfileInputModel model, string userId);
@@ -21,5 +19,7 @@
         Task EditProfileImageAsync(EditProfileImageInputModel model, string userId, string imagePath);
 
         public EditProfileInputModel GetProfileDataForUpdate(string userId);
+
+        int GetPofileIdByUserId(string userId);
     }
 }
