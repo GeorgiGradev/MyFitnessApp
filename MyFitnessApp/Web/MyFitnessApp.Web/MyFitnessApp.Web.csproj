@@ -143,9 +143,6 @@
     <Content Update="wwwroot\images\articles\3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\images\articles\30.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\images\articles\4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
