@@ -12,7 +12,6 @@
 
     [Authorize]
     [TypeFilter(typeof(RestrictBannedUsersAttribute))]
-    [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
     public class ProfilesController : Controller
     {
         private readonly IProfilesService profilesService;
@@ -59,6 +58,7 @@
         }
 
         [HttpGet]
+        [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
         public IActionResult MyProfile()
         {
             var userId = this.User.GetId();
@@ -67,12 +67,14 @@
         }
 
         [HttpGet]
+        [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
         public IActionResult MyGoals()
         {
             return this.View();
         }
 
         [HttpGet]
+        [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
         public IActionResult UsersProfile(string userName)
         {
             var userId = this.profilesService.GetUserIdByUserName(userName);
@@ -82,6 +84,7 @@
         }
 
         [HttpGet]
+        [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
         public IActionResult Edit()
         {
             var userId = this.User.GetId();
@@ -90,6 +93,7 @@
         }
 
         [HttpPost]
+        [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
         public async Task<IActionResult> EditAsync(EditProfileInputModel model)
         {
             if (!this.ModelState.IsValid)
@@ -107,12 +111,14 @@
         }
 
         [HttpGet]
+        [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
         public IActionResult EditProfileImage()
         {
             return this.View();
         }
 
         [HttpPost]
+        [TypeFilter(typeof(RestrictUsersWithoutProfileAttribute))]
         public async Task<IActionResult> EditProfileImage(EditProfileImageInputModel model)
         {
             if (!this.ModelState.IsValid)
