@@ -16,6 +16,10 @@
 
         public int NextPageNumber => this.PageNumber + 1; // номер на следвашата страница
 
+        public int FirstPageNumber => 1;
+
+        public int LastPageNumber => this.PagesCount;
+
         public int ItemsCount { get; set; } // дава информация колко е броя на всички Items
 
         public int ItemsPerPage { get; set; } // дава информация колко Items има на една стрница

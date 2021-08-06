@@ -28,7 +28,7 @@
     <div class="row">
         @foreach (var exercise in Model.Exercises)
         {
-            <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
+            <div class="col-xl-4 col-md-6 col-sm-12 col-12">
                 <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.Id">
                     <div class="card-header col-md border border-dark mt-2 text-center">
                         <div class="media flex-wrap w-100 align-items-center">

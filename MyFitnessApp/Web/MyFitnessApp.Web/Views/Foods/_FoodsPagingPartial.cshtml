@@ -3,7 +3,10 @@
 <nav aria-label="...">
     <ul class="pagination justify-content-center">
         <li class="page-item @if (!Model.HasPreviousPage) { <text>disabled</text> }">
-            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.PreviousPageNumber">Previous</a>
+            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.FirstPageNumber"><strong>First</strong></a>
+        </li>
+        <li class="page-item @if (!Model.HasPreviousPage) { <text>disabled</text> }">
+            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.PreviousPageNumber"><strong>Previous</strong></a>
         </li>
         @for (int i = Model.PageNumber - 2; i < Model.PageNumber; i++)
         {
@@ -28,7 +31,10 @@
 
         }
         <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
-            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.NextPageNumber">Next</a>
+            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.NextPageNumber"><strong>Next</strong></a>
+        </li>
+        <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
+            <a class="page-link" asp-controller="Foods" asp-action="All" asp-route-id="@Model.LastPageNumber"><strong>Last</strong></a>
         </li>
     </ul>
 </nav>
