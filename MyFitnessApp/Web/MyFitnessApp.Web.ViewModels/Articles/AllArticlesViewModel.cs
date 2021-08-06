@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
 
-    public class AllArticlesViewModel
+    public class AllArticlesViewModel : PagingViewModel
     {
-        public IEnumerable<SingleArticleViewModel> Articles { get; set; }
+        public IEnumerable<ArticleViewModel> Articles { get; set; }
     }
 }

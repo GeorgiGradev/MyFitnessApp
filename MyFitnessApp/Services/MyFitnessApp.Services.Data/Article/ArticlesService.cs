@@ -72,12 +72,14 @@
             // записваме картинката като комбинация от Id на Article и extension (123.jpeg)
         }
 
-        public IEnumerable<SingleArticleViewModel> GetAllArticles()
+        public IEnumerable<ArticleViewModel> GetAllArticles(int pageNumber, int itemsPerPage)
         {
             var viewModel = this.articleRepository
                 .All()
-                .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
-             .Select(x => new SingleArticleViewModel
+                .OrderByDescending(x => x.Id)
+                .Skip((pageNumber - 1) * itemsPerPage)
+                .Take(itemsPerPage)
+             .Select(x => new ArticleViewModel
              {
                  Id = x.Id,
                  Title = x.Title,
@@ -94,12 +96,12 @@
             return viewModel;
         }
 
-        public SingleArticleViewModel GetArticleById(int id)
+        public ArticleViewModel GetArticleById(int id)
         {
             var viewModel = this.articleRepository
                 .All()
                 .Where(x => x.Id == id)
-                .Select(x => new SingleArticleViewModel
+                .Select(x => new ArticleViewModel
                 {
                     Id = x.Id,
                     Title = x.Title,
@@ -116,13 +118,13 @@
             return viewModel;
         }
 
-        public IEnumerable<SingleArticleViewModel> GetArticlesByCategoryId(int categoryId)
+        public IEnumerable<ArticleViewModel> GetArticlesByCategoryId(int categoryId)
         {
             var viewModel = this.articleRepository
                     .All()
                     .Where(x => x.CategoryId == categoryId)
                     .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
-                    .Select(x => new SingleArticleViewModel
+                    .Select(x => new ArticleViewModel
                     {
                         Id = x.Id,
                         CategoryId = x.CategoryId,

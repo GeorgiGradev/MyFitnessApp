@@ -65,11 +65,16 @@
         }
 
         [HttpGet]
-        public IActionResult All()
+        public IActionResult All(int id = 1)
         {
+            const int itemsPerPage = 3;
+
             var view = new AllArticlesViewModel
             {
-                Articles = this.articlesService.GetAllArticles(),
+                PageNumber = id,
+                Articles = this.articlesService.GetAllArticles(id, itemsPerPage),
+                ItemsCount = this.articlesService.GetCounts(),
+                ItemsPerPage = itemsPerPage,
             };
 
             return this.View(view);

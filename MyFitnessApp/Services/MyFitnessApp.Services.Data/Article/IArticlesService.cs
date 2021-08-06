@@ -14,13 +14,13 @@
         Task CreateArticleAsync(CreateArticleInputModel model, string userId, string imagePath);
 
         // Взима всички Articles от базата
-        IEnumerable<SingleArticleViewModel> GetAllArticles();
+        IEnumerable<ArticleViewModel> GetAllArticles(int pageNumber, int itemsPerPage);
 
         // Взима даден Articles по Id
-        SingleArticleViewModel GetArticleById(int id);
+        ArticleViewModel GetArticleById(int id);
 
         // Get articles by CategoryId
-        IEnumerable<SingleArticleViewModel> GetArticlesByCategoryId(int categoryId);
+        IEnumerable<ArticleViewModel> GetArticlesByCategoryId(int categoryId);
 
         // Премахва Article
         Task DeleteArticleAsync(int articleId);

@@ -1,6 +1,6 @@
 ﻿namespace MyFitnessApp.Web.ViewModels.Articles
 {
-    public class SingleArticleViewModel
+    public class ArticleViewModel
     {
         public int Id { get; set; }
 

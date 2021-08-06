@@ -17,7 +17,7 @@
         Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
 
         // Взима всички Exercises от базата
-        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage = 12); // нужни за пейджирането
+        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage); // нужни за пейджирането
 
         // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
         int GetCounts();
