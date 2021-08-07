@@ -23,21 +23,20 @@
 - **Visual Studio Enterprise 2019**
 - **StyleCop**
 - **ASP.NET 5.0 MVC**
-- **ASP.NET View Components & Partial Views**
-- **ASP.NET Areas** with integrated Admin Area
+- **ASP.NET Areas**
 - **MSSQL Server**
 - **Bootstrap**
 - **AutoMapper**
 - **Unit Tests**
 - **Repository Pattern**
 - **Dependency Injection**
-- **Integrated SendGrid API** giving users the option to send E-mails.
+- **Integrated SendGrid API**
 
 ## :wrench: DB Diagram
-TBA....
+![Diagram](https://user-images.githubusercontent.com/72765831/128600927-d6c5043c-48e5-43f4-9d87-be343908f97e.jpg)
 
 ## :handshake: Credits
-- [ASP.NET-MVC-Template](https://github.com/NikolayIT/ASP.NET-Core-Template) originally developed by:
+- Using [ASP.NET Core Template](https://github.com/NikolayIT/ASP.NET-Core-Template) originally developed by:
    * [Nikolay Kostov](https://github.com/NikolayIT)
    * [Vladislav Karamfilov](https://github.com/vladislav-karamfilov)
    * [Stoyan Shopov](https://github.com/StoyanShopov)
