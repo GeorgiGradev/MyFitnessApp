@@ -1,7 +1,7 @@
 ﻿@model MyFitnessApp.Web.ViewModels.Search.AllExercisesViewModel
 
 @{
-    this.ViewData["Title"] = "Found exercises ordered by name";
+    this.ViewData["Title"] = "Found exercises";
 }
 
 
@@ -52,6 +52,9 @@
         </div>
     }
 </div>
+
+<hr />
+
 <div class="text-center">
     <a asp-controller="Search" asp-action="SearchExercise" class="btn btn-primary btn-outline-light m-2">Search again</a>
 </div>

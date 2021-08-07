@@ -190,5 +190,24 @@
 
             return viewModel;
         }
+
+        public IEnumerable<UserViewModel> All()
+        {
+            var users = this.usersRepository
+                .All()
+                .Where(x => x.Profile != null)
+                .Select(x => new UserViewModel
+                {
+                    Id = x.Id,
+                    UserName = x.UserName,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.Id) + "." + "jpg",
+                })
+                .ToList();
+
+            return users;
+        }
     }
 }

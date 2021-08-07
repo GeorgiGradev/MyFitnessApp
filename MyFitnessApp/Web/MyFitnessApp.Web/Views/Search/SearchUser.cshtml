@@ -1,13 +1,14 @@
 ﻿@model MyFitnessApp.Web.ViewModels.Search.UserInputModel
 
 @{
-    this.ViewData["Title"] = "Search for user";
+    this.ViewData["Title"] = "Search for a user";
 }
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Users/All">All  users</a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
@@ -28,11 +29,11 @@
         <div class="offset-lg-2 col-lg-8 col-sm-12 offset-xl-3 col-xl-6">
             <form method="post">
                 <div class="form-group">
-                    <label asp-for="UserName">Search for user using username</label>
+                    <label asp-for="UserName">Search for a user using username</label>
                     <input asp-for="UserName" class="form-control" placeholder="Enter user's username" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Email">Search for user using E-mail</label>
+                    <label asp-for="Email">Search for a user using E-mail</label>
                     <input asp-for="Email" class="form-control" placeholder="Enter user's E-mail" />
                 </div>
                 <div class="text-center pt-2">

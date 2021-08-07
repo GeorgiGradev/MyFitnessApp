@@ -1,14 +1,14 @@
-﻿@model MyFitnessApp.Web.ViewModels.Search.AllUsersViewModel
+﻿@model MyFitnessApp.Web.ViewModels.Users.AllUsersViewModel
 
 @{
-    this.ViewData["Title"] = $"Found users";
+    this.ViewData["Title"] = $"All users";
 }
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/Users/All">All  users</a></li>
+        <li class="breadcrumb-item"><a href="/Profiles/MyProfile">My profile</a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>@this.ViewData["Title"]</strong></li>
     </ol>
 </nav>
@@ -43,10 +43,4 @@
             </a>
         </div>
     }
-</div>
-
-<hr />
-
-<div class="text-center">
-    <a asp-controller="Search" asp-action="SearchUser" class="btn btn-primary btn-outline-light m-2">Search again</a>
 </div>

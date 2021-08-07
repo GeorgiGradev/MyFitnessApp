@@ -14,7 +14,10 @@
 
         int GetCounts();
 
+        // for administration area only
         IEnumerable<GetAllUsersViewModel> GetAll();
+
+        IEnumerable<UserViewModel> All();
 
         Task Ban(BanUserInputModel input, string userId);
 

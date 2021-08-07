@@ -22,7 +22,7 @@
 <div class="container">
     <div class="main-body">
         <div class="row gutters-md">
-            <div class="col-5 md-4 mb-3">
+            <div class="col-lg-5 col-xl-5 col-md-5 col-sm-12 col-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
@@ -31,25 +31,36 @@
                                 <h4>@Model.Username</h4>
                                 @if (userId == Model.UserId)
                                 {
-                                    <div class="container-fluid">
-                                        <div class="row mt-2">
-                                            <div class="col col-md-6 mt-2">
-                                                <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
-                                            </div>
-                                            <div class="col col-md-6 mt-2">
-                                                <a asp-controller="Profiles" asp-action="EditProfileImage" class="btn btn-outline-info">Edit image</a>
-                                            </div>
+                            <div class="container-fluid">
 
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-6 mt-2">
-                                                <a asp-controller="ExerciseDiary" asp-action="Monday" class="btn btn-outline-info">My exercise diary</a>
-                                            </div>
-                                            <div class="col-md-6 mt-2">
-                                                <a asp-controller="Foods" asp-action="FoodDiary" class="btn btn-outline-info">My food diary</a>
-                                            </div>
-                                        </div>
+                                <div class="row mt-2">
+                                    <div class="col col-md-6 mt-1">
+                                        <a asp-controller="Users" asp-action="Followees" class="btn btn-outline-info">Following</a>
                                     </div>
+                                    <div class="col col-md-6 mt-1">
+                                        <a asp-controller="Users" asp-action="Followers" class="btn btn-outline-info">Followers</a>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col col-md-6 mt-1">
+                                        <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
+                                    </div>
+                                    <div class="col col-md-6 mt-1">
+                                        <a asp-controller="Profiles" asp-action="EditProfileImage" class="btn btn-outline-info">Edit image</a>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-md-6 mt-1">
+                                        <a asp-controller="ExerciseDiary" asp-action="Monday" class="btn btn-outline-info">My exercise diary</a>
+                                    </div>
+                                    <div class="col-md-6 mt-1">
+                                        <a asp-controller="Foods" asp-action="FoodDiary" class="btn btn-outline-info">My food diary</a>
+                                    </div>
+                                </div>
+
+                            </div>
                                 }
                                 @if (userId != Model.UserId)
                                 {
@@ -99,7 +110,7 @@
                 </div>
             </div>
 
-            <div class="col-md-7">
+            <div class="col-lg-7 col-xl-7 col-md-7 col-sm-12 col-12">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="row">
