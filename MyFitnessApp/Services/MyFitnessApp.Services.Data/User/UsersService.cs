@@ -50,28 +50,6 @@
             return userName;
         }
 
-        public FoundUserViewModel SearchUserByUserName(string userName)
-        {
-            var user = this.usersRepository
-                .All()
-                .Where(x => x.UserName == userName)
-                .To<FoundUserViewModel>()
-                 .FirstOrDefault();
-
-            return user;
-        }
-
-        public FoundUserViewModel SearchUserByEmail(string email)
-        {
-            var user = this.usersRepository
-                .All()
-                .Where(x => x.Email == email)
-                .To<FoundUserViewModel>()
-                .FirstOrDefault();
-
-            return user;
-        }
-
         public int GetCounts()
         {
             var totalUsersCount = this.usersRepository

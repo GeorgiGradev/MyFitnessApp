@@ -1,6 +1,6 @@
-﻿namespace MyFitnessApp.Web.ViewModels.Users
+﻿namespace MyFitnessApp.Web.ViewModels.Search
 {
-    public class SearchUserInputModel
+    public class UserInputModel
     {
         public string UserName { get; set; }
 

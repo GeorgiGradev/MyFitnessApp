@@ -1,9 +1,6 @@
-﻿namespace MyFitnessApp.Web.ViewModels.Users
+﻿namespace MyFitnessApp.Web.ViewModels.Search
 {
-    using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Services.Mapping;
-
-    public class FoundUserViewModel : IMapFrom<ApplicationUser>
+    public class UserViewModel
     {
         public string Id { get; set; }
 

@@ -11,5 +11,9 @@
         IEnumerable<ArticleViewModel> SearchArticleByKeyword(string keyword);
 
         IEnumerable<ExerciseViewModel> SearchExerciseByKeyword(string keyword);
+
+        IEnumerable<UserViewModel> SearchUserByUsername(string username);
+
+        IEnumerable<UserViewModel> SearchUserByEmail(string email);
     }
 }

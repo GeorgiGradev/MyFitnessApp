@@ -1,7 +1,7 @@
-﻿@model MyFitnessApp.Web.ViewModels.Users.FoundUserViewModel
+﻿@model MyFitnessApp.Web.ViewModels.Search.AllUsersViewModel
 
 @{
-    this.ViewData["Title"] = $"Found user: {Model.UserName}";
+    this.ViewData["Title"] = $"Found users";
 }
 
 <!-- Breadcrumb -->
@@ -15,30 +15,24 @@
 <!-- /Breadcrumb -->
 
 <div class="container-fluid">
-    @if (Model == null)
+    @foreach (var user in Model.Users)
     {
-        <h4 class="text-center">
-            There was no user found with the given username or email.
-        </h4>
-    }
-    @if (Model != null)
-    {
-        <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@Model.UserName">
+        <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@user.UserName">
             <div class="card-header col-md-8 offset-2 border border-dark mt-2">
                 <div class="media flex-wrap w-100 align-items-center">
-                    <img src="@Model.UserProfileImage" class="class=" rounded-circle" width="150" alt="">
+                    <img src="@user.UserProfileImage" class="class=" rounded-circle" width="150" alt="">
                     <div class="media-body ml-3">
                         <div class="text-muted small">
-                            <strong>Username:</strong> @Model.UserName
+                            <strong>Username:</strong> @user.UserName
                         </div>
                         <div class="text-muted small">
-                            <strong>First name:</strong> @Model.FirstName
+                            <strong>First name:</strong> @user.FirstName
                         </div>
                         <div class="text-muted small">
-                            <strong>Last name:</strong> @Model.LastName
+                            <strong>Last name:</strong> @user.LastName
                         </div>
                         <div class="text-muted small">
-                            <strong>E-mail:</strong> @Model.Email
+                            <strong>E-mail:</strong> @user.Email
                         </div>
                     </div>
                 </div>
@@ -46,6 +40,6 @@
         </a>
     }
     <div class="text-center">
-        <a asp-controller="Users" asp-action="Search" class="btn btn-primary btn-outline-light m-2">Search again</a>
+        <a asp-controller="Search" asp-action="SearchUser" class="btn btn-primary btn-outline-light m-2">Search again</a>
     </div>
 </div>

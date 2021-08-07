@@ -5,6 +5,7 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
+    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Web.ViewModels.Search;
 
     public class SearchService : ISearchService
@@ -12,15 +13,21 @@
         private readonly IDeletableEntityRepository<Food> foodsRepository;
         private readonly IDeletableEntityRepository<Article> articlesRepository;
         private readonly IDeletableEntityRepository<Exercise> exercisesRepository;
+        private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
+        private readonly IProfilesService profilesService;
 
         public SearchService(
             IDeletableEntityRepository<Food> foodsRepository,
             IDeletableEntityRepository<Article> articlesRepository,
-            IDeletableEntityRepository<Exercise> exercisesRepository)
+            IDeletableEntityRepository<Exercise> exercisesRepository,
+            IDeletableEntityRepository<ApplicationUser> usersRepository,
+            IProfilesService profilesService)
         {
             this.foodsRepository = foodsRepository;
             this.articlesRepository = articlesRepository;
             this.exercisesRepository = exercisesRepository;
+            this.usersRepository = usersRepository;
+            this.profilesService = profilesService;
         }
 
         public IEnumerable<FoodViewModel> SearchFoodByKeyword(string keyword)
@@ -85,6 +92,44 @@
             .ToList();
 
             return exercises;
+        }
+
+        public IEnumerable<UserViewModel> SearchUserByUsername(string username)
+        {
+            var users = this.usersRepository
+                .All()
+                .Where(x => x.UserName.Contains(username) && x.Profile != null)
+                .Select(x => new UserViewModel
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    UserName = x.UserName,
+                    UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.Id) + "." + "jpg",
+                })
+                .ToList();
+
+            return users;
+        }
+
+        public IEnumerable<UserViewModel> SearchUserByEmail(string email)
+        {
+            var users = this.usersRepository
+                .All()
+                .Where(x => x.Email.Contains(email) && x.Profile != null)
+                .Select(x => new UserViewModel
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    UserName = x.UserName,
+                    UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.Id) + "." + "jpg",
+                })
+                .ToList();
+
+            return users;
         }
     }
 }

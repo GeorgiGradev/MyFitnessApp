@@ -94,5 +94,57 @@
                 return this.View();
             }
         }
+
+        [HttpGet]
+        public IActionResult SearchUser()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public IActionResult SearchUser(UserInputModel model)
+        {
+            if (model.UserName != null)
+            {
+                var username = model.UserName;
+                var users = this.searchService.SearchUserByUsername(username);
+
+                if (users.Count() == 0)
+                {
+                    this.TempData["Message"] = "There was no user found with the given username.";
+                    return this.View();
+                }
+
+                var viewModel = new AllUsersViewModel()
+                {
+                    Users = users,
+                };
+
+                return this.View("FoundUser", viewModel);
+            }
+            else if (model.Email != null)
+            {
+                if (model.Email != null)
+                {
+                    var email = model.Email;
+                    var users = this.searchService.SearchUserByEmail(email);
+
+                    if (users.Count() == 0)
+                    {
+                        this.TempData["Message"] = "There was no user found with the given email.";
+                        return this.View();
+                    }
+
+                    var viewModel = new AllUsersViewModel()
+                    {
+                        Users = users,
+                    };
+
+                    return this.View("FoundUser", viewModel);
+                }
+            }
+
+            return this.View();
+        }
     }
 }
