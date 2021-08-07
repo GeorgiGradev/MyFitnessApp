@@ -8,11 +8,11 @@
 
     public interface IUsersService
     {
-        string GetUserNameById(string userId);
+        string GetUserNameById(string userId); // => tested  //
 
-        string GetUserEmailbyId(string userId);
+        string GetUserEmailbyId(string userId); // => tested  //
 
-        int GetCounts();
+        int GetCounts(); // => tested  //
 
         // for administration area only
         IEnumerable<GetAllUsersViewModel> GetAll();
