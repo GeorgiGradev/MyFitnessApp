@@ -47,7 +47,6 @@
             var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
             var result = service.GetUserNameById("x123");
             Assert.Equal("vankata", result);
-
         }
 
         [Fact]
@@ -109,6 +108,97 @@
             var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
             var result = service.GetCounts();
             Assert.Equal(2, result);
+        }
+
+        [Fact]
+        public void IsUserBannedShouldReturnCorrectResult()
+        {
+            var users = new List<ApplicationUser>
+            {
+                new ApplicationUser
+                {
+                Id = "x123",
+                UserName = "vankata",
+                Email = "ivan@ivan.bb",
+                FirstName = "Ivan",
+                LastName = "Ivanov",
+                Profile = new Profile(),
+                IsBanned = true,
+                },
+            };
+
+            this.usersRepository
+                .Setup(x => x.All())
+                .Returns(users
+               .AsQueryable());
+
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var result = service.IsUserBanned("x123");
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void IsUserFolloweeShouldReturnCorrectResult()
+        {
+            var user1 = new ApplicationUser
+            {
+                Id = "x123",
+                UserName = "vankata",
+                Email = "ivan@ivan.bb",
+                FirstName = "Ivan",
+                LastName = "Ivanov",
+                Profile = new Profile(),
+                Followees = new List<FollowerFollowee>
+                {
+                     new FollowerFollowee
+                     {
+                         Id = 1,
+                         FollowerId = "x123",
+                         FolloweeId = "y123",
+                     },
+                },
+            };
+
+            var user2 = new ApplicationUser
+            {
+                Id = "y123",
+                UserName = "petkata",
+                Email = "petar@petar.bb",
+                FirstName = "Petar",
+                LastName = "Petrov",
+                Profile = new Profile(),
+            };
+
+            var users = new List<ApplicationUser>
+            {
+                user1,
+                user2,
+            };
+
+            var followerFollowee1 = new FollowerFollowee
+            {
+                Id = 1,
+                FolloweeId = "y123",
+                FollowerId = "x123",
+            };
+
+            var followerFollowees = new List<FollowerFollowee>
+            {
+                followerFollowee1,
+            };
+
+            this.usersRepository
+                .Setup(x => x.All())
+                .Returns(users
+                .AsQueryable());
+
+            this.followerFolloweesRepository
+                .Setup(x => x.All())
+                .Returns(followerFollowees
+                .AsQueryable());
+
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            Assert.True(service.IsFollowee("x123", "y123"));
         }
     }
 }
