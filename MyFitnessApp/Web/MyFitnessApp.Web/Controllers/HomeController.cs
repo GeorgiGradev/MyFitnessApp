@@ -24,13 +24,11 @@
             return this.View();
         }
 
-
         [HttpGet]
         public IActionResult Terms()
         {
             return this.View();
         }
-
 
         [HttpGet]
         public IActionResult CommunityGuidelines()

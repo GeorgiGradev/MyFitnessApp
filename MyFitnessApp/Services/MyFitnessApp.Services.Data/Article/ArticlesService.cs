@@ -13,7 +13,7 @@
     // IDeletableEntityRepository<Article>
     public class ArticlesService : IArticlesService
     {
-        private readonly string[] allowedExtensions = new[] { "jpg"}; // позволени разширения
+        private readonly string[] allowedExtensions = new[] { "jpg" }; // позволени разширения
         private readonly IDeletableEntityRepository<ArticleCategory> articleCategoryRepository;
         private readonly IDeletableEntityRepository<Article> articleRepository;
 

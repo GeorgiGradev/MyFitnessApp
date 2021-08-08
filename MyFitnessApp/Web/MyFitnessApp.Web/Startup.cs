@@ -27,7 +27,6 @@
     using MyFitnessApp.Services.Data.Post;
     using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Data.Search;
-    using MyFitnessApp.Services.Data.Training;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Services.Messaging;
@@ -86,15 +85,13 @@
             // Application services
             services.AddTransient<IArticlesService, ArticlesService>();
             services.AddTransient<ICommentsService, CommentsService>();
-            services.AddTransient<IPostsService, PostsService>();
-            services.AddTransient<IForumsService, ForumsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
-            services.AddTransient<IProfilesService, ProfilesService>();
-            services.AddTransient<ITrainingsService, TrainingsService>();
-            services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IFoodsService, FoodsService>();
+            services.AddTransient<IForumsService, ForumsService>();
+            services.AddTransient<IPostsService, PostsService>();
             services.AddTransient<IProfilesService, ProfilesService>();
             services.AddTransient<ISearchService, SearchService>();
+            services.AddTransient<IUsersService, UsersService>();
 
             // Filters
             services.AddScoped<RestrictBannedUsersAttribute>();

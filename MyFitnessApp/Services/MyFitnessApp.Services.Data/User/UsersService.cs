@@ -8,7 +8,6 @@
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Services.Data.Profile;
-    using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Administration.Users;
     using MyFitnessApp.Web.ViewModels.Users;
 
@@ -66,14 +65,14 @@
                 .All()
                 .Where(x => x.Profile != null && x.UserName != "admin")
                 .OrderBy(x => x.FirstName)
-                .ThenBy(x => x.LastName) 
+                .ThenBy(x => x.LastName)
                 .Select(x => new GetAllUsersViewModel
                 {
                      FirstName = x.FirstName,
                      LastName = x.LastName,
                      Email = x.Email,
                      Username = x.UserName,
-                     CreatedOn =x.CreatedOn,
+                     CreatedOn = x.CreatedOn,
                      Id = x.Id,
                      IsBanned = x.IsBanned,
                      BannedOn = x.BannedOn,
