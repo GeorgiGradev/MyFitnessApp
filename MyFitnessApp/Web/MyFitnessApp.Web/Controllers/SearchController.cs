@@ -30,7 +30,7 @@
         public IActionResult SearchFood(FoodInputModel model)
         {
             var foods = this.searchService.SearchFoodByKeyword(model.Keyword);
-            if (foods.Count() != 0)
+            if (foods.Any())
             {
                 var viewModel = new AllFoodsViewModel
                 {
@@ -55,7 +55,7 @@
         public IActionResult SearchArticle(ArticleInputModel model)
         {
             var articles = this.searchService.SearchArticleByKeyword(model.Keyword);
-            if (articles.Count() != 0)
+            if (articles.Any())
             {
                 var viewModel = new AllArticlesViewModel
                 {
@@ -80,7 +80,7 @@
         public IActionResult SearchExercise(ExerciseInputModel model)
         {
             var exercises = this.searchService.SearchExerciseByKeyword(model.Keyword);
-            if (exercises.Count() != 0)
+            if (exercises.Any())
             {
                 var viewModel = new AllExercisesViewModel
                 {
@@ -109,18 +109,19 @@
                 var username = model.UserName;
                 var users = this.searchService.SearchUserByUsername(username);
 
-                if (users.Count() == 0)
+                if (users.Any())
+                {
+                    var viewModel = new AllUsersViewModel()
+                    {
+                        Users = users,
+                    };
+                    return this.View("FoundUser", viewModel);
+                }
+                else
                 {
                     this.TempData["Message"] = "There was no user found with the given username.";
                     return this.View();
                 }
-
-                var viewModel = new AllUsersViewModel()
-                {
-                    Users = users,
-                };
-
-                return this.View("FoundUser", viewModel);
             }
             else if (model.Email != null)
             {
@@ -129,18 +130,19 @@
                     var email = model.Email;
                     var users = this.searchService.SearchUserByEmail(email);
 
-                    if (users.Count() == 0)
+                    if (users.Any())
+                    {
+                        var viewModel = new AllUsersViewModel()
+                        {
+                            Users = users,
+                        };
+                        return this.View("FoundUser", viewModel);
+                    }
+                    else
                     {
                         this.TempData["Message"] = "There was no user found with the given email.";
                         return this.View();
                     }
-
-                    var viewModel = new AllUsersViewModel()
-                    {
-                        Users = users,
-                    };
-
-                    return this.View("FoundUser", viewModel);
                 }
             }
 

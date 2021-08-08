@@ -433,7 +433,7 @@
 
             await service.Follow(user1.Id, user2.Id);
 
-            var result = user1.Followers.Count();
+            var result = user1.Followers.Count;
 
             Assert.Equal(1, result);
         }
@@ -487,7 +487,7 @@
 
             await service.Unfollow(user1.Id, user2.Id);
 
-            var result = user1.Followers.Count();
+            var result = user1.Followers.Count;
 
             Assert.Equal(0, result);
         }

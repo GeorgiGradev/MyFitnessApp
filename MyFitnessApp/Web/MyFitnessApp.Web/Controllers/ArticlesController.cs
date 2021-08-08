@@ -29,8 +29,10 @@
         [HttpGet]
         public IActionResult Create()
         {
-            var viewModel = new CreateArticleInputModel();
-            viewModel.Categories = this.articlesService.GetArticleCategories();
+            var viewModel = new CreateArticleInputModel
+            {
+                Categories = this.articlesService.GetArticleCategories(),
+            };
 
             return this.View(viewModel);
         }

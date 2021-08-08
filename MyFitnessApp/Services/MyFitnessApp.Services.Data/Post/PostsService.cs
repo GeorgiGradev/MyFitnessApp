@@ -16,20 +16,17 @@
     {
         private readonly IDeletableEntityRepository<ForumCategory> forumCategoryRepository;
         private readonly IDeletableEntityRepository<Post> postRepository;
-        private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
         private readonly IProfilesService profilesService;
         private readonly ICommentsService commentsService;
 
         public PostsService(
             IDeletableEntityRepository<ForumCategory> forumCategoryRepository,
             IDeletableEntityRepository<Post> postRepository,
-            IDeletableEntityRepository<ApplicationUser> userRepository,
             IProfilesService profilesService,
             ICommentsService commentsService)
         {
             this.forumCategoryRepository = forumCategoryRepository;
             this.postRepository = postRepository;
-            this.userRepository = userRepository;
             this.profilesService = profilesService;
             this.commentsService = commentsService;
         }
