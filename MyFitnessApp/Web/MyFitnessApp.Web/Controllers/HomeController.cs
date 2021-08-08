@@ -3,7 +3,6 @@
     using System.Diagnostics;
 
     using Microsoft.AspNetCore.Mvc;
-    using MyFitnessApp.Web.Filters;
     using MyFitnessApp.Web.ViewModels;
     using MyFitnessApp.Web.ViewModels.Home;
 
