@@ -7,7 +7,6 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Foods;
 
     public class FoodsService : IFoodsService
@@ -15,18 +14,15 @@
         private readonly IDeletableEntityRepository<Food> foodsRepository;
         private readonly IDeletableEntityRepository<FoodMeal> foodMealsRepository;
         private readonly IDeletableEntityRepository<Meal> mealsRepository;
-        private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
 
         public FoodsService(
             IDeletableEntityRepository<Food> foodsRepository,
             IDeletableEntityRepository<FoodMeal> foodMealsRepository,
-            IDeletableEntityRepository<Meal> mealsRepository,
-            IDeletableEntityRepository<ApplicationUser> usersRepository)
+            IDeletableEntityRepository<Meal> mealsRepository)
         {
             this.foodsRepository = foodsRepository;
             this.foodMealsRepository = foodMealsRepository;
             this.mealsRepository = mealsRepository;
-            this.usersRepository = usersRepository;
         }
 
         public async Task CreateFoodAsync(CreateFoodInputModel model, string userId)

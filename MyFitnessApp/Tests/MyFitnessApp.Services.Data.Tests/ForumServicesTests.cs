@@ -1,5 +1,7 @@
 ﻿namespace MyFitnessApp.Services.Data.Tests
 {
+    using System.Linq;
+
     using Moq;
     using MyFitnessApp.Data;
     using MyFitnessApp.Data.Common.Repositories;
@@ -8,9 +10,6 @@
     using MyFitnessApp.Services.Data.Forum;
     using MyFitnessApp.Services.Mapping;
     using MyFitnessApp.Web.ViewModels.Articles;
-
-    using System.Linq;
-
     using Xunit;
 
     public class ForumServicesTests : BaseServiceTests
