@@ -10,8 +10,10 @@
     using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Web.ViewModels.Foods;
     using MyFitnessApp.Web.ViewModels.Profiles;
+
     using System.Linq;
     using System.Threading.Tasks;
+
     using Xunit;
 
     public class ProfilesServiceTests : BaseServiceTests
