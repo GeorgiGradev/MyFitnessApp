@@ -15,21 +15,19 @@
     public class PostsController : Controller
     {
         private readonly IPostsService postsService;
-        private readonly IForumsService forumsService;
 
-        public PostsController(
-            IPostsService postsService,
-            IForumsService forumsService)
+        public PostsController(IPostsService postsService)
         {
             this.postsService = postsService;
-            this.forumsService = forumsService;
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            var viewModel = new CreatePostInputModel();
-            viewModel.Categories = this.postsService.GetForumCategories();
+            var viewModel = new CreatePostInputModel
+            {
+                Categories = this.postsService.GetForumCategories(),
+            };
 
             return this.View(viewModel);
         }
@@ -44,10 +42,8 @@
             }
 
             var userId = this.User.GetId();
-            var categoryName = this.forumsService.GetCategoryNameById(model.CategoryId);
             var postId = await this.postsService.CreatePostAsync(model, userId);
 
-            // return this.Redirect($"/ForumCategories/ByName/{categoryName.Replace(" ", "-")}");
             this.TempData["Message"] = "Post created successfully.";
 
             return this.RedirectToAction("ById", new { id = postId });
