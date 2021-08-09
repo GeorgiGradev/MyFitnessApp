@@ -10,7 +10,7 @@ TBA......
 
 ## :pencil2: Functionality Overview
 - **Initial seeding** of:
-   * Ready to use administrator (username: **Admin** & password: **123456**) and common user (username: **User** & password: **123456**).
+   * Ready to use administrator (username: **Admin** / password: **123456**) and common user (username: **User** / password: **123456**).
    * User roles
    * Exercises, exercise categories and exercise equipment
    * Articles and article categories
@@ -31,10 +31,11 @@ TBA......
 - **MSSQL Server**
 - **Bootstrap**
 - **AutoMapper**
-- **nUnit Tests**
-- **Repository Pattern**
-- **Dependency Injection**
+- **xUnit**
+- **Moq**
 - **SendGrid**
+- using of **Repository Pattern**
+- using of **Dependency Injection**
 
 ## :wrench: Database Diagram
 ![Diagram](https://user-images.githubusercontent.com/72765831/128600927-d6c5043c-48e5-43f4-9d87-be343908f97e.jpg)
