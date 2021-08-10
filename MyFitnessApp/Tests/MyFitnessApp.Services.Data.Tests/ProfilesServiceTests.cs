@@ -1,6 +1,7 @@
 ﻿namespace MyFitnessApp.Services.Data.Tests
 {
-    using Microsoft.AspNetCore.Http;
+    using System.Threading.Tasks;
+
     using Moq;
     using MyFitnessApp.Data;
     using MyFitnessApp.Data.Common.Repositories;
@@ -8,11 +9,7 @@
     using MyFitnessApp.Data.Repositories;
     using MyFitnessApp.Services.Data.Food;
     using MyFitnessApp.Services.Data.Profile;
-    using MyFitnessApp.Web.ViewModels.Foods;
     using MyFitnessApp.Web.ViewModels.Profiles;
-
-    using System.Linq;
-    using System.Threading.Tasks;
 
     using Xunit;
 
@@ -286,24 +283,15 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
 //[Fact]
-//public void GetProfileDataShouldReturnCorrectResult()
+//public async Task GetProfileDataShouldReturnCorrectResult()
 //{
 //    ApplicationDbContext db = GetDb();
 
 //    var profilesRepository = new EfDeletableEntityRepository<Profile>(db);
 //    var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
 
-//    var service = new ProfilesService(profilesRepository, usersRepository, this.foodsService.Object);
+//    var service = new ProfilesService(profilesRepository, usersRepository, this.foodsService1);
 
 //    var user = new ApplicationUser
 //    {
@@ -313,10 +301,10 @@
 //        FirstName = "Ivan",
 //        LastName = "Ivanov",
 //        Profile = null,
+//        CreatedOn = DateTime.UtcNow,
 //    };
-
-//    db.Users.Add(user);
-//    db.SaveChanges();
+//    await db.Users.AddAsync(user);
+//    await db.SaveChangesAsync();
 
 //    var profile = new Profile
 //    {
@@ -337,43 +325,43 @@
 //        MyInspirations = "To be healhty",
 //        WhyGetInShape = "To be the best looking girl",
 //    };
-
-//    db.Profiles.Add(profile);
-//    db.SaveChanges();
+//    await db.Profiles.AddAsync(profile);
+//    await db.SaveChangesAsync();
 
 //    var food = new Food
 //    {
 //        Id = 1,
-//        Name = "Pork Fillet Grilled",
-//        ProteinIn100Grams = 21,
-//        CarbohydratesIn100Grams = 0,
-//        FatIn100Grams = 8,
+//        Name = "Chicken legs",
+//        ProteinIn100Grams = 14,
+//        CarbohydratesIn100Grams = 5,
+//        FatIn100Grams = 17,
 //        AddedByUserId = user.Id,
 //    };
-
-//    db.Foods.Add(food);
-//    db.SaveChanges();
+//    await db.Foods.AddAsync(food);
+//    await db.SaveChangesAsync();
 
 //    var meal = new Meal
 //    {
 //        Id = 1,
-//        Name = MealName.Breakfast,
 //        AddedByUserId = user.Id,
+//        Name = MealName.Breakfast,
 //    };
-
-//    db.Meals.Add(meal);
-//    db.SaveChanges();
+//    await db.Meals.AddAsync(meal);
+//    await db.SaveChangesAsync();
 
 //    var foodMeal = new FoodMeal
 //    {
 //        Id = 1,
-//        FoodId = food.Id,
-//        MealId = meal.Id,
+//        FoodId = 1,
+//        MealId = 1,
 //        ServingSizeInGrams = 100,
 //    };
+//    await db.FoodMeals.AddAsync(foodMeal);
+//    await db.SaveChangesAsync();
 
-//    db.FoodMeals.Add(foodMeal);
-//    db.SaveChanges();
+//    var foodDiaryResult = db.FoodMeals
+//        .Where(x => x.Food.Name == food.Name && x.Meal.Name == meal.Name)
+//        .FirstOrDefault();
 
 //    var result = service.GetProfileData(user.Id);
 //}
