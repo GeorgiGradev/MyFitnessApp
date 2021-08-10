@@ -1,6 +1,5 @@
 ﻿namespace MyFitnessApp.Services.Data.Comment
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -36,11 +35,11 @@
             await this.commentRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteCommentAsync(int postId)
+        public async Task DeleteCommentAsync(int commentId)
         {
             var comment = this.commentRepository
                 .All()
-                .Where(x => x.Id == postId)
+                .Where(x => x.Id == commentId)
                 .FirstOrDefault();
 
             this.commentRepository.Delete(comment);
