@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Moq;
     using MyFitnessApp.Data;
     using MyFitnessApp.Data.Common.Repositories;
@@ -342,8 +343,6 @@
 
             var service = new ExercisesService(exerciseCategoryRepository, exerciseEquipmentRepository, exerciseRepository, userExerciseRepository);
 
-            AutoMapperConfig.RegisterMappings(typeof(ExerciseViewModel).Assembly, typeof(Exercise).Assembly);
-
             var user = new ApplicationUser
             {
                 Id = "x123",
@@ -415,8 +414,6 @@
             var userExerciseRepository = new EfDeletableEntityRepository<UserExercise>(db);
 
             var service = new ExercisesService(exerciseCategoryRepository, exerciseEquipmentRepository, exerciseRepository, userExerciseRepository);
-
-            AutoMapperConfig.RegisterMappings(typeof(ExerciseViewModel).Assembly, typeof(Exercise).Assembly);
 
             var user = new ApplicationUser
             {
@@ -491,8 +488,6 @@
             var userExerciseRepository = new EfDeletableEntityRepository<UserExercise>(db);
 
             var service = new ExercisesService(exerciseCategoryRepository, exerciseEquipmentRepository, exerciseRepository, userExerciseRepository);
-
-            AutoMapperConfig.RegisterMappings(typeof(ExerciseViewModel).Assembly, typeof(Exercise).Assembly);
 
             var user1 = new ApplicationUser
             {
@@ -665,8 +660,6 @@
             var userExerciseRepository = new EfDeletableEntityRepository<UserExercise>(db);
 
             var service = new ExercisesService(exerciseCategoryRepository, exerciseEquipmentRepository, exerciseRepository, userExerciseRepository);
-
-            AutoMapperConfig.RegisterMappings(typeof(ExerciseViewModel).Assembly, typeof(Exercise).Assembly);
 
             var user1 = new ApplicationUser
             {
