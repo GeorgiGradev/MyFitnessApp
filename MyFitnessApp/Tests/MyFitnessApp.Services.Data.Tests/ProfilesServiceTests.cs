@@ -283,17 +283,17 @@
     }
 }
 
-//[Fact]
-//public async Task GetProfileDataShouldReturnCorrectResult()
-//{
+// [Fact]
+// public async Task GetProfileDataShouldReturnCorrectResult()
+// {
 //    ApplicationDbContext db = GetDb();
 
-//    var profilesRepository = new EfDeletableEntityRepository<Profile>(db);
+// var profilesRepository = new EfDeletableEntityRepository<Profile>(db);
 //    var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
 
-//    var service = new ProfilesService(profilesRepository, usersRepository, this.foodsService1);
+// var service = new ProfilesService(profilesRepository, usersRepository, this.foodsService1);
 
-//    var user = new ApplicationUser
+// var user = new ApplicationUser
 //    {
 //        Id = "x123",
 //        UserName = "vankata",
@@ -306,7 +306,7 @@
 //    await db.Users.AddAsync(user);
 //    await db.SaveChangesAsync();
 
-//    var profile = new Profile
+// var profile = new Profile
 //    {
 //        Gender = Gender.Female,
 //        ActivityLevel = ActivityLevel.Active,
@@ -328,7 +328,7 @@
 //    await db.Profiles.AddAsync(profile);
 //    await db.SaveChangesAsync();
 
-//    var food = new Food
+// var food = new Food
 //    {
 //        Id = 1,
 //        Name = "Chicken legs",
@@ -340,7 +340,7 @@
 //    await db.Foods.AddAsync(food);
 //    await db.SaveChangesAsync();
 
-//    var meal = new Meal
+// var meal = new Meal
 //    {
 //        Id = 1,
 //        AddedByUserId = user.Id,
@@ -349,7 +349,7 @@
 //    await db.Meals.AddAsync(meal);
 //    await db.SaveChangesAsync();
 
-//    var foodMeal = new FoodMeal
+// var foodMeal = new FoodMeal
 //    {
 //        Id = 1,
 //        FoodId = 1,
@@ -359,12 +359,12 @@
 //    await db.FoodMeals.AddAsync(foodMeal);
 //    await db.SaveChangesAsync();
 
-//    var foodDiaryResult = db.FoodMeals
+// var foodDiaryResult = db.FoodMeals
 //        .Where(x => x.Food.Name == food.Name && x.Meal.Name == meal.Name)
 //        .FirstOrDefault();
 
-//    var result = service.GetProfileData(user.Id);
-//}
+// var result = service.GetProfileData(user.Id);
+// }
 
 
 
