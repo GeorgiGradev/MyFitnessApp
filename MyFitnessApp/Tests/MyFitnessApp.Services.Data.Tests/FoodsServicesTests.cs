@@ -303,7 +303,6 @@
             var mealsRepository = new EfDeletableEntityRepository<Meal>(db);
             var service = new FoodsService(foodsRepository, foodMealsRepository, mealsRepository);
 
-
             var user = new ApplicationUser
             {
                 Id = "x123",
