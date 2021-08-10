@@ -103,12 +103,6 @@
             return viewModel;
         }
 
-        // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
-        public int GetAllExercisesCount()
-        {
-            return this.exerciseRepository.All().Count();
-        }
-
         public AddExerciseInputModel GetExerciseById(int id)
         {
             var viewModel = this.exerciseRepository
