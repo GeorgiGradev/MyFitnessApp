@@ -66,7 +66,6 @@
                 .Returns(categories
                .AsQueryable());
 
-
             var service = new ExercisesService(this.exerciseCategoryRepository.Object, this.exerciseEquipmentRepository.Object, this.exerciseRepository.Object, this.userExerciseRepository.Object);
 
             var result = service.GetExerciseCategories();
@@ -157,7 +156,6 @@
                 .Setup(x => x.All())
                 .Returns(equipments
                .AsQueryable());
-
 
             var service = new ExercisesService(this.exerciseCategoryRepository.Object, this.exerciseEquipmentRepository.Object, this.exerciseRepository.Object, this.userExerciseRepository.Object);
 
@@ -469,7 +467,6 @@
                 VideoUrl = "https://www.youtube.com/watch?v=jv31A4Ab4nA",
             };
             await service.CreateExcerciseAsync(inputModel2, user.Id);
-
 
             var result = service.GetExerciseById(1);
 

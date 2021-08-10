@@ -238,7 +238,6 @@
 
             await service.CreateCommentAsync(inputModel2, user2.Id, post.Id);
 
-
             service.GetAllPostComments(post.Id);
 
             var resultAfterAddingofComments = db.Posts.SelectMany(x => x.Comments).Count();

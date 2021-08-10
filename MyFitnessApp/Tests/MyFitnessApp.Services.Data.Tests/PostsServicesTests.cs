@@ -161,7 +161,6 @@
                 AddedByUserId = "x123",
             };
 
-
             await db.Posts.AddAsync(post1);
             await db.Posts.AddAsync(post2);
             await db.SaveChangesAsync();

@@ -87,7 +87,6 @@
         public const int FoodQuantityInGramsMinValue = 1;
         public const int FoodQuantityInGramsMaxValue = 5000;
 
-
         // Post Model
         public const int PostTitleMinLength = 1;
         public const int PostTitleMaxLength = 50;
