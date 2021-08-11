@@ -5,6 +5,7 @@
 
 
 ## 📝 Project Overview
+
 - **Initial seeding of:**
    * User roles
    * Exercises, exercise categories and exercise equipment
@@ -17,19 +18,24 @@
 
 ## :hammer: Built with:
 - **Visual Studio Enterprise 2019**
-- **StyleCop**
-- **ASP.NET 5.0 MVC**
-- **ASP.NET Areas**
-- **MSSQL Server**
-- **Bootstrap**
-- **AutoMapper**
-- **xUnit Tests**
-- **Moq Tests**
-- **InMemoryDatabase Tests**
-- **SendGrid**
+
+* [.NET 5.0](https://github.com/dotnet/core)
+* [ASP.NET 5.0](https://github.com/dotnet/aspnetcore)
+* [Visual Studio 2019](https://shop.bodybuilding.com/)
+* [Entity Framework Core 5.0](https://github.com/dotnet/efcore)
+* [Sql Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+* [SendGrid](https://github.com/sendgrid)
+* [AutoMapper](https://github.com/AutoMapper/AutoMapper)
+* [Bootstrap](https://github.com/twbs/bootstrap)
+* [Font Awesome](https://fontawesome.com/)
+* [xUnit](https://github.com/xunit/xunit)
+* [Moq](https://github.com/moq/moq)
+
 
 ## :pencil2: Code quality 
 - **Using of**
+   * **ASP.NET Areas**
+   * **StyleCop**
    * **Repository Pattern**
    * **Dependency Injection**
    * **IFormFle** for uploading images as well as option for adding image and video as a link
