@@ -21,7 +21,7 @@
 
 * [.NET 5.0](https://github.com/dotnet/core)
 * [ASP.NET 5.0](https://github.com/dotnet/aspnetcore)
-* [Visual Studio 2019](https://shop.bodybuilding.com/)
+* [Visual Studio 2019](https://github.com/github/VisualStudio)
 * [Entity Framework Core 5.0](https://github.com/dotnet/efcore)
 * [Sql Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 * [SendGrid](https://github.com/sendgrid)
