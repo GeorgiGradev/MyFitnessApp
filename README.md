@@ -13,9 +13,15 @@
 -	Users can follow and unfollow another users. They can also send Emails to another users thanks to the integrated SendGrid client.
 -	The administrator has a special Admin Area from where he/she can create, update, delete and see details about users, foods, exercises, articles and forum posts. The administrator can ban and unban users. A banned user cannot access the full functionallity of the application.
 -	The application has preloaded (seeded) user roles, users (Admin and User), foods, exercises, exercise categories, exercise equipment, articles, article categories and forum categories.
-- If you would like to test the application you can log-in with the already existing (seeded) profiles:
-   * Administrator with username **admin** and password **123456**
-   * Common user with username  **user** and password **123456**
+- If you would like to test the application you can log-in with the already existing (seeded) profiles.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**Test Accounts**:
+
+&nbsp;&nbsp;&nbsp;&nbsp;Username: **admin**  
+&nbsp;&nbsp;&nbsp;&nbsp;Password: **123456**  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Username: **user**  
+&nbsp;&nbsp;&nbsp;&nbsp;Password: **123456** 
 <br/><br/>
 
 ## :hammer: Built with:
@@ -48,6 +54,10 @@
 ![Diagram](https://user-images.githubusercontent.com/72765831/128600927-d6c5043c-48e5-43f4-9d87-be343908f97e.jpg)
 <br/><br/>
 
+## ✔️Tests Code Coverage
+![AppTests](https://user-images.githubusercontent.com/72765831/129061067-66fc4090-32d7-4fa2-a457-0b268c7007b4.png)
+<br/><br/>
+
 ## 📸 Project screenshots
 <kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/1.IndexPage.PNG" /></kbd>
 <br/><br/>
@@ -77,3 +87,12 @@
    * [Nikolay Kostov](https://github.com/NikolayIT)
    * [Vladislav Karamfilov](https://github.com/vladislav-karamfilov)
    * [Stoyan Shopov](https://github.com/StoyanShopov)
+<br/><br/>
+
+## :v: Leave a feedback
+Give a :star: if you like it.
+Thank you ❤️
+<br/><br/>
+
+## 📖 License
+See the [LICENSE](https://github.com/GeorgiGradev/MyFitnessApp/blob/main/LICENSE) file for details
