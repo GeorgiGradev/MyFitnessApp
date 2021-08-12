@@ -10,10 +10,9 @@
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Web.ViewModels.Articles;
 
-    // IDeletableEntityRepository<Article>
     public class ArticlesService : IArticlesService
     {
-        private readonly string[] allowedExtensions = new[] { "jpg" }; // позволени разширения
+        private readonly string[] allowedExtensions = new[] { "jpg" }; 
         private readonly IDeletableEntityRepository<ArticleCategory> articleCategoryRepository;
         private readonly IDeletableEntityRepository<Article> articleRepository;
 
@@ -68,8 +67,6 @@
 
             article.ImageUrl = physicalPath;
             await this.articleRepository.SaveChangesAsync();
-
-            // записваме картинката като комбинация от Id на Article и extension (123.jpeg)
         }
 
         public IEnumerable<ArticleViewModel> GetAllArticles(int pageNumber, int itemsPerPage)
@@ -123,7 +120,7 @@
             var viewModel = this.articleRepository
                     .All()
                     .Where(x => x.CategoryId == categoryId)
-                    .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
+                    .OrderByDescending(x => x.Id)
                     .Select(x => new ArticleViewModel
                     {
                         Id = x.Id,

@@ -14,11 +14,11 @@
 
         public string Description { get; set; }
 
-        public int EquipmentId { get; set; } // Необходимо е, за да се подаде към страница, в която ще има списък с определени Equipments
+        public int EquipmentId { get; set; }
 
         public string EquipmentName { get; set; }
 
-        public int CategoryId { get; set; } // Необходимо е, за да се подаде към страница, в която ще има списък с определени Categories
+        public int CategoryId { get; set; }
 
         public string CategoryName { get; set; }
 

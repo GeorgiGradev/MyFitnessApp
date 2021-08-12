@@ -4,7 +4,7 @@
 
     using MyFitnessApp.Data.Common.Models;
 
-    // Selfreferencing table bewtween USER and USER
+    // Self-referencing relationship between ApplicationUser and ApplicationUser
     public class FollowerFollowee : BaseDeletableModel<int>
     {
         [Required]

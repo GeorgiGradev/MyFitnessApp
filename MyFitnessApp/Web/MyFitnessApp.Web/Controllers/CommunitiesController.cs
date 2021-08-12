@@ -46,11 +46,6 @@
             var userId = this.User.GetId();
             var userName = this.usersService.GetUserNameById(userId);
             var receiverEmail = model.ReceiverEmailAddress;
-
-            // Не изпращаме от E-mailа на потребителя, тъй като SendGrid изисват вирификация на изпращача
-            var userEmail = this.usersService.GetUserEmailbyId(userId);
-
-            // В случая изпращаме от верифициран от SendGrid адрес
             var senderEmail = "joro_gradev@abv.bg";
 
             this.emailSender.SendEmailAsync(senderEmail, userName, receiverEmail, model.EmailSubject, model.EmailContent);

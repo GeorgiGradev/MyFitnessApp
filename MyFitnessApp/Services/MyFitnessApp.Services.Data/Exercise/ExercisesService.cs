@@ -29,7 +29,6 @@
             this.userExerciseRepository = userExerciseRepository;
         }
 
-        // Взима всички ExerciseCategories, за могат да се подадат в празната форма за Create New Exercise
         public IEnumerable<CategoryViewModel> GetExerciseCategories()
         {
             var viewModel = this.exerciseCategoryRepository
@@ -44,7 +43,6 @@
             return viewModel;
         }
 
-        // Взима всички ExerciseEquipments, за могат да се подадат в празната форма за Create New Exercise
         public IEnumerable<EquipmentViewModel> GetExerciseEquipments()
         {
             var viewModel = this.exerciseEquipmentRepository
@@ -59,7 +57,6 @@
             return viewModel;
         }
 
-        // Create new exercise ASYNC method
         public async Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId)
         {
             var exercise = new Exercise()
@@ -78,28 +75,16 @@
             await this.exerciseRepository.SaveChangesAsync();
         }
 
-        // Взима всички Exercises от базата
         public IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage)
         {
-            // 1-12 - page 1
-            // 13-24 - page 2
-            // 25-36 - page 3
             var viewModel = this.exerciseRepository
                 .All()
-                .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
-                .Skip((pageNumber - 1) * itemsPerPage) // колко да пропуснем / Ако сме на първа страница = 0, ако сме на втора страница = 12...
+                .OrderByDescending(x => x.Id)
+                .Skip((pageNumber - 1) * itemsPerPage)
                 .Take(itemsPerPage)
                 .To<ExerciseViewModel>()
                 .ToList();
 
-            // .Select(x => new ExerciseViewModel
-            // {
-            //    AddedByUserId = x.AddedByUserId,
-            //    Name = x.Name,
-            //    CategoryName = x.Category.Name,
-            //    ImageUrl = x.ImageUrl,
-            // })
-            // .ToList();
             return viewModel;
         }
 
@@ -148,8 +133,6 @@
                 await this.userExerciseRepository.AddAsync(userExercise);
                 await this.userExerciseRepository.SaveChangesAsync();
             }
-
-            // премахва и добавя наново упражнението = EDIT
             else
             {
                 var exerciseToRemove = this.userExerciseRepository
@@ -190,7 +173,7 @@
             var viewModel = this.exerciseRepository
                 .All()
                 .Where(x => x.CategoryId == categoryId)
-                .OrderByDescending(x => x.Id) // последните добавени ще излизат най-отпред в списъка
+                .OrderByDescending(x => x.Id)
                 .To<ExerciseViewModel>()
                 .ToList();
 

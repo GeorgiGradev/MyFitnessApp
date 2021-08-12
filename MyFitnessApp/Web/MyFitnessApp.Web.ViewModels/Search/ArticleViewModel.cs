@@ -10,7 +10,7 @@
 
         public string ShortContent => this.Content?.Length > 200 ? this.Content?.Substring(0, 200) + "…" : this.Content;
 
-        public int CategoryId { get; set; } // Необходимо е, за да се подаде към страница, в която ще има списък с определени Categories
+        public int CategoryId { get; set; }
 
         public string CategoryName { get; set; }
 

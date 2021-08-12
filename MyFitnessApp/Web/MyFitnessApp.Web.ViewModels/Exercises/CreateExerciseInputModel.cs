@@ -7,7 +7,6 @@
 
     using static MyFitnessApp.Common.DataConstants;
 
-    //// Приема даннните, въведени от потребителя при Create New Exercise \\\\
     public class CreateExerciseInputModel
     {
         [Required(ErrorMessage = "The field is required")]
@@ -35,20 +34,16 @@
         [Display(Name = "YouTube video url")]
         public string VideoUrl { get; set; }
 
-        // Нужно е на View-то
         [Display(Name = "Choose category")]
         public int CategoryId { get; set; }
 
         // Dropdown Menu
-        // Взима всички ExerciseCategories, за да ги подаде на падащото меню
         public IEnumerable<CategoryViewModel> Categories { get; set; }
 
-        // Нужно е на View-то
         [Display(Name = "Choose equipment")]
         public int EquipmentId { get; set; }
 
         // Dropdown Menu
-        // Взима всички ЕxerciseEquipments, за да ги подаде на падащото меню
         public IEnumerable<EquipmentViewModel> Equipments { get; set; }
     }
 }

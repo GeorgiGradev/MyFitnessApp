@@ -24,12 +24,10 @@
         [Display(Name = "Image (.jpg format only)")]
         public IFormFile Image { get; set; }
 
-        // Нужно е на View-то
         [Display(Name = "Choose article category")]
         public int CategoryId { get; set; }
 
         // Dropdown Menu
-        // Взима всички ArticleCategories, за да ги подаде на падащото меню
         public IEnumerable<CategoryViewModel> Categories { get; set; }
     }
 }

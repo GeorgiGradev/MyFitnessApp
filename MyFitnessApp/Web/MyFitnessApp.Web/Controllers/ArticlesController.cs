@@ -85,7 +85,7 @@
         [HttpGet]
         public IActionResult Article(int id)
         {
-            var viewNodel = this.articlesService.GetArticleById(id); // вътре са данните за визуализация
+            var viewNodel = this.articlesService.GetArticleById(id);
             return this.View(viewNodel);
         }
 

@@ -12,7 +12,7 @@
 
     public class ProfilesService : IProfilesService
     {
-        private readonly string[] allowedExtensions = new[] { "jpg" }; // позволени разширения
+        private readonly string[] allowedExtensions = new[] { "jpg" };
         private readonly IDeletableEntityRepository<Profile> profileRepository;
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
         private readonly IFoodsService foodsService;
@@ -51,7 +51,6 @@
             await this.profileRepository.AddAsync(profile);
             await this.profileRepository.SaveChangesAsync();
 
-            // записваме картинката като комбинация от Id на Article и extension (123.jpeg)
             Directory.CreateDirectory($"{imagePath}/profileimages/");
             var profileId = profile.Id;
             var extension = Path.GetExtension(model.ImageUrl.FileName).TrimStart('.');

@@ -7,37 +7,26 @@
 
     public interface IExercisesService
     {
-        // Взима всички ExerciseCategories, за да се подадат на празното View при отвяряне на Create New Exercise
         IEnumerable<CategoryViewModel> GetExerciseCategories();
 
-        // Взима всички ExerciseEqiupments, за да се подадат на празното View при отвяряне на Create New Exercise
         IEnumerable<EquipmentViewModel> GetExerciseEquipments();
 
-        // Създаване на Exercise с ASYNC Method
         Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
 
-        // Взима всички Exercises от базата
-        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage); // нужни за пейджирането
+        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage); 
 
-        // Броят на Exercises ни е нужен за пейджирането, за да знаем коя е последната страница
         int GetCounts();
 
-        // Взима даден Exercise по Id
         AddExerciseInputModel GetExerciseById(int id);
 
-        // Добавя упражнение към потребител, като получава модел, от който си взима данните + usedId
         Task AddExerciseToUserAsync(AddExerciseInputModel model, string userId);
 
-        // Get EMBED youtube link
         string GetEmbedYouTubeLink(string rawLink);
 
-        // Get exercises by CategoryId
         IEnumerable<ExerciseViewModel> GetExercisesByCategoryId(int categoryId);
 
-        // Взима упражнения по ден от седмицата + UserID
         IEnumerable<DiaryExeriseViewModel> GetExercisesByDayOfWeek(string userId, string dayOfWeek);
 
-        // Премахва упражнението от Excercise Diary на User-a
         Task RemoveExerciseAsync(string userId, int exerciseId);
     }
 }

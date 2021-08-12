@@ -80,7 +80,7 @@
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // EmailSender service
-            services.AddTransient<IEmailSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"])); // => тук се задава Api Key
+            services.AddTransient<IEmailSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
 
             // Application services
             services.AddTransient<IArticlesService, ArticlesService>();

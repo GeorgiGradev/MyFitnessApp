@@ -14,7 +14,7 @@
         {
             if (!dbContext.Users.Any(x => x.UserName == "User"))
             {
-                var user = new ApplicationUser // Password = 123456
+                var user = new ApplicationUser
                 {
                     AccessFailedCount = 0,
                     Email = "user@user.com",
@@ -29,7 +29,7 @@
                     NormalizedUserName = "USER",
                     FirstName = "User",
                     LastName = "User",
-                    PasswordHash = "AQAAAAEAACcQAAAAEGQ9IfdyJPYzY9lKPmwWrdN6T3AbPWBjEYxlLW7yfiOGd/4w/wqPv2Q+5O11ncA0gQ==",
+                    PasswordHash = "AQAAAAEAACcQAAAAEGQ9IfdyJPYzY9lKPmwWrdN6T3AbPWBjEYxlLW7yfiOGd/4w/wqPv2Q+5O11ncA0gQ==", // Password = 123456
                 };
 
                 await dbContext.Users.AddAsync(user);

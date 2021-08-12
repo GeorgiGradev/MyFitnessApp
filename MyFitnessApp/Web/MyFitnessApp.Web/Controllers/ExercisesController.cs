@@ -23,7 +23,6 @@
         [HttpGet]
         public IActionResult Create()
         {
-            // така подаваме на View-то всички EquipmentsCategories в базата, за да се визуализират при празна форма
             var viewModel = new CreateExerciseInputModel();
             viewModel.Categories = this.exercisesService.GetExerciseCategories();
             viewModel.Equipments = this.exercisesService.GetExerciseEquipments();
@@ -34,38 +33,32 @@
         [HttpPost]
         public async Task<IActionResult> Create(CreateExerciseInputModel model)
         {
-            // Създаваме проверка на валидациите. Ако има грешка върни същото View, за да продължи потребителя с попълването
             if (!this.ModelState.IsValid)
             {
-                // Ако има невалидни данни, вземи отново ExerciseCategories преди да визуализираш View-то
                 model.Categories = this.exercisesService.GetExerciseCategories();
-
-                // Ако има невалидни данни, вземи отново ExerciseEquipments преди да визуализираш View-то
                 model.Equipments = this.exercisesService.GetExerciseEquipments();
 
-                // View-то се връща със заредени всички ExerciseCategories и ExerciseEquipments
                 return this.View(model);
             }
 
-            var userId = this.User.GetId(); // специално създаден метод в Web.Infrastructure
+            var userId = this.User.GetId();
             await this.exercisesService.CreateExcerciseAsync(model, userId);
 
             this.TempData["Message"] = "Exercise created successfully.";
 
-            return this.RedirectToAction("All", "Exercises"); // Да се направи да връща All Exercises
+            return this.RedirectToAction("All", "Exercises");
         }
 
-        // Визуализира всички елементи
         [HttpGet]
-        public IActionResult All(int id = 1) // id е номера на страницата. Ще го ползваме за пейджирането. (Exercises/All/4)
+        public IActionResult All(int id = 1) 
         {
             const int itemsPerPage = 6;
             var view = new AllExercisesViewModel
             {
                 PageNumber = id,
                 Exercises = this.exercisesService.GetAllExercises(id, itemsPerPage),
-                ItemsCount = this.exercisesService.GetCounts(), // Броят на Items ни е нужен за пейджирането, за да знаем коя е последната страница
-                ItemsPerPage = itemsPerPage, // дава информация колко Items има на една страница
+                ItemsCount = this.exercisesService.GetCounts(),
+                ItemsPerPage = itemsPerPage,
             };
 
             return this.View(view);
@@ -74,7 +67,7 @@
         [HttpGet]
         public IActionResult Add(int id)
         {
-            var viewNodel = this.exercisesService.GetExerciseById(id); // вътре са данните за визуализация
+            var viewNodel = this.exercisesService.GetExerciseById(id);
             return this.View(viewNodel);
         }
 
@@ -83,7 +76,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                var viewNodel = this.exercisesService.GetExerciseById(id); // вътре са данните за визуализация
+                var viewNodel = this.exercisesService.GetExerciseById(id);
                 return this.View(viewNodel);
             }
 

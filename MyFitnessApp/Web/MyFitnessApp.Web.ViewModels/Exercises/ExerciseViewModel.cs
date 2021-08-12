@@ -3,7 +3,6 @@
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Services.Mapping;
 
-    // Визуализира едно упражнение
     public class ExerciseViewModel : IMapFrom<Exercise> // , IHaveCustomMappings
     {
         public int Id { get; set; }
@@ -12,11 +11,11 @@
 
         public string Description { get; set; }
 
-        public int EquipmentId { get; set; } // Необходимо е, за да се подаде към страница, в която ще има списък с определени Equipments
+        public int EquipmentId { get; set; }
 
         public string EquipmentName { get; set; }
 
-        public int CategoryId { get; set; } // Необходимо е, за да се подаде към страница, в която ще има списък с определени Categories
+        public int CategoryId { get; set; }
 
         public string CategoryName { get; set; }
 
@@ -28,7 +27,6 @@
 
         public string AddedByUserId { get; set; }
 
-        ////  => Във случай, че имаме допълнителна логика, която не може да бъде разбрана от AutoMapper-а ////
         // public void CreateMappings(IProfileExpression configuration)
         // {
         //     throw new System.NotImplementedException();

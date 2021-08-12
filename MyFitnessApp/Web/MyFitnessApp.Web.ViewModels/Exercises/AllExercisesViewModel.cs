@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class AllExercisesViewModel : PagingViewModel // Наследява PagingViewModel-a, в който са всички необходими параметри за Paging
+    public class AllExercisesViewModel : PagingViewModel
     {
         public IEnumerable<ExerciseViewModel> Exercises { get; set; }
     }

@@ -4,7 +4,6 @@
 
     using MyFitnessApp.Data.Models;
 
-    // За да се визуализират данните на началната страница
     public class IndexViewModel
     {
         public IEnumerable<Exercise> Exercises { get; set; }
