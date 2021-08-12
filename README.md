@@ -43,11 +43,12 @@
    * **StyleCop**
    * **Repository Pattern**
    * **Dependency Injection**
-   * **IFormFle** for uploading images as well as option for adding image and video as a link
-   * separate storage for all **data constants**
+   * **IFormFle** for uploading of JPG images as well as an option for adding lins of images and YouTube videos
+   * **Self-created method** for **embedding of raw YouTube links**
    * **One to one** relationship between **ApplicationUser** and **Profile** entities in order to have more simple and user-friendly register process. After first log-in the user is required to fill out profile data to be able to use the full functionality of the application.
    * **AuthorizationFilterAttribute** to hide the full functionality of the application for logged-in users which did not fill out the profile form.
    * **AuthorizationFilterAttribute** to restrict access to the full functionality of the application for logged-in but banned users.
+   * Separate storage for **data constants**
 <br/><br/>
 
 ## :wrench: Database Diagram
