@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var user in this.Model.AllUsers)
+            @foreach (var user in this.Model.AllUsers.OrderByDescending(x => x.CreatedOn))
             {
                 <tr>
                     <td><a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@user.Username">@user.Username</a></td>

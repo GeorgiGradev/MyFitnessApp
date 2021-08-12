@@ -31,9 +31,7 @@
                     <div class="navbar-nav flex-grow-1">
 
                         <div class="dropdown">
-                            <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                Home
-                            </button>
+                            <a asp-controller="Home" asp-action="Index" class="btn">Home</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy policy</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Terms">Terms and conditions</a>
@@ -47,30 +45,32 @@
                             @if (this.usersService.IsUserBanned(userId) == false)
                             {
                                 var doesUserHaveProfile = profilesService.DoesUserHaveProfile(userId);
-                                <div class="dropdown">
-                                    <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                        Profile
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+       
                                         @if (doesUserHaveProfile == false)
                                         {
-                                            <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="CreateProfile">Create Profile</a>
+                                            <div class="dropdown">
+                                                <a asp-controller="Profiles" asp-action="CreateProfile" class="btn">Profile</a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="CreateProfile">Create Profile</a>
+                                                </div>
+                                            </div>
                                         }
                                         @if (doesUserHaveProfile == true)
                                         {
-                                            <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="MyProfile">My Profile</a>
-                                            <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followees">Following</a>
-                                            <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followers">Followers</a>
+                                            <div class="dropdown">
+                                                <a asp-controller="Profiles" asp-action="MyProfile" class="btn">Profile</a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="MyProfile">My Profile</a>
+                                                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followees">Following</a>
+                                                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followers">Followers</a>
+                                                 </div>
+                                            </div>
                                         }
-                                    </div>
-                                </div>
-
+   
                                 @if (doesUserHaveProfile == true)
                                 {
                                     <div class="dropdown">
-                                        <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                            Workout
-                                        </button>
+                                        <a asp-controller="Exercises" asp-action="All" class="btn">Workout</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" asp-area="" asp-controller="Exercises" asp-action="All">All exercises</a>
                                             <a class="dropdown-item" asp-area="" asp-controller="Search" asp-action="SearchExercise">Search for an exercise</a>
@@ -81,9 +81,7 @@
                                     </div>
 
                                     <div class="dropdown">
-                                        <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                            Nutrition
-                                        </button>
+                                        <a asp-controller="Foods" asp-action="All" class="btn">Nutrition</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" asp-area="" asp-controller="Foods" asp-action="All">All foods</a>
                                             <a class="dropdown-item" asp-area="" asp-controller="Search" asp-action="SearchFood">Search for a food</a>
@@ -93,9 +91,7 @@
                                     </div>
 
                                     <div class="dropdown">
-                                        <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                            Community
-                                        </button>
+                                         <a asp-controller="Users" asp-action="All" class="btn">Community</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" asp-area="" asp-controller="Forums" asp-action="Categories">Forum</a>
                                             <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="All">All users</a>
@@ -105,9 +101,7 @@
                                     </div>
 
                                     <div class="dropdown">
-                                        <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-                                            Blog
-                                        </button>
+                                         <a asp-controller="Articles" asp-action="All" class="btn">Blog</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" asp-area="" asp-controller="Articles" asp-action="All">All articles</a>
                                             <a class="dropdown-item" asp-area="" asp-controller="Search" asp-action="SearchArticle">Search for an article</a>
@@ -145,15 +139,3 @@
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-
-
-@*<div class="dropdown">
-        <button class="btn btn" type="button" id="" aria-haspopup="true" aria-expanded="false">
-            Reports
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Charts</a>
-            <a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Export Data</a>
-        </div>
-    </div>*@

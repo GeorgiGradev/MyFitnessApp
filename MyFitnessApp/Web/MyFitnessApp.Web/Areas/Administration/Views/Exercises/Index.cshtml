@@ -44,7 +44,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.OrderByDescending(x => x.CreatedOn))
         {
             <tr>
                 <td>
