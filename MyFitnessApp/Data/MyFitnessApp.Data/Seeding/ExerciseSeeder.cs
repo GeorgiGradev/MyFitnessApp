@@ -26,7 +26,7 @@
                   EquipmentId = 11, // Dumbbell
                   CategoryId = 1, // Shoulder
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/seated-arnold-press-thumb.jpg",
+                  ImageUrl = "/images/exercises/" + "1" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/hmnZKRpYaV8",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -39,7 +39,7 @@
                   EquipmentId = 11, // Dumbbell
                   CategoryId = 1, // Shoulder
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/seated-shoulder-press-1.jpg",
+                  ImageUrl = "/images/exercises/" + "2" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/Gxhx7GpRb5g",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -52,7 +52,7 @@
                   EquipmentId = 10, // Barbell
                   CategoryId = 1, // Shoulder
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/military-overhead-press.jpg",
+                  ImageUrl = "/images/exercises/" + "3" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/j7ULT6dznNc",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -65,7 +65,7 @@
                   EquipmentId = 9, // Machine
                   CategoryId = 1, // Shoulder
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/machine-shoulder-press.jpg",
+                  ImageUrl = "/images/exercises/" + "4" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/fj_VAk1jfZ8",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -78,7 +78,7 @@
                   EquipmentId = 8, // Cable
                   CategoryId = 1, // Shoulder
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/single-arm-cable-lateral-raise.jpg",
+                  ImageUrl = "/images/exercises/" + "5" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/Fv-eAW1uKDI",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -93,7 +93,7 @@
                   EquipmentId = 10, // Barbell
                   CategoryId = 2, // Triceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/ez-bar-skullcrusher_0.jpg",
+                  ImageUrl = "/images/exercises/" + "6" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/K6MSN4hCDM4",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -106,7 +106,7 @@
                   EquipmentId = 8, // Cable
                   CategoryId = 2, // Triceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/straight-bar-tricep-extension-1.jpg",
+                  ImageUrl = "/images/exercises/" + "7" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/mpZ9VRisAyw",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -119,7 +119,7 @@
                   EquipmentId = 11, // Dumbbell
                   CategoryId = 2, // Triceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/seated-overhead-dumbbell-tricep-extension_0.jpg",
+                  ImageUrl = "/images/exercises/" + "8" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/LlCFtWCQc5s",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -132,7 +132,7 @@
                   EquipmentId = 5, // Kettlebells
                   CategoryId = 2, // Triceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/one-arm-kettlebell-floor-press.jpg",
+                  ImageUrl = "/images/exercises/" + "9" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/fdg6zUZ9YlQ",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -145,7 +145,7 @@
                   EquipmentId = 7, // EZ Curl Bar
                   CategoryId = 2, // Triceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/decline-skullcrusher-1.jpg",
+                  ImageUrl = "/images/exercises/" + "10" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/kVJrVTEt1gE",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -160,7 +160,7 @@
                   EquipmentId = 7, // EZ Curl Bar
                   CategoryId = 3, // Biceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/incline-dumbbell-curl-thumb.jpg",
+                  ImageUrl = "/images/exercises/" + "11" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/UeleXjsE-98",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -173,7 +173,7 @@
                   EquipmentId = 8, // Cable
                   CategoryId = 3, // Biceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/bicep-curl-sled-drag.jpg",
+                  ImageUrl = "/images/exercises/" + "12" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/PBs8FX7wH_0",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -186,7 +186,7 @@
                   EquipmentId = 11, // Dumbbell
                   CategoryId = 3, // Biceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/dumbbell-drag-curl.jpg",
+                  ImageUrl = "/images/exercises/" + "13" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/3ZpEL3xiNhc",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -199,7 +199,7 @@
                   EquipmentId = 11, // Dumbell
                   CategoryId = 3, // Biceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/preacher-dumbbell-hammer-curl.jpg",
+                  ImageUrl = "/images/exercises/" + "14" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/ZdcFOgFi1Dg",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -212,7 +212,7 @@
                   EquipmentId = 10, // Barbell
                   CategoryId = 3, // Biceps
                   Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                  ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/close-grip-barbell-curl.jpg",
+                  ImageUrl = "/images/exercises/" + "15" + "." + "jpg",
                   VideoUrl = "https://www.youtube.com/embed/exqx_2Uyopw",
                   AddedByUser = dbContext.Users.
                       Where(x => x.UserName == "admin")
@@ -227,7 +227,7 @@
                     EquipmentId = 5, // Kettlebells
                     CategoryId = 4, // Back
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/bent-over-kettlebell-row.jpg",
+                    ImageUrl = "/images/exercises/" + "16" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/RIEwOjk2_Zg",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -240,7 +240,7 @@
                     EquipmentId = 1, // Body Only
                     CategoryId = 4, // Back
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/quadruped-extension-rotation.jpg",
+                    ImageUrl = "/images/exercises/" + "17" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/m97auWvYak8",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -253,7 +253,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 4, // Back
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/concept-2-rowing-machine.jpg",
+                    ImageUrl = "/images/exercises/" + "18" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/Wy-HuhQXjmI",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -266,7 +266,7 @@
                     EquipmentId = 4, // Foam Roll
                     CategoryId = 4, // Back
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/field-goal-angel-foam-rolling.jpg",
+                    ImageUrl = "/images/exercises/" + "19" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/A-X5TU36bcU",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -279,7 +279,7 @@
                     EquipmentId = 11, // Dumbbell
                     CategoryId = 4, // Back
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/tripod-dumbbell-row.jpg",
+                    ImageUrl = "/images/exercises/" + "20" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/78Z2mk9LQoI",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -294,7 +294,7 @@
                     EquipmentId = 11, // Dumbbell
                     CategoryId = 5, // Chest
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/incline-dumbbell-bench-press_0.jpg",
+                    ImageUrl = "/images/exercises/" + "21" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/8nNi8jbbUPE",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -307,7 +307,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 5, // Chest
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/machine-bench-press_0.jpg",
+                    ImageUrl = "/images/exercises/" + "22" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/dMQdd40Y3FQ",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -320,7 +320,7 @@
                     EquipmentId = 10, // Barbell
                     CategoryId = 5, // Chest
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/incline-bench-press.jpg",
+                    ImageUrl = "/images/exercises/" + "23" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/uIzbJX5EVIY",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -333,7 +333,7 @@
                     EquipmentId = 8, // Cable
                     CategoryId = 5, // Chest
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/standing-cable-fly1.jpg",
+                    ImageUrl = "/images/exercises/" + "24" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/OPYrUGZL8nU",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -346,7 +346,7 @@
                     EquipmentId = 1, // Body only
                     CategoryId = 5, // Chest
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/chest-dip.jpg",
+                    ImageUrl = "/images/exercises/" + "25" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/FG1ENBFsdHU",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -361,7 +361,7 @@
                     EquipmentId = 10, // Barbell
                     CategoryId = 6, // Forearm
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/seated-barbell-wrist-curl.jpg",
+                    ImageUrl = "/images/exercises/" + "26" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/cOBaYeX3bYo",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -374,7 +374,7 @@
                     EquipmentId = 11, // Dumbbell
                     CategoryId = 6, // Forearm
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/dumbbell-farmers-carry.jpg",
+                    ImageUrl = "/images/exercises/" + "27" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/j8c9uNjr7nQ",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -387,7 +387,7 @@
                     EquipmentId = 1, // Body only
                     CategoryId = 6, // Forearm
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/forearm-tiger-tail.jpg",
+                    ImageUrl = "/images/exercises/" + "28" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/Lf-w3hoqg4k",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -400,7 +400,7 @@
                     EquipmentId = 5, // Kettlebells
                     CategoryId = 6, // Forearm
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/kettlebell-single-arm-bottoms-up-carry.jpg",
+                    ImageUrl = "/images/exercises/" + "29" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/zEcZZ1cWafI",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -413,7 +413,7 @@
                     EquipmentId = 11, // Dumbbell
                     CategoryId = 6, // Forearm
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/dumbbell-high-low-carry.jpg",
+                    ImageUrl = "/images/exercises/" + "30" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/utpRpR6X2HA",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -428,7 +428,7 @@
                     EquipmentId = 11, // Dumbbell
                     CategoryId = 7, // Traps
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/dumbbell-shrug.jpg",
+                    ImageUrl = "/images/exercises/" + "31" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/dj2Gm628kas",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -441,7 +441,7 @@
                     EquipmentId = 10, // Barbell
                     CategoryId = 7, // Traps
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/barbell-shrug-1.jpg",
+                    ImageUrl = "/images/exercises/" + "32" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/6hNudn7Peco",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -454,7 +454,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 7, // Traps
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/machine-shrug.jpg",
+                    ImageUrl = "/images/exercises/" + "33" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/1xRJYoiUu-8",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -467,7 +467,7 @@
                     EquipmentId = 8, // Cable
                     CategoryId = 7, // Traps
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/cable-shrug-1.jpg",
+                    ImageUrl = "/images/exercises/" + "34" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/LwTq3v2GUF4",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -480,7 +480,7 @@
                     EquipmentId = 5, // Kettlebells
                     CategoryId = 7, // Traps
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/2-kb-kettlebell-sumo-deadlift-high-pull.jpg",
+                    ImageUrl = "/images/exercises/" + "35" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/wLm32q4q0ZM",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -495,7 +495,7 @@
                     EquipmentId = 3, // Medicine Ball
                     CategoryId = 8, // Abs
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/weighted-crunch.jpg",
+                    ImageUrl = "/images/exercises/" + "36" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/6kHg3JAFNFo",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -508,7 +508,7 @@
                     EquipmentId = 1, // Body only
                     CategoryId = 8, // Abs
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/lying-leg-raise-1.jpg",
+                    ImageUrl = "/images/exercises/" + "37" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/r24ntO4IvKc",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -521,7 +521,7 @@
                     EquipmentId = 2, // Exercise Ball
                     CategoryId = 8, // Abs
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/exercise-dead-bug.jpg",
+                    ImageUrl = "/images/exercises/" + "38" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/VBpNAHGRAFQ",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -534,7 +534,7 @@
                     EquipmentId = 8, // Cable
                     CategoryId = 8, // Abs
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/pallof-press-with-rotation.jpg",
+                    ImageUrl = "/images/exercises/" + "39" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/GW1G_SchrCE",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -547,7 +547,7 @@
                     EquipmentId = 6, // Bands
                     CategoryId = 8, // Abs
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/bird-dog-with-band-rnt.jpg",
+                    ImageUrl = "/images/exercises/" + "40" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/9dN9fvGYF28",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -562,7 +562,7 @@
                     EquipmentId = 6, // Bands
                     CategoryId = 9, // Glutes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/banded-goodmorning.jpg",
+                    ImageUrl = "/images/exercises/" + "41" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/WqrheBtIKHI",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -575,7 +575,7 @@
                     EquipmentId = 4, // Foam Roll
                     CategoryId = 9, // Glutes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/foam-rolling-glutes.jpg",
+                    ImageUrl = "/images/exercises/" + "42" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/esUH39n42zw",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -588,7 +588,7 @@
                     EquipmentId = 10, // Barbell
                     CategoryId = 9, // Glutes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/barbell-hip-thrusts.jpg",
+                    ImageUrl = "/images/exercises/" + "43" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/lAnqN0J_p5A",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -601,7 +601,7 @@
                     EquipmentId = 1, // Body only
                     CategoryId = 9, // Glutes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/weighted-hyperextension.jpg",
+                    ImageUrl = "/images/exercises/" + "44" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/hWfS8WGBboM",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -614,7 +614,7 @@
                     EquipmentId = 1, // Body only
                     CategoryId = 9, // Glutes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/hyperextensions.jpg",
+                    ImageUrl = "/images/exercises/" + "45" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/BZMnTSobIAQ",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -629,7 +629,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 10, // Quadricpes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/single-leg-press.jpg",
+                    ImageUrl = "/images/exercises/" + "46" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/6KTTfLmdwE0",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -642,7 +642,7 @@
                     EquipmentId = 5, // Kettlebells
                     CategoryId = 10, // Quadricpes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/1-kb-kettlebell-push-press.jpg",
+                    ImageUrl = "/images/exercises/" + "47" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/2KX2ekrBFoQ",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -655,7 +655,7 @@
                     EquipmentId = 3, // Medicine Ball
                     CategoryId = 10, // Quadricpes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/wall-ball.jpg",
+                    ImageUrl = "/images/exercises/" + "48" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/TS-YN2GkPZw",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -668,7 +668,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 10, // Quadricpes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/wide-stance-hack-squat.jpg",
+                    ImageUrl = "/images/exercises/" + "49" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/6GQPsZ1-jYk",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -681,7 +681,7 @@
                     EquipmentId = 5, // Kettlebells
                     CategoryId = 10, // Quadricpes
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/1-kb-step-up.jpg",
+                    ImageUrl = "/images/exercises/" + "50" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/B9A_GONMKYI",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -696,7 +696,7 @@
                     EquipmentId = 10, // Barbell
                     CategoryId = 11, // Hamstrings
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/romanian-deadlift.jpg",
+                    ImageUrl = "/images/exercises/" + "51" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/-m45n1_x32E",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -709,7 +709,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 11, // Hamstrings
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/seated-leg-curl-1.jpg",
+                    ImageUrl = "/images/exercises/" + "52" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/3BWiLFc8Dbg",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -722,7 +722,7 @@
                     EquipmentId = 6, // Bands
                     CategoryId = 11, // Hamstrings
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/nordic-hamstring-curl-band-assisted.jpg",
+                    ImageUrl = "/images/exercises/" + "53" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/SI8bdn_mpqQ",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -735,7 +735,7 @@
                     EquipmentId = 2, // Exercise Ball
                     CategoryId = 11, // Hamstrings
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/exercise-ball-leg-curl.jpg",
+                    ImageUrl = "/images/exercises/" + "54" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/OOUtV11bSa8",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -748,7 +748,7 @@
                     EquipmentId = 10, // Barbell
                     CategoryId = 11, // Hamstrings
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/snatch-grip-deadlift.jpg",
+                    ImageUrl = "/images/exercises/" + "55" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/OCuawmNbo4E",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -763,7 +763,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 12, // Calves
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/seated-calf-raise-1.jpg",
+                    ImageUrl = "/images/exercises/" + "56" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/Yh5TXz99xwY",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -776,7 +776,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 12, // Calves
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/standing-machine-calf-raise.jpg",
+                    ImageUrl = "/images/exercises/" + "57" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/RBslMmWqzzE",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -789,7 +789,7 @@
                     EquipmentId = 6, // Bands
                     CategoryId = 12, // Calves
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Expert"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/banded-tibialis-raise.jpg",
+                    ImageUrl = "/images/exercises/" + "58" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/gOV7XZyUv6Y",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -802,7 +802,7 @@
                     EquipmentId = 1, // Body only
                     CategoryId = 12, // Calves
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Beginner"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/knee-break-ankle-mobilization.jpg",
+                    ImageUrl = "/images/exercises/" + "59" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/KngATp2V7kc",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
@@ -815,7 +815,7 @@
                     EquipmentId = 9, // Machine
                     CategoryId = 12, // Calves
                     Difficulty = Enum.Parse<ExerciseDifficulty>("Intermediate"),
-                    ImageUrl = "https://cdn.muscleandstrength.com/sites/default/files/toes-out-seated-calf-raise-1.jpg",
+                    ImageUrl = "/images/exercises/" + "60" + "." + "jpg",
                     VideoUrl = "https://www.youtube.com/embed/grb_PSkmVls",
                     AddedByUser = dbContext.Users.
                        Where(x => x.UserName == "admin")
