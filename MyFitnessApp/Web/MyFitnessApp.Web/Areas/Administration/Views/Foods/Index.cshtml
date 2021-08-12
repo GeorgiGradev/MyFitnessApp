@@ -20,31 +20,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProteinIn100Grams)
+                Protein
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CarbohydratesIn100Grams)
+                Carbs
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FatIn100Grams)
+                Fat
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AddedByUser)
+                Added by
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsDeleted)
+                Deleted on
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeletedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedOn)
+                Created on
             </th>
             <th></th>
         </tr>
@@ -66,19 +60,13 @@
                     @Html.DisplayFor(modelItem => item.FatIn100Grams)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AddedByUser.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsDeleted)
+                    @Html.DisplayFor(modelItem => item.AddedByUser.UserName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DeletedOn)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreatedOn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModifiedOn)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

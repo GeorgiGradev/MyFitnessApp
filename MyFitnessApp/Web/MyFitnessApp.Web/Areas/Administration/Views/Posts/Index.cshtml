@@ -20,28 +20,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Content)
+                Content
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AddedByUser)
+                Added by
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                Category
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsDeleted)
+                Deleted on
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeletedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedOn)
+                Created on
             </th>
             <th></th>
         </tr>
@@ -57,22 +51,16 @@
                     @Html.DisplayFor(modelItem => item.Content)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AddedByUser.Id)
+                    @Html.DisplayFor(modelItem => item.AddedByUser.UserName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsDeleted)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DeletedOn)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreatedOn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModifiedOn)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

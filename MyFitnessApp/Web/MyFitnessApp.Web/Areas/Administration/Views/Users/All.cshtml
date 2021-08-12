@@ -18,7 +18,7 @@
                 <th scope="col">Username</th>
                 <th scope="col">First name</th>
                 <th scope="col">Last name</th>
-                <th scope="col">Profile created on</th>
+                <th scope="col">Created on</th>
                 <th scope="col">E-mail</th>
                 <th scope="col">Action</th>
                 <th scope="col">Banned on</th>
@@ -31,7 +31,7 @@
                     <td><a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@user.Username">@user.Username</a></td>
                     <td>@user.FirstName</td>
                     <td>@user.LastName</td>
-                    <td>@user.CreatedOn.ToString("f")</td>
+                    <td>@user.CreatedOn.ToString("MM/dd/yyyy HH:mm:ss")</td>
                     <td>@user.Email</td>
                     <td>
                         @if (user.IsBanned)
@@ -47,7 +47,7 @@
                     <td>
                         @if (user.IsBanned)
                         {
-                            @user.BannedOn?.ToString("f")
+                            @user.BannedOn?.ToString("MM/dd/yyyy HH:mm:ss")
                         }
                     </td>
                 </tr>

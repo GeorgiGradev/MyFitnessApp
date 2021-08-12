@@ -20,40 +20,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Difficulty
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Difficulty)
+                Category
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                Equipment
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Equipment)
+                Added by
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+                Deleted on
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VideoUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AddedByUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsDeleted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeletedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedOn)
+                Created on
             </th>
             <th></th>
         </tr>
@@ -66,9 +51,6 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Difficulty)
                 </td>
                 <td>
@@ -78,25 +60,13 @@
                     @Html.DisplayFor(modelItem => item.Equipment.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ImageUrl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VideoUrl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AddedByUser.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsDeleted)
+                    @Html.DisplayFor(modelItem => item.AddedByUser.UserName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DeletedOn)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreatedOn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModifiedOn)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
