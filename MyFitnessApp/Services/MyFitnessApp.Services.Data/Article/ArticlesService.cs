@@ -12,7 +12,7 @@
 
     public class ArticlesService : IArticlesService
     {
-        private readonly string[] allowedExtensions = new[] { "jpg" }; 
+        private readonly string[] allowedExtensions = new[] { "jpg" };
         private readonly IDeletableEntityRepository<ArticleCategory> articleCategoryRepository;
         private readonly IDeletableEntityRepository<Article> articleRepository;
 

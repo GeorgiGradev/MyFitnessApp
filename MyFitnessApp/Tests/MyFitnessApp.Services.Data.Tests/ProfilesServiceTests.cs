@@ -104,57 +104,6 @@
         }
 
         [Fact]
-        public void GetProfileIdByUserIdShouldReturnCorrectResult()
-        {
-            ApplicationDbContext db = GetDb();
-
-            var profilesRepository = new EfDeletableEntityRepository<Profile>(db);
-
-            var service = new ProfilesService(profilesRepository, this.usersRepository.Object, this.foodsService.Object);
-
-            var user = new ApplicationUser
-            {
-                Id = "x123",
-                UserName = "vankata",
-                Email = "ivan@ivan.bb",
-                FirstName = "Ivan",
-                LastName = "Ivanov",
-                Profile = null,
-            };
-
-            db.Users.Add(user);
-            db.SaveChanges();
-
-            var profile = new Profile
-            {
-                Id = 1,
-                Gender = Gender.Female,
-                ActivityLevel = ActivityLevel.Active,
-                CurrentWeightInKg = 55,
-                GoalWeightInKg = 50,
-                HeightInCm = 170,
-                NeckInCm = 34,
-                WaistInCm = 60,
-                HipsInCm = 90,
-                DailyProteinIntakeGoal = 150,
-                DailyCarbohydratesIntakeGoal = 150,
-                DailyFatIntakeGoal = 40,
-                AddedByUser = user,
-                ImageUrl = "/images/profileimages/" + "1" + "." + "jpg",
-                AboutMe = "I am the admin",
-                MyInspirations = "To be healhty",
-                WhyGetInShape = "To be the best looking girl",
-            };
-
-            db.Profiles.Add(profile);
-            db.SaveChanges();
-
-            var result = service.GetPofileIdByUserId(user.Id);
-
-            Assert.Equal(1, result);
-        }
-
-        [Fact]
         public void GetProfileDataForUpdate()
         {
             ApplicationDbContext db = GetDb();

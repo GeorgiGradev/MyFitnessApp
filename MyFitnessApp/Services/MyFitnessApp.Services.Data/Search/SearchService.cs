@@ -5,7 +5,6 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Web.ViewModels.Search;
 
     public class SearchService : ISearchService
@@ -14,20 +13,17 @@
         private readonly IDeletableEntityRepository<Article> articlesRepository;
         private readonly IDeletableEntityRepository<Exercise> exercisesRepository;
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
-        private readonly IProfilesService profilesService;
 
         public SearchService(
             IDeletableEntityRepository<Food> foodsRepository,
             IDeletableEntityRepository<Article> articlesRepository,
             IDeletableEntityRepository<Exercise> exercisesRepository,
-            IDeletableEntityRepository<ApplicationUser> usersRepository,
-            IProfilesService profilesService)
+            IDeletableEntityRepository<ApplicationUser> usersRepository)
         {
             this.foodsRepository = foodsRepository;
             this.articlesRepository = articlesRepository;
             this.exercisesRepository = exercisesRepository;
             this.usersRepository = usersRepository;
-            this.profilesService = profilesService;
         }
 
         public IEnumerable<FoodViewModel> SearchFoodByKeyword(string keyword)
@@ -106,7 +102,7 @@
                     LastName = x.LastName,
                     Email = x.Email,
                     UserName = x.UserName,
-                    UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.Id) + "." + "jpg",
+                    UserProfileImage = "/images/profileimages/" + x.ProfileId + "." + "jpg",
                 })
                 .ToList();
 
@@ -125,7 +121,7 @@
                     LastName = x.LastName,
                     Email = x.Email,
                     UserName = x.UserName,
-                    UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.Id) + "." + "jpg",
+                    UserProfileImage = "/images/profileimages/" + x.ProfileId + "." + "jpg",
                 })
                 .ToList();
 

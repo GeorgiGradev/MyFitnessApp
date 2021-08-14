@@ -50,7 +50,7 @@
         }
 
         [HttpGet]
-        public IActionResult All(int id = 1) 
+        public IActionResult All(int id = 1)
         {
             const int itemsPerPage = 6;
             var view = new AllExercisesViewModel

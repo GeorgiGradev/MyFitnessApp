@@ -10,7 +10,6 @@
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Data.Repositories;
-    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Data.User;
     using MyFitnessApp.Web.ViewModels.Administration.Users;
     using Xunit;
@@ -19,13 +18,11 @@
     {
         private readonly Mock<IDeletableEntityRepository<ApplicationUser>> usersRepository;
         private readonly Mock<IDeletableEntityRepository<FollowerFollowee>> followerFolloweesRepository;
-        private readonly Mock<IProfilesService> profilesService;
 
         public UsersServiceTests()
         {
             this.usersRepository = new Mock<IDeletableEntityRepository<ApplicationUser>>();
             this.followerFolloweesRepository = new Mock<IDeletableEntityRepository<FollowerFollowee>>();
-            this.profilesService = new Mock<IProfilesService>();
         }
 
         [Fact]
@@ -49,7 +46,7 @@
                 .Returns(users
                .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
             var result = service.GetUserNameById("x123");
             Assert.Equal("vankata", result);
         }
@@ -75,7 +72,7 @@
                 .Returns(users
                .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
             var result = service.GetUserEmailbyId("x123");
             Assert.Equal("ivan@ivan.bb", result);
         }
@@ -110,7 +107,7 @@
                 .Returns(users
                .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
             var result = service.GetCounts();
             Assert.Equal(2, result);
         }
@@ -137,7 +134,7 @@
                 .Returns(users
                .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
             var result = service.IsUserBanned("x123");
             Assert.True(result);
         }
@@ -202,7 +199,7 @@
                 .Returns(followerFollowees
                 .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
             Assert.True(service.IsFollowee("x123", "y123"));
         }
 
@@ -259,7 +256,7 @@
                 .Returns(users
                 .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
             var result = service.GetAll();
             Assert.Equal(3, result.Count());
         }
@@ -317,7 +314,7 @@
                 .Returns(users
                 .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
             var result = service.All();
             Assert.Equal(3, result.Count());
         }
@@ -348,7 +345,7 @@
                  .Returns(users
                  .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
 
             var viewModel = new BanUserInputModel
             {
@@ -386,7 +383,7 @@
                  .Returns(users
                  .AsQueryable());
 
-            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object, this.profilesService.Object);
+            var service = new UsersService(this.usersRepository.Object, this.followerFolloweesRepository.Object);
 
             var result = service.Unban(user.Id);
 
@@ -401,7 +398,7 @@
             var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
             var followerFolloweesRepository = new EfDeletableEntityRepository<FollowerFollowee>(db);
 
-            var service = new UsersService(usersRepository, followerFolloweesRepository, this.profilesService.Object);
+            var service = new UsersService(usersRepository, followerFolloweesRepository);
 
             var user1 = new ApplicationUser
             {
@@ -446,7 +443,7 @@
             var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
             var followerFolloweesRepository = new EfDeletableEntityRepository<FollowerFollowee>(db);
 
-            var service = new UsersService(usersRepository, followerFolloweesRepository, this.profilesService.Object);
+            var service = new UsersService(usersRepository, followerFolloweesRepository);
 
             var user1 = new ApplicationUser
             {
@@ -500,7 +497,7 @@
             var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
             var followerFolloweesRepository = new EfDeletableEntityRepository<FollowerFollowee>(db);
 
-            var service = new UsersService(usersRepository, followerFolloweesRepository, this.profilesService.Object);
+            var service = new UsersService(usersRepository, followerFolloweesRepository);
 
             var user1 = new ApplicationUser
             {
@@ -574,7 +571,7 @@
             var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
             var followerFolloweesRepository = new EfDeletableEntityRepository<FollowerFollowee>(db);
 
-            var service = new UsersService(usersRepository, followerFolloweesRepository, this.profilesService.Object);
+            var service = new UsersService(usersRepository, followerFolloweesRepository);
 
             var user1 = new ApplicationUser
             {

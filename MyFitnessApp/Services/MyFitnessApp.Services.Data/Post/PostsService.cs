@@ -7,27 +7,25 @@
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Services.Data.Comment;
-    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Mapping;
-    using MyFitnessApp.Web.ViewModels.Comments;
     using MyFitnessApp.Web.ViewModels.Posts;
 
     public class PostsService : IPostsService
     {
         private readonly IDeletableEntityRepository<ForumCategory> forumCategoryRepository;
         private readonly IDeletableEntityRepository<Post> postRepository;
-        private readonly IProfilesService profilesService;
+        private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
         private readonly ICommentsService commentsService;
 
         public PostsService(
             IDeletableEntityRepository<ForumCategory> forumCategoryRepository,
             IDeletableEntityRepository<Post> postRepository,
-            IProfilesService profilesService,
+            IDeletableEntityRepository<ApplicationUser> usersRepository,
             ICommentsService commentsService)
         {
             this.forumCategoryRepository = forumCategoryRepository;
             this.postRepository = postRepository;
-            this.profilesService = profilesService;
+            this.usersRepository = usersRepository;
             this.commentsService = commentsService;
         }
 
@@ -65,9 +63,11 @@
                 .To<PostViewModel>()
                 .FirstOrDefault();
 
-            var profileId = this.profilesService.GetPofileIdByUserId(post.AddedByUserId);
+            var user = this.usersRepository
+                .All()
+                .FirstOrDefault(x => x.Id == post.AddedByUserId);
 
-            var internalImage = "/images/profileimages/" + profileId + "." + "jpg";
+            var internalImage = "/images/profileimages/" + user.ProfileId + "." + "jpg";
             post.UserProfileImage = internalImage;
 
             var comments = this.commentsService.GetAllPostComments(post.Id);

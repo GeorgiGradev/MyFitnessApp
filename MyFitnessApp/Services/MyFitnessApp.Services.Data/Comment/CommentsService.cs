@@ -6,20 +6,15 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Web.ViewModels.Comments;
 
     public class CommentsService : ICommentsService
     {
         private readonly IDeletableEntityRepository<Comment> commentRepository;
-        private readonly IProfilesService profilesService;
 
-        public CommentsService(
-            IDeletableEntityRepository<Comment> commentRepository,
-            IProfilesService profilesService)
+        public CommentsService(IDeletableEntityRepository<Comment> commentRepository)
         {
             this.commentRepository = commentRepository;
-            this.profilesService = profilesService;
         }
 
         public async Task CreateCommentAsync(CreateCommentInputModel model, string userId, int postId)
@@ -59,7 +54,7 @@
                    Content = x.Content,
                    CreatedOn = x.CreatedOn,
                    AddedByUserUserName = x.AddedByUser.UserName,
-                   UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.AddedByUserId) + "." + "jpg",
+                   UserProfileImage = "/images/profileimages/" + x.AddedByUser.ProfileId + "." + "jpg",
                 })
                 .ToList();
 

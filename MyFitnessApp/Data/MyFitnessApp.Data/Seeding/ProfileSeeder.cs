@@ -15,10 +15,13 @@
                 return;
             }
 
-            await dbContext.Profiles.AddAsync(new Profile
+            var admin = dbContext.Users.
+              Where(x => x.UserName == "admin")
+              .FirstOrDefault();
+            var adminProfile = new Profile
             {
                 Gender = Gender.Female,
-                ActivityLevel = ActivityLevel.Active,
+                ActivityLevel = ActivityLevel.Moderate,
                 CurrentWeightInKg = 55,
                 GoalWeightInKg = 50,
                 HeightInCm = 170,
@@ -28,18 +31,20 @@
                 DailyProteinIntakeGoal = 150,
                 DailyCarbohydratesIntakeGoal = 150,
                 DailyFatIntakeGoal = 40,
-                AddedByUser = dbContext.Users.
-                      Where(x => x.UserName == "admin")
-                      .FirstOrDefault(),
+                AddedByUser = admin,
                 ImageUrl = "/images/profileimages/" + "1" + "." + "jpg",
                 AboutMe = "I am the admin",
                 MyInspirations = "To be healhty",
                 WhyGetInShape = "To be the best looking girl",
-            });
-
+            };
+            await dbContext.Profiles.AddAsync(adminProfile);
             await dbContext.SaveChangesAsync();
+            admin.ProfileId = adminProfile.Id;
 
-            await dbContext.Profiles.AddAsync(new Profile
+            var user = dbContext.Users.
+              Where(x => x.UserName == "user")
+              .FirstOrDefault();
+            var usersProfile = new Profile
             {
                 Gender = Gender.Male,
                 ActivityLevel = ActivityLevel.Active,
@@ -52,16 +57,15 @@
                 DailyProteinIntakeGoal = 250,
                 DailyCarbohydratesIntakeGoal = 250,
                 DailyFatIntakeGoal = 60,
-                AddedByUser = dbContext.Users.
-                      Where(x => x.UserName == "user")
-                      .FirstOrDefault(),
+                AddedByUser = user,
                 ImageUrl = "/images/profileimages/" + "2" + "." + "jpg",
                 AboutMe = "I am a user",
                 MyInspirations = "To be strong",
                 WhyGetInShape = "To be the best looking boy",
-            });
-
+            };
+            await dbContext.Profiles.AddAsync(usersProfile);
             await dbContext.SaveChangesAsync();
+            user.ProfileId = usersProfile.Id;
         }
     }
 }

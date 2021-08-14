@@ -8,7 +8,6 @@
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
     using MyFitnessApp.Data.Repositories;
-    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Services.Data.Search;
     using Xunit;
 
@@ -18,7 +17,6 @@
         private readonly Mock<IDeletableEntityRepository<Article>> articlesRepository;
         private readonly Mock<IDeletableEntityRepository<Exercise>> exercisesRepository;
         private readonly Mock<IDeletableEntityRepository<ApplicationUser>> usersRepository;
-        private readonly Mock<IProfilesService> profilesService;
 
         public SearchServiceTests()
         {
@@ -26,7 +24,6 @@
             this.articlesRepository = new Mock<IDeletableEntityRepository<Article>>();
             this.exercisesRepository = new Mock<IDeletableEntityRepository<Exercise>>();
             this.usersRepository = new Mock<IDeletableEntityRepository<ApplicationUser>>();
-            this.profilesService = new Mock<IProfilesService>();
         }
 
         [Fact]
@@ -36,7 +33,7 @@
 
             var foodsRepository = new EfDeletableEntityRepository<Food>(db);
 
-            var service = new SearchService(foodsRepository, this.articlesRepository.Object, this.exercisesRepository.Object, this.usersRepository.Object, this.profilesService.Object);
+            var service = new SearchService(foodsRepository, this.articlesRepository.Object, this.exercisesRepository.Object, this.usersRepository.Object);
 
             var food1 = new Food
             {
@@ -72,7 +69,7 @@
 
             var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
 
-            var service = new SearchService(this.foodsRepository.Object, this.articlesRepository.Object, this.exercisesRepository.Object, usersRepository, this.profilesService.Object);
+            var service = new SearchService(this.foodsRepository.Object, this.articlesRepository.Object, this.exercisesRepository.Object, usersRepository);
 
             var user = new ApplicationUser
             {
@@ -103,7 +100,7 @@
 
             var usersRepository = new EfDeletableEntityRepository<ApplicationUser>(db);
 
-            var service = new SearchService(this.foodsRepository.Object, this.articlesRepository.Object, this.exercisesRepository.Object, usersRepository, this.profilesService.Object);
+            var service = new SearchService(this.foodsRepository.Object, this.articlesRepository.Object, this.exercisesRepository.Object, usersRepository);
 
             var user = new ApplicationUser
             {
@@ -134,7 +131,7 @@
 
             var exercisesRepository = new EfDeletableEntityRepository<Exercise>(db);
 
-            var service = new SearchService(this.foodsRepository.Object, this.articlesRepository.Object, exercisesRepository, this.usersRepository.Object, this.profilesService.Object);
+            var service = new SearchService(this.foodsRepository.Object, this.articlesRepository.Object, exercisesRepository, this.usersRepository.Object);
 
             var equipment = new ExerciseEquipment
             {
@@ -181,7 +178,7 @@
 
             var articlesRepository = new EfDeletableEntityRepository<Article>(db);
 
-            var service = new SearchService(this.foodsRepository.Object, articlesRepository, this.exercisesRepository.Object, this.usersRepository.Object, this.profilesService.Object);
+            var service = new SearchService(this.foodsRepository.Object, articlesRepository, this.exercisesRepository.Object, this.usersRepository.Object);
 
             var user = new ApplicationUser
             {

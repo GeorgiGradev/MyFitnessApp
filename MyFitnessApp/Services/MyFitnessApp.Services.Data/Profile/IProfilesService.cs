@@ -20,6 +20,6 @@
 
         public EditProfileInputModel GetProfileDataForUpdate(string userId);
 
-        int GetPofileIdByUserId(string userId);
+        // int GetPofileIdByUserId(string userId);
     }
 }

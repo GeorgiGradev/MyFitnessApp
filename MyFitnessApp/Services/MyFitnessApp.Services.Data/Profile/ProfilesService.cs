@@ -111,6 +111,11 @@
                 .Where(x => x.Id == userId)
                 .Select(x => x.Email)
                 .FirstOrDefault();
+            var profileId = this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.ProfileId)
+                .FirstOrDefault();
 
             var foodDiaryCalories = this.foodsService.GetFoodDiary(userId);
             var totalFOodDiaryCalories =
@@ -118,8 +123,6 @@
                 + foodDiaryCalories.Lunch.Sum(x => x.TotalCalories)
                 + foodDiaryCalories.Snack.Sum(x => x.TotalCalories)
                 + foodDiaryCalories.Dinner.Sum(x => x.TotalCalories);
-
-            var profileId = this.GetPofileIdByUserId(userId);
 
             var internalImagePath = "/images/profileimages/" + profileId + "." + "jpg";
 
@@ -277,14 +280,14 @@
             await this.profileRepository.SaveChangesAsync();
         }
 
-        public int GetPofileIdByUserId(string userId)
-        {
-            var profileId = this.profileRepository
-                .All()
-                .Where(x => x.AddedByUserId == userId)
-                .Select(x => x.Id)
-                .FirstOrDefault();
-            return profileId;
-        }
+        // public int GetPofileIdByUserId(string userId)
+        // {
+        //    var profileId = this.profileRepository
+        //        .All()
+        //        .Where(x => x.AddedByUserId == userId)
+        //        .Select(x => x.Id)
+        //        .FirstOrDefault();
+        //    return profileId;
+        // }
     }
 }

@@ -7,7 +7,6 @@
 
     using MyFitnessApp.Data.Common.Repositories;
     using MyFitnessApp.Data.Models;
-    using MyFitnessApp.Services.Data.Profile;
     using MyFitnessApp.Web.ViewModels.Administration.Users;
     using MyFitnessApp.Web.ViewModels.Users;
 
@@ -15,16 +14,13 @@
     {
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
         private readonly IDeletableEntityRepository<FollowerFollowee> followerFolloweesRepository;
-        private readonly IProfilesService profilesService;
 
         public UsersService(
             IDeletableEntityRepository<ApplicationUser> userRepository,
-            IDeletableEntityRepository<FollowerFollowee> followerFolloweesRepository,
-            IProfilesService profilesService)
+            IDeletableEntityRepository<FollowerFollowee> followerFolloweesRepository)
         {
             this.usersRepository = userRepository;
             this.followerFolloweesRepository = followerFolloweesRepository;
-            this.profilesService = profilesService;
         }
 
         public string GetUserEmailbyId(string userId)
@@ -164,7 +160,7 @@
                     Id = x.FollowerId,
                     FirstName = x.Follower.FirstName,
                     LastName = x.Follower.LastName,
-                    ImageUrl = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.FollowerId) + "." + "jpg",
+                    ImageUrl = "/images/profileimages/" + x.Follower.ProfileId + "." + "jpg",
                     Username = x.Follower.UserName,
                 })
                 .ToList();
@@ -182,7 +178,7 @@
                     Id = x.FolloweeId,
                     FirstName = x.Followee.FirstName,
                     LastName = x.Followee.LastName,
-                    ImageUrl = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.FolloweeId) + "." + "jpg",
+                    ImageUrl = "/images/profileimages/" + x.Followee.ProfileId + "." + "jpg",
                     Username = x.Followee.UserName,
                 })
                 .ToList();
@@ -202,7 +198,7 @@
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Email = x.Email,
-                    UserProfileImage = "/images/profileimages/" + this.profilesService.GetPofileIdByUserId(x.Id) + "." + "jpg",
+                    UserProfileImage = "/images/profileimages/" + x.ProfileId + "." + "jpg",
                 })
                 .ToList();
 

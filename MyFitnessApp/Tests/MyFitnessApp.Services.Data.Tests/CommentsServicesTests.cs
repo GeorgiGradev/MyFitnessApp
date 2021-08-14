@@ -31,7 +31,7 @@
 
             var commentRepository = new EfDeletableEntityRepository<Comment>(db);
 
-            var service = new CommentsService(commentRepository, this.profilesService.Object);
+            var service = new CommentsService(commentRepository);
 
             var user1 = new ApplicationUser
             {
@@ -101,7 +101,7 @@
 
             var commentRepository = new EfDeletableEntityRepository<Comment>(db);
 
-            var service = new CommentsService(commentRepository, this.profilesService.Object);
+            var service = new CommentsService(commentRepository);
 
             var user1 = new ApplicationUser
             {
@@ -173,7 +173,7 @@
 
             var commentRepository = new EfDeletableEntityRepository<Comment>(db);
 
-            var service = new CommentsService(commentRepository, this.profilesService.Object);
+            var service = new CommentsService(commentRepository);
 
             var user1 = new ApplicationUser
             {

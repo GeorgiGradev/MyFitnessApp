@@ -13,7 +13,7 @@
 
         Task CreateExcerciseAsync(CreateExerciseInputModel model, string userId);
 
-        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage); 
+        IEnumerable<ExerciseViewModel> GetAllExercises(int pageNumber, int itemsPerPage);
 
         int GetCounts();
 
