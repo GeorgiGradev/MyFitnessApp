@@ -45,28 +45,28 @@
                             @if (this.usersService.IsUserBanned(userId) == false)
                             {
                                 var doesUserHaveProfile = profilesService.DoesUserHaveProfile(userId);
-       
-                                        @if (doesUserHaveProfile == false)
-                                        {
-                                            <div class="dropdown">
-                                                <a asp-controller="Profiles" asp-action="CreateProfile" class="btn">Profile</a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="CreateProfile">Create Profile</a>
-                                                </div>
-                                            </div>
-                                        }
-                                        @if (doesUserHaveProfile == true)
-                                        {
-                                            <div class="dropdown">
-                                                <a asp-controller="Profiles" asp-action="MyProfile" class="btn">Profile</a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="MyProfile">My Profile</a>
-                                                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followees">Following</a>
-                                                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followers">Followers</a>
-                                                 </div>
-                                            </div>
-                                        }
-   
+
+                                @if (doesUserHaveProfile == false)
+                                {
+                                    <div class="dropdown">
+                                        <a asp-controller="Profiles" asp-action="CreateProfile" class="btn">Profile</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="CreateProfile">Create Profile</a>
+                                        </div>
+                                    </div>
+                                }
+                                @if (doesUserHaveProfile == true)
+                                {
+                                    <div class="dropdown">
+                                        <a asp-controller="Profiles" asp-action="MyProfile" class="btn">Profile</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" asp-area="" asp-controller="Profiles" asp-action="MyProfile">My Profile</a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followees">Following</a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Followers">Followers</a>
+                                        </div>
+                                    </div>
+                                }
+
                                 @if (doesUserHaveProfile == true)
                                 {
                                     <div class="dropdown">
@@ -91,7 +91,7 @@
                                     </div>
 
                                     <div class="dropdown">
-                                         <a asp-controller="Users" asp-action="All" class="btn">Community</a>
+                                        <a asp-controller="Users" asp-action="All" class="btn">Community</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" asp-area="" asp-controller="Forums" asp-action="Categories">Forum</a>
                                             <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="All">All users</a>
@@ -101,7 +101,7 @@
                                     </div>
 
                                     <div class="dropdown">
-                                         <a asp-controller="Articles" asp-action="All" class="btn">Blog</a>
+                                        <a asp-controller="Articles" asp-action="All" class="btn">Blog</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" asp-area="" asp-controller="Articles" asp-action="All">All articles</a>
                                             <a class="dropdown-item" asp-area="" asp-controller="Search" asp-action="SearchArticle">Search for an article</a>
@@ -119,20 +119,144 @@
     </header>
 
     <div class="container">
-        <partial name="_CookieConsentPartial" /> @*Тук се подава Patial View-то за Cookies политиката*@
+        <partial name="_CookieConsentPartial" /> 
         <main role="main" class="pb-3">
             @this.RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName &bull;
-            <a href="https://github.com/GeorgiGradev/MyFitnessApp" target="_blank">Open Source System</a> &bull;
-            <a href="https://www.youtube.com/static?gl=GB&template=terms" target="_blank">YouTube Terms of Service</a> &bull;
-            <a href="https://policies.google.com/privacy?hl=en-US" target="_blank">Google Privacy Policy</a>
+ 
+    <!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-4" style="background-color: #e8ecef">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Footer links -->
+        <div class="row text-center text-md-center mt-3 pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Our mission</h6>
+                <p>
+                    Losing weight isn't easy - we know. But with MyFitnessApp, you'll get the tools you need to successfully take weight off - and keep it off.
+                </p>
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Special thanks to</h6>
+                <p>
+                    <a href="https://www.myfitnesspal.com/" target="_blank">MyFitnessPal</a>
+                </p>
+                <p>
+                    <a href="https://www.muscleandstrength.com/" target="_blank">MuscleStrength</a>
+                </p>
+                <p>
+                    <a href="https://www.bodybuilding.com/" target="_blank">BodyBuilding</a>
+                </p>
+                <p>
+                    <a href="https://nikolay.it/">Nikolay Kostov</a>
+                </p>
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+                <p>
+                    <a href="https://github.com/GeorgiGradev/MyFitnessApp" target="_blank">Open Source System</a>
+                </p>
+                <p>
+                    <a href="https://www.youtube.com/static?gl=GB&template=terms" target="_blank">YouTube Terms of Service</a>
+                </p>
+                <p>
+                    <a href="https://policies.google.com/privacy?hl=en-US" target="_blank">Google Privacy Policy</a>
+                </p>
+            </div>
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                <p>
+                    <i class="fas fa-home mr-3"></i> Dimitrovgrad, Bulgaria
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-3"></i> info@myfitness-app.com
+                </p>
+                <p>
+                    <i class="fas fa-phone mr-3"></i> + 000 000 000 000
+                </p>
+                <p>
+                    <i class="fas fa-print mr-3"></i> + 000 000 000 000
+                </p>
+            </div>
+            <!-- Grid column -->
+
         </div>
-    </footer>
+        <!-- Footer links -->
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center">
+
+            <!-- Grid column -->
+            <div class="col-md-7 col-lg-8">
+
+                <!--Copyright-->
+                <p class="text-center text-md-left">
+                    &copy;  @DateTime.Now.Year -  @GlobalConstants.SystemName
+                </p>
+
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                <!-- Social buttons -->
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+</footer>
+    <!-- Footer -->
+
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
