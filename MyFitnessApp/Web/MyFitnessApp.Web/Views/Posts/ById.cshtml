@@ -4,7 +4,7 @@
     this.ViewData["Title"] = $"Post by {Model.AddedByUserUserName}";
     var userId = User.GetId();
 }
- 
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
@@ -100,20 +100,6 @@
                                 <form method="post" asp-controller="Comments" asp-action="Delete" id="deleteForm1" asp-route-commentId="@reply.Id" asp-route-postId="@Model.Id"></form>
                                 <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal1">Delete comment</button>
                             </div>
-
-                            <div class="modal" tabindex="-1" role="dialog" id="deleteModal1">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <p>Are you sure you want to remove your comment"?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" onclick="deleteForm1.submit()">Yes</button>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         }
                     </div>
                 }
@@ -139,6 +125,20 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Are you sure you want to remove your comment"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm1.submit()">Yes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
             </div>
         </div>
