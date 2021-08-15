@@ -17,13 +17,16 @@
 <div class="row">
     @foreach (var user in this.Model.Users)
     {
-        <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
+        <div class="col-xl-4 col-md-4 col-sm-6 col-12 text-center pt-2">
             <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@user.UserName">
-                <div class="card-header col-md-10 offset-1 border border-dark mt-4 text-center">
-                    <div class="media flex-wrap w-100 align-items-center">
+                <div class="card-header border border-dark text-center">
+                    <div class="media flex-wrap w-auto align-items-center">
                         <div class="col">
-                            <img src="@user.UserProfileImage" class="rounded-circle text-center" width="150">
+                            @*<img src="@user.UserProfileImage" class="rounded-circle text-center" width="150">*@
                             <div class="media-body text-center">
+                                <div class="text-center rounded mx-auto d-block">
+                                    <img src="@user.UserProfileImage" class="rounded-circle" width="150">
+                                </div>
                                 <div class="text-muted">
                                     <strong>Username:</strong> @user.UserName
                                 </div>
