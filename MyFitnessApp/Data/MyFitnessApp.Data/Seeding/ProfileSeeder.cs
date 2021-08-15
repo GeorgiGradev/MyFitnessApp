@@ -20,22 +20,22 @@
               .FirstOrDefault();
             var adminProfile = new Profile
             {
-                Gender = Gender.Female,
-                ActivityLevel = ActivityLevel.Moderate,
-                CurrentWeightInKg = 55,
-                GoalWeightInKg = 50,
-                HeightInCm = 170,
-                NeckInCm = 34,
+                Gender = Gender.Male,
+                ActivityLevel = ActivityLevel.Active,
+                CurrentWeightInKg = 75,
+                GoalWeightInKg = 80,
+                HeightInCm = 175,
+                NeckInCm = 46,
                 WaistInCm = 60,
                 HipsInCm = 90,
-                DailyProteinIntakeGoal = 150,
-                DailyCarbohydratesIntakeGoal = 150,
-                DailyFatIntakeGoal = 40,
+                DailyProteinIntakeGoal = 200,
+                DailyCarbohydratesIntakeGoal = 300,
+                DailyFatIntakeGoal = 60,
                 AddedByUser = admin,
                 ImageUrl = "/images/profileimages/" + "1" + "." + "jpg",
                 AboutMe = "I am the admin",
-                MyInspirations = "To be healhty",
-                WhyGetInShape = "To be the best looking girl",
+                MyInspirations = "To be healthy",
+                WhyGetInShape = "To be the best looking admin",
             };
             await dbContext.Profiles.AddAsync(adminProfile);
             await dbContext.SaveChangesAsync();
@@ -61,7 +61,7 @@
                 ImageUrl = "/images/profileimages/" + "2" + "." + "jpg",
                 AboutMe = "I am a user",
                 MyInspirations = "To be strong",
-                WhyGetInShape = "To be the best looking boy",
+                WhyGetInShape = "To be the best looking user",
             };
             await dbContext.Profiles.AddAsync(usersProfile);
             await dbContext.SaveChangesAsync();
