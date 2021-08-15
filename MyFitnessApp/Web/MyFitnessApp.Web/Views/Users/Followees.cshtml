@@ -23,9 +23,9 @@
     }
     @foreach (var followee in this.Model.FollowerFollowees)
     {
-        <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
+        <div class="col-lg-3 offset-lg-0 col-xl-3 offset-xl-0 col-md-4 offset-md-0 col-sm-6 offset-sm-3 col-8 offset-2  text-center">
             <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@followee.Username">
-                <div class="card-header col-md-10 offset-1 border border-dark mt-4 text-center">
+                <div class="card-header border border-dark mt-4 text-center">
                     <div class="media flex-wrap w-100 align-items-center">
                         <div class="col">
                             <img src="@followee.ImageUrl" class="rounded-circle text-center" width="150">
