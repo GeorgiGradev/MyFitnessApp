@@ -182,47 +182,5 @@
 
             Assert.Equal(3, result);
         }
-
-        // [Fact]
-        // public void GetPostByIdShoudReturnCorrectResult()
-        // {
-        //    ApplicationDbContext db = GetDb();
-
-        // var postsRepository = new EfDeletableEntityRepository<Post>(db);
-
-        // var service = new PostsService(this.forumCategoriesRepository.Object, postsRepository, this.usersRepository.Object, this.commentsService.Object);
-
-        // var user = new ApplicationUser
-        //    {
-        //        Id = "x123",
-        //        UserName = "vankata",
-        //        Email = "ivan@ivan.bb",
-        //        FirstName = "Ivan",
-        //        LastName = "Ivanov",
-        //        Profile = null,
-        //    };
-
-        // db.Users.Add(user);
-        //    db.SaveChanges();
-
-        // var post = new Post
-        //    {
-        //        Id = 3,
-        //        Title = "Title",
-        //        Content = "Content.....",
-        //        Category = new ForumCategory(),
-        //        AddedByUserId = "x123",
-        //    };
-
-        // db.Posts.Add(post);
-        //    db.SaveChanges();
-
-        // var result = service.GetPostById(3);
-
-        // Assert.Equal(post.Id, result.Id);
-        //    Assert.Equal(post.Title, result.Title);
-        //    Assert.Equal(post.Content, result.Content);
-        //    Assert.Equal(post.AddedByUserId, result.AddedByUserId);
-        // }
     }
 }
