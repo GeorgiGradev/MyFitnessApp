@@ -31,22 +31,9 @@
                         <a asp-controller="Exercises" asp-action="All" class="btn btn-outline-primary mt-3">Back to all</a>
                     </div>
                     <div class="text-center">
-                        <form method="post" asp-controller="Exercises" asp-action="Remove" id="deleteForm" asp-route-id="@exercise.ExerciseId" asp-route-day="@this.ViewData["Title"]"></form>
-                        <button class="btn mt-3 btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <p>Are you sure you want to remove "@exercise.Name" from your diary ?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                        </div>
+                        <form method="post" asp-controller="Exercises" asp-action="Remove" asp-route-id="@exercise.ExerciseId" asp-route-day="@this.ViewData["Title"]">
+                            <button class="btn mt-3 btn-outline-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>
