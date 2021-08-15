@@ -27,7 +27,7 @@
     <div class="row">
         @foreach (var article in Model.Articles.OrderByDescending(x => x.CreatedOn))
         {
-            <div class="card text-center col-xl-4 col-md-4 col-sm-6 col-6 mt-3" style="width: 18rem;">
+            <div class="card text-center col-lg-4 col-xl-4 col-md-4 col-sm-12 col-12 mt-3" style="width: 18rem;">
                 <a asp-action="Article" asp-route-id="@article.Id">
                     <img src="@article.ImagePath" class="card-img-top">
                 </a>

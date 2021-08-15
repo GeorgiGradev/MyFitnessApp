@@ -4,39 +4,40 @@
 
 <div class="container">
     <div class="row">
-        <form method="post">
-            <div>
-                <div class="form-group">
-                    <label asp-for="Weight"></label>
-                    <input asp-for="Weight" class="form-control" placeholder="enter weight here...">
-                    <span asp-validation-for="Weight" class="small text-danger"></span>
+        <div class="col-lg-12 col-xl-12 col-md-10 offset-1 col-sm-10 offset-1">
+            <form method="post">
+                    <div class="form-group">
+                        <label asp-for="Weight"></label>
+                        <input asp-for="Weight" class="form-control" placeholder="enter weight here...">
+                        <span asp-validation-for="Weight" class="small text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Repetitions"></label>
+                        <input asp-for="Repetitions" class="form-control" placeholder="enter repetitions here...">
+                        <span asp-validation-for="Repetitions" class="small text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Sets"></label>
+                        <input asp-for="Sets" class="form-control" placeholder="enter sets here...">
+                        <span asp-validation-for="Sets" class="small text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="WeekDay"></label>
+                        <select asp-for="WeekDay" class="form-control">
+                            @foreach (int weekday in Enum.GetValues(typeof(WeekDay)))
+                            {
+                                <option value="@weekday">@Enum.GetName(typeof(WeekDay), weekday)</option>
+                            }
+                        </select>
+                    </div>
+                <div class="text-center pt-3">
+                    <input class="btn btn-primary btn-outline-light" type="submit" value="Add to exercise diary" />
                 </div>
 
-                <div class="form-group">
-                    <label asp-for="Repetitions"></label>
-                    <input asp-for="Repetitions" class="form-control" placeholder="enter repetitions here...">
-                    <span asp-validation-for="Repetitions" class="small text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="Sets"></label>
-                    <input asp-for="Sets" class="form-control" placeholder="enter sets here...">
-                    <span asp-validation-for="Sets" class="small text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="WeekDay"></label>
-                    <select asp-for="WeekDay" class="form-control">
-                        @foreach (int weekday in Enum.GetValues(typeof(WeekDay)))
-                        {
-                            <option value="@weekday">@Enum.GetName(typeof(WeekDay), weekday)</option>
-                        }
-                    </select>
-                </div>
-            </div>
-            <div class="text-center pt-3">
-                <input class="btn btn-primary btn-outline-light" type="submit" value="Add to exercise diary" />
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
