@@ -1,34 +1,26 @@
 ﻿@model AllExercisesViewModel
 
-<div class="row">
+<div class="row text-center">
     @foreach (var exercise in Model.Exercises)
     {
-        <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-1">
             <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.Id">
-                <div class="card-header col-md border border-dark mt-2 text-center">
+                <div class="card-header col-md border text-center">
                     <div class="media flex-wrap w-100 align-items-center">
-                        <div class="col">
-                            <div class="media-body text-center">
-                                <div class="row mb-2 text-center">
-                                    <div class="col">
-                                        <strong>@exercise.Name</strong>
-                                    </div>
-                                </div>
-                                <div class="row text-center mb-2">
-                                    <div class="col">
-                                        <img src="@exercise.ImageUrl" width="220">
-                                        <div class="text-muted">
-                                            Category: <strong> @exercise.CategoryName</strong>
-                                        </div>
-                                        <div class="text-muted">
-                                            Difficulty: <strong>@exercise.Difficulty</strong>
-                                        </div>
-                                        <div class="text-muted">
-                                            Equipment: <strong>@exercise.EquipmentName</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <img src="@exercise.ImageUrl" width="220" class="card-img-top">
+                    </div>
+                    <div class="card card-body text-center alert-secondary">
+                        <div class="text">
+                            <h6><strong> @exercise.Name</strong></h6>
+                        </div>
+                        <div class="text-muted">
+                            Category: @exercise.CategoryName
+                        </div>
+                        <div class="text-muted">
+                            Difficulty: @exercise.Difficulty
+                        </div>
+                        <div class="text-muted">
+                            Equipment: @exercise.EquipmentName
                         </div>
                     </div>
                 </div>
