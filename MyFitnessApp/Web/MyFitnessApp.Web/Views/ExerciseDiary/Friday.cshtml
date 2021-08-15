@@ -14,15 +14,23 @@
 </nav>
 <!-- /Breadcrumb -->
 
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@this.TempData["Message"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div class="container">
-    <div>
-        <div class="row">
-            <div class="col-md-2">
-                <partial name="_DairyDayOfWeekPartial" />
-            </div>
-            <div class="col-md-10">
-                <partial name="_DiaryExercisesPartial" model="@Model" />
-            </div>
+    <div class="row">
+        <div class="col-xl-2 offset-xl-0 col-lg-3 offset-lg-0 col-md-4 offset-md-0 col-sm-4 offset-sm-0 col-6 offset-4">
+            <partial name="_DairyDayOfWeekPartial" />
+        </div>
+        <div class="col-xl-10 offset-xl-0 col-lg-9 offset-lg-0 col-md-8 offset-md-0 col-sm-8 offset-sm-0 col-8 offset-2">
+            <partial name="_DiaryExercisesPartial" model="@Model" />
         </div>
     </div>
 </div>

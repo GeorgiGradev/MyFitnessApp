@@ -22,7 +22,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 align-self-center">
-                            <div><strong>@food.Name</strong></div>
+                            <div>
+                                <h6><strong>@food.Name</strong></h6>
+                            </div>
                         </div>
                         <div class="col-md-4">
                             <div><strong>Protein:</strong> @food.ProteinIn100Grams gr.</div>
@@ -30,8 +32,9 @@
                             <div><strong>Fats:</strong> @food.FatIn100Grams gr.</div>
                             <div><strong>Total calories:</strong> @food.TotalCalories</div>
                         </div>
-                        <div class="col-md-4 align-self-center text-md-right">
-                            <a asp-controller="Foods" asp-action="Add" asp-route-id="@food.Name"><strong>Select food</strong></a>
+
+                        <div class="col-md-4 align-self-center text-center">
+                            <a asp-controller="Foods" asp-action="Add" asp-route-id="@food.Name" class="btn btn-outline-secondary m-4">Select food</a>
                         </div>
                     </div>
                 </div>
@@ -43,5 +46,5 @@
 <hr />
 
 <div class="text-center">
-    <a asp-controller="Search" asp-action="SearchFood" class="btn btn-primary btn-outline-light m-2">Search again</a>
+    <a asp-controller="Search" asp-action="SearchFood" class="btn btn-outline-secondary m-2">Search again</a>
 </div>

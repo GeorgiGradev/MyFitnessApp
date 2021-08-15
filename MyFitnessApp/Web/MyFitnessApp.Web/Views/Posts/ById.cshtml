@@ -27,8 +27,8 @@
 
 <div class="container-fluid mt-100">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card mb-4">
+        <div class="col">
+            <div class="card mb-4 border-dark">
                 <div class="card-header">
                     <div class="media flex-wrap w-100 align-items-center">
                         <img src="@Model.UserProfileImage" class="rounded-circle" width="70" alt="">
@@ -62,7 +62,7 @@
                 </div>
                 @if (userId == Model.AddedByUserId || User.IsInRole("Administrator"))
                 {
-                    <div class="text-right m-1">
+                    <div class="text-center">
                         <form method="post" asp-controller="Posts" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id"></form>
                         <button class="btn btn-outline-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete post</button>
                     </div>
@@ -70,41 +70,46 @@
 
                 @foreach (var reply in Model.Comments)
                 {
-                    <div class="col-md-11 offset-1">
-                        <div class="card-header">
-                            <div class="media flex-wrap w-100 align-items-center">
-                                <img src="@reply.UserProfileImage" class="rounded-circle" width="70" alt="">
-                                <div class="media-body ml-3">
-                                    <div class="text-muted small">
-                                        <strong>Comment by:</strong>
-                                        <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@reply.AddedByUserUserName">@reply.AddedByUserUserName</a>
-                                    </div>
-                                    <div class="text-muted small">
-                                        <strong>Created on:</strong> @reply.CreatedOn.ToString("f")
-                                    </div>
-                                    <div class="text-muted small">
-                                        <strong>Member since:</strong> @reply.AddedByUserCreatedOn.ToString("dddd, dd MMMM yyyy")
+                    <div class="container mt-2">
+                        <div class="col-xl-11 offset-xl-1 col-lg-11 offset-lg-1 col-md-11 offset-md-1 col-xs-11 offset-xs-1 col-11 offset-1">
+                            <div class="card border-dark mt-2">
+                                <div class="card-header">
+                                    <div class="media flex-wrap w-100 align-items-center">
+                                        <img src="@reply.UserProfileImage" class="rounded-circle" width="70" alt="">
+                                        <div class="media-body ml-3">
+                                            <div class="text-muted small">
+                                                <strong>Comment by:</strong>
+                                                <a asp-area="" asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@reply.AddedByUserUserName">@reply.AddedByUserUserName</a>
+                                            </div>
+                                            <div class="text-muted small">
+                                                <strong>Created on:</strong> @reply.CreatedOn.ToString("f")
+                                            </div>
+                                            <div class="text-muted small">
+                                                <strong>Member since:</strong> @reply.AddedByUserCreatedOn.ToString("dddd, dd MMMM yyyy")
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="card-body">
+                                    <article>
+                                        @reply.Content
+                                    </article>
+                                </div>
 
-                        <div class="card-body">
-                            <article>
-                                @reply.Content
-                            </article>
-                        </div>
-                        @if (userId == reply.AddedByUserId || User.IsInRole("Administrator"))
-                        {
-                            <div class="text-right m-1">
-                                <form method="post" asp-controller="Comments" asp-action="Delete" asp-route-commentId="@reply.Id" asp-route-postId="@Model.Id">
-                                    <button class="btn btn-outline-danger mt-3">Delete comment</button>
-                                </form>
+
+                                @if (userId == reply.AddedByUserId || User.IsInRole("Administrator"))
+                                {
+                                    <div class="text-right m-2">
+                                        <form method="post" asp-controller="Comments" asp-action="Delete" asp-route-commentId="@reply.Id" asp-route-postId="@Model.Id">
+                                            <button class="btn btn-outline-danger mt-3">Delete comment</button>
+                                        </form>
+                                    </div>
+                                }
                             </div>
-                        }
+                        </div>
                     </div>
                 }
-                <div class="card-footer">
+                <div class="card-footer mt-2">
                     <div class="text-center">
                         <a asp-controller="Comments" asp-action="Reply" asp-route-id="@Model.Id" class="btn btn-outline-secondary m-1">Reply</a>
                     </div>

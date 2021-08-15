@@ -23,20 +23,18 @@
                     <div class="media flex-wrap w-auto align-items-center">
                         <div class="col">
                             <div class="media-body text-center">
+
+                                <div class="text-dark">
+                                    <h4>@user.UserName</h4>
+                                </div>
                                 <div class="text-center rounded mx-auto d-block">
                                     <img src="@user.UserProfileImage" class="rounded-circle" width="150">
                                 </div>
                                 <div class="text-muted">
-                                    <strong>Username:</strong> @user.UserName
+                                    @user.FirstName @user.LastName
                                 </div>
                                 <div class="text-muted">
-                                    <strong>First name:</strong> @user.FirstName
-                                </div>
-                                <div class="text-muted">
-                                    <strong>Last name:</strong> @user.LastName
-                                </div>
-                                <div class="text-muted">
-                                    <strong>Email:</strong> @user.Email
+                                    @user.Email
                                 </div>
                             </div>
                         </div>

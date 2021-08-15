@@ -17,24 +17,24 @@
 <div class="row">
     @foreach (var user in this.Model.Users)
     {
-        <div class="col-xl-4 col-md-6 col-sm-9 col-9 text-center">
+        <div class="col-xl-4 col-md-4 col-sm-6 col-12 text-center pt-2">
             <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@user.UserName">
-                <div class="card-header col-md-10 offset-1 border border-dark mt-4 text-center">
-                    <div class="media flex-wrap w-100 align-items-center">
+                <div class="card-header border border-dark text-center">
+                    <div class="media flex-wrap w-auto align-items-center">
                         <div class="col">
-                            <img src="@user.UserProfileImage" class="rounded-circle text-center" width="150">
                             <div class="media-body text-center">
-                                <div class="text-muted">
-                                    <strong>Username:</strong> @user.UserName
+
+                                <div class="text-dark">
+                                    <h4>@user.UserName</h4>
+                                </div>
+                                <div class="text-center rounded mx-auto d-block">
+                                    <img src="@user.UserProfileImage" class="rounded-circle" width="150">
                                 </div>
                                 <div class="text-muted">
-                                    <strong>First name:</strong> @user.FirstName
+                                    @user.FirstName @user.LastName
                                 </div>
                                 <div class="text-muted">
-                                    <strong>Last name:</strong> @user.LastName
-                                </div>
-                                <div class="text-muted">
-                                    <strong>Email:</strong> @user.Email
+                                    @user.Email
                                 </div>
                             </div>
                         </div>
@@ -48,5 +48,5 @@
 <hr />
 
 <div class="text-center">
-    <a asp-controller="Search" asp-action="SearchUser" class="btn btn-primary btn-outline-light m-2">Search again</a>
+    <a asp-controller="Search" asp-action="SearchUser" class="btn btn-outline-secondary m-2">Search again</a>
 </div>

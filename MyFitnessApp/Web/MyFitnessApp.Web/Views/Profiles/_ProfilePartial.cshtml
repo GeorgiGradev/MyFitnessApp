@@ -23,10 +23,10 @@
     <div class="main-body">
         <div class="row gutters-md">
             <div class="col-lg-5 col-xl-5 col-md-5 col-sm-12 col-12 mb-3">
-                <div class="card">
+                <div class="card border-dark">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="@imagePath" class="rounded-circle embed-responsive-item" width="150">
+                            <img src="@imagePath" class="rounded-circle embed-responsive-item dark" width="150">
                             <div class="mt-3">
                                 <h4>@Model.Username</h4>
                                 @if (userId == Model.UserId)
@@ -34,28 +34,28 @@
                             <div class="container-fluid">
 
                                 <div class="row mt-2">
-                                    <div class="col col-md-6 mt-1">
+                                    <div class="col mt-1">
                                         <a asp-controller="Users" asp-action="Followees" class="btn btn-outline-secondary">Following</a>
                                     </div>
-                                    <div class="col col-md-6 mt-1">
+                                    <div class="col mt-1">
                                         <a asp-controller="Users" asp-action="Followers" class="btn btn-outline-secondary">Followers</a>
                                     </div>
                                 </div>
 
                                 <div class="row mt-2">
-                                    <div class="col col-md-6 mt-1">
+                                    <div class="col mt-1">
                                         <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-secondary">Edit profile</a>
                                     </div>
-                                    <div class="col col-md-6 mt-1">
+                                    <div class="col mt-1">
                                         <a asp-controller="Profiles" asp-action="EditProfileImage" class="btn btn-outline-secondary">Edit image</a>
                                     </div>
                                 </div>
 
                                 <div class="row mt-2">
-                                    <div class="col-md-6 mt-1">
+                                    <div class="col-md-12 mt-2">
                                         <a asp-controller="ExerciseDiary" asp-action="Monday" class="btn btn-outline-secondary">My exercise diary</a>
                                     </div>
-                                    <div class="col-md-6 mt-1">
+                                    <div class="col-md-12 mt-2">
                                         <a asp-controller="Foods" asp-action="FoodDiary" class="btn btn-outline-secondary">My food diary</a>
                                     </div>
                                 </div>
@@ -90,19 +90,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mt-3">
+                <div class="card border-dark mt-3">
                     <div class="card-body">
                         <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-secondary mr-2">About me</i></h6>
                         @Model.AboutMe
                     </div>
                 </div>
-                <div class="card mt-3">
+                <div class="card border-dark mt-3">
                     <div class="card-body">
                         <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-secondary mr-2">Why I want to get in shape</i></h6>
                         @Model.WhyGetInShape
                     </div>
                 </div>
-                <div class="card mt-3">
+                <div class="card border-dark mt-3">
                     <div class="card-body">
                         <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-secondary mr-2">My inspirations</i></h6>
                        @Model.MyInspirations
@@ -111,7 +111,7 @@
             </div>
 
             <div class="col-lg-7 col-xl-7 col-md-7 col-sm-12 col-12">
-                <div class="card mb-3">
+                <div class="card border-dark mb-3">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-5">

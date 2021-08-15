@@ -16,7 +16,7 @@
 
 <div class="container-fluid">
 
-    <div class="alert alert-info text-center">
+    <div class="alert alert-secondary text-center">
         <strong>@Model.Description</strong>
     </div>
 
@@ -33,22 +33,27 @@
     {
         @foreach (var post in Model.Posts.OrderByDescending(x => x.CreatedOn))
         {
-            <div class="media-body">
-                <h4 class="media-heading"><a asp-controller="Posts" asp-action="ById" asp-route-id="@post.Id">@post.Title</a></h4>
-                <p>@post.ShortContent</p>
-                <ul class="list-inline list-unstyled text-right">
-                    <li class="list-inline-item">
-                        <i class="fas fa-user-edit"></i> @post.AddedByUserUserName
-                    </li>
-                    <li class="list-inline-item">
-                        <i class="fas fa-calendar-alt"></i> @post.CreatedOn
-                    </li>
-                    <li class="list-inline-item">
-                        <i class="fas fa-comment-dots"></i> @post.CommentsCount comments
-                    </li>
-                </ul>
+            <div class="card border-dark mt-2">
+                <div class="row">
+                    <div class="col">
+                        <div class="media-body mt-2 px-2">
+                            <h4 class="media-heading"><a asp-controller="Posts" asp-action="ById" asp-route-id="@post.Id">@post.Title</a></h4>
+                            <p>@post.ShortContent</p>
+                            <ul class="list-inline list-unstyled text-right">
+                                <li class="list-inline-item">
+                                    <i class="fas fa-user-edit"></i> @post.AddedByUserUserName
+                                </li>
+                                <li class="list-inline-item">
+                                    <i class="fas fa-calendar-alt"></i> @post.CreatedOn
+                                </li>
+                                <li class="list-inline-item">
+                                    <i class="fas fa-comment-dots"></i> @post.CommentsCount comments
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <hr />
         }
     }
     <div class="text-center pt-2">

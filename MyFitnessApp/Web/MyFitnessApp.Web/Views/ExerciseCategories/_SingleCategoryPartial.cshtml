@@ -5,15 +5,15 @@
     {
         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-1">
             <a asp-controller="Exercises" asp-action="Add" asp-route-id="@exercise.Id">
-                <div class="card-header col-md border text-center">
-                    <div class="media flex-wrap w-100 align-items-center">
-                        <img src="@exercise.ImageUrl" width="220" class="card-img-top">
-                    </div>
+                <div class="card border-dark">
                     <div class="card card-body text-center alert-secondary">
                         <div class="text">
                             <h6><strong> @exercise.Name</strong></h6>
                         </div>
-                        <div class="text-muted">
+                        <div class="media flex-wrap w-100 align-items-center mt-2">
+                            <img src="@exercise.ImageUrl" width="220" class="card-img-top">
+                        </div>
+                        <div class="text-muted mt-2">
                             Category: @exercise.CategoryName
                         </div>
                         <div class="text-muted">
