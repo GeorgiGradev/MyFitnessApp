@@ -60,11 +60,11 @@
     {
         <div class="text-center pt-2">
             <div class="text-center">
-                <a asp-controller="Articles" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary btn-outline-light">Edit</a>
+                <a asp-controller="Articles" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Edit</a>
             </div>
             <div class="text-center pt-2">
                 <form method="post" asp-controller="Articles" asp-action="Delete" asp-route-id="@Model.Id" id="deleteForm"></form>
-                <button class="btn btn-danger btn-outline-light" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
             </div>
         </div>
     }

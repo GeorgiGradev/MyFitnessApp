@@ -64,7 +64,7 @@
                 {
                     <div class="text-right m-1">
                         <form method="post" asp-controller="Posts" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id"></form>
-                        <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete post</button>
+                        <button class="btn btn-outline-danger mt-3" data-toggle="modal" data-target="#deleteModal">Delete post</button>
                     </div>
                 }
 
@@ -98,14 +98,14 @@
                         {
                             <div class="text-right m-1">
                                 <form method="post" asp-controller="Comments" asp-action="Delete" id="deleteForm1" asp-route-commentId="@reply.Id" asp-route-postId="@Model.Id"></form>
-                                <button class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal1">Delete comment</button>
+                                <button class="btn btn-outline-danger mt-3" data-toggle="modal" data-target="#deleteModal1">Delete comment</button>
                             </div>
                         }
                     </div>
                 }
                 <div class="card-footer">
                     <div class="text-center">
-                        <a asp-controller="Comments" asp-action="Reply" asp-route-id="@Model.Id" class="btn btn-primary btn-outline-light m-1">Reply</a>
+                        <a asp-controller="Comments" asp-action="Reply" asp-route-id="@Model.Id" class="btn btn-outline-secondary m-1">Reply</a>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
 </div>
 
 <div class="text-center">
-    <a asp-controller="Forums" asp-action="Categories" class="btn btn-primary mt-3">Back to forum categories</a>
+    <a asp-controller="Forums" asp-action="Categories" class="btn btn-outline-secondary m-1">Back to forum categories</a>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">

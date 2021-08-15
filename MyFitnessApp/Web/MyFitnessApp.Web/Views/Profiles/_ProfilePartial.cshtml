@@ -35,28 +35,28 @@
 
                                 <div class="row mt-2">
                                     <div class="col col-md-6 mt-1">
-                                        <a asp-controller="Users" asp-action="Followees" class="btn btn-outline-info">Following</a>
+                                        <a asp-controller="Users" asp-action="Followees" class="btn btn-outline-secondary">Following</a>
                                     </div>
                                     <div class="col col-md-6 mt-1">
-                                        <a asp-controller="Users" asp-action="Followers" class="btn btn-outline-info">Followers</a>
+                                        <a asp-controller="Users" asp-action="Followers" class="btn btn-outline-secondary">Followers</a>
                                     </div>
                                 </div>
 
                                 <div class="row mt-2">
                                     <div class="col col-md-6 mt-1">
-                                        <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-info">Edit profile</a>
+                                        <a asp-controller="Profiles" asp-action="Edit" class="btn btn-outline-secondary">Edit profile</a>
                                     </div>
                                     <div class="col col-md-6 mt-1">
-                                        <a asp-controller="Profiles" asp-action="EditProfileImage" class="btn btn-outline-info">Edit image</a>
+                                        <a asp-controller="Profiles" asp-action="EditProfileImage" class="btn btn-outline-secondary">Edit image</a>
                                     </div>
                                 </div>
 
                                 <div class="row mt-2">
                                     <div class="col-md-6 mt-1">
-                                        <a asp-controller="ExerciseDiary" asp-action="Monday" class="btn btn-outline-info">My exercise diary</a>
+                                        <a asp-controller="ExerciseDiary" asp-action="Monday" class="btn btn-outline-secondary">My exercise diary</a>
                                     </div>
                                     <div class="col-md-6 mt-1">
-                                        <a asp-controller="Foods" asp-action="FoodDiary" class="btn btn-outline-info">My food diary</a>
+                                        <a asp-controller="Foods" asp-action="FoodDiary" class="btn btn-outline-secondary">My food diary</a>
                                     </div>
                                 </div>
 
@@ -70,18 +70,18 @@
                                                 @if (isUserFollowee)
                                                 {
                                                     <form method="post" id="followForm" asp-controller="Users" asp-action="Unfollow" asp-route-username="@Model.Username">
-                                                        <button class="btn btn-danger btn-outline-light"> Unfollow</button>
+                                                        <button class="btn btn-outline-danger"> Unfollow</button>
                                                     </form>
                                                 }
                                                 else
                                                 {
                                                     <form method="post" id="followForm" asp-controller="Users" asp-action="Follow" asp-route-username="@Model.Username">
-                                                        <button class="btn btn-success btn-outline-light"> Follow</button>
+                                                        <button class="btn btn-outline-success"> Follow</button>
                                                     </form>
                                                 }
                                             </div>
                                             <div class="col col-md-6 mt-2">
-                                                <a asp-controller="Communities" asp-action="SendEmail" class="btn btn-primary btn-outline-light">Message</a>
+                                                <a asp-controller="Communities" asp-action="SendEmail" class="btn btn-outline-primary">Message</a>
                                             </div>
                                         </div>
                                     </div>
@@ -92,19 +92,19 @@
                 </div>
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">About me</i></h6>
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-secondary mr-2">About me</i></h6>
                         <small>@Model.AboutMe</small>
                     </div>
                 </div>
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Why I want to get in shape</i></h6>
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-secondary mr-2">Why I want to get in shape</i></h6>
                         <small>@Model.WhyGetInShape</small>
                     </div>
                 </div>
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">My inspirations</i></h6>
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-secondary mr-2">My inspirations</i></h6>
                         <small>@Model.MyInspirations</small>
                     </div>
                 </div>
