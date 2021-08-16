@@ -21,21 +21,20 @@
     }
     @foreach (var follower in this.Model.FollowerFollowees)
     {
-        <div class="col-lg-3 offset-lg-0 col-xl-3 offset-xl-0 col-md-4 offset-md-0 col-sm-6 offset-sm-3 col-8 offset-2  text-center">
+        <div class="col-lg-3 offset-lg-0 col-xl-3 offset-xl-0 col-md-4 offset-md-0 col-sm-6 offset-sm-3 col-8 offset-2 text-center pt-2">
             <a asp-controller="Profiles" asp-action="UsersProfile" asp-route-username="@follower.Username">
-                <div class="card-header border border-dark mt-4 text-center">
-                    <div class="media flex-wrap w-100 align-items-center">
+                <div class="card-header border border-dark text-center">
+                    <div class="media flex-wrap w-auto align-items-center">
                         <div class="col">
-                            <img src="@follower.ImageUrl" class="rounded-circle text-center" width="150">
                             <div class="media-body text-center">
-                                <div class="text-muted">
-                                    <strong>Username:</strong> @follower.Username
+                                <div class="text-dark">
+                                    <h4>@follower.Username</h4>
+                                </div>
+                                <div class="text-center rounded mx-auto d-block">
+                                    <img src="@follower.ImageUrl" class="rounded-circle" width="150">
                                 </div>
                                 <div class="text-muted">
-                                    <strong>First name:</strong> @follower.FirstName
-                                </div>
-                                <div class="text-muted">
-                                    <strong>Last name:</strong> @follower.LastName
+                                    @follower.FirstName @follower.LastName
                                 </div>
                             </div>
                         </div>
