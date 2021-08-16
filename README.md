@@ -1,22 +1,20 @@
 # MyFitnessApp
 
 ## :eyeglasses: Project Introduction
-**MyFitnessApp** is my defense project for **ASP.NET Core** course at the **Software University** (May-August 2021). It is a ready-to-use **ASP.NET 5.0 MVC** application.
+This is my final project from the **ASP.NET Core** course at the **Software University**. It is a ready-to-use **ASP.NET 5.0 MVC** application.
 <br/><br/>
 
 ## 📝 Project Overview
--	**MyFitnessApp** is a ready to use application for fitness and nutrition which is easy to use and has a simple user-friendly interface. The backend is developed on MS SQL and Entity Framework Core, and the frontend is built with Bootstrap (Java Script improvements are soon to come)
--	The application requires a simple registration process. More user information must be filled after the first log-in. Creating user’s profile is obligatory and only users with active profiles can enjoy the full functionallity of the application
--	Users can create and search for foods and exercises but do not have the possibility to edit or delete due to the fact that other user may already use them. Only the administrator can delete foods and exercises in case they consist of not appropriated content
--	Users can generate eating and workout plans (diaries) which can be edited and deleted
+-	**MyFitnessApp** is a ready to use application for fitness and nutrition which is easy to use and has a simple user-friendly interface. The backend is developed with MS SQL and Entity Framework Core, and the frontend is built with Bootstrap (Java Script improvements are comming soon).
+-	The application requires a simple registration process. More user information must be filled after the first log-in. Creating a user’s profile is obligatory and only users with active profiles can enjoy the full functionallity of the application.
+-	Users can create and search for foods and exercises but do not have the possibility to edit or delete them due to the fact that other user may already use them. Only the administrator can delete foods and exercises in case they consist of inappropriate content.
+-	Users can generate eating and workout plans (diaries) which can be edited and deleted.
 -	Users can create, edit, delete, search and see details about forum posts, forum post comments and blog articles. Before deletion a pop up window asks for confirmation
--	Users can follow and unfollow another users. They can also send Emails to another users thanks to the integrated SendGrid client
--	The administrator has a special Admin Area from where he/she can create, update, delete and see details about users, foods, exercises, articles and forum posts. The administrator can ban and unban users. A banned user cannot access the full functionallity of the application
--	The application has preloaded (seeded) user roles, users (Admin and User), foods, exercises, exercise categories, exercise equipment, articles, article categories and forum categories
-- If you would like to test the application you can log-in with the already existing (seeded) profiles
+-	Users can follow and unfollow another users. They can also send Emails to another users thanks to the integrated SendGrid client.
+-	The administrator has a special Admin Area from where he/she can create, update, delete and see details about users, foods, exercises, articles and forum posts. The administrator can also ban and unban users. A banned user cannot access the full functionallity of the application.
+-	The application has preloaded (seeded) user roles, users (admin and user), foods, exercises, exercise categories, exercise equipment, articles, article categories and forum categories.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Test Accounts**:
-
+## 🧪 Test Accounts
 &nbsp;&nbsp;&nbsp;&nbsp;Username: **admin**  
 &nbsp;&nbsp;&nbsp;&nbsp;Password: **123456**  
 
@@ -43,12 +41,12 @@
    * **StyleCop**
    * **Repository Pattern**
    * **Dependency Injection**
-   * **IFormFle** for uploading of JPG images as well as an option for adding lins of images and YouTube videos
-   * **Self-created method** for **embedding of raw YouTube links**
-   * **One to one** relationship between **ApplicationUser** and **Profile** entities in order to have more simple and user-friendly register process. After first log-in the user is required to fill out profile data to be able to use the full functionality of the application
-   * **AuthorizationFilterAttribute** to hide the full functionality of the application for logged-in users which did not fill out the profile form
-   * **AuthorizationFilterAttribute** to restrict access to the full functionality of the application for logged-in but banned users
-   * Separate storage for **data constants**
+   * **IFormFle** for uploading of JPG images as well as an option for adding links of images and YouTube videos.
+   * **Self-created method** for **embedding of raw YouTube links**.
+   * **One to one** relationship between **ApplicationUser** and **Profile** entities in order to have more simple and user-friendly register process. After first log-in the user is required to fill out profile data to be able to use the full functionality of the application.
+   * **AuthorizationFilterAttribute** to hide the full functionality of the application for logged-in users which haven't filled the profile form.
+   * **AuthorizationFilterAttribute** to restrict the access to the full functionality of the application for logged-in but banned users.
+   * Separate storage for **data constants**.
 <br/><br/>
 
 ## :wrench: Database Diagram
