@@ -52,35 +52,39 @@
 <br/><br/>
 
 ## :wrench: Database Diagram
-![Diagram](https://user-images.githubusercontent.com/72765831/128600927-d6c5043c-48e5-43f4-9d87-be343908f97e.jpg)
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/Database%20Diagram%2007.08.2021.jpg" /></kbd>
 <br/><br/>
 
 ## ✔️Tests Code Coverage Results
-![CodeCoverageResults  02 - 12 08 2021](https://user-images.githubusercontent.com/72765831/129264711-cbc42dbd-b2e1-4ab2-b18b-b5d2f81787c4.png)
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/Test%20Code%20Coverage%2016.08.2021.PNG" /></kbd>
 <br/><br/>
 
 ## 📸 Application screenshots
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/1.IndexPage.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/01.Home%20Page%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/2.WelcomePage.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/02.Home%20Page%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/3.Profile.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/03.My%20Profile%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/4.AllUsers.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/04.All%20users%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/5.AllExercises.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/05.%20Muscle%20groups%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/6.%20ExerciseDiary.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/06.All%20exercises%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/7..FoodDiary.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/07.Exercise%20Diary%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/8.Articles.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/08.Food%20diary%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/9.ForumPost.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/09.Forum%20post-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/10.AdminDashBoard.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/10.All%20articles%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
-<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/11..AdminUserArea.PNG" /></kbd>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/11.Article%20-%20MyFitnessApp.png" /></kbd>
+<br/><br/>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/12.Admin%20dashboard%20-%20MyFitnessApp.png" /></kbd>
+<br/><br/>
+<kbd><img src="https://github.com/GeorgiGradev/MyFitnessApp/blob/main/MyFitnessApp/AppScreenshots/13.Admin%20area%20Users%20-%20MyFitnessApp.png" /></kbd>
 <br/><br/>
 
 ## :handshake: Credits
