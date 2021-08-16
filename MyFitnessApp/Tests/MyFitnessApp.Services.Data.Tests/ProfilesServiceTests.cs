@@ -205,7 +205,6 @@
 
             var inputModel = new EditProfileInputModel
             {
-                Username = "Strahil123",
                 FirstName = "Strahil",
                 LastName = "Strahilov",
                 Email = "strahil@abv.bg",
@@ -227,7 +226,8 @@
 
             await service.EditProfileAsync(inputModel, user.Id);
 
-            Assert.Equal(user.UserName, inputModel.Username);
+            Assert.Equal(user.FirstName, inputModel.FirstName);
+            Assert.Equal(user.LastName, inputModel.LastName);
         }
     }
 }

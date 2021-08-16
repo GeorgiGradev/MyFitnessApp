@@ -199,7 +199,6 @@
 
             await this.profileRepository.SaveChangesAsync();
 
-            user.UserName = model.Username;
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.Email = model.Email;
@@ -235,7 +234,6 @@
                 .Where(x => x.AddedByUserId == userId)
                 .Select(x => new EditProfileInputModel
                 {
-                    Username = userName,
                     FirstName = firstName,
                     LastName = lastName,
                     Email = email,
@@ -279,15 +277,5 @@
             userProfile.ImageUrl = physicalPath;
             await this.profileRepository.SaveChangesAsync();
         }
-
-        // public int GetPofileIdByUserId(string userId)
-        // {
-        //    var profileId = this.profileRepository
-        //        .All()
-        //        .Where(x => x.AddedByUserId == userId)
-        //        .Select(x => x.Id)
-        //        .FirstOrDefault();
-        //    return profileId;
-        // }
     }
 }

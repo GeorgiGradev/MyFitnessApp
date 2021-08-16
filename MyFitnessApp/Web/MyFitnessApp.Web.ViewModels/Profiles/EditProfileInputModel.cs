@@ -10,12 +10,6 @@
     public class EditProfileInputModel
     {
         [Required]
-        [MinLength(UsernameMinLength)]
-        [MaxLength(UsernameMaxLength)]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
-
-        [Required]
         [MinLength(FirstNameMinLength)]
         [MaxLength(FirstNameMaxLength)]
         [Display(Name = "First name")]

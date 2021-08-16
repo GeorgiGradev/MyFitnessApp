@@ -19,7 +19,5 @@
         Task EditProfileImageAsync(EditProfileImageInputModel model, string userId, string imagePath);
 
         public EditProfileInputModel GetProfileDataForUpdate(string userId);
-
-        // int GetPofileIdByUserId(string userId);
     }
 }
