@@ -12,7 +12,7 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            if (!dbContext.Users.Any(x => x.UserName == "User"))
+            if (!dbContext.Users.Any(x => x.UserName == "user"))
             {
                 var user = new ApplicationUser
                 {
@@ -27,8 +27,8 @@
                     PhoneNumberConfirmed = true,
                     UserName = "user",
                     NormalizedUserName = "USER",
-                    FirstName = "User",
-                    LastName = "User",
+                    FirstName = "Georgi",
+                    LastName = "Gradev",
                     PasswordHash = "AQAAAAEAACcQAAAAEGQ9IfdyJPYzY9lKPmwWrdN6T3AbPWBjEYxlLW7yfiOGd/4w/wqPv2Q+5O11ncA0gQ==", // Password = 123456
                 };
 
@@ -59,8 +59,8 @@
                 PhoneNumberConfirmed = true,
                 UserName = "admin",
                 NormalizedUserName = "ADMIN",
-                FirstName = "Admin",
-                LastName = "Admin",
+                FirstName = "Plamen",
+                LastName = "Dobrev",
                 PasswordHash = "AQAAAAEAACcQAAAAEGQ9IfdyJPYzY9lKPmwWrdN6T3AbPWBjEYxlLW7yfiOGd/4w/wqPv2Q+5O11ncA0gQ==", // Password = 123456
             };
 
