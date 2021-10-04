@@ -1,5 +1,9 @@
 # MyFitnessApp
 
+## 🔗 **Link to the project**
+&nbsp;&nbsp;&nbsp;&nbsp;**[myfitness-app.azurewebsites.net](https://myfitness-app.azurewebsites.net/)**
+<br/><br/>
+
 ## :eyeglasses: Project Introduction
 This is my final project from the **ASP.NET Core** course at the **Software University**. It is a ready-to-use **ASP.NET 5.0 MVC** application.
 <br/><br/>
@@ -13,10 +17,6 @@ This is my final project from the **ASP.NET Core** course at the **Software Univ
 -	Users can follow and unfollow another users. They can also send Emails to another users thanks to the integrated SendGrid client.
 -	The administrator has a special Admin Area from where he/she can create, update, delete and see details about users, foods, exercises, articles and forum posts. The administrator can also ban and unban users. A banned user cannot access the full functionallity of the application.
 -	The application has preloaded (seeded) user roles, users (admin and user), foods, exercises, exercise categories, exercise equipment, articles, article categories and forum categories.
-<br/><br/>
-
-## 🔗 **Link to the project**
-&nbsp;&nbsp;&nbsp;&nbsp;**[myfitness-app.azurewebsites.net](https://myfitness-app.azurewebsites.net/)**
 <br/><br/>
 
 ## 🧪 Test Accounts
